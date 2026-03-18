@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MovieSpot | Animation Movies</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#0f172a;
+      color:#e5e7eb;
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+      transition:0.3s;
+    }
+
+    button,
+    input,
+    select{
+      font-family:Arial, Helvetica, sans-serif;
+      transition:0.3s;
+    }
+
+    .container{
+      width:min(1200px, 92%);
+      margin:auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(15,23,42,0.95);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(8px);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:16px 0;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:700;
+      color:#facc15;
+      letter-spacing:0.5px;
+    }
+
+    .logo span{
+      color:#ffffff;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:#cbd5e1;
+      font-size:15px;
+    }
+
+    .nav-links a:hover{
+      color:#facc15;
+    }
+
+    .hero{
+      background:
+        linear-gradient(rgba(15,23,42,0.78), rgba(15,23,42,0.92)),
+        url('https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      min-height:70vh;
+      display:flex;
+      align-items:center;
+    }
+
+    .hero-content{
+      max-width:760px;
+      padding:60px 0;
+    }
+
+    .hero-tag{
+      display:inline-block;
+      background:rgba(250,204,21,0.12);
+      color:#facc15;
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:14px;
+      margin-bottom:18px;
+      border:1px solid rgba(250,204,21,0.28);
+    }
+
+    .hero h1{
+      font-size:clamp(34px, 5vw, 60px);
+      line-height:1.1;
+      margin-bottom:18px;
+      color:#ffffff;
+    }
+
+    .hero p{
+      font-size:18px;
+      color:#cbd5e1;
+      margin-bottom:28px;
+      max-width:680px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 22px;
+      border-radius:12px;
+      font-weight:700;
+      font-size:15px;
+      border:none;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:#facc15;
+      color:#111827;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 24px rgba(250,204,21,0.2);
+    }
+
+    .btn-secondary{
+      background:transparent;
+      color:#ffffff;
+      border:1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn-secondary:hover{
+      background:rgba(255,255,255,0.06);
+    }
+
+    section{
+      padding:70px 0;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-bottom:28px;
+    }
+
+    .section-head h2{
+      font-size:32px;
+      color:#ffffff;
+      margin-bottom:8px;
+    }
+
+    .section-head p{
+      color:#94a3b8;
+      max-width:700px;
+    }
+
+    .tools{
+      background:#111827;
+      border-top:1px solid rgba(255,255,255,0.05);
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    .tool-bar{
+      display:grid;
+      grid-template-columns:2fr 1fr;
+      gap:16px;
+    }
+
+    .search-box,
+    .filter-box{
+      background:#1e293b;
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:14px;
+      padding:14px 16px;
+    }
+
+    .search-box input,
+    .filter-box select{
+      width:100%;
+      background:transparent;
+      border:none;
+      outline:none;
+      color:#ffffff;
+      font-size:15px;
+    }
+
+    .filter-box select option{
+      color:#111827;
+    }
+
+    .featured-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:24px;
+    }
+
+    .featured-card{
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:20px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .featured-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 18px 40px rgba(0,0,0,0.25);
+    }
+
+    .featured-image{
+      height:250px;
+      overflow:hidden;
+    }
+
+    .featured-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .featured-content{
+      padding:20px;
+    }
+
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom:12px;
+    }
+
+    .pill{
+      background:rgba(255,255,255,0.06);
+      color:#cbd5e1;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+    }
+
+    .featured-content h3{
+      font-size:24px;
+      color:#ffffff;
+      margin-bottom:10px;
+    }
+
+    .featured-content p{
+      color:#cbd5e1;
+      font-size:15px;
+      margin-bottom:16px;
+    }
+
+    .watch-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:18px;
+    }
+
+    .watch-tag{
+      font-size:12px;
+      font-weight:700;
+      padding:7px 10px;
+      border-radius:999px;
+      background:#1d4ed8;
+      color:#ffffff;
+    }
+
+    .watch-tag.alt{
+      background:#7c3aed;
+    }
+
+    .watch-tag.green{
+      background:#059669;
+    }
+
+    .watch-tag.orange{
+      background:#ea580c;
+    }
+
+    .card-link{
+      display:inline-block;
+      color:#facc15;
+      font-weight:700;
+    }
+
+    .card-link:hover{
+      opacity:0.8;
+    }
+
+    .movies-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:22px;
+    }
+
+    .movie-card{
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .movie-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 18px 36px rgba(0,0,0,0.22);
+    }
+
+    .movie-poster{
+      height:280px;
+      overflow:hidden;
+      background:#1e293b;
+    }
+
+    .movie-poster img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .movie-content{
+      padding:18px;
+    }
+
+    .movie-content h3{
+      color:#ffffff;
+      font-size:20px;
+      margin-bottom:8px;
+    }
+
+    .movie-info{
+      color:#94a3b8;
+      font-size:14px;
+      margin-bottom:10px;
+    }
+
+    .movie-content p{
+      color:#cbd5e1;
+      font-size:14px;
+      margin-bottom:14px;
+    }
+
+    .mini-watch{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:14px;
+    }
+
+    .mini-watch span{
+      background:rgba(250,204,21,0.12);
+      border:1px solid rgba(250,204,21,0.18);
+      color:#facc15;
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+    }
+
+    .details-section{
+      background:#111827;
+    }
+
+    .details-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:22px;
+    }
+
+    .details-box{
+      background:#0f172a;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      padding:24px;
+    }
+
+    .details-box h3{
+      font-size:22px;
+      color:#ffffff;
+      margin-bottom:12px;
+    }
+
+    .details-box p{
+      color:#cbd5e1;
+      font-size:15px;
+    }
+
+    .cta{
+      text-align:center;
+      background:linear-gradient(135deg, #1e293b, #111827);
+    }
+
+    .cta h2{
+      font-size:36px;
+      color:#ffffff;
+      margin-bottom:12px;
+    }
+
+    .cta p{
+      max-width:720px;
+      margin:0 auto 24px;
+      color:#cbd5e1;
+    }
+
+    footer{
+      background:#020617;
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding:24px 0;
+    }
+
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .footer-inner p{
+      color:#94a3b8;
+      font-size:14px;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+    }
+
+    .footer-links a{
+      color:#cbd5e1;
+      font-size:14px;
+    }
+
+    .footer-links a:hover{
+      color:#facc15;
+    }
+
+    @media(max-width:1024px){
+      .featured-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .movies-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .details-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:768px){
+      .nav{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .nav-links{
+        gap:14px;
+      }
+
+      .tool-bar{
+        grid-template-columns:1fr;
+      }
+
+      .featured-grid{
+        grid-template-columns:1fr;
+      }
+
+      .movies-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        min-height:auto;
+      }
+
+      .hero-content{
+        padding:70px 0;
+      }
+
+      .section-head h2{
+        font-size:28px;
+      }
+
+      .cta h2{
+        font-size:30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo">Movie<span>Spot</span></a>
+
+      <nav class="nav-links">
+        <a href="index.html#featured">Featured</a>
+        <a href="index.html#movies">Movies</a>
+        <a href="index.html#guides">Watch Guides</a>
+        <a href="index.html#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-tag">Animation Movie Collection</div>
+        <h1>Best Animation Movies To Watch Right Now</h1>
+        <p>
+          Explore animated movies full of imagination, heart, adventure, humor,
+          beautiful worlds, emotional stories, and unforgettable characters for all ages.
+        </p>
+        <div class="hero-buttons">
+          <a href="#animation-movies" class="btn btn-primary">Browse Animation Movies</a>
+          <a href="#animation-details" class="btn btn-secondary">Genre Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tools">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Search Animation Movies</h2>
+          <p>Search through the animation movies on this page and filter by animation type.</p>
+        </div>
+      </div>
+
+      <div class="tool-bar">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search animation movie title..." />
+        </div>
+
+        <div class="filter-box">
+          <select id="typeFilter">
+            <option value="all">All Animation Types</option>
+            <option value="Family Animation">Family Animation</option>
+            <option value="Adventure Animation">Adventure Animation</option>
+            <option value="Fantasy Animation">Fantasy Animation</option>
+            <option value="Comedy Animation">Comedy Animation</option>
+            <option value="Musical Animation">Musical Animation</option>
+            <option value="Emotional Animation">Emotional Animation</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="featured">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Featured Animation Picks</h2>
+          <p>Top animation choices with strong stories, memorable visuals, and timeless appeal.</p>
+        </div>
+      </div>
+
+      <div class="featured-grid">
+        <article class="featured-card">
+          <div class="featured-image">
+            <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1400&q=80" alt="Toy Story">
+          </div>
+          <div class="featured-content">
+            <div class="meta">
+              <span class="pill">Animation</span>
+              <span class="pill">1995</span>
+              <span class="pill">Family Animation</span>
+            </div>
+            <h3>Toy Story</h3>
+            <p>
+              Toys come to life when people are away in a beloved animated story
+              full of friendship, humor, and adventure.
+            </p>
+            <div class="watch-row">
+              <span class="watch-tag">Disney+</span>
+              <span class="watch-tag green">Buy</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="featured-card">
+          <div class="featured-image">
+            <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80" alt="Inside Out">
+          </div>
+          <div class="featured-content">
+            <div class="meta">
+              <span class="pill">Animation</span>
+              <span class="pill">2015</span>
+              <span class="pill">Emotional Animation</span>
+            </div>
+            <h3>Inside Out</h3>
+            <p>
+              A young girl’s emotions become the center of a deeply creative and emotional
+              animated journey.
+            </p>
+            <div class="watch-row">
+              <span class="watch-tag">Disney+</span>
+              <span class="watch-tag orange">Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="featured-card">
+          <div class="featured-image">
+            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1200&q=80" alt="How to Train Your Dragon">
+          </div>
+          <div class="featured-content">
+            <div class="meta">
+              <span class="pill">Animation</span>
+              <span class="pill">2010</span>
+              <span class="pill">Adventure Animation</span>
+            </div>
+            <h3>How to Train Your Dragon</h3>
+            <p>
+              A young Viking forms an unlikely bond with a dragon in a thrilling
+              animated adventure.
+            </p>
+            <div class="watch-row">
+              <span class="watch-tag alt">Prime Video</span>
+              <span class="watch-tag green">Buy</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="new-releases">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>New Animation Releases</h2>
+          <p>Fresh animation titles and recent releases to keep this page feeling active and updated.</p>
+        </div>
+      </div>
+
+      <div class="movies-grid">
+        <article class="movie-card">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80" alt="Inside Out 2">
+          </div>
+          <div class="movie-content">
+            <h3>Inside Out 2</h3>
+            <div class="movie-info">Animation • 2024 • Emotional Animation</div>
+            <p>A new stage of growing up brings even more emotions into Riley’s mind.</p>
+            <div class="mini-watch">
+              <span>New Release</span>
+              <span>Disney+</span>
+            </div>
+            <a href="#" class="card-link">View Details →</a>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80" alt="Kung Fu Panda 4">
+          </div>
+          <div class="movie-content">
+            <h3>Kung Fu Panda 4</h3>
+            <div class="movie-info">Animation • 2024 • Comedy Animation</div>
+            <p>Po returns with more action, comedy, and animated adventure in a new chapter.</p>
+            <div class="mini-watch">
+              <span>New Release</span>
+              <span>Rent</span>
+            </div>
+            <a href="#" class="card-link">View Details →</a>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Wish">
+          </div>
+          <div class="movie-content">
+            <h3>Wish</h3>
+            <div class="movie-info">Animation • 2023 • Fantasy Animation</div>
+            <p>A magical animated story about hope, stars, and discovering inner courage.</p>
+            <div class="mini-watch">
+              <span>Recent</span>
+              <span>Disney+</span>
+            </div>
+            <a href="#" class="card-link">View Details →</a>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=900&q=80" alt="Migration">
+          </div>
+          <div class="movie-content">
+            <h3>Migration</h3>
+            <div class="movie-info">Animation • 2023 • Family Animation</div>
+            <p>A family of ducks leaves home for a new journey packed with humor and surprises.</p>
+            <div class="mini-watch">
+              <span>Recent</span>
+              <span>Rent</span>
+            </div>
+            <a href="#" class="card-link">View Details →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="animation-movies">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Popular Animation Movies</h2>
+          <p>Browse standout animated films with different styles, from family favorites to fantasy adventures.</p>
+        </div>
+      </div>
+
+      <div class="movies-grid" id="moviesGrid">
+        <article class="movie-card" data-title="Toy Story" data-type="Family Animation">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1400&q=80" alt="Toy Story">
+          </div>
+          <div class="movie-content">
+            <h3>Toy Story</h3>
+            <div class="movie-info">Animation • 1995 • Family Animation</div>
+            <p>Toys secretly come to life in a classic story about friendship, loyalty, and adventure.</p>
+            <div class="mini-watch">
+              <span>Disney+</span>
+              <span>Buy</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Finding Nemo" data-type="Adventure Animation">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1200&q=80" alt="Finding Nemo">
+          </div>
+          <div class="movie-content">
+            <h3>Finding Nemo</h3>
+            <div class="movie-info">Animation • 2003 • Adventure Animation</div>
+            <p>A clownfish travels across the ocean on a colorful and emotional search for his son.</p>
+            <div class="mini-watch">
+              <span>Disney+</span>
+              <span>Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Shrek" data-type="Comedy Animation">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80" alt="Shrek">
+          </div>
+          <div class="movie-content">
+            <h3>Shrek</h3>
+            <div class="movie-info">Animation • 2001 • Comedy Animation</div>
+            <p>An ogre’s quiet life is interrupted by wild fairy tale chaos and unforgettable comedy.</p>
+            <div class="mini-watch">
+              <span>Netflix</span>
+              <span>Buy</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Frozen" data-type="Musical Animation">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80" alt="Frozen">
+          </div>
+          <div class="movie-content">
+            <h3>Frozen</h3>
+            <div class="movie-info">Animation • 2013 • Musical Animation</div>
+            <p>Two sisters face fear, love, and magical ice powers in one of Disney’s biggest hits.</p>
+            <div class="mini-watch">
+              <span>Disney+</span>
+              <span>Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Inside Out" data-type="Emotional Animation">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80" alt="Inside Out">
+          </div>
+          <div class="movie-content">
+            <h3>Inside Out</h3>
+            <div class="movie-info">Animation • 2015 • Emotional Animation</div>
+            <p>Emotions become characters in a smart and deeply emotional animated story.</p>
+            <div class="mini-watch">
+              <span>Disney+</span>
+              <span>Buy</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Coco" data-type="Musical Animation">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=900&q=80" alt="Coco">
+          </div>
+          <div class="movie-content">
+            <h3>Coco</h3>
+            <div class="movie-info">Animation • 2017 • Musical Animation</div>
+            <p>A boy’s love of music takes him into a breathtaking world beyond the living.</p>
+            <div class="mini-watch">
+              <span>Disney+</span>
+              <span>Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="How to Train Your Dragon" data-type="Adventure Animation">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1200&q=80" alt="How to Train Your Dragon">
+          </div>
+          <div class="movie-content">
+            <h3>How to Train Your Dragon</h3>
+            <div class="movie-info">Animation • 2010 • Adventure Animation</div>
+            <p>A Viking teen and a dragon form one of animation’s most memorable friendships.</p>
+            <div class="mini-watch">
+              <span>Prime Video</span>
+              <span>Buy</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Spirited Away" data-type="Fantasy Animation">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80" alt="Spirited Away">
+          </div>
+          <div class="movie-content">
+            <h3>Spirited Away</h3>
+            <div class="movie-info">Animation • 2001 • Fantasy Animation</div>
+            <p>A girl enters a mysterious spirit world in one of the most celebrated animated films ever made.</p>
+            <div class="mini-watch">
+              <span>Netflix</span>
+              <span>Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="animation-details" class="details-section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Animation Genre Details</h2>
+          <p>Useful animation details you can reuse later for more genre pages too.</p>
+        </div>
+      </div>
+
+      <div class="details-grid">
+        <div class="details-box">
+          <h3>What Makes An Animation Movie?</h3>
+          <p>
+            Animation movies tell stories through illustrated or computer-generated visuals,
+            often bringing impossible worlds, creatures, and emotions to life in unique ways.
+          </p>
+        </div>
+
+        <div class="details-box">
+          <h3>Popular Animation Subgenres</h3>
+          <p>
+            Common animation styles include family animation, fantasy animation,
+            comedy animation, adventure animation, musical animation, and emotional animation.
+          </p>
+        </div>
+
+        <div class="details-box">
+          <h3>Why People Love Animation Films</h3>
+          <p>
+            Animation films are loved because they mix imagination, strong visuals,
+            emotional stories, humor, and universal themes that work for both kids and adults.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Explore more animation favorites.</h2>
+      <p>
+        Keep building this page with more animation titles, streaming guides,
+        and “best animation movies” lists to grow your site.
+      </p>
+      <a href="index.html" class="btn btn-primary">Back to Home</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© 2026 MovieSpot. Discover movies and where to watch them.</p>
+
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="cookies.html">Cookies Policy</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const typeFilter = document.getElementById("typeFilter");
+    const movieCards = document.querySelectorAll("#animation-movies .movie-card");
+
+    function filterMovies(){
+      const searchValue = searchInput.value.toLowerCase().trim();
+      const selectedType = typeFilter.value;
+
+      movieCards.forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        const type = card.dataset.type;
+
+        const matchesSearch = title.includes(searchValue);
+        const matchesType = selectedType === "all" || type === selectedType;
+
+        if(matchesSearch && matchesType){
+          card.style.display = "block";
+        }else{
+          card.style.display = "none";
+        }
+      });
+    }
+
+    searchInput.addEventListener("input", filterMovies);
+    typeFilter.addEventListener("change", filterMovies);
+  </script>
+
+</body>
+</html>

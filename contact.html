@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MovieSpot | Contact</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#0f172a;
+      color:#e5e7eb;
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+      transition:0.3s;
+    }
+
+    button,
+    input,
+    select,
+    textarea{
+      font-family:Arial, Helvetica, sans-serif;
+      transition:0.3s;
+    }
+
+    .container{
+      width:min(1200px, 92%);
+      margin:auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(15,23,42,0.95);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(8px);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:16px 0;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:700;
+      color:#facc15;
+      letter-spacing:0.5px;
+    }
+
+    .logo span{
+      color:#ffffff;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:#cbd5e1;
+      font-size:15px;
+    }
+
+    .nav-links a:hover{
+      color:#facc15;
+    }
+
+    .hero{
+      background:
+        linear-gradient(rgba(15,23,42,0.78), rgba(15,23,42,0.92)),
+        url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      min-height:45vh;
+      display:flex;
+      align-items:center;
+    }
+
+    .hero-content{
+      max-width:720px;
+      padding:60px 0;
+    }
+
+    .hero-tag{
+      display:inline-block;
+      background:rgba(250,204,21,0.12);
+      color:#facc15;
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:14px;
+      margin-bottom:18px;
+      border:1px solid rgba(250,204,21,0.28);
+    }
+
+    .hero h1{
+      font-size:clamp(34px, 5vw, 56px);
+      line-height:1.1;
+      margin-bottom:18px;
+      color:#ffffff;
+    }
+
+    .hero p{
+      font-size:18px;
+      color:#cbd5e1;
+      margin-bottom:10px;
+      max-width:700px;
+    }
+
+    section{
+      padding:70px 0;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-bottom:28px;
+    }
+
+    .section-head h2{
+      font-size:32px;
+      color:#ffffff;
+      margin-bottom:8px;
+    }
+
+    .section-head p{
+      color:#94a3b8;
+      max-width:700px;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:24px;
+    }
+
+    .contact-card,
+    .info-card{
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:20px;
+      padding:26px;
+      transition:0.3s;
+    }
+
+    .contact-card:hover,
+    .info-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 16px 34px rgba(0,0,0,0.20);
+    }
+
+    .contact-card h2,
+    .info-card h2{
+      font-size:24px;
+      color:#ffffff;
+      margin-bottom:14px;
+    }
+
+    .contact-card p,
+    .info-card p{
+      color:#cbd5e1;
+      font-size:15px;
+      margin-bottom:16px;
+    }
+
+    .form-group{
+      margin-bottom:16px;
+    }
+
+    .form-group label{
+      display:block;
+      color:#e5e7eb;
+      font-size:14px;
+      margin-bottom:8px;
+    }
+
+    .form-group input,
+    .form-group textarea{
+      width:100%;
+      background:#0f172a;
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:14px;
+      padding:14px 16px;
+      color:#ffffff;
+      font-size:15px;
+      outline:none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus{
+      border-color:rgba(250,204,21,0.45);
+      box-shadow:0 0 0 3px rgba(250,204,21,0.08);
+    }
+
+    .form-group textarea{
+      min-height:160px;
+      resize:vertical;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 22px;
+      border-radius:12px;
+      font-weight:700;
+      font-size:15px;
+      border:none;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:#facc15;
+      color:#111827;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 24px rgba(250,204,21,0.2);
+    }
+
+    .info-list{
+      display:grid;
+      gap:16px;
+    }
+
+    .info-item{
+      background:#0f172a;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:16px;
+      padding:18px;
+    }
+
+    .info-item h3{
+      color:#ffffff;
+      font-size:18px;
+      margin-bottom:8px;
+    }
+
+    .info-item p,
+    .info-item a{
+      color:#cbd5e1;
+      font-size:15px;
+    }
+
+    .info-item a:hover{
+      color:#facc15;
+    }
+
+    .note{
+      color:#94a3b8;
+      font-size:14px;
+      margin-top:8px;
+    }
+
+    .cta{
+      text-align:center;
+      background:linear-gradient(135deg, #1e293b, #111827);
+    }
+
+    .cta h2{
+      font-size:36px;
+      color:#ffffff;
+      margin-bottom:12px;
+    }
+
+    .cta p{
+      max-width:720px;
+      margin:0 auto 24px;
+      color:#cbd5e1;
+    }
+
+    footer{
+      background:#020617;
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding:24px 0;
+    }
+
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .footer-inner p{
+      color:#94a3b8;
+      font-size:14px;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+    }
+
+    .footer-links a{
+      color:#cbd5e1;
+      font-size:14px;
+    }
+
+    .footer-links a:hover{
+      color:#facc15;
+    }
+
+    @media(max-width:1024px){
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:768px){
+      .nav{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .nav-links{
+        gap:14px;
+      }
+
+      .hero{
+        min-height:auto;
+      }
+
+      .hero-content{
+        padding:70px 0;
+      }
+
+      .section-head h2{
+        font-size:28px;
+      }
+
+      .contact-card h2,
+      .info-card h2{
+        font-size:22px;
+      }
+
+      .cta h2{
+        font-size:30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo">Movie<span>Spot</span></a>
+
+      <nav class="nav-links">
+        <a href="index.html#featured">Featured</a>
+        <a href="index.html#movies">Movies</a>
+        <a href="index.html#guides">Watch Guides</a>
+        <a href="index.html#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-tag">Get In Touch</div>
+        <h1>Contact MovieSpot</h1>
+        <p>
+          Have a question, suggestion, business enquiry, or feedback about the site?
+          We’d love to hear from you.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Send a Message</h2>
+          <p>
+            Use the contact form below to reach out about recommendations, corrections,
+            partnerships, or general questions.
+          </p>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h2>Contact Form</h2>
+          <p>Fill in your details and send us a message.</p>
+
+          <form action="mailto:your@email.com" method="post" enctype="text/plain">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="Enter your email address" required />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Enter message subject" required />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Send Message</button>
+            <p class="note">Replace <strong>your@email.com</strong> with your real email address.</p>
+          </form>
+        </div>
+
+        <div class="info-card">
+          <h2>Contact Information</h2>
+          <p>
+            You can also reach MovieSpot through the contact details below.
+          </p>
+
+          <div class="info-list">
+            <div class="info-item">
+              <h3>Email</h3>
+              <p><a href="mailto:your@email.com">your@email.com</a></p>
+            </div>
+
+            <div class="info-item">
+              <h3>Business Enquiries</h3>
+              <p>For partnerships, sponsored content, or collaborations, please contact us by email.</p>
+            </div>
+
+            <div class="info-item">
+              <h3>Content Corrections</h3>
+              <p>If you spot an incorrect movie detail or watch availability error, send us a message and we’ll review it.</p>
+            </div>
+
+            <div class="info-item">
+              <h3>Response Time</h3>
+              <p>We aim to respond as soon as possible to genuine enquiries and feedback.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Let’s improve MovieSpot together.</h2>
+      <p>
+        Your feedback helps make MovieSpot better for movie fans looking for what to watch next.
+      </p>
+      <a href="index.html" class="btn btn-primary">Back to Home</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© 2026 MovieSpot. Discover movies and where to watch them.</p>
+
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="cookies.html">Cookies Policy</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

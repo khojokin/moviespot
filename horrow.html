@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MovieSpot | Horror Movies</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#0f172a;
+      color:#e5e7eb;
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+      transition:0.3s;
+    }
+
+    button,
+    input,
+    select{
+      font-family:Arial, Helvetica, sans-serif;
+      transition:0.3s;
+    }
+
+    .container{
+      width:min(1200px, 92%);
+      margin:auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(15,23,42,0.95);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(8px);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:16px 0;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:700;
+      color:#facc15;
+      letter-spacing:0.5px;
+    }
+
+    .logo span{
+      color:#ffffff;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:#cbd5e1;
+      font-size:15px;
+    }
+
+    .nav-links a:hover{
+      color:#facc15;
+    }
+
+    .hero{
+      background:
+        linear-gradient(rgba(8,12,24,0.82), rgba(15,23,42,0.94)),
+        url('https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      min-height:70vh;
+      display:flex;
+      align-items:center;
+    }
+
+    .hero-content{
+      max-width:760px;
+      padding:60px 0;
+    }
+
+    .hero-tag{
+      display:inline-block;
+      background:rgba(250,204,21,0.12);
+      color:#facc15;
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:14px;
+      margin-bottom:18px;
+      border:1px solid rgba(250,204,21,0.28);
+    }
+
+    .hero h1{
+      font-size:clamp(34px, 5vw, 60px);
+      line-height:1.1;
+      margin-bottom:18px;
+      color:#ffffff;
+    }
+
+    .hero p{
+      font-size:18px;
+      color:#cbd5e1;
+      margin-bottom:28px;
+      max-width:680px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 22px;
+      border-radius:12px;
+      font-weight:700;
+      font-size:15px;
+      border:none;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:#facc15;
+      color:#111827;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 24px rgba(250,204,21,0.2);
+    }
+
+    .btn-secondary{
+      background:transparent;
+      color:#ffffff;
+      border:1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn-secondary:hover{
+      background:rgba(255,255,255,0.06);
+    }
+
+    section{
+      padding:70px 0;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-bottom:28px;
+    }
+
+    .section-head h2{
+      font-size:32px;
+      color:#ffffff;
+      margin-bottom:8px;
+    }
+
+    .section-head p{
+      color:#94a3b8;
+      max-width:700px;
+    }
+
+    .tools{
+      background:#111827;
+      border-top:1px solid rgba(255,255,255,0.05);
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    .tool-bar{
+      display:grid;
+      grid-template-columns:2fr 1fr;
+      gap:16px;
+    }
+
+    .search-box,
+    .filter-box{
+      background:#1e293b;
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:14px;
+      padding:14px 16px;
+    }
+
+    .search-box input,
+    .filter-box select{
+      width:100%;
+      background:transparent;
+      border:none;
+      outline:none;
+      color:#ffffff;
+      font-size:15px;
+    }
+
+    .filter-box select option{
+      color:#111827;
+    }
+
+    .featured-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:24px;
+    }
+
+    .featured-card{
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:20px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .featured-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 18px 40px rgba(0,0,0,0.25);
+    }
+
+    .featured-image{
+      height:250px;
+      overflow:hidden;
+    }
+
+    .featured-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .featured-content{
+      padding:20px;
+    }
+
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom:12px;
+    }
+
+    .pill{
+      background:rgba(255,255,255,0.06);
+      color:#cbd5e1;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+    }
+
+    .featured-content h3{
+      font-size:24px;
+      color:#ffffff;
+      margin-bottom:10px;
+    }
+
+    .featured-content p{
+      color:#cbd5e1;
+      font-size:15px;
+      margin-bottom:16px;
+    }
+
+    .watch-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:18px;
+    }
+
+    .watch-tag{
+      font-size:12px;
+      font-weight:700;
+      padding:7px 10px;
+      border-radius:999px;
+      background:#1d4ed8;
+      color:#ffffff;
+    }
+
+    .watch-tag.alt{
+      background:#7c3aed;
+    }
+
+    .watch-tag.green{
+      background:#059669;
+    }
+
+    .watch-tag.orange{
+      background:#ea580c;
+    }
+
+    .card-link{
+      display:inline-block;
+      color:#facc15;
+      font-weight:700;
+    }
+
+    .card-link:hover{
+      opacity:0.8;
+    }
+
+    .movies-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:22px;
+    }
+
+    .movie-card{
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .movie-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 18px 36px rgba(0,0,0,0.22);
+    }
+
+    .movie-poster{
+      height:280px;
+      overflow:hidden;
+      background:#1e293b;
+    }
+
+    .movie-poster img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .movie-content{
+      padding:18px;
+    }
+
+    .movie-content h3{
+      color:#ffffff;
+      font-size:20px;
+      margin-bottom:8px;
+    }
+
+    .movie-info{
+      color:#94a3b8;
+      font-size:14px;
+      margin-bottom:10px;
+    }
+
+    .movie-content p{
+      color:#cbd5e1;
+      font-size:14px;
+      margin-bottom:14px;
+    }
+
+    .mini-watch{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:14px;
+    }
+
+    .mini-watch span{
+      background:rgba(250,204,21,0.12);
+      border:1px solid rgba(250,204,21,0.18);
+      color:#facc15;
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+    }
+
+    .details-section{
+      background:#111827;
+    }
+
+    .details-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:22px;
+    }
+
+    .details-box{
+      background:#0f172a;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      padding:24px;
+    }
+
+    .details-box h3{
+      font-size:22px;
+      color:#ffffff;
+      margin-bottom:12px;
+    }
+
+    .details-box p{
+      color:#cbd5e1;
+      font-size:15px;
+    }
+
+    .cta{
+      text-align:center;
+      background:linear-gradient(135deg, #1e293b, #111827);
+    }
+
+    .cta h2{
+      font-size:36px;
+      color:#ffffff;
+      margin-bottom:12px;
+    }
+
+    .cta p{
+      max-width:720px;
+      margin:0 auto 24px;
+      color:#cbd5e1;
+    }
+
+    footer{
+      background:#020617;
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding:24px 0;
+    }
+
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .footer-inner p{
+      color:#94a3b8;
+      font-size:14px;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+    }
+
+    .footer-links a{
+      color:#cbd5e1;
+      font-size:14px;
+    }
+
+    .footer-links a:hover{
+      color:#facc15;
+    }
+
+    @media(max-width:1024px){
+      .featured-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .movies-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .details-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:768px){
+      .nav{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .nav-links{
+        gap:14px;
+      }
+
+      .tool-bar{
+        grid-template-columns:1fr;
+      }
+
+      .featured-grid{
+        grid-template-columns:1fr;
+      }
+
+      .movies-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        min-height:auto;
+      }
+
+      .hero-content{
+        padding:70px 0;
+      }
+
+      .section-head h2{
+        font-size:28px;
+      }
+
+      .cta h2{
+        font-size:30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo">Movie<span>Spot</span></a>
+
+      <nav class="nav-links">
+        <a href="index.html#featured">Featured</a>
+        <a href="index.html#movies">Movies</a>
+        <a href="index.html#guides">Watch Guides</a>
+        <a href="index.html#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-tag">Horror Movie Collection</div>
+        <h1>Best Horror Movies To Watch Right Now</h1>
+        <p>
+          Explore horror movies packed with suspense, fear, tension, disturbing twists,
+          supernatural terror, psychological dread, and unforgettable nightmare scenes.
+        </p>
+        <div class="hero-buttons">
+          <a href="#horror-movies" class="btn btn-primary">Browse Horror Movies</a>
+          <a href="#horror-details" class="btn btn-secondary">Genre Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tools">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Search Horror Movies</h2>
+          <p>Search through the horror movies on this page and filter by horror type.</p>
+        </div>
+      </div>
+
+      <div class="tool-bar">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search horror movie title..." />
+        </div>
+
+        <div class="filter-box">
+          <select id="typeFilter">
+            <option value="all">All Horror Types</option>
+            <option value="Supernatural Horror">Supernatural Horror</option>
+            <option value="Psychological Horror">Psychological Horror</option>
+            <option value="Slasher Horror">Slasher Horror</option>
+            <option value="Monster Horror">Monster Horror</option>
+            <option value="Survival Horror">Survival Horror</option>
+            <option value="Possession Horror">Possession Horror</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="featured">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Featured Horror Picks</h2>
+          <p>Top horror choices with tension, atmosphere, jump scares, and unforgettable fear.</p>
+        </div>
+      </div>
+
+      <div class="featured-grid">
+        <article class="featured-card">
+          <div class="featured-image">
+            <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=1200&q=80" alt="The Conjuring">
+          </div>
+          <div class="featured-content">
+            <div class="meta">
+              <span class="pill">Horror</span>
+              <span class="pill">2013</span>
+              <span class="pill">Supernatural Horror</span>
+            </div>
+            <h3>The Conjuring</h3>
+            <p>
+              Paranormal investigators face a terrifying presence inside a family home
+              in one of the most popular modern horror films.
+            </p>
+            <div class="watch-row">
+              <span class="watch-tag alt">Max</span>
+              <span class="watch-tag orange">Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="featured-card">
+          <div class="featured-image">
+            <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80" alt="Get Out">
+          </div>
+          <div class="featured-content">
+            <div class="meta">
+              <span class="pill">Horror</span>
+              <span class="pill">2017</span>
+              <span class="pill">Psychological Horror</span>
+            </div>
+            <h3>Get Out</h3>
+            <p>
+              A simple weekend visit turns into an unsettling nightmare as hidden truths
+              begin to surface.
+            </p>
+            <div class="watch-row">
+              <span class="watch-tag">Netflix</span>
+              <span class="watch-tag green">Buy</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="featured-card">
+          <div class="featured-image">
+            <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80" alt="A Quiet Place">
+          </div>
+          <div class="featured-content">
+            <div class="meta">
+              <span class="pill">Horror</span>
+              <span class="pill">2018</span>
+              <span class="pill">Survival Horror</span>
+            </div>
+            <h3>A Quiet Place</h3>
+            <p>
+              Silence becomes the difference between life and death in a world hunted by sound-sensitive creatures.
+            </p>
+            <div class="watch-row">
+              <span class="watch-tag">Prime Video</span>
+              <span class="watch-tag orange">Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="horror-movies">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Popular Horror Movies</h2>
+          <p>Browse standout horror films with different kinds of fear, from psychological dread to supernatural terror.</p>
+        </div>
+      </div>
+
+      <div class="movies-grid" id="moviesGrid">
+        <article class="movie-card" data-title="The Conjuring" data-type="Supernatural Horror">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=1200&q=80" alt="The Conjuring">
+          </div>
+          <div class="movie-content">
+            <h3>The Conjuring</h3>
+            <div class="movie-info">Horror • 2013 • Supernatural Horror</div>
+            <p>A family home becomes the center of a terrifying paranormal case handled by expert investigators.</p>
+            <div class="mini-watch">
+              <span>Max</span>
+              <span>Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Get Out" data-type="Psychological Horror">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80" alt="Get Out">
+          </div>
+          <div class="movie-content">
+            <h3>Get Out</h3>
+            <div class="movie-info">Horror • 2017 • Psychological Horror</div>
+            <p>A man slowly realizes that something is deeply wrong during a weekend visit with his girlfriend’s family.</p>
+            <div class="mini-watch">
+              <span>Netflix</span>
+              <span>Buy</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="A Quiet Place" data-type="Survival Horror">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80" alt="A Quiet Place">
+          </div>
+          <div class="movie-content">
+            <h3>A Quiet Place</h3>
+            <div class="movie-info">Horror • 2018 • Survival Horror</div>
+            <p>A family must stay silent in a world where creatures hunt anything that makes a sound.</p>
+            <div class="mini-watch">
+              <span>Prime Video</span>
+              <span>Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="The Exorcist" data-type="Possession Horror">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80" alt="The Exorcist">
+          </div>
+          <div class="movie-content">
+            <h3>The Exorcist</h3>
+            <div class="movie-info">Horror • 1973 • Possession Horror</div>
+            <p>A child’s terrifying possession leads to one of the most iconic exorcisms in movie history.</p>
+            <div class="mini-watch">
+              <span>Max</span>
+              <span>Buy</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Hereditary" data-type="Psychological Horror">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1495195134817-aeb325a55b65?auto=format&fit=crop&w=1200&q=80" alt="Hereditary">
+          </div>
+          <div class="movie-content">
+            <h3>Hereditary</h3>
+            <div class="movie-info">Horror • 2018 • Psychological Horror</div>
+            <p>Family grief opens the door to dark secrets and disturbing supernatural consequences.</p>
+            <div class="mini-watch">
+              <span>Prime Video</span>
+              <span>Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Halloween" data-type="Slasher Horror">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Halloween">
+          </div>
+          <div class="movie-content">
+            <h3>Halloween</h3>
+            <div class="movie-info">Horror • 1978 • Slasher Horror</div>
+            <p>A silent masked killer returns to town and turns one night into a nightmare.</p>
+            <div class="mini-watch">
+              <span>Netflix</span>
+              <span>Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="It" data-type="Monster Horror">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" alt="It">
+          </div>
+          <div class="movie-content">
+            <h3>It</h3>
+            <div class="movie-info">Horror • 2017 • Monster Horror</div>
+            <p>A terrifying shape-shifting force feeds on fear and hunts children in a small town.</p>
+            <div class="mini-watch">
+              <span>Max</span>
+              <span>Buy</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Scream" data-type="Slasher Horror">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1200&q=80" alt="Scream">
+          </div>
+          <div class="movie-content">
+            <h3>Scream</h3>
+            <div class="movie-info">Horror • 1996 • Slasher Horror</div>
+            <p>A masked killer turns horror movie rules into deadly reality for a group of teenagers.</p>
+            <div class="mini-watch">
+              <span>Paramount+</span>
+              <span>Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="horror-details" class="details-section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Horror Genre Details</h2>
+          <p>Useful horror details you can reuse later for more genre pages too.</p>
+        </div>
+      </div>
+
+      <div class="details-grid">
+        <div class="details-box">
+          <h3>What Makes A Horror Movie?</h3>
+          <p>
+            Horror movies are designed to create fear, dread, suspense, and discomfort
+            through atmosphere, danger, the unknown, and emotional tension.
+          </p>
+        </div>
+
+        <div class="details-box">
+          <h3>Popular Horror Subgenres</h3>
+          <p>
+            Common horror styles include supernatural horror, slasher horror,
+            psychological horror, monster horror, survival horror, and possession horror.
+          </p>
+        </div>
+
+        <div class="details-box">
+          <h3>Why People Love Horror Films</h3>
+          <p>
+            Horror films are exciting because they create adrenaline, tension, mystery,
+            and unforgettable moments that stay with viewers long after the credits.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Explore more horror favorites.</h2>
+      <p>
+        Keep building this page with more horror titles, streaming guides,
+        and “best horror movies” lists to grow your site.
+      </p>
+      <a href="index.html" class="btn btn-primary">Back to Home</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© 2026 MovieSpot. Discover movies and where to watch them.</p>
+
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="cookies.html">Cookies Policy</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const typeFilter = document.getElementById("typeFilter");
+    const movieCards = document.querySelectorAll(".movie-card");
+
+    function filterMovies(){
+      const searchValue = searchInput.value.toLowerCase().trim();
+      const selectedType = typeFilter.value;
+
+      movieCards.forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        const type = card.dataset.type;
+
+        const matchesSearch = title.includes(searchValue);
+        const matchesType = selectedType === "all" || type === selectedType;
+
+        if(matchesSearch && matchesType){
+          card.style.display = "block";
+        }else{
+          card.style.display = "none";
+        }
+      });
+    }
+
+    searchInput.addEventListener("input", filterMovies);
+    typeFilter.addEventListener("change", filterMovies);
+  </script>
+
+</body>
+</html>

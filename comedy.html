@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MovieSpot | Comedy Movies</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#0f172a;
+      color:#e5e7eb;
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+      transition:0.3s;
+    }
+
+    button,
+    input,
+    select{
+      font-family:Arial, Helvetica, sans-serif;
+      transition:0.3s;
+    }
+
+    .container{
+      width:min(1200px, 92%);
+      margin:auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(15,23,42,0.95);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(8px);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:16px 0;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:700;
+      color:#facc15;
+      letter-spacing:0.5px;
+    }
+
+    .logo span{
+      color:#ffffff;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:#cbd5e1;
+      font-size:15px;
+    }
+
+    .nav-links a:hover{
+      color:#facc15;
+    }
+
+    .hero{
+      background:
+        linear-gradient(rgba(15,23,42,0.78), rgba(15,23,42,0.92)),
+        url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      min-height:70vh;
+      display:flex;
+      align-items:center;
+    }
+
+    .hero-content{
+      max-width:760px;
+      padding:60px 0;
+    }
+
+    .hero-tag{
+      display:inline-block;
+      background:rgba(250,204,21,0.12);
+      color:#facc15;
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:14px;
+      margin-bottom:18px;
+      border:1px solid rgba(250,204,21,0.28);
+    }
+
+    .hero h1{
+      font-size:clamp(34px, 5vw, 60px);
+      line-height:1.1;
+      margin-bottom:18px;
+      color:#ffffff;
+    }
+
+    .hero p{
+      font-size:18px;
+      color:#cbd5e1;
+      margin-bottom:28px;
+      max-width:680px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 22px;
+      border-radius:12px;
+      font-weight:700;
+      font-size:15px;
+      border:none;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:#facc15;
+      color:#111827;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 24px rgba(250,204,21,0.2);
+    }
+
+    .btn-secondary{
+      background:transparent;
+      color:#ffffff;
+      border:1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn-secondary:hover{
+      background:rgba(255,255,255,0.06);
+    }
+
+    section{
+      padding:70px 0;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-bottom:28px;
+    }
+
+    .section-head h2{
+      font-size:32px;
+      color:#ffffff;
+      margin-bottom:8px;
+    }
+
+    .section-head p{
+      color:#94a3b8;
+      max-width:700px;
+    }
+
+    .tools{
+      background:#111827;
+      border-top:1px solid rgba(255,255,255,0.05);
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    .tool-bar{
+      display:grid;
+      grid-template-columns:2fr 1fr;
+      gap:16px;
+    }
+
+    .search-box,
+    .filter-box{
+      background:#1e293b;
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:14px;
+      padding:14px 16px;
+    }
+
+    .search-box input,
+    .filter-box select{
+      width:100%;
+      background:transparent;
+      border:none;
+      outline:none;
+      color:#ffffff;
+      font-size:15px;
+    }
+
+    .filter-box select option{
+      color:#111827;
+    }
+
+    .featured-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:24px;
+    }
+
+    .featured-card{
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:20px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .featured-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 18px 40px rgba(0,0,0,0.25);
+    }
+
+    .featured-image{
+      height:250px;
+      overflow:hidden;
+    }
+
+    .featured-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .featured-content{
+      padding:20px;
+    }
+
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom:12px;
+    }
+
+    .pill{
+      background:rgba(255,255,255,0.06);
+      color:#cbd5e1;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+    }
+
+    .featured-content h3{
+      font-size:24px;
+      color:#ffffff;
+      margin-bottom:10px;
+    }
+
+    .featured-content p{
+      color:#cbd5e1;
+      font-size:15px;
+      margin-bottom:16px;
+    }
+
+    .watch-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:18px;
+    }
+
+    .watch-tag{
+      font-size:12px;
+      font-weight:700;
+      padding:7px 10px;
+      border-radius:999px;
+      background:#1d4ed8;
+      color:#ffffff;
+    }
+
+    .watch-tag.alt{
+      background:#7c3aed;
+    }
+
+    .watch-tag.green{
+      background:#059669;
+    }
+
+    .watch-tag.orange{
+      background:#ea580c;
+    }
+
+    .card-link{
+      display:inline-block;
+      color:#facc15;
+      font-weight:700;
+    }
+
+    .card-link:hover{
+      opacity:0.8;
+    }
+
+    .movies-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:22px;
+    }
+
+    .movie-card{
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .movie-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 18px 36px rgba(0,0,0,0.22);
+    }
+
+    .movie-poster{
+      height:280px;
+      overflow:hidden;
+      background:#1e293b;
+    }
+
+    .movie-poster img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .movie-content{
+      padding:18px;
+    }
+
+    .movie-content h3{
+      color:#ffffff;
+      font-size:20px;
+      margin-bottom:8px;
+    }
+
+    .movie-info{
+      color:#94a3b8;
+      font-size:14px;
+      margin-bottom:10px;
+    }
+
+    .movie-content p{
+      color:#cbd5e1;
+      font-size:14px;
+      margin-bottom:14px;
+    }
+
+    .mini-watch{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:14px;
+    }
+
+    .mini-watch span{
+      background:rgba(250,204,21,0.12);
+      border:1px solid rgba(250,204,21,0.18);
+      color:#facc15;
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+    }
+
+    .details-section{
+      background:#111827;
+    }
+
+    .details-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:22px;
+    }
+
+    .details-box{
+      background:#0f172a;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      padding:24px;
+    }
+
+    .details-box h3{
+      font-size:22px;
+      color:#ffffff;
+      margin-bottom:12px;
+    }
+
+    .details-box p{
+      color:#cbd5e1;
+      font-size:15px;
+    }
+
+    .cta{
+      text-align:center;
+      background:linear-gradient(135deg, #1e293b, #111827);
+    }
+
+    .cta h2{
+      font-size:36px;
+      color:#ffffff;
+      margin-bottom:12px;
+    }
+
+    .cta p{
+      max-width:720px;
+      margin:0 auto 24px;
+      color:#cbd5e1;
+    }
+
+    footer{
+      background:#020617;
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding:24px 0;
+    }
+
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .footer-inner p{
+      color:#94a3b8;
+      font-size:14px;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+    }
+
+    .footer-links a{
+      color:#cbd5e1;
+      font-size:14px;
+    }
+
+    .footer-links a:hover{
+      color:#facc15;
+    }
+
+    @media(max-width:1024px){
+      .featured-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .movies-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .details-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:768px){
+      .nav{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .nav-links{
+        gap:14px;
+      }
+
+      .tool-bar{
+        grid-template-columns:1fr;
+      }
+
+      .featured-grid{
+        grid-template-columns:1fr;
+      }
+
+      .movies-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        min-height:auto;
+      }
+
+      .hero-content{
+        padding:70px 0;
+      }
+
+      .section-head h2{
+        font-size:28px;
+      }
+
+      .cta h2{
+        font-size:30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo">Movie<span>Spot</span></a>
+
+      <nav class="nav-links">
+        <a href="index.html#featured">Featured</a>
+        <a href="index.html#movies">Movies</a>
+        <a href="index.html#guides">Watch Guides</a>
+        <a href="index.html#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-tag">Comedy Movie Collection</div>
+        <h1>Best Comedy Movies To Watch Right Now</h1>
+        <p>
+          Explore funny movies packed with chaos, awkward moments, big laughs,
+          wild characters, and rewatchable scenes that never get old.
+        </p>
+        <div class="hero-buttons">
+          <a href="#comedy-movies" class="btn btn-primary">Browse Comedy Movies</a>
+          <a href="#comedy-details" class="btn btn-secondary">Genre Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tools">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Search Comedy Movies</h2>
+          <p>Search through the comedy movies on this page and filter by comedy type.</p>
+        </div>
+      </div>
+
+      <div class="tool-bar">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search comedy movie title..." />
+        </div>
+
+        <div class="filter-box">
+          <select id="typeFilter">
+            <option value="all">All Comedy Types</option>
+            <option value="Teen Comedy">Teen Comedy</option>
+            <option value="Buddy Comedy">Buddy Comedy</option>
+            <option value="Satire">Satire</option>
+            <option value="Family Comedy">Family Comedy</option>
+            <option value="Romantic Comedy">Romantic Comedy</option>
+            <option value="Workplace Comedy">Workplace Comedy</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="featured">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Featured Comedy Picks</h2>
+          <p>Top comedy choices with iconic scenes, quotable lines, and strong replay value.</p>
+        </div>
+      </div>
+
+      <div class="featured-grid">
+        <article class="featured-card">
+          <div class="featured-image">
+            <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1400&q=80" alt="Superbad">
+          </div>
+          <div class="featured-content">
+            <div class="meta">
+              <span class="pill">Comedy</span>
+              <span class="pill">2007</span>
+              <span class="pill">Teen Comedy</span>
+            </div>
+            <h3>Superbad</h3>
+            <p>
+              Two friends chase one unforgettable night before graduation in a comedy
+              filled with awkward plans, chaos, and wild energy.
+            </p>
+            <div class="watch-row">
+              <span class="watch-tag">Netflix</span>
+              <span class="watch-tag orange">Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="featured-card">
+          <div class="featured-image">
+            <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80" alt="The Hangover">
+          </div>
+          <div class="featured-content">
+            <div class="meta">
+              <span class="pill">Comedy</span>
+              <span class="pill">2009</span>
+              <span class="pill">Buddy Comedy</span>
+            </div>
+            <h3>The Hangover</h3>
+            <p>
+              A bachelor party goes very wrong, leaving three friends to piece together
+              a ridiculous night in Las Vegas.
+            </p>
+            <div class="watch-row">
+              <span class="watch-tag alt">Prime Video</span>
+              <span class="watch-tag green">Buy</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="featured-card">
+          <div class="featured-image">
+            <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80" alt="Step Brothers">
+          </div>
+          <div class="featured-content">
+            <div class="meta">
+              <span class="pill">Comedy</span>
+              <span class="pill">2008</span>
+              <span class="pill">Family Comedy</span>
+            </div>
+            <h3>Step Brothers</h3>
+            <p>
+              Two childish grown men become stepbrothers and turn everyday life into
+              nonstop ridiculous conflict.
+            </p>
+            <div class="watch-row">
+              <span class="watch-tag">Netflix</span>
+              <span class="watch-tag orange">Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="comedy-movies">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Popular Comedy Movies</h2>
+          <p>Browse standout comedy films with different styles of humor, from teen chaos to classic satire.</p>
+        </div>
+      </div>
+
+      <div class="movies-grid" id="moviesGrid">
+        <article class="movie-card" data-title="Superbad" data-type="Teen Comedy">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1400&q=80" alt="Superbad">
+          </div>
+          <div class="movie-content">
+            <h3>Superbad</h3>
+            <div class="movie-info">Comedy • 2007 • Teen Comedy</div>
+            <p>Two best friends chase one final high school adventure before graduation changes everything.</p>
+            <div class="mini-watch">
+              <span>Netflix</span>
+              <span>Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="The Hangover" data-type="Buddy Comedy">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80" alt="The Hangover">
+          </div>
+          <div class="movie-content">
+            <h3>The Hangover</h3>
+            <div class="movie-info">Comedy • 2009 • Buddy Comedy</div>
+            <p>A bachelor party disaster sends three friends into a hilarious search across Las Vegas.</p>
+            <div class="mini-watch">
+              <span>Prime Video</span>
+              <span>Buy</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Step Brothers" data-type="Family Comedy">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80" alt="Step Brothers">
+          </div>
+          <div class="movie-content">
+            <h3>Step Brothers</h3>
+            <div class="movie-info">Comedy • 2008 • Family Comedy</div>
+            <p>Two immature adults are forced into the same house and instantly turn life into chaos.</p>
+            <div class="mini-watch">
+              <span>Netflix</span>
+              <span>Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Mean Girls" data-type="Teen Comedy">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80" alt="Mean Girls">
+          </div>
+          <div class="movie-content">
+            <h3>Mean Girls</h3>
+            <div class="movie-info">Comedy • 2004 • Teen Comedy</div>
+            <p>School cliques, secrets, and sharp jokes make this one of the most quotable comedies ever.</p>
+            <div class="mini-watch">
+              <span>Paramount+</span>
+              <span>Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Anchorman" data-type="Workplace Comedy">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=900&q=80" alt="Anchorman">
+          </div>
+          <div class="movie-content">
+            <h3>Anchorman</h3>
+            <div class="movie-info">Comedy • 2004 • Workplace Comedy</div>
+            <p>A local news team struggles to adapt when their world is shaken up by a new arrival.</p>
+            <div class="mini-watch">
+              <span>Prime Video</span>
+              <span>Buy</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Bridesmaids" data-type="Buddy Comedy">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80" alt="Bridesmaids">
+          </div>
+          <div class="movie-content">
+            <h3>Bridesmaids</h3>
+            <div class="movie-info">Comedy • 2011 • Buddy Comedy</div>
+            <p>Wedding planning becomes a disaster zone in this hilarious and chaotic friendship comedy.</p>
+            <div class="mini-watch">
+              <span>Netflix</span>
+              <span>Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="School of Rock" data-type="Family Comedy">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1200&q=80" alt="School of Rock">
+          </div>
+          <div class="movie-content">
+            <h3>School of Rock</h3>
+            <div class="movie-info">Comedy • 2003 • Family Comedy</div>
+            <p>A fake teacher turns a classroom into a rock band with a lot of noise and heart.</p>
+            <div class="mini-watch">
+              <span>Paramount+</span>
+              <span>Buy</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Crazy Rich Asians" data-type="Romantic Comedy">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80" alt="Crazy Rich Asians">
+          </div>
+          <div class="movie-content">
+            <h3>Crazy Rich Asians</h3>
+            <div class="movie-info">Comedy • 2018 • Romantic Comedy</div>
+            <p>Love, family pressure, and wealth collide in a stylish romantic comedy full of energy.</p>
+            <div class="mini-watch">
+              <span>Prime Video</span>
+              <span>Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="comedy-details" class="details-section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Comedy Genre Details</h2>
+          <p>Useful comedy details you can reuse later for more genre pages too.</p>
+        </div>
+      </div>
+
+      <div class="details-grid">
+        <div class="details-box">
+          <h3>What Makes A Comedy Movie?</h3>
+          <p>
+            Comedy movies are designed to entertain through humor, awkward situations,
+            strong personalities, misunderstandings, timing, and memorable dialogue.
+          </p>
+        </div>
+
+        <div class="details-box">
+          <h3>Popular Comedy Subgenres</h3>
+          <p>
+            Common comedy styles include teen comedy, romantic comedy, buddy comedy,
+            workplace comedy, satire, parody, family comedy, and dark comedy.
+          </p>
+        </div>
+
+        <div class="details-box">
+          <h3>Why People Love Comedy Films</h3>
+          <p>
+            Comedy films are easy to rewatch, fun to share with others, and great for
+            relaxing because they deliver laughter, energy, and unforgettable scenes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Explore more comedy favorites.</h2>
+      <p>
+        Keep building this page with more comedy titles, streaming guides,
+        and “best comedy movies” lists to grow your site.
+      </p>
+      <a href="index.html" class="btn btn-primary">Back to Home</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© 2026 MovieSpot. Discover movies and where to watch them.</p>
+
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="cookies.html">Cookies Policy</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const typeFilter = document.getElementById("typeFilter");
+    const movieCards = document.querySelectorAll(".movie-card");
+
+    function filterMovies(){
+      const searchValue = searchInput.value.toLowerCase().trim();
+      const selectedType = typeFilter.value;
+
+      movieCards.forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        const type = card.dataset.type;
+
+        const matchesSearch = title.includes(searchValue);
+        const matchesType = selectedType === "all" || type === selectedType;
+
+        if(matchesSearch && matchesType){
+          card.style.display = "block";
+        }else{
+          card.style.display = "none";
+        }
+      });
+    }
+
+    searchInput.addEventListener("input", filterMovies);
+    typeFilter.addEventListener("change", filterMovies);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MovieSpot | Discover Movies & Where To Watch</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#0f172a;
+      color:#e5e7eb;
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+      transition:0.3s;
+    }
+
+    button,
+    input,
+    select{
+      font-family:Arial, Helvetica, sans-serif;
+      transition:0.3s;
+    }
+
+    .container{
+      width:min(1200px, 92%);
+      margin:auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(15,23,42,0.95);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(8px);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:16px 0;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:700;
+      color:#facc15;
+      letter-spacing:0.5px;
+    }
+
+    .logo span{
+      color:#ffffff;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:#cbd5e1;
+      font-size:15px;
+    }
+
+    .nav-links a:hover{
+      color:#facc15;
+    }
+
+    .hero{
+      background:
+        linear-gradient(rgba(15,23,42,0.75), rgba(15,23,42,0.9)),
+        url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      min-height:85vh;
+      display:flex;
+      align-items:center;
+    }
+
+    .hero-content{
+      max-width:720px;
+      padding:60px 0;
+    }
+
+    .hero-tag{
+      display:inline-block;
+      background:rgba(250,204,21,0.12);
+      color:#facc15;
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:14px;
+      margin-bottom:18px;
+      border:1px solid rgba(250,204,21,0.28);
+    }
+
+    .hero h1{
+      font-size:clamp(34px, 5vw, 62px);
+      line-height:1.1;
+      margin-bottom:18px;
+      color:#ffffff;
+    }
+
+    .hero p{
+      font-size:18px;
+      color:#cbd5e1;
+      margin-bottom:28px;
+      max-width:620px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 22px;
+      border-radius:12px;
+      font-weight:700;
+      font-size:15px;
+      border:none;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:#facc15;
+      color:#111827;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 24px rgba(250,204,21,0.2);
+    }
+
+    .btn-secondary{
+      background:transparent;
+      color:#ffffff;
+      border:1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn-secondary:hover{
+      background:rgba(255,255,255,0.06);
+    }
+
+    section{
+      padding:70px 0;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-bottom:28px;
+    }
+
+    .section-head h2{
+      font-size:32px;
+      color:#ffffff;
+      margin-bottom:8px;
+    }
+
+    .section-head p{
+      color:#94a3b8;
+      max-width:700px;
+    }
+
+    .tools{
+      background:#111827;
+      border-top:1px solid rgba(255,255,255,0.05);
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    .tool-bar{
+      display:grid;
+      grid-template-columns:2fr 1fr;
+      gap:16px;
+    }
+
+    .search-box,
+    .filter-box{
+      background:#1e293b;
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:14px;
+      padding:14px 16px;
+    }
+
+    .search-box input,
+    .filter-box select{
+      width:100%;
+      background:transparent;
+      border:none;
+      outline:none;
+      color:#ffffff;
+      font-size:15px;
+    }
+
+    .filter-box select option{
+      color:#111827;
+    }
+
+    .featured-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:24px;
+    }
+
+    .featured-card{
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:20px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .featured-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 18px 40px rgba(0,0,0,0.25);
+    }
+
+    .featured-image{
+      height:250px;
+      overflow:hidden;
+    }
+
+    .featured-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .featured-content{
+      padding:20px;
+    }
+
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom:12px;
+    }
+
+    .pill{
+      background:rgba(255,255,255,0.06);
+      color:#cbd5e1;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+    }
+
+    .featured-content h3{
+      font-size:24px;
+      color:#ffffff;
+      margin-bottom:10px;
+    }
+
+    .featured-content p{
+      color:#cbd5e1;
+      font-size:15px;
+      margin-bottom:16px;
+    }
+
+    .watch-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:18px;
+    }
+
+    .watch-tag{
+      font-size:12px;
+      font-weight:700;
+      padding:7px 10px;
+      border-radius:999px;
+      background:#1d4ed8;
+      color:#ffffff;
+    }
+
+    .watch-tag.alt{
+      background:#7c3aed;
+    }
+
+    .watch-tag.green{
+      background:#059669;
+    }
+
+    .watch-tag.orange{
+      background:#ea580c;
+    }
+
+    .card-link{
+      display:inline-block;
+      color:#facc15;
+      font-weight:700;
+    }
+
+    .card-link:hover{
+      opacity:0.8;
+    }
+
+    .movies-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:22px;
+    }
+
+    .movie-card{
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .movie-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 18px 36px rgba(0,0,0,0.22);
+    }
+
+    .movie-poster{
+      height:280px;
+      overflow:hidden;
+      background:#1e293b;
+    }
+
+    .movie-poster img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .movie-content{
+      padding:18px;
+    }
+
+    .movie-content h3{
+      color:#ffffff;
+      font-size:20px;
+      margin-bottom:8px;
+    }
+
+    .movie-info{
+      color:#94a3b8;
+      font-size:14px;
+      margin-bottom:10px;
+    }
+
+    .movie-content p{
+      color:#cbd5e1;
+      font-size:14px;
+      margin-bottom:14px;
+    }
+
+    .mini-watch{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:14px;
+    }
+
+    .mini-watch span{
+      background:rgba(250,204,21,0.12);
+      border:1px solid rgba(250,204,21,0.18);
+      color:#facc15;
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+    }
+
+    .info-section{
+      background:#111827;
+    }
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:22px;
+    }
+
+    .info-box{
+      background:#0f172a;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      padding:24px;
+    }
+
+    .info-box h3{
+      font-size:22px;
+      color:#ffffff;
+      margin-bottom:12px;
+    }
+
+    .info-box p{
+      color:#cbd5e1;
+      font-size:15px;
+    }
+
+    .cta{
+      text-align:center;
+      background:linear-gradient(135deg, #1e293b, #111827);
+    }
+
+    .cta h2{
+      font-size:36px;
+      color:#ffffff;
+      margin-bottom:12px;
+    }
+
+    .cta p{
+      max-width:720px;
+      margin:0 auto 24px;
+      color:#cbd5e1;
+    }
+
+    footer{
+      background:#020617;
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding:24px 0;
+    }
+
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .footer-inner p{
+      color:#94a3b8;
+      font-size:14px;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+    }
+
+    .footer-links a{
+      color:#cbd5e1;
+      font-size:14px;
+    }
+
+    .footer-links a:hover{
+      color:#facc15;
+    }
+
+    .genre-section{
+      background:#111827;
+    }
+
+    .genre-recommendation-wrap{
+      display:grid;
+      gap:34px;
+    }
+
+    .genre-row{
+      display:grid;
+      gap:16px;
+    }
+
+    .genre-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .genre-top h3{
+      font-size:26px;
+      color:#ffffff;
+    }
+
+    .genre-top p{
+      color:#94a3b8;
+      font-size:15px;
+    }
+
+    .slider-controls{
+      display:flex;
+      gap:10px;
+    }
+
+    .slider-btn{
+      width:42px;
+      height:42px;
+      border:none;
+      border-radius:50%;
+      background:#1e293b;
+      color:#ffffff;
+      font-size:20px;
+      cursor:pointer;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .slider-btn:hover{
+      background:#facc15;
+      color:#111827;
+    }
+
+    .genre-slider{
+      display:flex;
+      gap:18px;
+      overflow-x:auto;
+      scroll-behavior:smooth;
+      padding-bottom:6px;
+      scrollbar-width:none;
+    }
+
+    .genre-slider::-webkit-scrollbar{
+      display:none;
+    }
+
+    .genre-movie-card{
+      min-width:240px;
+      max-width:240px;
+      background:#0f172a;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      overflow:hidden;
+      flex-shrink:0;
+      transition:0.3s;
+    }
+
+    .genre-movie-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 18px 36px rgba(0,0,0,0.22);
+    }
+
+    .genre-movie-poster{
+      height:280px;
+      overflow:hidden;
+      background:#1e293b;
+    }
+
+    .genre-movie-poster img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .genre-movie-content{
+      padding:18px;
+    }
+
+    .genre-movie-content h4{
+      color:#ffffff;
+      font-size:19px;
+      margin-bottom:8px;
+    }
+
+    .genre-movie-content .movie-info{
+      color:#94a3b8;
+      font-size:14px;
+      margin-bottom:10px;
+    }
+
+    .genre-movie-content p{
+      color:#cbd5e1;
+      font-size:14px;
+      margin-bottom:14px;
+    }
+
+    @media(max-width:1024px){
+      .featured-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .movies-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .info-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:768px){
+      .nav{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .nav-links{
+        gap:14px;
+      }
+
+      .tool-bar{
+        grid-template-columns:1fr;
+      }
+
+      .featured-grid{
+        grid-template-columns:1fr;
+      }
+
+      .movies-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        min-height:auto;
+      }
+
+      .hero-content{
+        padding:70px 0;
+      }
+
+      .section-head h2{
+        font-size:28px;
+      }
+
+      .cta h2{
+        font-size:30px;
+      }
+
+      .genre-movie-card{
+        min-width:220px;
+        max-width:220px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo">Movie<span>Spot</span></a>
+
+      <nav class="nav-links">
+        <a href="#featured">Featured</a>
+        <a href="#movies">Movies</a>
+        <a href="#guides">Watch Guides</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-tag">Discover what to watch tonight</div>
+        <h1>Find great movies and see exactly where to watch them.</h1>
+        <p>
+          MovieSpot helps people discover top films, read quick summaries, explore genres,
+          and check where movies are streaming, available to rent, or ready to buy.
+        </p>
+        <div class="hero-buttons">
+          <a href="#movies" class="btn btn-primary">Browse Movies</a>
+          <a href="#guides" class="btn btn-secondary">Watch Guides</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="daily">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Daily Recommendations</h2>
+          <p>Fresh movie suggestions updated every day to help you find something great to watch.</p>
+        </div>
+      </div>
+
+      <div class="movies-grid" id="dailyMovies"></div>
+    </div>
+  </section>
+
+  <section class="tools">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Search Movies</h2>
+          <p>Use the search box and filter to explore your movie collection faster.</p>
+        </div>
+      </div>
+
+      <div class="tool-bar">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search by movie title..." />
+        </div>
+
+        <div class="filter-box">
+          <select id="genreFilter">
+            <option value="all">All Genres</option>
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Animation">Animation</option>
+            <option value="Biography">Biography</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Crime">Crime</option>
+            <option value="Documentary">Documentary</option>
+            <option value="Drama">Drama</option>
+            <option value="Family">Family</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="History">History</option>
+            <option value="Horror">Horror</option>
+            <option value="Music">Music</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Romance">Romance</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Sport">Sport</option>
+            <option value="Thriller">Thriller</option>
+            <option value="War">War</option>
+            <option value="Western">Western</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="featured">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Featured Picks</h2>
+          <p>Highlight top films with a short summary and where viewers can watch them.</p>
+        </div>
+      </div>
+
+      <div class="featured-grid">
+        <article class="featured-card">
+          <div class="featured-image">
+            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1200&q=80" alt="Dune: Part Two">
+          </div>
+          <div class="featured-content">
+            <div class="meta">
+              <span class="pill">Sci-Fi</span>
+              <span class="pill">2024</span>
+              <span class="pill">8.8/10</span>
+            </div>
+            <h3>Dune: Part Two</h3>
+            <p>
+              Paul Atreides unites with the Fremen while balancing revenge, destiny,
+              and a growing war that could reshape the galaxy.
+            </p>
+            <div class="watch-row">
+              <span class="watch-tag">Netflix</span>
+              <span class="watch-tag alt">Prime Video</span>
+              <span class="watch-tag green">Apple TV</span>
+            </div>
+            <a href="#" class="card-link">Read Full Guide →</a>
+          </div>
+        </article>
+
+        <article class="featured-card">
+          <div class="featured-image">
+            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1200&q=80" alt="The Godfather">
+          </div>
+          <div class="featured-content">
+            <div class="meta">
+              <span class="pill">Crime</span>
+              <span class="pill">Classic</span>
+              <span class="pill">9.2/10</span>
+            </div>
+            <h3>The Godfather</h3>
+            <p>
+              A powerful crime family struggles with loyalty, legacy, and violence
+              as a reluctant son is drawn deeper into the family business.
+            </p>
+            <div class="watch-row">
+              <span class="watch-tag orange">Rent</span>
+              <span class="watch-tag green">Buy</span>
+            </div>
+            <a href="#" class="card-link">Read Full Guide →</a>
+          </div>
+        </article>
+
+        <article class="featured-card">
+          <div class="featured-image">
+            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80" alt="Mad Max Fury Road">
+          </div>
+          <div class="featured-content">
+            <div class="meta">
+              <span class="pill">Action</span>
+              <span class="pill">Adventure</span>
+              <span class="pill">8.5/10</span>
+            </div>
+            <h3>Mad Max: Fury Road</h3>
+            <p>
+              In a brutal wasteland, Max and Furiosa fight their way through chaos
+              in one of the most intense action journeys ever filmed.
+            </p>
+            <div class="watch-row">
+              <span class="watch-tag">Max</span>
+              <span class="watch-tag alt">Prime Video</span>
+            </div>
+            <a href="#" class="card-link">Read Full Guide →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="genre-section" id="genre-recommendations">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Recommendations by Genre</h2>
+          <p>Browse handpicked movie recommendations for each genre with horizontal sliders.</p>
+        </div>
+      </div>
+
+      <div class="genre-recommendation-wrap" id="genreRecommendations"></div>
+    </div>
+  </section>
+
+  <section id="movies">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Popular Movies</h2>
+          <p>These cards can be duplicated later when you start adding more movie pages.</p>
+        </div>
+      </div>
+
+      <div class="movies-grid" id="moviesGrid">
+        <article class="movie-card" data-title="Inception" data-genre="Sci-Fi">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=900&q=80" alt="Inception">
+          </div>
+          <div class="movie-content">
+            <h3>Inception</h3>
+            <div class="movie-info">Sci-Fi • 2010 • 8.8/10</div>
+            <p>A skilled thief enters dreams to steal secrets, but his toughest mission is planting an idea instead.</p>
+            <div class="mini-watch">
+              <span>Netflix</span>
+              <span>Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Interstellar" data-genre="Sci-Fi">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80" alt="Interstellar">
+          </div>
+          <div class="movie-content">
+            <h3>Interstellar</h3>
+            <div class="movie-info">Sci-Fi • 2014 • 8.7/10</div>
+            <p>A former pilot joins a space mission to find humanity a new home before Earth becomes unlivable.</p>
+            <div class="mini-watch">
+              <span>Prime Video</span>
+              <span>Apple TV</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="John Wick" data-genre="Action">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80" alt="John Wick">
+          </div>
+          <div class="movie-content">
+            <h3>John Wick</h3>
+            <div class="movie-info">Action • 2014 • 7.4/10</div>
+            <p>A retired assassin returns to the underworld after a brutal act pulls him back into violence.</p>
+            <div class="mini-watch">
+              <span>Netflix</span>
+              <span>Buy</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="The Dark Knight" data-genre="Action">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80" alt="The Dark Knight">
+          </div>
+          <div class="movie-content">
+            <h3>The Dark Knight</h3>
+            <div class="movie-info">Action • 2008 • 9.0/10</div>
+            <p>Batman faces his most dangerous enemy yet as Gotham descends into chaos under the Joker.</p>
+            <div class="mini-watch">
+              <span>Max</span>
+              <span>Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="The Shawshank Redemption" data-genre="Drama">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80" alt="The Shawshank Redemption">
+          </div>
+          <div class="movie-content">
+            <h3>The Shawshank Redemption</h3>
+            <div class="movie-info">Drama • 1994 • 9.3/10</div>
+            <p>A banker sentenced to prison forms an unlikely friendship while holding onto hope for freedom.</p>
+            <div class="mini-watch">
+              <span>Prime Video</span>
+              <span>Buy</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="The Martian" data-genre="Adventure">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="The Martian">
+          </div>
+          <div class="movie-content">
+            <h3>The Martian</h3>
+            <div class="movie-info">Adventure • 2015 • 8.0/10</div>
+            <p>An astronaut stranded on Mars uses science, humor, and grit to survive against impossible odds.</p>
+            <div class="mini-watch">
+              <span>Disney+</span>
+              <span>Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Gladiator" data-genre="Action">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=900&q=80" alt="Gladiator">
+          </div>
+          <div class="movie-content">
+            <h3>Gladiator</h3>
+            <div class="movie-info">Action • 2000 • 8.5/10</div>
+            <p>A betrayed Roman general rises as a gladiator and seeks justice in front of the empire.</p>
+            <div class="mini-watch">
+              <span>Netflix</span>
+              <span>Buy</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Heat" data-genre="Crime">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80" alt="Heat">
+          </div>
+          <div class="movie-content">
+            <h3>Heat</h3>
+            <div class="movie-info">Crime • 1995 • 8.3/10</div>
+            <p>A master thief and a determined detective play a dangerous game of strategy and obsession.</p>
+            <div class="mini-watch">
+              <span>Prime Video</span>
+              <span>Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="guides" class="info-section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Watch Guides</h2>
+          <p>These are the kinds of SEO pages that can bring real visitors from Google.</p>
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <h3>Where to Watch Pages</h3>
+          <p>
+            Create pages like “Where to watch Dune: Part Two in the UK” or
+            “Is John Wick on Netflix?” These types of pages get searched a lot.
+          </p>
+        </div>
+
+        <div class="info-box">
+          <h3>Best Movies on Each Platform</h3>
+          <p>
+            Make pages like “Best action movies on Netflix” or “Top sci-fi movies on Prime Video”
+            so users can browse by streaming service.
+          </p>
+        </div>
+
+        <div class="info-box">
+          <h3>Movies Like...</h3>
+          <p>
+            Recommendation pages like “Movies like Interstellar” or “Best films like The Dark Knight”
+            are great for traffic and keep readers on your site longer.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="cta">
+    <div class="container">
+      <h2>Build your own movie brand.</h2>
+      <p>
+        Start with a clean homepage, then add separate pages for each movie, each guide,
+        and each streaming category. That is how this turns into a real movie website.
+      </p>
+      <a href="#movies" class="btn btn-primary">Start Adding Movies</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© 2026 MovieSpot. Discover movies and where to watch them.</p>
+
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="cookies.html">Cookies Policy</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const genreFilter = document.getElementById("genreFilter");
+    const movieCards = document.querySelectorAll("#movies .movie-card");
+
+    function filterMovies(){
+      const searchValue = searchInput.value.toLowerCase().trim();
+      const selectedGenre = genreFilter.value;
+
+      movieCards.forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        const genre = card.dataset.genre;
+        const matchesSearch = title.includes(searchValue);
+        const matchesGenre = selectedGenre === "all" || genre === selectedGenre;
+
+        card.style.display = matchesSearch && matchesGenre ? "block" : "none";
+      });
+    }
+
+    searchInput.addEventListener("input", filterMovies);
+    genreFilter.addEventListener("change", filterMovies);
+
+    const movieDatabase = [
+      {
+        title: "Inception",
+        genre: "Sci-Fi",
+        year: "2010",
+        summary: "A skilled thief enters dreams to steal secrets, but his toughest mission is planting an idea instead.",
+        poster: "https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Interstellar",
+        genre: "Sci-Fi",
+        year: "2014",
+        summary: "A former pilot joins a space mission to save humanity.",
+        poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "John Wick",
+        genre: "Action",
+        year: "2014",
+        summary: "A retired assassin returns to the underworld after a brutal loss.",
+        poster: "https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "The Dark Knight",
+        genre: "Action",
+        year: "2008",
+        summary: "Batman faces the Joker as Gotham descends into chaos.",
+        poster: "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Gladiator",
+        genre: "Action",
+        year: "2000",
+        summary: "A betrayed Roman general rises as a gladiator to seek justice.",
+        poster: "https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "The Martian",
+        genre: "Adventure",
+        year: "2015",
+        summary: "An astronaut stranded on Mars must survive using science.",
+        poster: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Heat",
+        genre: "Crime",
+        year: "1995",
+        summary: "A master thief and a detective play a dangerous game.",
+        poster: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80"
+      }
+    ];
+
+    function getDailyMovies(movies, count = 4){
+      const today = new Date();
+      const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+
+      const shuffled = [...movies].sort((a, b) => {
+        const aVal = (a.title.length * seed) % 97;
+        const bVal = (b.title.length * seed) % 97;
+        return aVal - bVal;
+      });
+
+      return shuffled.slice(0, count);
+    }
+
+    function renderDailyMovies(){
+      const container = document.getElementById("dailyMovies");
+      if(!container) return;
+
+      const movies = getDailyMovies(movieDatabase, 4);
+
+      container.innerHTML = movies.map(movie => `
+        <article class="movie-card">
+          <div class="movie-poster">
+            <img src="${movie.poster}" alt="${movie.title}">
+          </div>
+          <div class="movie-content">
+            <h3>${movie.title}</h3>
+            <div class="movie-info">${movie.genre} • ${movie.year}</div>
+            <p>${movie.summary}</p>
+            <a href="#" class="card-link">View Movie →</a>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    renderDailyMovies();
+
+    const posterPool = [
+      "https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1400&q=80"
+    ];
+
+    const genreSeeds = {
+      "Action": ["John Wick","The Dark Knight","Gladiator","Mad Max: Fury Road","Mission Impossible","Die Hard","Terminator 2","Casino Royale","The Raid","Speed","Taken","300","The Equalizer","Top Gun: Maverick","Léon"],
+      "Adventure": ["The Martian","Jurassic Park","Indiana Jones","Avatar","Pirates of the Caribbean","The Revenant","Life of Pi","King Kong","The Mummy","National Treasure","Jumanji","Moana","The Jungle Book","Up","Treasure Planet"],
+      "Animation": ["Toy Story","Finding Nemo","Shrek","Frozen","Inside Out","Coco","The Lion King","Ratatouille","Zootopia","How to Train Your Dragon","Big Hero 6","Monsters, Inc.","Encanto","Kung Fu Panda","Cars"],
+      "Biography": ["A Beautiful Mind","The Social Network","Bohemian Rhapsody","Oppenheimer","Lincoln","Malcolm X","The Theory of Everything","Ali","Walk the Line","The Pianist","Ray","Capote","Hidden Figures","Ford v Ferrari","Steve Jobs"],
+      "Comedy": ["Superbad","The Hangover","Step Brothers","Mean Girls","Anchorman","Bridesmaids","School of Rock","Elf","Ghostbusters","Home Alone","Rush Hour","The Mask","Coming to America","21 Jump Street","Tropic Thunder"],
+      "Crime": ["The Godfather","Heat","Goodfellas","The Departed","Pulp Fiction","Scarface","Se7en","Casino","Zodiac","American Gangster","Donnie Brasco","The Irishman","City of God","Training Day","No Country for Old Men"],
+      "Documentary": ["Free Solo","13th","The Last Dance","Won't You Be My Neighbor?","My Octopus Teacher","March of the Penguins","Blackfish","Icarus","Senna","Man on Wire","Planet Earth","Amy","Fire of Love","The Cove","Citizenfour"],
+      "Drama": ["The Shawshank Redemption","Forrest Gump","The Pursuit of Happyness","A Beautiful Mind","Whiplash","Fight Club","The Green Mile","Titanic","Moonlight","12 Years a Slave","The Pianist","Manchester by the Sea","There Will Be Blood","The Help","Room"],
+      "Family": ["Paddington 2","The Parent Trap","Mary Poppins","Home Alone","The Sound of Music","The Princess Bride","Willy Wonka","Babe","Matilda","Peter Pan","Mrs. Doubtfire","Night at the Museum","Enchanted","Lilo & Stitch","The Incredibles"],
+      "Fantasy": ["Harry Potter","The Lord of the Rings","Pan's Labyrinth","The Chronicles of Narnia","Edward Scissorhands","Doctor Strange","Stardust","The Shape of Water","Big Fish","Willow","Labyrinth","Bridge to Terabithia","The Hobbit","Spirited Away","The Green Knight"],
+      "History": ["Schindler's List","Braveheart","Lincoln","1917","The King's Speech","Apollo 13","Dunkirk","Glory","Hotel Rwanda","The Last Emperor","Argo","Elizabeth","Darkest Hour","Selma","The Imitation Game"],
+      "Horror": ["The Conjuring","Get Out","A Quiet Place","The Exorcist","Hereditary","It","The Shining","Halloween","The Ring","Insidious","Scream","Paranormal Activity","The Babadook","Sinister","Us"],
+      "Music": ["Whiplash","La La Land","Bohemian Rhapsody","Ray","Walk the Line","A Star Is Born","School of Rock","Begin Again","Amadeus","Rocketman","The Greatest Showman","Moulin Rouge!","Once","West Side Story","Soul"],
+      "Mystery": ["Knives Out","Shutter Island","Prisoners","Gone Girl","The Sixth Sense","Memento","Zodiac","The Prestige","Murder on the Orient Express","The Girl with the Dragon Tattoo","Rear Window","Chinatown","Enola Holmes","Mystic River","The Others"],
+      "Romance": ["Titanic","The Notebook","Pride & Prejudice","La La Land","Before Sunrise","A Star Is Born","Notting Hill","Crazy Rich Asians","Pretty Woman","Me Before You","The Fault in Our Stars","Ghost","Roman Holiday","Your Name","Casablanca"],
+      "Sci-Fi": ["Inception","Interstellar","Dune: Part Two","The Martian","Blade Runner 2049","The Matrix","Arrival","Ex Machina","Minority Report","District 9","Looper","E.T.","Children of Men","Gravity","Alien"],
+      "Sport": ["Rocky","Creed","Remember the Titans","Coach Carter","Moneyball","Rush","Ford v Ferrari","The Blind Side","Raging Bull","Ali","Miracle","Space Jam","The Fighter","Bend It Like Beckham","Hoosiers"],
+      "Thriller": ["Gone Girl","Prisoners","Se7en","The Silence of the Lambs","Black Swan","Nightcrawler","Shutter Island","The Girl with the Dragon Tattoo","Sicario","The Game","Enemy of the State","The Fugitive","Nocturnal Animals","Argo","The Invisible Man"],
+      "War": ["Saving Private Ryan","1917","Dunkirk","Black Hawk Down","Apocalypse Now","Hacksaw Ridge","Full Metal Jacket","The Hurt Locker","Platoon","The Thin Red Line","Fury","Letters from Iwo Jima","Glory","The Bridge on the River Kwai","The Great Escape"],
+      "Western": ["The Good, the Bad and the Ugly","Unforgiven","Django Unchained","True Grit","Once Upon a Time in the West","The Magnificent Seven","High Noon","The Hateful Eight","Tombstone","3:10 to Yuma","The Searchers","Rio Bravo","Open Range","Butch Cassidy","The Revenant"]
+    };
+
+    function makeMovie(genre, title, index){
+      const year = 1980 + ((genre.length * 7 + index * 3) % 45);
+      const summaries = {
+        "Action": `Explosive action and high-stakes danger drive ${title}.`,
+        "Adventure": `${title} takes viewers on a bold adventure across dangerous worlds.`,
+        "Animation": `${title} delivers colorful storytelling and memorable animated characters.`,
+        "Biography": `${title} explores the remarkable true story behind a powerful life.`,
+        "Comedy": `${title} brings laughs, chaos, and unforgettable comic moments.`,
+        "Crime": `${title} dives into crime, loyalty, betrayal, and consequence.`,
+        "Documentary": `${title} offers a gripping documentary look at a real subject that matters.`,
+        "Drama": `${title} tells an emotional story shaped by conflict, growth, and resilience.`,
+        "Family": `${title} is a family-friendly story filled with warmth, heart, and fun.`,
+        "Fantasy": `${title} opens the door to magic, myth, and imagination.`,
+        "History": `${title} revisits a key historical moment through dramatic storytelling.`,
+        "Horror": `${title} builds dread, fear, and unforgettable horror tension.`,
+        "Music": `${title} blends music, performance, and emotion into one powerful story.`,
+        "Mystery": `${title} unravels clues, secrets, and a suspenseful mystery.`,
+        "Romance": `${title} centers on love, connection, and emotional choices.`,
+        "Sci-Fi": `${title} explores futuristic ideas, science fiction, and what lies beyond.`,
+        "Sport": `${title} captures competition, discipline, and the fight for victory.`,
+        "Thriller": `${title} keeps the pressure high with twists, danger, and suspense.`,
+        "War": `${title} shows the brutality, sacrifice, and courage of war.`,
+        "Western": `${title} rides through a harsh frontier shaped by justice and survival.`
+      };
+
+      return {
+        title,
+        year: String(year),
+        genre,
+        summary: summaries[genre] || `${title} is one of the standout recommendations in ${genre}.`,
+        poster: posterPool[index % posterPool.length]
+      };
+    }
+
+    const genreMovieDatabase = {};
+    Object.entries(genreSeeds).forEach(([genre, titles]) => {
+      genreMovieDatabase[genre] = titles.map((title, index) => makeMovie(genre, title, index));
+    });
+
+    function renderGenreRecommendations(){
+      const container = document.getElementById("genreRecommendations");
+      if(!container) return;
+
+      container.innerHTML = Object.entries(genreMovieDatabase).map(([genre, movies], index) => `
+        <div class="genre-row">
+          <div class="genre-top">
+            <div>
+              <h3>${genre} Recommendations</h3>
+              <p>Top picks and must-watch titles in ${genre}.</p>
+            </div>
+
+            <div class="slider-controls">
+              <button class="slider-btn" onclick="slideGenre('genreSlider${index}', -520)">‹</button>
+              <button class="slider-btn" onclick="slideGenre('genreSlider${index}', 520)">›</button>
+            </div>
+          </div>
+
+          <div class="genre-slider" id="genreSlider${index}">
+            ${movies.slice(0, 15).map(movie => `
+              <article class="genre-movie-card">
+                <div class="genre-movie-poster">
+                  <img src="${movie.poster}" alt="${movie.title}">
+                </div>
+                <div class="genre-movie-content">
+                  <h4>${movie.title}</h4>
+                  <div class="movie-info">${movie.genre} • ${movie.year}</div>
+                  <p>${movie.summary}</p>
+                  <a href="#" class="card-link">View Movie →</a>
+                </div>
+              </article>
+            `).join("")}
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function slideGenre(sliderId, amount){
+      const slider = document.getElementById(sliderId);
+      if(slider){
+        slider.scrollBy({
+          left: amount,
+          behavior: "smooth"
+        });
+      }
+    }
+
+    renderGenreRecommendations();
+  </script>
+
+</body>
+</html>

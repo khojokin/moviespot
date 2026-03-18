@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MovieSpot | Action Movies</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#0f172a;
+      color:#e5e7eb;
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+      transition:0.3s;
+    }
+
+    button,
+    input,
+    select{
+      font-family:Arial, Helvetica, sans-serif;
+      transition:0.3s;
+    }
+
+    .container{
+      width:min(1200px, 92%);
+      margin:auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(15,23,42,0.95);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(8px);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:16px 0;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:700;
+      color:#facc15;
+      letter-spacing:0.5px;
+    }
+
+    .logo span{
+      color:#ffffff;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:#cbd5e1;
+      font-size:15px;
+    }
+
+    .nav-links a:hover{
+      color:#facc15;
+    }
+
+    .hero{
+      background:
+        linear-gradient(rgba(15,23,42,0.78), rgba(15,23,42,0.92)),
+        url('https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      min-height:70vh;
+      display:flex;
+      align-items:center;
+    }
+
+    .hero-content{
+      max-width:760px;
+      padding:60px 0;
+    }
+
+    .hero-tag{
+      display:inline-block;
+      background:rgba(250,204,21,0.12);
+      color:#facc15;
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:14px;
+      margin-bottom:18px;
+      border:1px solid rgba(250,204,21,0.28);
+    }
+
+    .hero h1{
+      font-size:clamp(34px, 5vw, 60px);
+      line-height:1.1;
+      margin-bottom:18px;
+      color:#ffffff;
+    }
+
+    .hero p{
+      font-size:18px;
+      color:#cbd5e1;
+      margin-bottom:28px;
+      max-width:680px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 22px;
+      border-radius:12px;
+      font-weight:700;
+      font-size:15px;
+      border:none;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:#facc15;
+      color:#111827;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 24px rgba(250,204,21,0.2);
+    }
+
+    .btn-secondary{
+      background:transparent;
+      color:#ffffff;
+      border:1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn-secondary:hover{
+      background:rgba(255,255,255,0.06);
+    }
+
+    section{
+      padding:70px 0;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-bottom:28px;
+    }
+
+    .section-head h2{
+      font-size:32px;
+      color:#ffffff;
+      margin-bottom:8px;
+    }
+
+    .section-head p{
+      color:#94a3b8;
+      max-width:700px;
+    }
+
+    .featured-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:24px;
+    }
+
+    .featured-card{
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:20px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .featured-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 18px 40px rgba(0,0,0,0.25);
+    }
+
+    .featured-image{
+      height:250px;
+      overflow:hidden;
+    }
+
+    .featured-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .featured-content{
+      padding:20px;
+    }
+
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom:12px;
+    }
+
+    .pill{
+      background:rgba(255,255,255,0.06);
+      color:#cbd5e1;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+    }
+
+    .featured-content h3{
+      font-size:24px;
+      color:#ffffff;
+      margin-bottom:10px;
+    }
+
+    .featured-content p{
+      color:#cbd5e1;
+      font-size:15px;
+      margin-bottom:16px;
+    }
+
+    .watch-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:18px;
+    }
+
+    .watch-tag{
+      font-size:12px;
+      font-weight:700;
+      padding:7px 10px;
+      border-radius:999px;
+      background:#1d4ed8;
+      color:#ffffff;
+    }
+
+    .watch-tag.alt{
+      background:#7c3aed;
+    }
+
+    .watch-tag.green{
+      background:#059669;
+    }
+
+    .watch-tag.orange{
+      background:#ea580c;
+    }
+
+    .card-link{
+      display:inline-block;
+      color:#facc15;
+      font-weight:700;
+    }
+
+    .card-link:hover{
+      opacity:0.8;
+    }
+
+    .movies-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:22px;
+    }
+
+    .movie-card{
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .movie-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 18px 36px rgba(0,0,0,0.22);
+    }
+
+    .movie-poster{
+      height:280px;
+      overflow:hidden;
+      background:#1e293b;
+    }
+
+    .movie-poster img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .movie-content{
+      padding:18px;
+    }
+
+    .movie-content h3{
+      color:#ffffff;
+      font-size:20px;
+      margin-bottom:8px;
+    }
+
+    .movie-info{
+      color:#94a3b8;
+      font-size:14px;
+      margin-bottom:10px;
+    }
+
+    .movie-content p{
+      color:#cbd5e1;
+      font-size:14px;
+      margin-bottom:14px;
+    }
+
+    .mini-watch{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:14px;
+    }
+
+    .mini-watch span{
+      background:rgba(250,204,21,0.12);
+      border:1px solid rgba(250,204,21,0.18);
+      color:#facc15;
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+    }
+
+    .details-section{
+      background:#111827;
+    }
+
+    .details-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:22px;
+    }
+
+    .details-box{
+      background:#0f172a;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      padding:24px;
+    }
+
+    .details-box h3{
+      font-size:22px;
+      color:#ffffff;
+      margin-bottom:12px;
+    }
+
+    .details-box p{
+      color:#cbd5e1;
+      font-size:15px;
+    }
+
+    .cta{
+      text-align:center;
+      background:linear-gradient(135deg, #1e293b, #111827);
+    }
+
+    .cta h2{
+      font-size:36px;
+      color:#ffffff;
+      margin-bottom:12px;
+    }
+
+    .cta p{
+      max-width:720px;
+      margin:0 auto 24px;
+      color:#cbd5e1;
+    }
+
+    footer{
+      background:#020617;
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding:24px 0;
+    }
+
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .footer-inner p{
+      color:#94a3b8;
+      font-size:14px;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+    }
+
+    .footer-links a{
+      color:#cbd5e1;
+      font-size:14px;
+    }
+
+    .footer-links a:hover{
+      color:#facc15;
+    }
+
+    @media(max-width:1024px){
+      .featured-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .movies-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .details-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:768px){
+      .nav{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .nav-links{
+        gap:14px;
+      }
+
+      .featured-grid{
+        grid-template-columns:1fr;
+      }
+
+      .movies-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        min-height:auto;
+      }
+
+      .hero-content{
+        padding:70px 0;
+      }
+
+      .section-head h2{
+        font-size:28px;
+      }
+
+      .cta h2{
+        font-size:30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo">Movie<span>Spot</span></a>
+
+      <nav class="nav-links">
+        <a href="index.html#featured">Featured</a>
+        <a href="index.html#movies">Movies</a>
+        <a href="index.html#guides">Watch Guides</a>
+        <a href="index.html#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-tag">Action Movie Collection</div>
+        <h1>Best Action Movies To Watch Right Now</h1>
+        <p>
+          Explore explosive action films packed with chases, fights, danger, heroes,
+          anti-heroes, survival stories, and unforgettable high-stakes moments.
+        </p>
+        <div class="hero-buttons">
+          <a href="#action-movies" class="btn btn-primary">Browse Action Movies</a>
+          <a href="#action-details" class="btn btn-secondary">Genre Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="featured">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Featured Action Picks</h2>
+          <p>Top action movie choices with strong pacing, thrilling scenes, and rewatch value.</p>
+        </div>
+      </div>
+
+      <div class="featured-grid">
+        <article class="featured-card">
+          <div class="featured-image">
+            <img src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80" alt="John Wick">
+          </div>
+          <div class="featured-content">
+            <div class="meta">
+              <span class="pill">Action</span>
+              <span class="pill">2014</span>
+              <span class="pill">7.4/10</span>
+            </div>
+            <h3>John Wick</h3>
+            <p>
+              A retired assassin is dragged back into a brutal underworld after a deeply personal loss
+              pushes him into revenge.
+            </p>
+            <div class="watch-row">
+              <span class="watch-tag">Netflix</span>
+              <span class="watch-tag green">Buy</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="featured-card">
+          <div class="featured-image">
+            <img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80" alt="The Dark Knight">
+          </div>
+          <div class="featured-content">
+            <div class="meta">
+              <span class="pill">Action</span>
+              <span class="pill">2008</span>
+              <span class="pill">9.0/10</span>
+            </div>
+            <h3>The Dark Knight</h3>
+            <p>
+              Batman takes on the Joker in a dark battle that pushes Gotham into chaos
+              and tests the limits of heroism.
+            </p>
+            <div class="watch-row">
+              <span class="watch-tag alt">Max</span>
+              <span class="watch-tag orange">Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="featured-card">
+          <div class="featured-image">
+            <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=900&q=80" alt="Gladiator">
+          </div>
+          <div class="featured-content">
+            <div class="meta">
+              <span class="pill">Action</span>
+              <span class="pill">2000</span>
+              <span class="pill">8.5/10</span>
+            </div>
+            <h3>Gladiator</h3>
+            <p>
+              A betrayed Roman general fights his way through the arena to reclaim honor
+              and get justice against a corrupt emperor.
+            </p>
+            <div class="watch-row">
+              <span class="watch-tag">Netflix</span>
+              <span class="watch-tag green">Buy</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="action-movies">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Popular Action Movies</h2>
+          <p>Browse standout action films with strong plots, intense pacing, and memorable set pieces.</p>
+        </div>
+      </div>
+
+      <div class="movies-grid">
+        <article class="movie-card">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80" alt="John Wick">
+          </div>
+          <div class="movie-content">
+            <h3>John Wick</h3>
+            <div class="movie-info">Action • 2014 • Revenge Thriller</div>
+            <p>A retired hitman returns to the underworld in a relentless path of revenge and survival.</p>
+            <div class="mini-watch">
+              <span>Netflix</span>
+              <span>Buy</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80" alt="The Dark Knight">
+          </div>
+          <div class="movie-content">
+            <h3>The Dark Knight</h3>
+            <div class="movie-info">Action • 2008 • Superhero Crime</div>
+            <p>Batman faces the Joker in a city-wide conflict full of fear, moral choices, and destruction.</p>
+            <div class="mini-watch">
+              <span>Max</span>
+              <span>Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=900&q=80" alt="Gladiator">
+          </div>
+          <div class="movie-content">
+            <h3>Gladiator</h3>
+            <div class="movie-info">Action • 2000 • Historical Epic</div>
+            <p>A Roman general becomes a gladiator after betrayal and fights to restore justice.</p>
+            <div class="mini-watch">
+              <span>Netflix</span>
+              <span>Buy</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80" alt="Mad Max Fury Road">
+          </div>
+          <div class="movie-content">
+            <h3>Mad Max: Fury Road</h3>
+            <div class="movie-info">Action • 2015 • Post-Apocalyptic</div>
+            <p>A nonstop high-speed chase unfolds across a wasteland as rebels fight for freedom.</p>
+            <div class="mini-watch">
+              <span>Max</span>
+              <span>Prime Video</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1200&q=80" alt="Mission Impossible">
+          </div>
+          <div class="movie-content">
+            <h3>Mission: Impossible</h3>
+            <div class="movie-info">Action • 1996 • Spy Action</div>
+            <p>A top secret agent runs from betrayal while trying to uncover the truth behind a failed mission.</p>
+            <div class="mini-watch">
+              <span>Rent</span>
+              <span>Buy</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Die Hard">
+          </div>
+          <div class="movie-content">
+            <h3>Die Hard</h3>
+            <div class="movie-info">Action • 1988 • Classic Action</div>
+            <p>A lone cop battles terrorists inside a skyscraper in one of cinema’s most famous action films.</p>
+            <div class="mini-watch">
+              <span>Disney+</span>
+              <span>Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80" alt="Terminator 2">
+          </div>
+          <div class="movie-content">
+            <h3>Terminator 2</h3>
+            <div class="movie-info">Action • 1991 • Sci-Fi Action</div>
+            <p>A cyborg protector returns to stop a deadly future and defend humanity’s fate.</p>
+            <div class="mini-watch">
+              <span>Prime Video</span>
+              <span>Buy</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=900&q=80" alt="Casino Royale">
+          </div>
+          <div class="movie-content">
+            <h3>Casino Royale</h3>
+            <div class="movie-info">Action • 2006 • Spy Thriller</div>
+            <p>James Bond begins a dangerous new chapter filled with betrayal, danger, and high-risk missions.</p>
+            <div class="mini-watch">
+              <span>Prime Video</span>
+              <span>Rent</span>
+            </div>
+            <a href="#" class="card-link">Where to Watch →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="action-details" class="details-section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Action Genre Details</h2>
+          <p>Useful details you can keep repeating later for other genre pages too.</p>
+        </div>
+      </div>
+
+      <div class="details-grid">
+        <div class="details-box">
+          <h3>What Makes An Action Movie?</h3>
+          <p>
+            Action movies are built around movement, danger, conflict, and spectacle.
+            They often include fights, chases, weapons, survival situations, rescue missions,
+            and fast decision-making under pressure.
+          </p>
+        </div>
+
+        <div class="details-box">
+          <h3>Popular Action Subgenres</h3>
+          <p>
+            Common action subgenres include spy action, superhero action, martial arts,
+            military action, revenge thrillers, post-apocalyptic survival, and crime action.
+          </p>
+        </div>
+
+        <div class="details-box">
+          <h3>Why People Love Action Films</h3>
+          <p>
+            Viewers enjoy action films because they deliver excitement, intensity,
+            memorable heroes, bold visuals, and strong adrenaline from beginning to end.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Explore more action favorites.</h2>
+      <p>
+        Keep building this page with more action titles, streaming guides,
+        and “best action movies” lists to grow your site.
+      </p>
+      <a href="index.html" class="btn btn-primary">Back to Home</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© 2026 MovieSpot. Discover movies and where to watch them.</p>
+
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="cookies.html">Cookies Policy</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
