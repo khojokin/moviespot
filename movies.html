@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MovieSpot | Movies</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#0f172a;
+      color:#e5e7eb;
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+      transition:0.3s;
+    }
+
+    button,
+    input,
+    select{
+      font-family:Arial, Helvetica, sans-serif;
+      transition:0.3s;
+    }
+
+    .container{
+      width:min(1200px, 92%);
+      margin:auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(15,23,42,0.95);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(8px);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:16px 0;
+      position:relative;
+    }
+
+    .logo-wrap{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+      flex-shrink:0;
+    }
+
+    .logo-image-box{
+      width:52px;
+      height:52px;
+      border-radius:12px;
+      border:2px solid #facc15;
+      box-shadow:0 0 14px rgba(250,204,21,0.45);
+      overflow:hidden;
+      flex-shrink:0;
+      background:#111827;
+    }
+
+    .logo-image-box img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .logo-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+      min-width:0;
+    }
+
+    .logo-title{
+      font-size:27px;
+      font-weight:800;
+      color:#facc15;
+      letter-spacing:0.5px;
+    }
+
+    .logo-title span{
+      color:#ffffff;
+    }
+
+    .logo-sub{
+      font-size:11px;
+      color:#cbd5e1;
+      letter-spacing:1.8px;
+      text-transform:uppercase;
+      margin-top:4px;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:#cbd5e1;
+      font-size:15px;
+      position:relative;
+      padding-bottom:4px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active{
+      color:#facc15;
+    }
+
+    .nav-links a.active::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-4px;
+      width:100%;
+      height:2px;
+      background:#facc15;
+      border-radius:999px;
+    }
+
+    .menu-toggle{
+      display:none;
+      width:46px;
+      height:46px;
+      border-radius:12px;
+      border:1px solid rgba(250,204,21,0.35);
+      background:#111827;
+      color:#facc15;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      flex-direction:column;
+      gap:5px;
+      box-shadow:0 0 12px rgba(250,204,21,0.12);
+    }
+
+    .menu-toggle span{
+      width:20px;
+      height:2px;
+      background:#facc15;
+      border-radius:999px;
+      display:block;
+    }
+
+    .hero{
+      background:
+        linear-gradient(rgba(15,23,42,0.78), rgba(15,23,42,0.92)),
+        url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      min-height:85vh;
+      display:flex;
+      align-items:center;
+    }
+
+    .hero-layout{
+      display:grid;
+      grid-template-columns:1.05fr 0.95fr;
+      gap:34px;
+      align-items:center;
+      width:100%;
+    }
+
+    .hero-content{
+      max-width:720px;
+      padding:60px 0;
+    }
+
+    .hero-tag{
+      display:inline-block;
+      background:rgba(250,204,21,0.12);
+      color:#facc15;
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:14px;
+      margin-bottom:18px;
+      border:1px solid rgba(250,204,21,0.28);
+    }
+
+    .hero h1{
+      font-size:clamp(34px, 5vw, 62px);
+      line-height:1.1;
+      margin-bottom:18px;
+      color:#ffffff;
+    }
+
+    .hero p{
+      font-size:18px;
+      color:#cbd5e1;
+      margin-bottom:28px;
+      max-width:620px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .hero-panel{
+      background:rgba(2,6,23,0.76);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:24px;
+      padding:26px;
+      box-shadow:0 18px 40px rgba(0,0,0,0.25);
+      backdrop-filter:blur(8px);
+    }
+
+    .hero-panel h3{
+      color:#ffffff;
+      font-size:24px;
+      margin-bottom:10px;
+    }
+
+    .hero-panel p{
+      color:#94a3b8;
+      font-size:15px;
+      margin-bottom:20px;
+      max-width:none;
+    }
+
+    .hero-stats{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:14px;
+      margin-bottom:20px;
+    }
+
+    .hero-stat{
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      padding:18px;
+    }
+
+    .hero-stat strong{
+      display:block;
+      color:#facc15;
+      font-size:24px;
+      margin-bottom:6px;
+    }
+
+    .hero-stat span{
+      color:#cbd5e1;
+      font-size:14px;
+    }
+
+    .hero-mini-list{
+      display:grid;
+      gap:12px;
+    }
+
+    .hero-mini-item{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:14px 16px;
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:16px;
+    }
+
+    .hero-mini-item b{
+      color:#ffffff;
+      font-size:15px;
+    }
+
+    .hero-mini-item span{
+      color:#94a3b8;
+      font-size:13px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 22px;
+      border-radius:12px;
+      font-weight:700;
+      font-size:15px;
+      border:none;
+      cursor:pointer;
+      text-align:center;
+    }
+
+    .btn-primary{
+      background:#facc15;
+      color:#111827;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 24px rgba(250,204,21,0.2);
+    }
+
+    .btn-secondary{
+      background:transparent;
+      color:#ffffff;
+      border:1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn-secondary:hover{
+      background:rgba(255,255,255,0.06);
+    }
+
+    section{
+      padding:70px 0;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-bottom:28px;
+    }
+
+    .section-head h2{
+      font-size:32px;
+      color:#ffffff;
+      margin-bottom:8px;
+    }
+
+    .section-head p{
+      color:#94a3b8;
+      max-width:700px;
+    }
+
+    .tools{
+      background:#111827;
+      border-top:1px solid rgba(255,255,255,0.05);
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    .tool-bar{
+      display:grid;
+      grid-template-columns:2fr 1fr;
+      gap:16px;
+    }
+
+    .search-box,
+    .filter-box{
+      background:#1e293b;
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:14px;
+      padding:14px 16px;
+    }
+
+    .search-box input,
+    .filter-box select{
+      width:100%;
+      background:transparent;
+      border:none;
+      outline:none;
+      color:#ffffff;
+      font-size:15px;
+    }
+
+    .filter-box select option{
+      color:#111827;
+    }
+
+    .genre-links-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:18px;
+    }
+
+    .genre-link-card{
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      padding:22px 18px;
+      transition:0.3s;
+      text-align:center;
+    }
+
+    .genre-link-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 18px 36px rgba(0,0,0,0.22);
+      border-color:rgba(250,204,21,0.25);
+    }
+
+    .genre-link-card h3{
+      color:#ffffff;
+      font-size:20px;
+      margin-bottom:10px;
+    }
+
+    .genre-link-card p{
+      color:#94a3b8;
+      font-size:14px;
+      margin-bottom:14px;
+    }
+
+    .genre-link-card a{
+      color:#facc15;
+      font-weight:700;
+      font-size:14px;
+    }
+
+    .featured-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:24px;
+    }
+
+    .featured-card{
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:20px;
+      overflow:hidden;
+      transition:0.3s;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .featured-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 18px 40px rgba(0,0,0,0.25);
+    }
+
+    .featured-image{
+      height:250px;
+      overflow:hidden;
+    }
+
+    .featured-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .featured-content{
+      padding:20px;
+      display:flex;
+      flex-direction:column;
+      flex:1;
+    }
+
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom:12px;
+    }
+
+    .pill{
+      background:rgba(255,255,255,0.06);
+      color:#cbd5e1;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+    }
+
+    .featured-content h3{
+      font-size:24px;
+      color:#ffffff;
+      margin-bottom:10px;
+    }
+
+    .featured-content p{
+      color:#cbd5e1;
+      font-size:15px;
+      margin-bottom:16px;
+    }
+
+    .card-link{
+      display:inline-block;
+      color:#facc15;
+      font-weight:700;
+    }
+
+    .card-link:hover{
+      opacity:0.8;
+    }
+
+    .movies-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:22px;
+    }
+
+    .movie-card{
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      overflow:hidden;
+      transition:0.3s;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .movie-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 18px 36px rgba(0,0,0,0.22);
+    }
+
+    .movie-poster{
+      height:280px;
+      overflow:hidden;
+      background:#1e293b;
+    }
+
+    .movie-poster img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .movie-content{
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      flex:1;
+    }
+
+    .movie-content h3{
+      color:#ffffff;
+      font-size:20px;
+      margin-bottom:8px;
+    }
+
+    .movie-info{
+      color:#94a3b8;
+      font-size:14px;
+      margin-bottom:10px;
+    }
+
+    .movie-content p{
+      color:#cbd5e1;
+      font-size:14px;
+      margin-bottom:14px;
+    }
+
+    .mini-watch{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:auto;
+      margin-bottom:14px;
+    }
+
+    .mini-watch span{
+      background:rgba(250,204,21,0.12);
+      border:1px solid rgba(250,204,21,0.18);
+      color:#facc15;
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+    }
+
+    .info-section{
+      background:#111827;
+    }
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:22px;
+    }
+
+    .info-box{
+      background:#0f172a;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      padding:24px;
+    }
+
+    .info-box h3{
+      font-size:22px;
+      color:#ffffff;
+      margin-bottom:12px;
+    }
+
+    .info-box p{
+      color:#cbd5e1;
+      font-size:15px;
+      margin-bottom:14px;
+    }
+
+    .cta{
+      text-align:center;
+      background:linear-gradient(135deg, #1e293b, #111827);
+    }
+
+    .cta h2{
+      font-size:36px;
+      color:#ffffff;
+      margin-bottom:12px;
+    }
+
+    .cta p{
+      max-width:720px;
+      margin:0 auto 24px;
+      color:#cbd5e1;
+    }
+
+    .cta-actions{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    footer{
+      background:#020617;
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding:24px 0;
+    }
+
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .footer-inner p{
+      color:#94a3b8;
+      font-size:14px;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+    }
+
+    .footer-links a{
+      color:#cbd5e1;
+      font-size:14px;
+    }
+
+    .footer-links a:hover{
+      color:#facc15;
+    }
+
+    @media(max-width:1024px){
+      .hero-layout{
+        grid-template-columns:1fr;
+      }
+
+      .featured-grid,
+      .genre-links-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .movies-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .info-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:768px){
+      .nav{
+        padding:14px 0;
+      }
+
+      .menu-toggle{
+        display:flex;
+      }
+
+      .nav-links{
+        position:absolute;
+        top:100%;
+        left:0;
+        right:0;
+        display:none;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:0;
+        background:#0f172a;
+        border:1px solid rgba(255,255,255,0.08);
+        border-radius:16px;
+        padding:12px;
+        box-shadow:0 16px 30px rgba(0,0,0,0.28);
+      }
+
+      .nav-links.show{
+        display:flex;
+      }
+
+      .nav-links a{
+        width:100%;
+        padding:12px 10px;
+        border-radius:10px;
+      }
+
+      .nav-links a.active::after{
+        display:none;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active{
+        background:rgba(250,204,21,0.12);
+      }
+
+      .tool-bar{
+        grid-template-columns:1fr;
+      }
+
+      .featured-grid,
+      .genre-links-grid,
+      .movies-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        min-height:auto;
+      }
+
+      .hero-content{
+        padding:70px 0 24px;
+      }
+
+      .section-head h2{
+        font-size:28px;
+      }
+
+      .cta h2{
+        font-size:30px;
+      }
+
+      .logo-image-box{
+        width:46px;
+        height:46px;
+      }
+
+      .logo-title{
+        font-size:22px;
+      }
+
+      .logo-sub{
+        font-size:10px;
+        letter-spacing:1.2px;
+      }
+
+      .hero-stats{
+        grid-template-columns:1fr;
+      }
+
+      .hero-mini-item{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .footer-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+
+    @media(max-width:480px){
+      .container{
+        width:min(1200px, 94%);
+      }
+
+      .hero h1{
+        font-size:32px;
+      }
+
+      .hero p{
+        font-size:16px;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .hero-buttons,
+      .cta-actions{
+        flex-direction:column;
+      }
+
+      .logo-title{
+        font-size:20px;
+      }
+
+      .logo-sub{
+        font-size:9px;
+      }
+
+      .section-head h2{
+        font-size:25px;
+      }
+    }
+  </style>
+</head>
+<body data-page="movies">
+
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo-wrap">
+        <span class="logo-image-box">
+          <img id="siteLogo" src="logo.png" alt="MovieSpot Logo">
+        </span>
+        <span class="logo-text">
+          <span class="logo-title">Movie<span>Spot</span></span>
+          <span class="logo-sub">Find Your Next Watch</span>
+        </span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="#featured">Featured</a>
+        <a href="movies.html" class="active">Movies</a>
+        <a href="newrelease.html">New Releases</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-layout">
+        <div class="hero-content">
+          <div class="hero-tag" id="heroTagText">Browse the full collection</div>
+          <h1 id="heroTitleText">Explore movies by genre, title, and fresh picks.</h1>
+          <p id="heroDescText">
+            MovieSpot helps visitors browse your movie library faster, discover genre pages,
+            and search for films all in one clean movie hub.
+          </p>
+          <div class="hero-buttons">
+            <a href="#all-movies" class="btn btn-primary" id="primaryBtnText">Browse All Movies</a>
+            <a href="#genres" class="btn btn-secondary" id="secondaryBtnText">Browse Genres</a>
+          </div>
+        </div>
+
+        <div class="hero-panel">
+          <h3>Start exploring faster</h3>
+          <p>Search titles, filter genres, and jump into the type of movie you want without wasting time.</p>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong>20+</strong>
+              <span>Genres to explore</span>
+            </div>
+            <div class="hero-stat">
+              <strong>100+</strong>
+              <span>Movie ideas</span>
+            </div>
+          </div>
+
+          <div class="hero-mini-list">
+            <div class="hero-mini-item">
+              <b>Search by title</b>
+              <span>Fast results</span>
+            </div>
+            <div class="hero-mini-item">
+              <b>Filter by genre</b>
+              <span>Easy browsing</span>
+            </div>
+            <div class="hero-mini-item">
+              <b>Open genre pages</b>
+              <span>Action to western</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tools">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Search Movies</h2>
+          <p>Use the search box and filter to explore your movie collection faster.</p>
+        </div>
+      </div>
+
+      <div class="tool-bar">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search by movie title..." />
+        </div>
+
+        <div class="filter-box">
+          <select id="genreFilter">
+            <option value="all">All Genres</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="genres">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Browse by Genre</h2>
+          <p>Open your genre pages directly from here.</p>
+        </div>
+      </div>
+
+      <div class="genre-links-grid" id="genreLinksContainer">
+        <div class="genre-link-card">
+          <h3>Action</h3>
+          <p>Explosive fights and high stakes.</p>
+          <a href="action.html">Open Page →</a>
+        </div>
+
+        <div class="genre-link-card">
+          <h3>Adventure</h3>
+          <p>Journeys and bold discoveries.</p>
+          <a href="adventure.html">Open Page →</a>
+        </div>
+
+        <div class="genre-link-card">
+          <h3>Animation</h3>
+          <p>Colourful worlds and family fun.</p>
+          <a href="animation.html">Open Page →</a>
+        </div>
+
+        <div class="genre-link-card">
+          <h3>Thriller</h3>
+          <p>Twists, danger, and suspense.</p>
+          <a href="thriller.html">Open Page →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="featured">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2 id="featuredSectionTitle">Featured Picks</h2>
+          <p id="featuredSectionDesc">Highlight top movies with a short summary and quick link.</p>
+        </div>
+      </div>
+
+      <div class="featured-grid" id="featuredCardsContainer">
+        <article class="featured-card">
+          <div class="featured-image">
+            <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1200&q=80" alt="Featured Movie">
+          </div>
+          <div class="featured-content">
+            <div class="meta">
+              <span class="pill">Sci-Fi</span>
+              <span class="pill">2026</span>
+            </div>
+            <h3>Starfall Protocol</h3>
+            <p>A major featured title with a strong sci-fi hook and big-screen energy.</p>
+            <a href="#" class="card-link">View →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="all-movies">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2 id="librarySectionTitle">Popular Movies</h2>
+          <p id="librarySectionDesc">These cards are controlled from the admin page.</p>
+        </div>
+      </div>
+
+      <div class="movies-grid" id="libraryCardsContainer">
+        <article class="movie-card" data-title="Inception" data-genre="Sci-Fi">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=900&q=80" alt="Inception">
+          </div>
+          <div class="movie-content">
+            <h3>Inception</h3>
+            <div class="movie-info">Sci-Fi • 2010</div>
+            <p>A skilled thief enters dreams to steal secrets, but his toughest mission is planting an idea instead.</p>
+            <div class="mini-watch">
+              <span>Sci-Fi</span>
+              <span>2010</span>
+            </div>
+            <a href="#" class="card-link">View →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="John Wick" data-genre="Action">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80" alt="John Wick">
+          </div>
+          <div class="movie-content">
+            <h3>John Wick</h3>
+            <div class="movie-info">Action • 2014</div>
+            <p>A retired assassin returns to the underworld after a brutal act pulls him back into violence.</p>
+            <div class="mini-watch">
+              <span>Action</span>
+              <span>2014</span>
+            </div>
+            <a href="#" class="card-link">View →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Interstellar" data-genre="Sci-Fi">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80" alt="Interstellar">
+          </div>
+          <div class="movie-content">
+            <h3>Interstellar</h3>
+            <div class="movie-info">Sci-Fi • 2014</div>
+            <p>A former pilot joins a space mission to find humanity a new home before Earth becomes unlivable.</p>
+            <div class="mini-watch">
+              <span>Sci-Fi</span>
+              <span>2014</span>
+            </div>
+            <a href="#" class="card-link">View →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="The Dark Knight" data-genre="Action">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80" alt="The Dark Knight">
+          </div>
+          <div class="movie-content">
+            <h3>The Dark Knight</h3>
+            <div class="movie-info">Action • 2008</div>
+            <p>Batman faces his most dangerous enemy yet as Gotham descends into chaos under the Joker.</p>
+            <div class="mini-watch">
+              <span>Action</span>
+              <span>2008</span>
+            </div>
+            <a href="#" class="card-link">View →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="guides" class="info-section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2 id="guidesSectionTitle">Movie Guides</h2>
+          <p id="guidesSectionDesc">Helpful guide boxes controlled from the admin page.</p>
+        </div>
+      </div>
+
+      <div class="info-grid" id="guideCardsContainer">
+        <div class="info-box">
+          <h3>Best Movies to Start With</h3>
+          <p>Create starter lists for visitors who want quick recommendations.</p>
+          <a href="#" class="card-link">Explore →</a>
+        </div>
+
+        <div class="info-box">
+          <h3>Genre Picks</h3>
+          <p>Build pages for action, thriller, drama, horror, and more.</p>
+          <a href="#" class="card-link">Browse →</a>
+        </div>
+
+        <div class="info-box">
+          <h3>Trending Titles</h3>
+          <p>Keep visitors on the site longer with pages based on popular films.</p>
+          <a href="#" class="card-link">View →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Your next movie starts here.</h2>
+      <p>
+        Search by title, browse by genre, and manage this whole page from your admin dashboard instead of rewriting code.
+      </p>
+      <div class="cta-actions">
+        <a href="#all-movies" class="btn btn-primary">Browse Movies</a>
+        <a href="index.html" class="btn btn-secondary">Back Home</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <p id="footerText">©️ 2026 MovieSpot. Discover movies and where to watch them.</p>
+
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="cookies.html">Cookies Policy</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="contact.html">Contact</a>
+        <a href="supportus.html">Support Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="site-data.js"></script>
+</body>
+</html>

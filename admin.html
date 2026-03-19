@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MovieSpot | Admin Dashboard</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    :root{
+      --bg:#0f172a;
+      --panel:#111827;
+      --panel-2:#1e293b;
+      --text:#e5e7eb;
+      --muted:#94a3b8;
+      --accent:#facc15;
+      --border:rgba(255,255,255,0.08);
+      --success:#059669;
+      --danger:#dc2626;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    button,
+    input,
+    textarea,
+    select{
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .layout{
+      min-height:100vh;
+      display:grid;
+      grid-template-columns:300px 1fr;
+    }
+
+    .sidebar{
+      background:#020617;
+      border-right:1px solid var(--border);
+      padding:18px 14px;
+      position:sticky;
+      top:0;
+      height:100vh;
+      overflow-y:auto;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:10px 10px 18px;
+      border-bottom:1px solid var(--border);
+      margin-bottom:18px;
+    }
+
+    .brand-logo{
+      width:52px;
+      height:52px;
+      border-radius:12px;
+      border:2px solid var(--accent);
+      box-shadow:0 0 14px rgba(250,204,21,0.35);
+      overflow:hidden;
+      background:#111827;
+      flex-shrink:0;
+    }
+
+    .brand-logo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .brand-text{
+      min-width:0;
+    }
+
+    .brand-title{
+      font-size:26px;
+      font-weight:800;
+      color:var(--accent);
+      line-height:1;
+    }
+
+    .brand-title span{
+      color:#fff;
+    }
+
+    .brand-sub{
+      color:var(--muted);
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:1.5px;
+      margin-top:6px;
+    }
+
+    .sidebar-section{
+      margin-bottom:18px;
+    }
+
+    .sidebar-section h3{
+      color:#fff;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:1.5px;
+      margin:10px 10px 10px;
+    }
+
+    .nav-list{
+      display:grid;
+      gap:8px;
+    }
+
+    .nav-btn{
+      width:100%;
+      text-align:left;
+      background:transparent;
+      color:#cbd5e1;
+      border:1px solid transparent;
+      border-radius:12px;
+      padding:12px 12px;
+      cursor:pointer;
+      font-size:14px;
+    }
+
+    .nav-btn:hover{
+      background:rgba(250,204,21,0.08);
+      border-color:rgba(250,204,21,0.15);
+      color:var(--accent);
+    }
+
+    .nav-btn.active{
+      background:rgba(250,204,21,0.12);
+      border-color:rgba(250,204,21,0.22);
+      color:var(--accent);
+      font-weight:700;
+    }
+
+    .main{
+      min-width:0;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(15,23,42,0.95);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid var(--border);
+      padding:16px 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .topbar-left h1{
+      font-size:28px;
+      color:#fff;
+      margin-bottom:4px;
+    }
+
+    .topbar-left p{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .topbar-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .btn{
+      border:none;
+      cursor:pointer;
+      padding:12px 16px;
+      border-radius:12px;
+      font-weight:700;
+      font-size:14px;
+      transition:.25s;
+    }
+
+    .btn-primary{
+      background:var(--accent);
+      color:#111827;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 22px rgba(250,204,21,0.2);
+    }
+
+    .btn-secondary{
+      background:var(--panel);
+      color:#fff;
+      border:1px solid var(--border);
+    }
+
+    .btn-secondary:hover{
+      background:var(--panel-2);
+    }
+
+    .btn-danger{
+      background:#7f1d1d;
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.06);
+    }
+
+    .btn-danger:hover{
+      background:#991b1b;
+    }
+
+    .page-wrap{
+      padding:22px;
+    }
+
+    .notice{
+      background:linear-gradient(135deg, rgba(250,204,21,0.12), rgba(250,204,21,0.05));
+      border:1px solid rgba(250,204,21,0.18);
+      border-radius:18px;
+      padding:18px;
+      color:#fde68a;
+      margin-bottom:22px;
+    }
+
+    .notice strong{
+      color:#fff;
+    }
+
+    .editor-grid{
+      display:grid;
+      grid-template-columns:1.15fr 0.85fr;
+      gap:22px;
+      align-items:start;
+    }
+
+    .panel{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:22px;
+      box-shadow:0 14px 32px rgba(0,0,0,0.18);
+      min-width:0;
+    }
+
+    .panel h2{
+      color:#fff;
+      font-size:26px;
+      margin-bottom:8px;
+    }
+
+    .panel-sub{
+      color:var(--muted);
+      font-size:14px;
+      margin-bottom:18px;
+    }
+
+    .field-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:16px;
+    }
+
+    .field{
+      display:grid;
+      gap:8px;
+      margin-bottom:16px;
+    }
+
+    .field.full{
+      grid-column:1 / -1;
+    }
+
+    label{
+      color:#fff;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    input,
+    textarea,
+    select{
+      width:100%;
+      background:#0f172a;
+      color:#fff;
+      border:1px solid var(--border);
+      border-radius:14px;
+      outline:none;
+      padding:14px 14px;
+      font-size:14px;
+    }
+
+    textarea{
+      min-height:120px;
+      resize:vertical;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus{
+      border-color:rgba(250,204,21,0.6);
+      box-shadow:0 0 0 3px rgba(250,204,21,0.08);
+    }
+
+    .section-title{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin:26px 0 12px;
+      padding-top:18px;
+      border-top:1px solid var(--border);
+    }
+
+    .section-title h3{
+      color:#fff;
+      font-size:20px;
+    }
+
+    .mini-btn{
+      border:none;
+      cursor:pointer;
+      border-radius:10px;
+      padding:10px 12px;
+      font-size:13px;
+      font-weight:700;
+      background:var(--accent);
+      color:#111827;
+    }
+
+    .mini-btn.secondary{
+      background:#1e293b;
+      color:#fff;
+      border:1px solid var(--border);
+    }
+
+    .mini-btn.danger{
+      background:#7f1d1d;
+      color:#fff;
+    }
+
+    .cards-list{
+      display:grid;
+      gap:14px;
+    }
+
+    .item-card{
+      background:#0f172a;
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:16px;
+    }
+
+    .item-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:12px;
+    }
+
+    .item-head h4{
+      color:var(--accent);
+      font-size:16px;
+    }
+
+    .small-note{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:8px;
+    }
+
+    .preview-box{
+      background:#0f172a;
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:16px;
+      margin-bottom:16px;
+    }
+
+    .preview-box h3{
+      color:#fff;
+      font-size:18px;
+      margin-bottom:10px;
+    }
+
+    .preview-box p{
+      color:var(--muted);
+      font-size:14px;
+      margin-bottom:8px;
+    }
+
+    .preview-tag{
+      display:inline-block;
+      background:rgba(250,204,21,0.12);
+      color:var(--accent);
+      border:1px solid rgba(250,204,21,0.18);
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:12px;
+      margin-bottom:10px;
+    }
+
+    .json-box{
+      background:#020617;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:14px;
+      color:#cbd5e1;
+      font-size:12px;
+      overflow:auto;
+      max-height:420px;
+      white-space:pre-wrap;
+      word-break:break-word;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+      margin-bottom:16px;
+    }
+
+    .stat{
+      background:#0f172a;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:16px;
+    }
+
+    .stat strong{
+      display:block;
+      color:var(--accent);
+      font-size:22px;
+      margin-bottom:4px;
+    }
+
+    .stat span{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .hidden-input{
+      display:none;
+    }
+
+    .mobile-toggle{
+      display:none;
+      width:46px;
+      height:46px;
+      border-radius:12px;
+      border:1px solid rgba(250,204,21,0.25);
+      background:#111827;
+      color:var(--accent);
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      font-size:22px;
+    }
+
+    @media(max-width:1100px){
+      .editor-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:900px){
+      .layout{
+        grid-template-columns:1fr;
+      }
+
+      .sidebar{
+        position:fixed;
+        top:0;
+        left:0;
+        bottom:0;
+        width:290px;
+        transform:translateX(-100%);
+        transition:.28s;
+        z-index:50;
+      }
+
+      .sidebar.show{
+        transform:translateX(0);
+      }
+
+      .mobile-toggle{
+        display:flex;
+      }
+
+      .field-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:600px){
+      .topbar{
+        padding:14px;
+      }
+
+      .page-wrap{
+        padding:14px;
+      }
+
+      .panel{
+        padding:16px;
+        border-radius:18px;
+      }
+
+      .topbar-left h1{
+        font-size:24px;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .topbar-actions{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-logo">
+          <img id="sidebarLogo" src="logo.png" alt="MovieSpot Logo">
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">Movie<span>Spot</span></div>
+          <div class="brand-sub">No-Code Admin</div>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Global</h3>
+        <div class="nav-list" id="globalNav"></div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Main Pages</h3>
+        <div class="nav-list" id="mainNav"></div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Genre Pages</h3>
+        <div class="nav-list" id="genreNav"></div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Legal Pages</h3>
+        <div class="nav-list" id="legalNav"></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div style="display:flex; align-items:flex-start; gap:12px;">
+          <button class="mobile-toggle" id="mobileToggle">☰</button>
+          <div class="topbar-left">
+            <h1 id="editorTitle">MovieSpot Admin</h1>
+            <p id="editorDesc">Edit your site content without touching the code.</p>
+          </div>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="btn btn-primary" id="saveBtn">Save Changes</button>
+          <button class="btn btn-secondary" id="exportBtn">Export Backup</button>
+          <button class="btn btn-secondary" id="importBtn">Import Backup</button>
+          <button class="btn btn-danger" id="resetBtn">Reset</button>
+          <input type="file" id="importFile" class="hidden-input" accept=".json">
+        </div>
+      </div>
+
+      <div class="page-wrap">
+        <div class="notice">
+          <strong>Important:</strong> this dashboard saves your content in the browser and lets you manage everything with forms.
+          It does <strong>not</strong> directly rewrite your existing HTML files by itself.
+          Export a backup often, and later you can connect your pages to this data or rebuild from it.
+        </div>
+
+        <div class="editor-grid">
+          <section class="panel">
+            <div id="editor"></div>
+          </section>
+
+          <aside class="panel">
+            <h2>Quick Preview</h2>
+            <p class="panel-sub">A simple summary of the current section you are editing.</p>
+
+            <div class="stats">
+              <div class="stat">
+                <strong id="pageCountStat">0</strong>
+                <span>Total Pages</span>
+              </div>
+              <div class="stat">
+                <strong id="genreCountStat">0</strong>
+                <span>Genre Pages</span>
+              </div>
+            </div>
+
+            <div id="preview"></div>
+
+            <div class="section-title">
+              <h3>Current JSON</h3>
+            </div>
+            <div class="json-box" id="jsonPreview"></div>
+          </aside>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const STORAGE_KEY = "moviespot_admin_data_v1";
+    const pageGroups = {
+      global: ["global"],
+      main: ["home", "movies", "newrelease", "trailers", "trailerv", "contact", "supportus"],
+      legal: ["privacy", "terms", "cookies", "disclaimer"],
+      genres: [
+        "action","adventure","animation","biography","comedy","crime","documentary","drama","family",
+        "fantasy","history","horror","music","mystery","romance","scifi","sports","thriller","war","western"
+      ]
+    };
+
+    function makeSimpleCard(title = "", meta = "", desc = "", image = "", link = "", linkText = "Open Page →"){
+      return { title, meta, desc, image, link, linkText };
+    }
+
+    function makeGuideCard(title = "", desc = "", link = "", linkText = "Explore →"){
+      return { title, desc, link, linkText };
+    }
+
+    function makeGenreLink(title = "", desc = "", link = ""){
+      return { title, desc, link };
+    }
+
+    function makeLegalBlock(title = "", body = ""){
+      return { title, body };
+    }
+
+    function createContentPage(label, file){
+      return {
+        type: "content",
+        label,
+        file,
+        heroTag: "Section Tag",
+        heroTitle: `${label} Page Title`,
+        heroDesc: `Edit the ${label.toLowerCase()} page content here without writing code.`,
+        primaryBtn: "Primary Button",
+        secondaryBtn: "Secondary Button",
+        featuredSectionTitle: "Featured Picks",
+        featuredSectionDesc: "Edit the featured cards for this page.",
+        librarySectionTitle: "Popular Items",
+        librarySectionDesc: "Edit the main card grid for this page.",
+        guidesSectionTitle: "Guides",
+        guidesSectionDesc: "Edit guide/info boxes for this page.",
+        featuredCards: [
+          makeSimpleCard("Featured Item 1", "Meta Info", "Description here.", "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=900&q=80", "#"),
+          makeSimpleCard("Featured Item 2", "Meta Info", "Description here.", "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80", "#"),
+          makeSimpleCard("Featured Item 3", "Meta Info", "Description here.", "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80", "#")
+        ],
+        libraryCards: [
+          makeSimpleCard("Card 1", "Genre • Year", "Short description.", "https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=900&q=80", "#", "View →"),
+          makeSimpleCard("Card 2", "Genre • Year", "Short description.", "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80", "#", "View →"),
+          makeSimpleCard("Card 3", "Genre • Year", "Short description.", "https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80", "#", "View →"),
+          makeSimpleCard("Card 4", "Genre • Year", "Short description.", "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80", "#", "View →")
+        ],
+        guideCards: [
+          makeGuideCard("Guide Box 1", "Guide description here.", "#"),
+          makeGuideCard("Guide Box 2", "Guide description here.", "#"),
+          makeGuideCard("Guide Box 3", "Guide description here.", "#")
+        ]
+      };
+    }
+
+    function createGenrePage(name){
+      const fileName = name.toLowerCase() + ".html";
+      return {
+        type: "genre",
+        label: name.charAt(0).toUpperCase() + name.slice(1),
+        file: fileName,
+        heroTag: `${name.charAt(0).toUpperCase() + name.slice(1)} movies`,
+        heroTitle: `Discover ${name.charAt(0).toUpperCase() + name.slice(1)} movies`,
+        heroDesc: `Edit the ${name} page content here.`,
+        primaryBtn: `Browse ${name.charAt(0).toUpperCase() + name.slice(1)}`,
+        secondaryBtn: `${name.charAt(0).toUpperCase() + name.slice(1)} Guides`,
+        featuredSectionTitle: `Featured ${name.charAt(0).toUpperCase() + name.slice(1)} Picks`,
+        featuredSectionDesc: `Edit the top featured cards for the ${name} page.`,
+        librarySectionTitle: `Popular ${name.charAt(0).toUpperCase() + name.slice(1)} Titles`,
+        librarySectionDesc: `Edit the popular card grid for this genre.`,
+        guidesSectionTitle: `${name.charAt(0).toUpperCase() + name.slice(1)} Guides`,
+        guidesSectionDesc: `Edit info boxes for this genre page.`,
+        featuredCards: [
+          makeSimpleCard(`${name} Feature 1`, `${name} • Featured`, `Main featured description for ${name}.`, "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=900&q=80", "#"),
+          makeSimpleCard(`${name} Feature 2`, `${name} • Featured`, `Main featured description for ${name}.`, "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80", "#"),
+          makeSimpleCard(`${name} Feature 3`, `${name} • Featured`, `Main featured description for ${name}.`, "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80", "#")
+        ],
+        libraryCards: [
+          makeSimpleCard(`${name} Movie 1`, `${name} • 2026`, `Short description for ${name} title.`, "https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=900&q=80", "#"),
+          makeSimpleCard(`${name} Movie 2`, `${name} • 2025`, `Short description for ${name} title.`, "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80", "#"),
+          makeSimpleCard(`${name} Movie 3`, `${name} • 2024`, `Short description for ${name} title.`, "https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80", "#"),
+          makeSimpleCard(`${name} Movie 4`, `${name} • 2023`, `Short description for ${name} title.`, "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80", "#")
+        ],
+        guideCards: [
+          makeGuideCard(`${name.charAt(0).toUpperCase() + name.slice(1)} Guide 1`, `Guide description for ${name}.`, "#"),
+          makeGuideCard(`${name.charAt(0).toUpperCase() + name.slice(1)} Guide 2`, `Guide description for ${name}.`, "#"),
+          makeGuideCard(`${name.charAt(0).toUpperCase() + name.slice(1)} Guide 3`, `Guide description for ${name}.`, "#")
+        ]
+      };
+    }
+
+    function createLegalPage(label, file){
+      return {
+        type: "legal",
+        label,
+        file,
+        heroTag: `${label} information`,
+        heroTitle: label,
+        heroDesc: `Edit the ${label.toLowerCase()} content here.`,
+        effectiveDate: "March 19, 2026",
+        blocks: [
+          makeLegalBlock("1. Introduction", `Edit the introduction for ${label.toLowerCase()}.`),
+          makeLegalBlock("2. Main Section", `Edit the main section for ${label.toLowerCase()}.`),
+          makeLegalBlock("3. Contact", "Add the contact details or legal notes here.")
+        ]
+      };
+    }
+
+    const defaultData = {
+      global: {
+        type: "global",
+        label: "Global Settings",
+        siteName: "MovieSpot",
+        siteTagline: "Find Your Next Watch",
+        logo: "logo.png",
+        accent: "#facc15",
+        background: "#0f172a",
+        panel: "#111827",
+        email: "your@email.com",
+        phone: "+44 0000 000000",
+        location: "United Kingdom",
+        instagram: "https://instagram.com/yourusername",
+        x: "https://x.com/yourusername",
+        facebook: "https://facebook.com/yourusername",
+        tiktok: "https://tiktok.com/@yourusername",
+        buymeacoffee: "https://buymeacoffee.com/yourname",
+        paypal: "https://paypal.me/yourname",
+        flutterwave: "https://flutterwave.com/pay/yourlink",
+        footerText: "©️ 2026 MovieSpot. Discover movies and where to watch them."
+      },
+      pages: {
+        home: {
+          ...createContentPage("Home", "index.html"),
+          heroTag: "Discover what to watch tonight",
+          heroTitle: "Find great movies and see exactly where to watch them.",
+          heroDesc: "MovieSpot helps people discover top films, explore genres, and check where movies are streaming, available to rent, or ready to buy.",
+          primaryBtn: "Browse All Movies",
+          secondaryBtn: "Watch Guides"
+        },
+        movies: {
+          ...createContentPage("Movies", "movies.html"),
+          heroTag: "Browse the full collection",
+          heroTitle: "Explore movies by genre, title, and fresh picks.",
+          heroDesc: "Use this page as the main movie library for your whole site.",
+          primaryBtn: "Browse All Movies",
+          secondaryBtn: "Browse Genres",
+          genreLinks: [
+            makeGenreLink("Action", "Explosive fights and high stakes.", "action.html"),
+            makeGenreLink("Adventure", "Journeys and bold discoveries.", "adventure.html"),
+            makeGenreLink("Animation", "Colourful worlds and family fun.", "animation.html"),
+            makeGenreLink("Thriller", "Twists, danger, and suspense.", "thriller.html")
+          ]
+        },
+        newrelease: {
+          ...createContentPage("New Releases", "newrelease.html"),
+          heroTag: "Fresh movies landing now",
+          heroTitle: "Discover new releases and see what’s fresh this week.",
+          heroDesc: "Manage current cinema titles, coming soon picks, and big fresh releases from here."
+        },
+        trailers: createContentPage("Trailers", "trailers.html"),
+        trailerv: createContentPage("Trailer Video", "trailerv.html"),
+        contact: {
+          type: "contact",
+          label: "Contact",
+          file: "contact.html",
+          heroTag: "Get in touch",
+          heroTitle: "Contact MovieSpot",
+          heroDesc: "Reach out for questions, suggestions, partnerships, feedback, or website support.",
+          email: "your@email.com",
+          phone: "+44 0000 000000",
+          location: "United Kingdom",
+          responseTime: "Usually within 24 to 48 hours",
+          formTitle: "Contact Form",
+          formText: "Visitors can send messages using your contact form or details."
+        },
+        supportus: {
+          type: "support",
+          label: "Support Us",
+          file: "supportus.html",
+          heroTag: "Support MovieSpot",
+          heroTitle: "Help support the website and follow our pages.",
+          heroDesc: "Visitors can support the website with payments or follow your social pages.",
+          paymentTitle: "Support with Payment",
+          socialTitle: "Follow on Social Media"
+        },
+        privacy: createLegalPage("Privacy Policy", "privacy.html"),
+        terms: createLegalPage("Terms of Use", "terms.html"),
+        cookies: createLegalPage("Cookies Policy", "cookies.html"),
+        disclaimer: createLegalPage("Disclaimer", "disclaimer.html")
+      }
+    };
+
+    pageGroups.genres.forEach(key => {
+      defaultData.pages[key] = createGenrePage(key);
+    });
+
+    function deepClone(obj){
+      return JSON.parse(JSON.stringify(obj));
+    }
+
+    function loadData(){
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if(saved){
+        try{
+          return JSON.parse(saved);
+        }catch(e){
+          return deepClone(defaultData);
+        }
+      }
+      return deepClone(defaultData);
+    }
+
+    let siteData = loadData();
+    let activeKey = "global";
+
+    const editor = document.getElementById("editor");
+    const preview = document.getElementById("preview");
+    const jsonPreview = document.getElementById("jsonPreview");
+    const editorTitle = document.getElementById("editorTitle");
+    const editorDesc = document.getElementById("editorDesc");
+    const pageCountStat = document.getElementById("pageCountStat");
+    const genreCountStat = document.getElementById("genreCountStat");
+    const sidebarLogo = document.getElementById("sidebarLogo");
+    const sidebar = document.getElementById("sidebar");
+
+    function saveData(){
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(siteData));
+      updateThemePreview();
+      renderPreview();
+    }
+
+    function updateThemePreview(){
+      const g = siteData.global;
+      document.documentElement.style.setProperty("--accent", g.accent || "#facc15");
+      document.documentElement.style.setProperty("--bg", g.background || "#0f172a");
+      document.documentElement.style.setProperty("--panel", g.panel || "#111827");
+      sidebarLogo.src = g.logo || "logo.png";
+    }
+
+    function makeNavButton(key, label){
+      const btn = document.createElement("button");
+      btn.className = "nav-btn" + (activeKey === key ? " active" : "");
+      btn.textContent = label;
+      btn.onclick = () => {
+        activeKey = key;
+        renderAll();
+        if(window.innerWidth <= 900){
+          sidebar.classList.remove("show");
+        }
+      };
+      return btn;
+    }
+
+    function renderSidebar(){
+      document.getElementById("globalNav").innerHTML = "";
+      document.getElementById("mainNav").innerHTML = "";
+      document.getElementById("genreNav").innerHTML = "";
+      document.getElementById("legalNav").innerHTML = "";
+
+      document.getElementById("globalNav").appendChild(makeNavButton("global", "Global Settings"));
+
+      pageGroups.main.forEach(key => {
+        document.getElementById("mainNav").appendChild(makeNavButton(key, siteData.pages[key].label));
+      });
+
+      pageGroups.genres.forEach(key => {
+        document.getElementById("genreNav").appendChild(makeNavButton(key, siteData.pages[key].label));
+      });
+
+      pageGroups.legal.forEach(key => {
+        document.getElementById("legalNav").appendChild(makeNavButton(key, siteData.pages[key].label));
+      });
+    }
+
+    function field(labelText, value, onInput, options = {}){
+      const wrap = document.createElement("div");
+      wrap.className = "field" + (options.full ? " full" : "");
+      const label = document.createElement("label");
+      label.textContent = labelText;
+      wrap.appendChild(label);
+
+      let input;
+      if(options.type === "textarea"){
+        input = document.createElement("textarea");
+        input.value = value || "";
+      }else if(options.type === "select"){
+        input = document.createElement("select");
+        (options.items || []).forEach(item => {
+          const opt = document.createElement("option");
+          opt.value = item;
+          opt.textContent = item;
+          if(item === value) opt.selected = true;
+          input.appendChild(opt);
+        });
+      }else{
+        input = document.createElement("input");
+        input.type = options.type || "text";
+        input.value = value || "";
+      }
+
+      if(options.placeholder) input.placeholder = options.placeholder;
+      input.oninput = (e) => onInput(e.target.value);
+      wrap.appendChild(input);
+      return wrap;
+    }
+
+    function sectionTitle(title, buttonText, onAdd){
+      const div = document.createElement("div");
+      div.className = "section-title";
+      const h3 = document.createElement("h3");
+      h3.textContent = title;
+      div.appendChild(h3);
+
+      if(buttonText && onAdd){
+        const btn = document.createElement("button");
+        btn.className = "mini-btn";
+        btn.textContent = buttonText;
+        btn.onclick = onAdd;
+        div.appendChild(btn);
+      }
+
+      return div;
+    }
+
+    function renderSimpleCardArray(parent, title, arr, creator){
+      parent.appendChild(sectionTitle(title, "Add Item", () => {
+        arr.push(creator());
+        renderAll();
+      }));
+
+      const list = document.createElement("div");
+      list.className = "cards-list";
+
+      arr.forEach((item, index) => {
+        const card = document.createElement("div");
+        card.className = "item-card";
+
+        const head = document.createElement("div");
+        head.className = "item-head";
+
+        const h4 = document.createElement("h4");
+        h4.textContent = `${title} ${index + 1}`;
+        head.appendChild(h4);
+
+        const remove = document.createElement("button");
+        remove.className = "mini-btn danger";
+        remove.textContent = "Remove";
+        remove.onclick = () => {
+          arr.splice(index, 1);
+          renderAll();
+        };
+        head.appendChild(remove);
+
+        card.appendChild(head);
+
+        const grid = document.createElement("div");
+        grid.className = "field-grid";
+
+        grid.appendChild(field("Title", item.title, v => item.title = v));
+        if("meta" in item){
+          grid.appendChild(field("Meta / Subtitle", item.meta, v => item.meta = v));
+        }
+        if("desc" in item){
+          grid.appendChild(field("Description", item.desc, v => item.desc = v, { type:"textarea", full:true }));
+        }
+        if("image" in item){
+          grid.appendChild(field("Image URL", item.image, v => item.image = v, { full:true }));
+        }
+        if("link" in item){
+          grid.appendChild(field("Link", item.link, v => item.link = v));
+        }
+        if("linkText" in item){
+          grid.appendChild(field("Link Text", item.linkText, v => item.linkText = v));
+        }
+
+        card.appendChild(grid);
+        list.appendChild(card);
+      });
+
+      parent.appendChild(list);
+    }
+
+    function renderGuideArray(parent, title, arr){
+      parent.appendChild(sectionTitle(title, "Add Guide", () => {
+        arr.push(makeGuideCard("New Guide", "Guide description.", "#"));
+        renderAll();
+      }));
+
+      const list = document.createElement("div");
+      list.className = "cards-list";
+
+      arr.forEach((item, index) => {
+        const card = document.createElement("div");
+        card.className = "item-card";
+
+        const head = document.createElement("div");
+        head.className = "item-head";
+
+        const h4 = document.createElement("h4");
+        h4.textContent = `Guide ${index + 1}`;
+        head.appendChild(h4);
+
+        const remove = document.createElement("button");
+        remove.className = "mini-btn danger";
+        remove.textContent = "Remove";
+        remove.onclick = () => {
+          arr.splice(index, 1);
+          renderAll();
+        };
+        head.appendChild(remove);
+
+        card.appendChild(head);
+
+        const grid = document.createElement("div");
+        grid.className = "field-grid";
+        grid.appendChild(field("Title", item.title, v => item.title = v));
+        grid.appendChild(field("Link", item.link, v => item.link = v));
+        grid.appendChild(field("Description", item.desc, v => item.desc = v, { type:"textarea", full:true }));
+        grid.appendChild(field("Link Text", item.linkText, v => item.linkText = v));
+        card.appendChild(grid);
+
+        list.appendChild(card);
+      });
+
+      parent.appendChild(list);
+    }
+
+    function renderGenreLinks(parent, arr){
+      parent.appendChild(sectionTitle("Genre / Quick Links", "Add Link", () => {
+        arr.push(makeGenreLink("New Genre", "Short description", "page.html"));
+        renderAll();
+      }));
+
+      const list = document.createElement("div");
+      list.className = "cards-list";
+
+      arr.forEach((item, index) => {
+        const card = document.createElement("div");
+        card.className = "item-card";
+
+        const head = document.createElement("div");
+        head.className = "item-head";
+
+        const h4 = document.createElement("h4");
+        h4.textContent = `Quick Link ${index + 1}`;
+        head.appendChild(h4);
+
+        const remove = document.createElement("button");
+        remove.className = "mini-btn danger";
+        remove.textContent = "Remove";
+        remove.onclick = () => {
+          arr.splice(index, 1);
+          renderAll();
+        };
+        head.appendChild(remove);
+
+        card.appendChild(head);
+
+        const grid = document.createElement("div");
+        grid.className = "field-grid";
+        grid.appendChild(field("Title", item.title, v => item.title = v));
+        grid.appendChild(field("Link File", item.link, v => item.link = v));
+        grid.appendChild(field("Description", item.desc, v => item.desc = v, { type:"textarea", full:true }));
+        card.appendChild(grid);
+
+        list.appendChild(card);
+      });
+
+      parent.appendChild(list);
+    }
+
+    function renderLegalBlocks(parent, arr){
+      parent.appendChild(sectionTitle("Legal Blocks", "Add Block", () => {
+        arr.push(makeLegalBlock("New Section", "Write section content here."));
+        renderAll();
+      }));
+
+      const list = document.createElement("div");
+      list.className = "cards-list";
+
+      arr.forEach((item, index) => {
+        const card = document.createElement("div");
+        card.className = "item-card";
+
+        const head = document.createElement("div");
+        head.className = "item-head";
+
+        const h4 = document.createElement("h4");
+        h4.textContent = `Block ${index + 1}`;
+        head.appendChild(h4);
+
+        const remove = document.createElement("button");
+        remove.className = "mini-btn danger";
+        remove.textContent = "Remove";
+        remove.onclick = () => {
+          arr.splice(index, 1);
+          renderAll();
+        };
+        head.appendChild(remove);
+
+        card.appendChild(head);
+
+        const grid = document.createElement("div");
+        grid.className = "field-grid";
+        grid.appendChild(field("Section Title", item.title, v => item.title = v, { full:true }));
+        grid.appendChild(field("Section Body", item.body, v => item.body = v, { type:"textarea", full:true }));
+        card.appendChild(grid);
+
+        list.appendChild(card);
+      });
+
+      parent.appendChild(list);
+    }
+
+    function renderGlobalEditor(){
+      const g = siteData.global;
+      editorTitle.textContent = "Global Settings";
+      editorDesc.textContent = "Edit your site-wide branding, links, colors, footer, and contact details.";
+
+      const box = document.createElement("div");
+      const grid = document.createElement("div");
+      grid.className = "field-grid";
+
+      grid.appendChild(field("Site Name", g.siteName, v => { g.siteName = v; renderPreview(); }));
+      grid.appendChild(field("Tagline", g.siteTagline, v => { g.siteTagline = v; renderPreview(); }));
+      grid.appendChild(field("Logo Image", g.logo, v => { g.logo = v; updateThemePreview(); renderPreview(); }, { full:true }));
+      grid.appendChild(field("Accent Color", g.accent, v => { g.accent = v; updateThemePreview(); renderPreview(); }, { type:"color" }));
+      grid.appendChild(field("Background Color", g.background, v => { g.background = v; updateThemePreview(); renderPreview(); }, { type:"color" }));
+      grid.appendChild(field("Panel Color", g.panel, v => { g.panel = v; updateThemePreview(); renderPreview(); }, { type:"color" }));
+
+      grid.appendChild(field("Email", g.email, v => g.email = v));
+      grid.appendChild(field("Phone", g.phone, v => g.phone = v));
+      grid.appendChild(field("Location", g.location, v => g.location = v, { full:true }));
+
+      grid.appendChild(field("Instagram Link", g.instagram, v => g.instagram = v));
+      grid.appendChild(field("X Link", g.x, v => g.x = v));
+      grid.appendChild(field("Facebook Link", g.facebook, v => g.facebook = v));
+      grid.appendChild(field("TikTok Link", g.tiktok, v => g.tiktok = v));
+
+      grid.appendChild(field("Buy Me a Coffee", g.buymeacoffee, v => g.buymeacoffee = v));
+      grid.appendChild(field("PayPal", g.paypal, v => g.paypal = v));
+      grid.appendChild(field("Flutterwave", g.flutterwave, v => g.flutterwave = v, { full:true }));
+
+      grid.appendChild(field("Footer Text", g.footerText, v => g.footerText = v, { type:"textarea", full:true }));
+      box.appendChild(grid);
+
+      const note = document.createElement("p");
+      note.className = "small-note";
+      note.textContent = "These are the details you will reuse across home, contact, support, and legal pages.";
+      box.appendChild(note);
+
+      editor.appendChild(box);
+    }
+
+    function renderContentEditor(page){
+      editorTitle.textContent = `${page.label} Editor`;
+      editorDesc.textContent = `Edit the ${page.file} page sections here.`;
+
+      const baseGrid = document.createElement("div");
+      baseGrid.className = "field-grid";
+
+      baseGrid.appendChild(field("Hero Tag", page.heroTag, v => page.heroTag = v));
+      baseGrid.appendChild(field("Page File", page.file, v => page.file = v));
+      baseGrid.appendChild(field("Hero Title", page.heroTitle, v => page.heroTitle = v, { full:true }));
+      baseGrid.appendChild(field("Hero Description", page.heroDesc, v => page.heroDesc = v, { type:"textarea", full:true }));
+      baseGrid.appendChild(field("Primary Button Text", page.primaryBtn, v => page.primaryBtn = v));
+      baseGrid.appendChild(field("Secondary Button Text", page.secondaryBtn, v => page.secondaryBtn = v));
+
+      baseGrid.appendChild(field("Featured Section Title", page.featuredSectionTitle, v => page.featuredSectionTitle = v));
+      baseGrid.appendChild(field("Featured Section Description", page.featuredSectionDesc, v => page.featuredSectionDesc = v, { type:"textarea" }));
+
+      baseGrid.appendChild(field("Library Section Title", page.librarySectionTitle, v => page.librarySectionTitle = v));
+      baseGrid.appendChild(field("Library Section Description", page.librarySectionDesc, v => page.librarySectionDesc = v, { type:"textarea" }));
+
+      baseGrid.appendChild(field("Guides Section Title", page.guidesSectionTitle, v => page.guidesSectionTitle = v));
+      baseGrid.appendChild(field("Guides Section Description", page.guidesSectionDesc, v => page.guidesSectionDesc = v, { type:"textarea" }));
+
+      editor.appendChild(baseGrid);
+
+      if(page.genreLinks){
+        renderGenreLinks(editor, page.genreLinks);
+      }
+
+      renderSimpleCardArray(editor, "Featured Cards", page.featuredCards, () => makeSimpleCard("New Featured", "Meta", "Description here.", "", "#"));
+      renderSimpleCardArray(editor, "Library Cards", page.libraryCards, () => makeSimpleCard("New Card", "Info", "Description here.", "", "#", "View →"));
+      renderGuideArray(editor, "Guide Cards", page.guideCards);
+    }
+
+    function renderContactEditor(page){
+      editorTitle.textContent = "Contact Page Editor";
+      editorDesc.textContent = "Edit contact details, response info, and the contact page hero.";
+
+      const grid = document.createElement("div");
+      grid.className = "field-grid";
+
+      grid.appendChild(field("Hero Tag", page.heroTag, v => page.heroTag = v));
+      grid.appendChild(field("Page File", page.file, v => page.file = v));
+      grid.appendChild(field("Hero Title", page.heroTitle, v => page.heroTitle = v, { full:true }));
+      grid.appendChild(field("Hero Description", page.heroDesc, v => page.heroDesc = v, { type:"textarea", full:true }));
+
+      grid.appendChild(field("Email", page.email, v => page.email = v));
+      grid.appendChild(field("Phone", page.phone, v => page.phone = v));
+      grid.appendChild(field("Location", page.location, v => page.location = v));
+      grid.appendChild(field("Response Time", page.responseTime, v => page.responseTime = v));
+
+      grid.appendChild(field("Form Title", page.formTitle, v => page.formTitle = v));
+      grid.appendChild(field("Form Intro", page.formText, v => page.formText = v, { type:"textarea" }));
+
+      editor.appendChild(grid);
+    }
+
+    function renderSupportEditor(page){
+      editorTitle.textContent = "Support Page Editor";
+      editorDesc.textContent = "Edit the support page hero and support section labels.";
+
+      const grid = document.createElement("div");
+      grid.className = "field-grid";
+
+      grid.appendChild(field("Hero Tag", page.heroTag, v => page.heroTag = v));
+      grid.appendChild(field("Page File", page.file, v => page.file = v));
+      grid.appendChild(field("Hero Title", page.heroTitle, v => page.heroTitle = v, { full:true }));
+      grid.appendChild(field("Hero Description", page.heroDesc, v => page.heroDesc = v, { type:"textarea", full:true }));
+      grid.appendChild(field("Payment Section Title", page.paymentTitle, v => page.paymentTitle = v));
+      grid.appendChild(field("Social Section Title", page.socialTitle, v => page.socialTitle = v));
+
+      editor.appendChild(grid);
+
+      const note = document.createElement("div");
+      note.className = "notice";
+      note.innerHTML = `<strong>Uses global links:</strong> your Buy Me a Coffee, PayPal, Flutterwave, Instagram, X, Facebook, and TikTok links come from Global Settings.`;
+      editor.appendChild(note);
+    }
+
+    function renderLegalEditor(page){
+      editorTitle.textContent = `${page.label} Editor`;
+      editorDesc.textContent = `Edit the ${page.file} page heading and legal text blocks.`;
+
+      const grid = document.createElement("div");
+      grid.className = "field-grid";
+
+      grid.appendChild(field("Hero Tag", page.heroTag, v => page.heroTag = v));
+      grid.appendChild(field("Page File", page.file, v => page.file = v));
+      grid.appendChild(field("Hero Title", page.heroTitle, v => page.heroTitle = v, { full:true }));
+      grid.appendChild(field("Hero Description", page.heroDesc, v => page.heroDesc = v, { type:"textarea", full:true }));
+      grid.appendChild(field("Effective Date", page.effectiveDate, v => page.effectiveDate = v));
+
+      editor.appendChild(grid);
+      renderLegalBlocks(editor, page.blocks);
+    }
+
+    function renderEditor(){
+      editor.innerHTML = "";
+
+      if(activeKey === "global"){
+        renderGlobalEditor();
+        return;
+      }
+
+      const page = siteData.pages[activeKey];
+      if(!page) return;
+
+      if(page.type === "content" || page.type === "genre"){
+        renderContentEditor(page);
+      }else if(page.type === "contact"){
+        renderContactEditor(page);
+      }else if(page.type === "support"){
+        renderSupportEditor(page);
+      }else if(page.type === "legal"){
+        renderLegalEditor(page);
+      }
+    }
+
+    function renderPreview(){
+      preview.innerHTML = "";
+      const g = siteData.global;
+
+      if(activeKey === "global"){
+        const box = document.createElement("div");
+        box.className = "preview-box";
+        box.innerHTML = `
+          <div class="preview-tag">${g.siteTagline}</div>
+          <h3>${g.siteName}</h3>
+          <p><strong>Email:</strong> ${g.email}</p>
+          <p><strong>Phone:</strong> ${g.phone}</p>
+          <p><strong>Footer:</strong> ${g.footerText}</p>
+        `;
+        preview.appendChild(box);
+        jsonPreview.textContent = JSON.stringify(siteData.global, null, 2);
+        return;
+      }
+
+      const page = siteData.pages[activeKey];
+      if(!page) return;
+
+      const box = document.createElement("div");
+      box.className = "preview-box";
+
+      let extra = "";
+      if(page.type === "content" || page.type === "genre"){
+        extra = `
+          <p><strong>Featured Cards:</strong> ${page.featuredCards.length}</p>
+          <p><strong>Library Cards:</strong> ${page.libraryCards.length}</p>
+          <p><strong>Guide Cards:</strong> ${page.guideCards.length}</p>
+        `;
+      }
+      if(page.type === "legal"){
+        extra = `<p><strong>Blocks:</strong> ${page.blocks.length}</p>`;
+      }
+      if(page.type === "contact"){
+        extra = `
+          <p><strong>Email:</strong> ${page.email}</p>
+          <p><strong>Phone:</strong> ${page.phone}</p>
+          <p><strong>Response:</strong> ${page.responseTime}</p>
+        `;
+      }
+      if(page.type === "support"){
+        extra = `
+          <p><strong>Payments:</strong> Uses global payment links</p>
+          <p><strong>Socials:</strong> Uses global social links</p>
+        `;
+      }
+
+      box.innerHTML = `
+        <div class="preview-tag">${page.file}</div>
+        <h3>${page.heroTitle || page.label}</h3>
+        <p>${page.heroDesc || ""}</p>
+        ${extra}
+      `;
+      preview.appendChild(box);
+      jsonPreview.textContent = JSON.stringify(page, null, 2);
+    }
+
+    function renderStats(){
+      pageCountStat.textContent = Object.keys(siteData.pages).length + 1;
+      genreCountStat.textContent = pageGroups.genres.length;
+    }
+
+    function renderAll(){
+      updateThemePreview();
+      renderSidebar();
+      renderEditor();
+      renderPreview();
+      renderStats();
+    }
+
+    document.getElementById("saveBtn").addEventListener("click", () => {
+      saveData();
+      alert("MovieSpot admin data saved.");
+    });
+
+    document.getElementById("exportBtn").addEventListener("click", () => {
+      saveData();
+      const blob = new Blob([JSON.stringify(siteData, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "moviespot-admin-backup.json";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+
+    document.getElementById("importBtn").addEventListener("click", () => {
+      document.getElementById("importFile").click();
+    });
+
+    document.getElementById("importFile").addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if(!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (evt) => {
+        try{
+          const data = JSON.parse(evt.target.result);
+          siteData = data;
+          saveData();
+          renderAll();
+          alert("Backup imported successfully.");
+        }catch(err){
+          alert("That file is not a valid admin backup.");
+        }
+      };
+      reader.readAsText(file);
+    });
+
+    document.getElementById("resetBtn").addEventListener("click", () => {
+      const ok = confirm("Reset the admin dashboard back to default sample data?");
+      if(!ok) return;
+      siteData = deepClone(defaultData);
+      saveData();
+      renderAll();
+    });
+
+    document.getElementById("mobileToggle").addEventListener("click", () => {
+      sidebar.classList.toggle("show");
+    });
+
+    window.addEventListener("beforeunload", saveData);
+
+    renderAll();
+  </script>
+</body>
+</html>
