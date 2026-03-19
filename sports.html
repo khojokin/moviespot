@@ -1,10 +1,13 @@
- 
+ Here’s the sport page in the same format, with the responsive layout and hamburger menu too.
+
+Replace logo.png with your real logo image.
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MovieSpot | Discover Movies & Where To Watch</title>
+  <title>MovieSpot | Sport Movies</title>
   <style>
     *{
       margin:0;
@@ -172,8 +175,8 @@
 
     .hero{
       background:
-        linear-gradient(rgba(15,23,42,0.78), rgba(15,23,42,0.92)),
-        url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+        linear-gradient(rgba(15,23,42,0.80), rgba(15,23,42,0.92)),
+        url('https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
       min-height:85vh;
       display:flex;
       align-items:center;
@@ -572,6 +575,93 @@
       border-radius:999px;
     }
 
+    .info-section{
+      background:#111827;
+    }
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:22px;
+    }
+
+    .info-box{
+      background:#0f172a;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      padding:24px;
+    }
+
+    .info-box h3{
+      font-size:22px;
+      color:#ffffff;
+      margin-bottom:12px;
+    }
+
+    .info-box p{
+      color:#cbd5e1;
+      font-size:15px;
+      margin-bottom:14px;
+    }
+
+    .cta{
+      text-align:center;
+      background:linear-gradient(135deg, #1e293b, #111827);
+    }
+
+    .cta h2{
+      font-size:36px;
+      color:#ffffff;
+      margin-bottom:12px;
+    }
+
+    .cta p{
+      max-width:720px;
+      margin:0 auto 24px;
+      color:#cbd5e1;
+    }
+
+    .cta-actions{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    footer{
+      background:#020617;
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding:24px 0;
+    }
+
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .footer-inner p{
+      color:#94a3b8;
+      font-size:14px;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+    }
+
+    .footer-links a{
+      color:#cbd5e1;
+      font-size:14px;
+    }
+
+    .footer-links a:hover{
+      color:#facc15;
+    }
+
     .genre-section{
       background:#111827;
     }
@@ -696,93 +786,6 @@
 
     .genre-movie-content .card-link{
       margin-top:auto;
-    }
-
-    .info-section{
-      background:#111827;
-    }
-
-    .info-grid{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:22px;
-    }
-
-    .info-box{
-      background:#0f172a;
-      border:1px solid rgba(255,255,255,0.06);
-      border-radius:18px;
-      padding:24px;
-    }
-
-    .info-box h3{
-      font-size:22px;
-      color:#ffffff;
-      margin-bottom:12px;
-    }
-
-    .info-box p{
-      color:#cbd5e1;
-      font-size:15px;
-      margin-bottom:14px;
-    }
-
-    .cta{
-      text-align:center;
-      background:linear-gradient(135deg, #1e293b, #111827);
-    }
-
-    .cta h2{
-      font-size:36px;
-      color:#ffffff;
-      margin-bottom:12px;
-    }
-
-    .cta p{
-      max-width:720px;
-      margin:0 auto 24px;
-      color:#cbd5e1;
-    }
-
-    .cta-actions{
-      display:flex;
-      justify-content:center;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-
-    footer{
-      background:#020617;
-      border-top:1px solid rgba(255,255,255,0.06);
-      padding:24px 0;
-    }
-
-    .footer-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      flex-wrap:wrap;
-    }
-
-    .footer-inner p{
-      color:#94a3b8;
-      font-size:14px;
-    }
-
-    .footer-links{
-      display:flex;
-      flex-wrap:wrap;
-      gap:16px;
-    }
-
-    .footer-links a{
-      color:#cbd5e1;
-      font-size:14px;
-    }
-
-    .footer-links a:hover{
-      color:#facc15;
     }
 
     @media(max-width:1024px){
@@ -956,7 +959,7 @@
         </span>
         <span class="logo-text">
           <span class="logo-title">Movie<span>Spot</span></span>
-          <span class="logo-sub">Find Your Next Watch</span>
+          <span class="logo-sub">Sport Movies</span>
         </span>
       </a>
 
@@ -967,9 +970,9 @@
       </button>
 
       <nav class="nav-links" id="navLinks">
-        <a href="index.html" class="active">Home</a>
+        <a href="index.html">Home</a>
+        <a href="sport.html" class="active">Sport</a>
         <a href="#featured">Featured</a>
-        <a href="#genre-recommendations">Genres</a>
         <a href="#guides">Watch Guides</a>
         <a href="#about">About</a>
       </nav>
@@ -980,45 +983,45 @@
     <div class="container">
       <div class="hero-layout">
         <div class="hero-content">
-          <div class="hero-tag">Discover what to watch tonight</div>
-          <h1>Find great movies and explore the best genre pages faster.</h1>
+          <div class="hero-tag">Competition, grit, and unforgettable victories</div>
+          <h1>Discover sport movies filled with determination, pressure, and inspiring triumph.</h1>
           <p>
-            MovieSpot helps visitors discover top films, browse genre pages,
-            and jump into action, comedy, crime, documentary, horror, fantasy, and more without wasting time.
+            Explore underdog stories, legendary athletes, team spirit,
+            championship dreams, personal sacrifice, and films that turn competition into something unforgettable.
           </p>
           <div class="hero-buttons">
-            <a href="#movies" class="btn btn-primary">Browse Popular Movies</a>
-            <a href="#genre-recommendations" class="btn btn-secondary">Explore Genres</a>
+            <a href="#movies" class="btn btn-primary">Browse Sport Movies</a>
+            <a href="#guides" class="btn btn-secondary">Sport Guides</a>
           </div>
         </div>
 
         <div class="hero-panel">
-          <h3>Start exploring faster</h3>
-          <p>Search titles, browse genres, and jump straight to pages people actually want to watch.</p>
+          <h3>Feel the competition</h3>
+          <p>Search sport favourites, explore different sport styles, and jump into stories driven by ambition, teamwork, and victory.</p>
 
           <div class="hero-stats">
             <div class="hero-stat">
-              <strong>12+</strong>
-              <span>Genres to explore</span>
+              <strong>50+</strong>
+              <span>Sport recommendations</span>
             </div>
             <div class="hero-stat">
-              <strong>100+</strong>
-              <span>Recommendation ideas</span>
+              <strong>6</strong>
+              <span>Sport styles to explore</span>
             </div>
           </div>
 
           <div class="hero-mini-list">
             <div class="hero-mini-item">
               <b>Search by title</b>
-              <span>Fast results</span>
+              <span>Fast sport results</span>
             </div>
             <div class="hero-mini-item">
-              <b>Browse by genre</b>
-              <span>Easy discovery</span>
+              <b>Filter by style</b>
+              <span>Boxing, football, racing, team</span>
             </div>
             <div class="hero-mini-item">
-              <b>Open movie pages</b>
-              <span>Quick genre access</span>
+              <b>Pick by energy</b>
+              <span>Motivation, rivalry, comeback</span>
             </div>
           </div>
         </div>
@@ -1030,8 +1033,8 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Daily Recommendations</h2>
-          <p>Fresh movie suggestions updated every day to help visitors find something great to watch.</p>
+          <h2>Daily Sport Recommendations</h2>
+          <p>Fresh sport movie picks that rotate automatically each day.</p>
         </div>
       </div>
 
@@ -1044,7 +1047,7 @@
       <div class="section-head">
         <div>
           <h2>Featured Right Now</h2>
-          <p>This featured movie changes automatically after a set time to keep the homepage fresh.</p>
+          <p>This featured sport movie changes automatically after a set time to keep the page fresh.</p>
         </div>
       </div>
 
@@ -1056,36 +1059,31 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Search Movies</h2>
-          <p>Use the search box and filter to explore your movie collection faster.</p>
+          <h2>Search Sport Movies</h2>
+          <p>Use the search box and filter to explore your sport movie collection faster.</p>
         </div>
       </div>
 
       <div class="tool-bar">
         <div class="search-box">
-          <input type="text" id="searchInput" placeholder="Search by movie title..." />
+          <input type="text" id="searchInput" placeholder="Search sport movie title..." />
         </div>
 
         <div class="filter-box">
           <select id="genreFilter">
-            <option value="all">All Genres</option>
-            <option value="Action">Action</option>
-            <option value="Adventure">Adventure</option>
-            <option value="Biography">Biography</option>
-            <option value="Comedy">Comedy</option>
-            <option value="Crime">Crime</option>
-            <option value="Documentary">Documentary</option>
-            <option value="Drama">Drama</option>
-            <option value="Family">Family</option>
-            <option value="Fantasy">Fantasy</option>
-            <option value="History">History</option>
-            <option value="Horror">Horror</option>
+            <option value="all">All Sport Styles</option>
+            <option value="Boxing Sport">Boxing Sport</option>
+            <option value="Football Sport">Football Sport</option>
+            <option value="Basketball Sport">Basketball Sport</option>
+            <option value="Racing Sport">Racing Sport</option>
+            <option value="Underdog Sport">Underdog Sport</option>
+            <option value="Team Sport">Team Sport</option>
           </select>
         </div>
       </div>
 
       <div class="search-action">
-        <a href="#genre-recommendations" class="btn btn-primary">Open Genre Pages</a>
+        <a href="#movies" class="btn btn-primary">Explore Sport Library</a>
       </div>
     </div>
   </section>
@@ -1094,81 +1092,81 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Featured Picks</h2>
-          <p>Highlight standout movies with quick summaries and direct paths into genre pages.</p>
+          <h2>Featured Sport Picks</h2>
+          <p>Powerful sport stories filled with rivalry, resilience, and unforgettable wins.</p>
         </div>
       </div>
 
       <div class="featured-grid">
         <article class="featured-card">
           <div class="featured-image">
-            <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=1200&q=80" alt="The Lord of the Rings">
+            <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1200&q=80" alt="Rocky">
           </div>
           <div class="featured-content">
             <div class="meta">
-              <span class="pill">Fantasy</span>
-              <span class="pill">Epic</span>
+              <span class="pill">Sport</span>
+              <span class="pill">Boxing</span>
               <span class="pill">Classic</span>
             </div>
-            <h3>The Lord of the Rings</h3>
+            <h3>Rocky</h3>
             <p>
-              A legendary quest across a magical world filled with danger, friendship,
-              sacrifice, and unforgettable fantasy adventure.
+              A small-time boxer gets the chance of a lifetime in one of the most iconic
+              underdog sport stories ever made.
             </p>
             <div class="watch-row">
-              <span class="watch-tag">Fantasy</span>
-              <span class="watch-tag alt">Adventure</span>
-              <span class="watch-tag green">Epic</span>
+              <span class="watch-tag">Underdog</span>
+              <span class="watch-tag alt">Boxing</span>
+              <span class="watch-tag green">Inspiring</span>
             </div>
-            <a href="fantasy.html" class="card-link">Go to Fantasy Page →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
 
         <article class="featured-card">
           <div class="featured-image">
-            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1200&q=80" alt="The Godfather">
+            <img src="https://images.unsplash.com/photo-1508098682722-e99c643e7485?auto=format&fit=crop&w=1200&q=80" alt="Remember the Titans">
           </div>
           <div class="featured-content">
             <div class="meta">
-              <span class="pill">Crime</span>
-              <span class="pill">Classic</span>
-              <span class="pill">9.2/10</span>
+              <span class="pill">Sport</span>
+              <span class="pill">Football</span>
+              <span class="pill">8.0/10</span>
             </div>
-            <h3>The Godfather</h3>
+            <h3>Remember the Titans</h3>
             <p>
-              A powerful crime family struggles with loyalty, power, and legacy
-              in one of cinema’s most iconic underworld stories.
+              Teamwork, leadership, and social tension shape an unforgettable football story
+              about unity, discipline, and belief.
             </p>
             <div class="watch-row">
-              <span class="watch-tag orange">Crime</span>
-              <span class="watch-tag alt">Drama</span>
-              <span class="watch-tag green">Classic</span>
+              <span class="watch-tag orange">Football</span>
+              <span class="watch-tag alt">Team</span>
+              <span class="watch-tag green">Motivating</span>
             </div>
-            <a href="crime.html" class="card-link">Go to Crime Page →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
 
         <article class="featured-card">
           <div class="featured-image">
-            <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=1200&q=80" alt="The Conjuring">
+            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80" alt="Ford v Ferrari">
           </div>
           <div class="featured-content">
             <div class="meta">
-              <span class="pill">Horror</span>
-              <span class="pill">Supernatural</span>
-              <span class="pill">7.5/10</span>
+              <span class="pill">Sport</span>
+              <span class="pill">Racing</span>
+              <span class="pill">8.1/10</span>
             </div>
-            <h3>The Conjuring</h3>
+            <h3>Ford v Ferrari</h3>
             <p>
-              Paranormal terror takes over a family home in one of the most effective
-              supernatural horror movies of the modern era.
+              Speed, engineering, and fierce ambition drive a thrilling racing story
+              about breaking limits and chasing greatness.
             </p>
             <div class="watch-row">
-              <span class="watch-tag">Horror</span>
-              <span class="watch-tag alt">Supernatural</span>
-              <span class="watch-tag green">Scary</span>
+              <span class="watch-tag">Racing</span>
+              <span class="watch-tag alt">Fast</span>
+              <span class="watch-tag green">Competitive</span>
             </div>
-            <a href="horror.html" class="card-link">Go to Horror Page →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
       </div>
@@ -1179,8 +1177,8 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Recommendations by Genre</h2>
-          <p>Browse handpicked recommendations for each genre with horizontal sliders.</p>
+          <h2>Recommendations by Sport Style</h2>
+          <p>Browse sport movie picks through horizontal sliders by game, competition, and emotional energy.</p>
         </div>
       </div>
 
@@ -1192,137 +1190,137 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Popular Movies</h2>
-          <p>These cards can connect users to your genre pages while keeping the homepage useful.</p>
+          <h2>Popular Sport Movies</h2>
+          <p>Top sport picks you can keep expanding later as your library grows.</p>
         </div>
       </div>
 
       <div class="movies-grid" id="moviesGrid">
-        <article class="movie-card" data-title="John Wick" data-genre="Action">
+        <article class="movie-card" data-title="Rocky" data-genre="Boxing Sport">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80" alt="John Wick">
+            <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=900&q=80" alt="Rocky">
           </div>
           <div class="movie-content">
-            <h3>John Wick</h3>
-            <div class="movie-info">Action • 2014 • 7.4/10</div>
-            <p>A retired assassin returns to the underworld after a brutal act drags him back into violence.</p>
+            <h3>Rocky</h3>
+            <div class="movie-info">Boxing Sport • 1976 • Classic</div>
+            <p>An underdog boxer fights for respect, belief, and one impossible shot at greatness.</p>
             <div class="mini-watch">
-              <span>Action</span>
-              <span>Fast-paced</span>
+              <span>Boxing</span>
+              <span>Underdog</span>
             </div>
-            <a href="action.html" class="card-link">Go to Action Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="The Martian" data-genre="Adventure">
+        <article class="movie-card" data-title="Remember the Titans" data-genre="Football Sport">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="The Martian">
+            <img src="https://images.unsplash.com/photo-1508098682722-e99c643e7485?auto=format&fit=crop&w=900&q=80" alt="Remember the Titans">
           </div>
           <div class="movie-content">
-            <h3>The Martian</h3>
-            <div class="movie-info">Adventure • 2015 • 8.0/10</div>
-            <p>An astronaut stranded on Mars uses science, humor, and grit to survive impossible odds.</p>
+            <h3>Remember the Titans</h3>
+            <div class="movie-info">Football Sport • 2000 • 8.0/10</div>
+            <p>A football team learns trust, discipline, and unity through pressure on and off the field.</p>
             <div class="mini-watch">
-              <span>Adventure</span>
-              <span>Sci-Fi</span>
+              <span>Football</span>
+              <span>Team</span>
             </div>
-            <a href="adventure.html" class="card-link">Go to Adventure Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="Bohemian Rhapsody" data-genre="Biography">
+        <article class="movie-card" data-title="Coach Carter" data-genre="Basketball Sport">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80" alt="Bohemian Rhapsody">
+            <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=900&q=80" alt="Coach Carter">
           </div>
           <div class="movie-content">
-            <h3>Bohemian Rhapsody</h3>
-            <div class="movie-info">Biography • 2018 • 7.9/10</div>
-            <p>The rise of Freddie Mercury and Queen unfolds through fame, creativity, and struggle.</p>
+            <h3>Coach Carter</h3>
+            <div class="movie-info">Basketball Sport • 2005 • 7.3/10</div>
+            <p>A tough coach pushes his players toward discipline, accountability, and success beyond basketball.</p>
             <div class="mini-watch">
-              <span>Biography</span>
-              <span>Music</span>
+              <span>Basketball</span>
+              <span>Motivation</span>
             </div>
-            <a href="biography.html" class="card-link">Go to Biography Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="The Hangover" data-genre="Comedy">
+        <article class="movie-card" data-title="Ford v Ferrari" data-genre="Racing Sport">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80" alt="The Hangover">
+            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80" alt="Ford v Ferrari">
           </div>
           <div class="movie-content">
-            <h3>The Hangover</h3>
-            <div class="movie-info">Comedy • 2009 • 7.7/10</div>
-            <p>A bachelor party disaster turns into one of the funniest lost-night comedies around.</p>
+            <h3>Ford v Ferrari</h3>
+            <div class="movie-info">Racing Sport • 2019 • 8.1/10</div>
+            <p>Two determined men chase speed and glory in one of the most exciting racing stories in film.</p>
             <div class="mini-watch">
-              <span>Comedy</span>
-              <span>Buddy</span>
+              <span>Racing</span>
+              <span>Fast</span>
             </div>
-            <a href="comedy.html" class="card-link">Go to Comedy Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="The Godfather" data-genre="Crime">
+        <article class="movie-card" data-title="Creed" data-genre="Underdog Sport">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80" alt="The Godfather">
+            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80" alt="Creed">
           </div>
           <div class="movie-content">
-            <h3>The Godfather</h3>
-            <div class="movie-info">Crime • 1972 • 9.2/10</div>
-            <p>A powerful crime family struggles with loyalty, power, and legacy.</p>
+            <h3>Creed</h3>
+            <div class="movie-info">Underdog Sport • 2015 • 7.6/10</div>
+            <p>A young fighter steps out of legacy and into his own battle for identity, discipline, and respect.</p>
             <div class="mini-watch">
-              <span>Crime</span>
-              <span>Classic</span>
+              <span>Underdog</span>
+              <span>Boxing</span>
             </div>
-            <a href="crime.html" class="card-link">Go to Crime Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="Planet Earth" data-genre="Documentary">
+        <article class="movie-card" data-title="Moneyball" data-genre="Team Sport">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80" alt="Planet Earth">
+            <img src="https://images.unsplash.com/photo-1471295253337-3ceaaedca402?auto=format&fit=crop&w=900&q=80" alt="Moneyball">
           </div>
           <div class="movie-content">
-            <h3>Planet Earth</h3>
-            <div class="movie-info">Documentary • 2006 • Classic</div>
-            <p>A breathtaking documentary journey across wildlife, oceans, forests, and the natural world.</p>
+            <h3>Moneyball</h3>
+            <div class="movie-info">Team Sport • 2011 • 7.6/10</div>
+            <p>A baseball team rewrites the rules through strategy, belief, and a smarter way to compete.</p>
             <div class="mini-watch">
-              <span>Documentary</span>
-              <span>Nature</span>
+              <span>Baseball</span>
+              <span>Strategy</span>
             </div>
-            <a href="documentary.html" class="card-link">Go to Documentary Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="The Shawshank Redemption" data-genre="Drama">
+        <article class="movie-card" data-title="Miracle" data-genre="Team Sport">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80" alt="The Shawshank Redemption">
+            <img src="https://images.unsplash.com/photo-1515703407324-5f753afd8be8?auto=format&fit=crop&w=900&q=80" alt="Miracle">
           </div>
           <div class="movie-content">
-            <h3>The Shawshank Redemption</h3>
-            <div class="movie-info">Drama • 1994 • 9.3/10</div>
-            <p>A banker sentenced to prison forms a powerful friendship while holding onto hope for freedom.</p>
+            <h3>Miracle</h3>
+            <div class="movie-info">Team Sport • 2004 • 7.5/10</div>
+            <p>An ice hockey team rises beyond expectation in one of sport cinema’s most inspiring true stories.</p>
             <div class="mini-watch">
-              <span>Drama</span>
+              <span>Team</span>
               <span>Inspirational</span>
             </div>
-            <a href="drama.html" class="card-link">Go to Drama Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="Paddington 2" data-genre="Family">
+        <article class="movie-card" data-title="Rush" data-genre="Racing Sport">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80" alt="Paddington 2">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80" alt="Rush">
           </div>
           <div class="movie-content">
-            <h3>Paddington 2</h3>
-            <div class="movie-info">Family • 2017 • 8.7/10</div>
-            <p>A kind-hearted bear spreads joy and chaos in a warm family adventure full of charm.</p>
+            <h3>Rush</h3>
+            <div class="movie-info">Racing Sport • 2013 • 8.1/10</div>
+            <p>A fierce rivalry between two drivers creates a thrilling story of risk, obsession, and speed.</p>
             <div class="mini-watch">
-              <span>Family</span>
-              <span>Feel-good</span>
+              <span>Racing</span>
+              <span>Rivalry</span>
             </div>
-            <a href="family.html" class="card-link">Go to Family Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
       </div>
@@ -1333,58 +1331,58 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Watch Guides</h2>
-          <p>Helpful shortcuts to genre pages and ideas that keep visitors exploring your site longer.</p>
+          <h2>Sport Watch Guides</h2>
+          <p>Helpful guides for finding the best sport movies by game, mood, and competition style.</p>
         </div>
       </div>
 
       <div class="info-grid">
         <div class="info-box">
-          <h3>Best by Genre</h3>
+          <h3>Best Sport Movies to Start With</h3>
           <p>
-            Send visitors straight into action, comedy, horror, fantasy, drama, and more through dedicated genre pages.
+            Create pages for must-watch sport films that balance motivation, emotion, and unforgettable competition.
           </p>
-          <a href="#genre-recommendations" class="card-link">Explore Genres →</a>
+          <a href="#" class="card-link">Explore Guide →</a>
         </div>
 
         <div class="info-box">
-          <h3>Movie Night Picks</h3>
+          <h3>Great Underdog Stories</h3>
           <p>
-            Build quick collections for date night, family night, scary night, or feel-good weekend watching.
+            Build collections for viewers who love comeback stories, tough training, and winning against the odds.
           </p>
-          <a href="family.html" class="card-link">See Family Picks →</a>
+          <a href="#" class="card-link">Browse Underdog Picks →</a>
         </div>
 
         <div class="info-box">
-          <h3>Dark and Intense</h3>
+          <h3>Movies Like Rocky</h3>
           <p>
-            Push users into crime, history epics, and horror picks when they want bigger stakes.
+            Keep visitors engaged with pages based on grit, personal struggle, and inspiring sport journeys.
           </p>
-          <a href="crime.html" class="card-link">View Crime Picks →</a>
+          <a href="#" class="card-link">See Similar Movies →</a>
         </div>
 
         <div class="info-box">
-          <h3>Real Stories</h3>
+          <h3>Team and Coach Favourites</h3>
           <p>
-            Biography, documentary, and history pages help visitors discover films based on real lives and events.
+            Highlight stories driven by leadership, trust, team chemistry, and group success under pressure.
           </p>
-          <a href="documentary.html" class="card-link">Explore Real Stories →</a>
+          <a href="#" class="card-link">View Team Picks →</a>
         </div>
 
         <div class="info-box">
-          <h3>Magical Escapes</h3>
+          <h3>Fast Racing and Rivalry</h3>
           <p>
-            Fantasy and adventure pages are perfect for users looking for big worlds, quests, and unforgettable journeys.
+            Collect sport films powered by speed, obsession, and head-to-head competition at the highest level.
           </p>
-          <a href="fantasy.html" class="card-link">Open Fantasy Page →</a>
+          <a href="#" class="card-link">See Racing Picks →</a>
         </div>
 
         <div class="info-box">
-          <h3>Scariest Picks</h3>
+          <h3>Underrated Sport Gems</h3>
           <p>
-            Create a strong horror route for visitors who want haunted houses, slashers, dread, and supernatural fear.
+            Surface lesser-known sport movies that deserve much more attention from movie lovers.
           </p>
-          <a href="horror.html" class="card-link">Go to Horror Page →</a>
+          <a href="#" class="card-link">Discover More →</a>
         </div>
       </div>
     </div>
@@ -1392,21 +1390,21 @@
 
   <section id="about" class="cta">
     <div class="container">
-      <h2>Your next favourite movie starts here.</h2>
+      <h2>Your next inspiring victory starts here.</h2>
       <p>
-        From timeless classics to fresh picks across every genre, MovieSpot makes it easier to discover what to watch next.
-        Browse by genre, explore recommendations, and guide visitors straight to the pages they care about most.
+        From boxing classics to team triumphs, football, basketball, racing, and unforgettable underdog stories,
+        MovieSpot helps sport fans discover motivating movies faster. Browse, search, and explore competition without wasting time.
       </p>
       <div class="cta-actions">
-        <a href="#featured" class="btn btn-primary">Explore Featured Picks</a>
-        <a href="#genre-recommendations" class="btn btn-secondary">Open Genre Pages</a>
+        <a href="#featured" class="btn btn-primary">Explore Featured Sport Picks</a>
+        <a href="#movies" class="btn btn-secondary">Open Sport Library</a>
       </div>
     </div>
   </section>
 
   <footer>
     <div class="container footer-inner">
-      <p>©️ 2026 MovieSpot. Discover movies and where to watch them.</p>
+      <p>©️ 2026 MovieSpot. Discover sport movies worth watching.</p>
 
       <div class="footer-links">
         <a href="privacy.html">Privacy Policy</a>
@@ -1468,92 +1466,60 @@
 
     const movieDatabase = [
       {
-        title: "John Wick",
-        genre: "Action",
-        year: "2014",
-        summary: "A retired assassin returns to the underworld after a brutal act pulls him back into violence.",
-        poster: "https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80",
-        link: "action.html"
+        title: "Rocky",
+        genre: "Boxing Sport",
+        year: "1976",
+        summary: "An iconic underdog boxing story built on heart, grit, and one shot at greatness.",
+        poster: "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "The Martian",
-        genre: "Adventure",
-        year: "2015",
-        summary: "An astronaut stranded on Mars uses science, humor, and grit to survive impossible odds.",
-        poster: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
-        link: "adventure.html"
-      },
-      {
-        title: "Bohemian Rhapsody",
-        genre: "Biography",
-        year: "2018",
-        summary: "The rise of Freddie Mercury and Queen unfolds through fame, creativity, and struggle.",
-        poster: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80",
-        link: "biography.html"
-      },
-      {
-        title: "The Hangover",
-        genre: "Comedy",
-        year: "2009",
-        summary: "A bachelor party disaster turns into one of the funniest lost-night comedies around.",
-        poster: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80",
-        link: "comedy.html"
-      },
-      {
-        title: "The Godfather",
-        genre: "Crime",
-        year: "1972",
-        summary: "A powerful crime family struggles with loyalty, power, and legacy.",
-        poster: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80",
-        link: "crime.html"
-      },
-      {
-        title: "Planet Earth",
-        genre: "Documentary",
-        year: "2006",
-        summary: "A breathtaking look at wildlife and the natural world across the planet.",
-        poster: "https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80",
-        link: "documentary.html"
-      },
-      {
-        title: "The Shawshank Redemption",
-        genre: "Drama",
-        year: "1994",
-        summary: "A moving story of friendship, hope, and endurance behind prison walls.",
-        poster: "https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80",
-        link: "drama.html"
-      },
-      {
-        title: "Paddington 2",
-        genre: "Family",
-        year: "2017",
-        summary: "A joyful family favourite full of warmth, kindness, and fun.",
-        poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80",
-        link: "family.html"
-      },
-      {
-        title: "The Lord of the Rings",
-        genre: "Fantasy",
-        year: "2001",
-        summary: "A legendary quest unfolds across a richly imagined world full of danger and wonder.",
-        poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80",
-        link: "fantasy.html"
-      },
-      {
-        title: "Gladiator",
-        genre: "History",
+        title: "Remember the Titans",
+        genre: "Football Sport",
         year: "2000",
-        summary: "A sweeping Roman story of betrayal, vengeance, and honor.",
-        poster: "https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=900&q=80",
-        link: "history.html"
+        summary: "A football team learns discipline, trust, and unity through one unforgettable season.",
+        poster: "https://images.unsplash.com/photo-1508098682722-e99c643e7485?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "The Conjuring",
-        genre: "Horror",
+        title: "Coach Carter",
+        genre: "Basketball Sport",
+        year: "2005",
+        summary: "A coach pushes his players toward greatness on the court and responsibility beyond it.",
+        poster: "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Ford v Ferrari",
+        genre: "Racing Sport",
+        year: "2019",
+        summary: "Speed, rivalry, and ambition collide in a thrilling story of competitive racing.",
+        poster: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Creed",
+        genre: "Underdog Sport",
+        year: "2015",
+        summary: "A fighter battles legacy, pressure, and doubt to prove himself in the ring.",
+        poster: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Moneyball",
+        genre: "Team Sport",
+        year: "2011",
+        summary: "A baseball team changes the game through belief, statistics, and strategic courage.",
+        poster: "https://images.unsplash.com/photo-1471295253337-3ceaaedca402?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Miracle",
+        genre: "Team Sport",
+        year: "2004",
+        summary: "An ice hockey team defies expectations in one of sport cinema’s most inspiring true stories.",
+        poster: "https://images.unsplash.com/photo-1515703407324-5f753afd8be8?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Rush",
+        genre: "Racing Sport",
         year: "2013",
-        summary: "A haunting slowly turns a family home into a place of pure terror.",
-        poster: "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=900&q=80",
-        link: "horror.html"
+        summary: "A fierce rivalry turns into a gripping story of obsession, danger, and speed.",
+        poster: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80"
       }
     ];
 
@@ -1585,7 +1551,7 @@
             <h3>${movie.title}</h3>
             <div class="movie-info">${movie.genre} • ${movie.year}</div>
             <p>${movie.summary}</p>
-            <a href="${movie.link}" class="card-link">Open ${movie.genre} Page →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
       `).join("");
@@ -1593,56 +1559,43 @@
 
     renderDailyMovies();
 
-    const genrePageMap = {
-      "Action": "action.html",
-      "Adventure": "adventure.html",
-      "Biography": "biography.html",
-      "Comedy": "comedy.html",
-      "Crime": "crime.html",
-      "Documentary": "documentary.html",
-      "Drama": "drama.html",
-      "Family": "family.html",
-      "Fantasy": "fantasy.html",
-      "History": "history.html",
-      "Horror": "horror.html"
-    };
-
     const posterPool = [
-      "https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=900&q=80"
+      "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1508098682722-e99c643e7485?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1471295253337-3ceaaedca402?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1515703407324-5f753afd8be8?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80"
     ];
 
     const genreSeeds = {
-      "Action": ["John Wick","The Dark Knight","Gladiator","Mad Max: Fury Road","Mission: Impossible"],
-      "Adventure": ["The Martian","Jurassic Park","Avatar","Indiana Jones","Life of Pi"],
-      "Biography": ["Bohemian Rhapsody","Oppenheimer","A Beautiful Mind","Lincoln","The Theory of Everything"],
-      "Comedy": ["The Hangover","Mean Girls","Bridesmaids","Superbad","Rush Hour"],
-      "Crime": ["The Godfather","Heat","Goodfellas","The Departed","Se7en"],
-      "Documentary": ["Planet Earth","The Last Dance","13th","Free Solo","Amy"],
-      "Drama": ["The Shawshank Redemption","Forrest Gump","Whiplash","Titanic","Manchester by the Sea"],
-      "Family": ["Paddington 2","Home Alone","The Parent Trap","Mary Poppins","Night at the Museum"],
-      "Fantasy": ["The Lord of the Rings","Harry Potter","Pan's Labyrinth","The Chronicles of Narnia","Stardust"],
-      "History": ["Gladiator","1917","The King's Speech","Lincoln","Braveheart"],
-      "Horror": ["The Conjuring","Get Out","Halloween","Alien","A Quiet Place"]
+      "Boxing Sport": ["Rocky","Creed","Raging Bull","Cinderella Man","The Fighter","Southpaw","Million Dollar Baby","Ali","Bleed for This","Hands of Stone","Champion","Requiem for a Heavyweight","Tyson","Jawbone","Rocky Balboa"],
+      "Football Sport": ["Remember the Titans","Friday Night Lights","We Are Marshall","The Blind Side","Draft Day","Invincible","Gridiron Gang","Any Given Sunday","Varsity Blues","Rudy","Little Giants","Facing the Giants","When the Game Stands Tall","American Underdog","Brian's Song"],
+      "Basketball Sport": ["Coach Carter","Hoosiers","White Men Can't Jump","Glory Road","He Got Game","Space Jam","Blue Chips","Above the Rim","Hustle","The Way Back","Love & Basketball","Sunset Park","Semi-Pro","Uncle Drew","Like Mike"],
+      "Racing Sport": ["Ford v Ferrari","Rush","Days of Thunder","Senna","Cars","Talladega Nights","Driven","Grand Prix","Speed Racer","Winning","Le Mans","McFarland, USA","Turbo","Born to Race","Race for Glory"],
+      "Underdog Sport": ["Creed","Rocky","Rudy","McFarland, USA","Cool Runnings","Eddie the Eagle","The Karate Kid","Greater","Queen of Katwe","The Rookie","Bend It Like Beckham","Seabiscuit","Miracle Season","Champions","Invincible"],
+      "Team Sport": ["Moneyball","Miracle","Remember the Titans","Coach Carter","The Mighty Ducks","A League of Their Own","Major League","Goal!","Miracle on Ice","The Longest Yard","The Sandlot","Warrior","Field of Dreams","Trouble with the Curve","The Bad News Bears"]
     };
 
     function makeMovie(genre, title, index){
-      const year = 1985 + ((genre.length * 7 + index * 3) % 36);
+      const year = 1985 + ((genre.length * 9 + index * 4) % 38);
+      const summaries = {
+        "Boxing Sport": `${title} delivers grit, training, pressure, and one powerful fight for greatness.`,
+        "Football Sport": `${title} captures football, discipline, and the emotional power of teamwork.`,
+        "Basketball Sport": `${title} turns basketball into a story of pressure, growth, and motivation.`,
+        "Racing Sport": `${title} drives speed, rivalry, and competitive obsession to the front.`,
+        "Underdog Sport": `${title} follows determination, self-belief, and the fight to beat the odds.`,
+        "Team Sport": `${title} highlights teamwork, leadership, and the challenge of winning together.`
+      };
+
       return {
         title,
         year: String(year),
         genre,
-        summary: `${title} is one of the standout picks in ${genre.toLowerCase()} and a great place to start browsing.`,
-        poster: posterPool[index % posterPool.length],
-        link: genrePageMap[genre] || "#"
+        summary: summaries[genre] || `${title} is one of the standout sport picks in ${genre}.`,
+        poster: posterPool[index % posterPool.length]
       };
     }
 
@@ -1670,7 +1623,7 @@
           </div>
 
           <div class="genre-slider" id="genreSlider${index}">
-            ${movies.map(movie => `
+            ${movies.slice(0, 15).map(movie => `
               <article class="genre-movie-card">
                 <div class="genre-movie-poster">
                   <img src="${movie.poster}" alt="${movie.title}">
@@ -1679,7 +1632,7 @@
                   <h4>${movie.title}</h4>
                   <div class="movie-info">${movie.genre} • ${movie.year}</div>
                   <p>${movie.summary}</p>
-                  <a href="${movie.link}" class="card-link">Open ${movie.genre} Page →</a>
+                  <a href="#movies" class="card-link">View Movie →</a>
                 </div>
               </article>
             `).join("")}
@@ -1702,36 +1655,32 @@
 
     const scheduledMovies = [
       {
-        title: "The Lord of the Rings",
-        genre: "Fantasy",
-        year: "2001",
-        summary: "A legendary fantasy quest unfolds across a richly imagined world.",
-        poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80",
-        link: "fantasy.html"
+        title: "Rocky",
+        genre: "Boxing Sport",
+        year: "1976",
+        summary: "An iconic underdog fights for one impossible shot at greatness.",
+        poster: "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "The Godfather",
-        genre: "Crime",
-        year: "1972",
-        summary: "A powerful crime family struggles with loyalty, power, and legacy.",
-        poster: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80",
-        link: "crime.html"
+        title: "Remember the Titans",
+        genre: "Football Sport",
+        year: "2000",
+        summary: "A team story driven by discipline, unity, and belief under pressure.",
+        poster: "https://images.unsplash.com/photo-1508098682722-e99c643e7485?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "Paddington 2",
-        genre: "Family",
-        year: "2017",
-        summary: "A warm, joyful family adventure full of charm and kindness.",
-        poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80",
-        link: "family.html"
+        title: "Coach Carter",
+        genre: "Basketball Sport",
+        year: "2005",
+        summary: "A coach demands excellence on the court and responsibility beyond it.",
+        poster: "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "The Conjuring",
-        genre: "Horror",
-        year: "2013",
-        summary: "A haunted house nightmare unfolds with terrifying paranormal force.",
-        poster: "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=900&q=80",
-        link: "horror.html"
+        title: "Ford v Ferrari",
+        genre: "Racing Sport",
+        year: "2019",
+        summary: "Speed, ambition, and rivalry create one of the most exciting racing stories in film.",
+        poster: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80"
       }
     ];
 
@@ -1763,7 +1712,7 @@
               <span>Auto Updated</span>
               <span>Featured</span>
             </div>
-            <a href="${movie.link}" class="card-link">Open ${movie.genre} Page →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
       `;
@@ -1775,4 +1724,4 @@
 </body>
 </html>
 
- 
+Next can be thriller in the exact same format.

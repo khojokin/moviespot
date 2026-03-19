@@ -1,10 +1,9 @@
- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MovieSpot | Discover Movies & Where To Watch</title>
+  <title>MovieSpot | Biography Movies</title>
   <style>
     *{
       margin:0;
@@ -173,7 +172,7 @@
     .hero{
       background:
         linear-gradient(rgba(15,23,42,0.78), rgba(15,23,42,0.92)),
-        url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+        url('https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
       min-height:85vh;
       display:flex;
       align-items:center;
@@ -404,8 +403,6 @@
       border-radius:20px;
       overflow:hidden;
       transition:0.3s;
-      display:flex;
-      flex-direction:column;
     }
 
     .featured-card:hover{
@@ -426,9 +423,6 @@
 
     .featured-content{
       padding:20px;
-      display:flex;
-      flex-direction:column;
-      flex:1;
     }
 
     .meta{
@@ -462,7 +456,6 @@
       display:flex;
       flex-wrap:wrap;
       gap:8px;
-      margin-top:auto;
       margin-bottom:18px;
     }
 
@@ -509,8 +502,6 @@
       border-radius:18px;
       overflow:hidden;
       transition:0.3s;
-      display:flex;
-      flex-direction:column;
     }
 
     .movie-card:hover{
@@ -532,9 +523,6 @@
 
     .movie-content{
       padding:18px;
-      display:flex;
-      flex-direction:column;
-      flex:1;
     }
 
     .movie-content h3{
@@ -559,7 +547,6 @@
       display:flex;
       flex-wrap:wrap;
       gap:8px;
-      margin-top:auto;
       margin-bottom:14px;
     }
 
@@ -570,6 +557,92 @@
       font-size:12px;
       padding:6px 10px;
       border-radius:999px;
+    }
+
+    .info-section{
+      background:#111827;
+    }
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:22px;
+    }
+
+    .info-box{
+      background:#0f172a;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      padding:24px;
+    }
+
+    .info-box h3{
+      font-size:22px;
+      color:#ffffff;
+      margin-bottom:12px;
+    }
+
+    .info-box p{
+      color:#cbd5e1;
+      font-size:15px;
+    }
+
+    .cta{
+      text-align:center;
+      background:linear-gradient(135deg, #1e293b, #111827);
+    }
+
+    .cta h2{
+      font-size:36px;
+      color:#ffffff;
+      margin-bottom:12px;
+    }
+
+    .cta p{
+      max-width:720px;
+      margin:0 auto 24px;
+      color:#cbd5e1;
+    }
+
+    .cta-actions{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    footer{
+      background:#020617;
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding:24px 0;
+    }
+
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .footer-inner p{
+      color:#94a3b8;
+      font-size:14px;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+    }
+
+    .footer-links a{
+      color:#cbd5e1;
+      font-size:14px;
+    }
+
+    .footer-links a:hover{
+      color:#facc15;
     }
 
     .genre-section{
@@ -648,8 +721,6 @@
       overflow:hidden;
       flex-shrink:0;
       transition:0.3s;
-      display:flex;
-      flex-direction:column;
     }
 
     .genre-movie-card:hover{
@@ -671,9 +742,6 @@
 
     .genre-movie-content{
       padding:18px;
-      display:flex;
-      flex-direction:column;
-      flex:1;
     }
 
     .genre-movie-content h4{
@@ -692,97 +760,6 @@
       color:#cbd5e1;
       font-size:14px;
       margin-bottom:14px;
-    }
-
-    .genre-movie-content .card-link{
-      margin-top:auto;
-    }
-
-    .info-section{
-      background:#111827;
-    }
-
-    .info-grid{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:22px;
-    }
-
-    .info-box{
-      background:#0f172a;
-      border:1px solid rgba(255,255,255,0.06);
-      border-radius:18px;
-      padding:24px;
-    }
-
-    .info-box h3{
-      font-size:22px;
-      color:#ffffff;
-      margin-bottom:12px;
-    }
-
-    .info-box p{
-      color:#cbd5e1;
-      font-size:15px;
-      margin-bottom:14px;
-    }
-
-    .cta{
-      text-align:center;
-      background:linear-gradient(135deg, #1e293b, #111827);
-    }
-
-    .cta h2{
-      font-size:36px;
-      color:#ffffff;
-      margin-bottom:12px;
-    }
-
-    .cta p{
-      max-width:720px;
-      margin:0 auto 24px;
-      color:#cbd5e1;
-    }
-
-    .cta-actions{
-      display:flex;
-      justify-content:center;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-
-    footer{
-      background:#020617;
-      border-top:1px solid rgba(255,255,255,0.06);
-      padding:24px 0;
-    }
-
-    .footer-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      flex-wrap:wrap;
-    }
-
-    .footer-inner p{
-      color:#94a3b8;
-      font-size:14px;
-    }
-
-    .footer-links{
-      display:flex;
-      flex-wrap:wrap;
-      gap:16px;
-    }
-
-    .footer-links a{
-      color:#cbd5e1;
-      font-size:14px;
-    }
-
-    .footer-links a:hover{
-      color:#facc15;
     }
 
     @media(max-width:1024px){
@@ -956,7 +933,7 @@
         </span>
         <span class="logo-text">
           <span class="logo-title">Movie<span>Spot</span></span>
-          <span class="logo-sub">Find Your Next Watch</span>
+          <span class="logo-sub">Biography Movies</span>
         </span>
       </a>
 
@@ -967,9 +944,9 @@
       </button>
 
       <nav class="nav-links" id="navLinks">
-        <a href="index.html" class="active">Home</a>
+        <a href="index.html">Home</a>
+        <a href="biography.html" class="active">Biography</a>
         <a href="#featured">Featured</a>
-        <a href="#genre-recommendations">Genres</a>
         <a href="#guides">Watch Guides</a>
         <a href="#about">About</a>
       </nav>
@@ -980,45 +957,45 @@
     <div class="container">
       <div class="hero-layout">
         <div class="hero-content">
-          <div class="hero-tag">Discover what to watch tonight</div>
-          <h1>Find great movies and explore the best genre pages faster.</h1>
+          <div class="hero-tag">Real lives. Powerful stories.</div>
+          <h1>Discover biography movies that bring remarkable people and true stories to life.</h1>
           <p>
-            MovieSpot helps visitors discover top films, browse genre pages,
-            and jump into action, comedy, crime, documentary, horror, fantasy, and more without wasting time.
+            Explore inspiring journeys, historical figures, artists, leaders, athletes,
+            innovators, and unforgettable life stories told through compelling cinema.
           </p>
           <div class="hero-buttons">
-            <a href="#movies" class="btn btn-primary">Browse Popular Movies</a>
-            <a href="#genre-recommendations" class="btn btn-secondary">Explore Genres</a>
+            <a href="#movies" class="btn btn-primary">Browse Biography Movies</a>
+            <a href="#guides" class="btn btn-secondary">Biography Guides</a>
           </div>
         </div>
 
         <div class="hero-panel">
-          <h3>Start exploring faster</h3>
-          <p>Search titles, browse genres, and jump straight to pages people actually want to watch.</p>
+          <h3>Start with true stories</h3>
+          <p>Find powerful life stories, explore different biography styles, and discover films based on real people.</p>
 
           <div class="hero-stats">
             <div class="hero-stat">
-              <strong>12+</strong>
-              <span>Genres to explore</span>
+              <strong>50+</strong>
+              <span>Biography recommendations</span>
             </div>
             <div class="hero-stat">
-              <strong>100+</strong>
-              <span>Recommendation ideas</span>
+              <strong>6</strong>
+              <span>Biography styles to explore</span>
             </div>
           </div>
 
           <div class="hero-mini-list">
             <div class="hero-mini-item">
               <b>Search by title</b>
-              <span>Fast results</span>
+              <span>Quick biography results</span>
             </div>
             <div class="hero-mini-item">
-              <b>Browse by genre</b>
-              <span>Easy discovery</span>
+              <b>Filter by type</b>
+              <span>Music, sports, history, science</span>
             </div>
             <div class="hero-mini-item">
-              <b>Open movie pages</b>
-              <span>Quick genre access</span>
+              <b>Find real stories</b>
+              <span>Inspiring and dramatic lives</span>
             </div>
           </div>
         </div>
@@ -1030,8 +1007,8 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Daily Recommendations</h2>
-          <p>Fresh movie suggestions updated every day to help visitors find something great to watch.</p>
+          <h2>Daily Biography Recommendations</h2>
+          <p>Fresh biography movie picks that rotate automatically each day.</p>
         </div>
       </div>
 
@@ -1044,7 +1021,7 @@
       <div class="section-head">
         <div>
           <h2>Featured Right Now</h2>
-          <p>This featured movie changes automatically after a set time to keep the homepage fresh.</p>
+          <p>This featured biography movie changes automatically after a set time to keep the page fresh.</p>
         </div>
       </div>
 
@@ -1056,36 +1033,31 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Search Movies</h2>
-          <p>Use the search box and filter to explore your movie collection faster.</p>
+          <h2>Search Biography Movies</h2>
+          <p>Use the search box and filter to explore your biography movie collection faster.</p>
         </div>
       </div>
 
       <div class="tool-bar">
         <div class="search-box">
-          <input type="text" id="searchInput" placeholder="Search by movie title..." />
+          <input type="text" id="searchInput" placeholder="Search biography movie title..." />
         </div>
 
         <div class="filter-box">
           <select id="genreFilter">
-            <option value="all">All Genres</option>
-            <option value="Action">Action</option>
-            <option value="Adventure">Adventure</option>
-            <option value="Biography">Biography</option>
-            <option value="Comedy">Comedy</option>
-            <option value="Crime">Crime</option>
-            <option value="Documentary">Documentary</option>
-            <option value="Drama">Drama</option>
-            <option value="Family">Family</option>
-            <option value="Fantasy">Fantasy</option>
-            <option value="History">History</option>
-            <option value="Horror">Horror</option>
+            <option value="all">All Biography Styles</option>
+            <option value="Historical Biography">Historical Biography</option>
+            <option value="Music Biography">Music Biography</option>
+            <option value="Sports Biography">Sports Biography</option>
+            <option value="Political Biography">Political Biography</option>
+            <option value="Science Biography">Science Biography</option>
+            <option value="Crime Biography">Crime Biography</option>
           </select>
         </div>
       </div>
 
       <div class="search-action">
-        <a href="#genre-recommendations" class="btn btn-primary">Open Genre Pages</a>
+        <a href="#movies" class="btn btn-primary">Explore Biography Library</a>
       </div>
     </div>
   </section>
@@ -1094,81 +1066,78 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Featured Picks</h2>
-          <p>Highlight standout movies with quick summaries and direct paths into genre pages.</p>
+          <h2>Featured Biography Picks</h2>
+          <p>True stories of extraordinary people, ambition, struggle, and legacy.</p>
         </div>
       </div>
 
       <div class="featured-grid">
         <article class="featured-card">
           <div class="featured-image">
-            <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=1200&q=80" alt="The Lord of the Rings">
+            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1200&q=80" alt="Oppenheimer">
           </div>
           <div class="featured-content">
             <div class="meta">
-              <span class="pill">Fantasy</span>
-              <span class="pill">Epic</span>
-              <span class="pill">Classic</span>
+              <span class="pill">Biography</span>
+              <span class="pill">History</span>
+              <span class="pill">8.3/10</span>
             </div>
-            <h3>The Lord of the Rings</h3>
+            <h3>Oppenheimer</h3>
             <p>
-              A legendary quest across a magical world filled with danger, friendship,
-              sacrifice, and unforgettable fantasy adventure.
+              A gripping portrait of the scientist behind the atomic bomb and the
+              immense weight of genius, ambition, and consequence.
             </p>
             <div class="watch-row">
-              <span class="watch-tag">Fantasy</span>
-              <span class="watch-tag alt">Adventure</span>
-              <span class="watch-tag green">Epic</span>
+              <span class="watch-tag">Prime Video</span>
+              <span class="watch-tag alt">Apple TV</span>
             </div>
-            <a href="fantasy.html" class="card-link">Go to Fantasy Page →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
 
         <article class="featured-card">
           <div class="featured-image">
-            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1200&q=80" alt="The Godfather">
+            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80" alt="Bohemian Rhapsody">
           </div>
           <div class="featured-content">
             <div class="meta">
-              <span class="pill">Crime</span>
-              <span class="pill">Classic</span>
-              <span class="pill">9.2/10</span>
+              <span class="pill">Biography</span>
+              <span class="pill">Music</span>
+              <span class="pill">7.9/10</span>
             </div>
-            <h3>The Godfather</h3>
+            <h3>Bohemian Rhapsody</h3>
             <p>
-              A powerful crime family struggles with loyalty, power, and legacy
-              in one of cinema’s most iconic underworld stories.
+              The rise of Freddie Mercury and Queen unfolds through fame,
+              creativity, struggle, and one of the most iconic musical legacies ever.
             </p>
             <div class="watch-row">
-              <span class="watch-tag orange">Crime</span>
-              <span class="watch-tag alt">Drama</span>
-              <span class="watch-tag green">Classic</span>
+              <span class="watch-tag green">Disney+</span>
+              <span class="watch-tag orange">Rent</span>
             </div>
-            <a href="crime.html" class="card-link">Go to Crime Page →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
 
         <article class="featured-card">
           <div class="featured-image">
-            <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=1200&q=80" alt="The Conjuring">
+            <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=1200&q=80" alt="The Theory of Everything">
           </div>
           <div class="featured-content">
             <div class="meta">
-              <span class="pill">Horror</span>
-              <span class="pill">Supernatural</span>
-              <span class="pill">7.5/10</span>
+              <span class="pill">Biography</span>
+              <span class="pill">Science</span>
+              <span class="pill">7.7/10</span>
             </div>
-            <h3>The Conjuring</h3>
+            <h3>The Theory of Everything</h3>
             <p>
-              Paranormal terror takes over a family home in one of the most effective
-              supernatural horror movies of the modern era.
+              A moving look at Stephen Hawking's life, brilliance, relationships,
+              and determination in the face of devastating illness.
             </p>
             <div class="watch-row">
-              <span class="watch-tag">Horror</span>
-              <span class="watch-tag alt">Supernatural</span>
-              <span class="watch-tag green">Scary</span>
+              <span class="watch-tag">Netflix</span>
+              <span class="watch-tag alt">Buy</span>
             </div>
-            <a href="horror.html" class="card-link">Go to Horror Page →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
       </div>
@@ -1179,8 +1148,8 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Recommendations by Genre</h2>
-          <p>Browse handpicked recommendations for each genre with horizontal sliders.</p>
+          <h2>Recommendations by Biography Style</h2>
+          <p>Browse biography movie picks through horizontal sliders by type and subject.</p>
         </div>
       </div>
 
@@ -1192,137 +1161,137 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Popular Movies</h2>
-          <p>These cards can connect users to your genre pages while keeping the homepage useful.</p>
+          <h2>Popular Biography Movies</h2>
+          <p>Top biography picks you can keep expanding later as your library grows.</p>
         </div>
       </div>
 
       <div class="movies-grid" id="moviesGrid">
-        <article class="movie-card" data-title="John Wick" data-genre="Action">
+        <article class="movie-card" data-title="Oppenheimer" data-genre="Historical Biography">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80" alt="John Wick">
+            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80" alt="Oppenheimer">
           </div>
           <div class="movie-content">
-            <h3>John Wick</h3>
-            <div class="movie-info">Action • 2014 • 7.4/10</div>
-            <p>A retired assassin returns to the underworld after a brutal act drags him back into violence.</p>
+            <h3>Oppenheimer</h3>
+            <div class="movie-info">Historical Biography • 2023 • 8.3/10</div>
+            <p>A complex portrait of J. Robert Oppenheimer and the birth of the atomic age.</p>
             <div class="mini-watch">
-              <span>Action</span>
-              <span>Fast-paced</span>
+              <span>Prime Video</span>
+              <span>Rent</span>
             </div>
-            <a href="action.html" class="card-link">Go to Action Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="The Martian" data-genre="Adventure">
-          <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="The Martian">
-          </div>
-          <div class="movie-content">
-            <h3>The Martian</h3>
-            <div class="movie-info">Adventure • 2015 • 8.0/10</div>
-            <p>An astronaut stranded on Mars uses science, humor, and grit to survive impossible odds.</p>
-            <div class="mini-watch">
-              <span>Adventure</span>
-              <span>Sci-Fi</span>
-            </div>
-            <a href="adventure.html" class="card-link">Go to Adventure Page →</a>
-          </div>
-        </article>
-
-        <article class="movie-card" data-title="Bohemian Rhapsody" data-genre="Biography">
+        <article class="movie-card" data-title="Bohemian Rhapsody" data-genre="Music Biography">
           <div class="movie-poster">
             <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80" alt="Bohemian Rhapsody">
           </div>
           <div class="movie-content">
             <h3>Bohemian Rhapsody</h3>
-            <div class="movie-info">Biography • 2018 • 7.9/10</div>
-            <p>The rise of Freddie Mercury and Queen unfolds through fame, creativity, and struggle.</p>
+            <div class="movie-info">Music Biography • 2018 • 7.9/10</div>
+            <p>The story of Freddie Mercury, Queen, and a voice that changed music forever.</p>
             <div class="mini-watch">
-              <span>Biography</span>
-              <span>Music</span>
+              <span>Disney+</span>
+              <span>Buy</span>
             </div>
-            <a href="biography.html" class="card-link">Go to Biography Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="The Hangover" data-genre="Comedy">
+        <article class="movie-card" data-title="Ford v Ferrari" data-genre="Sports Biography">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80" alt="The Hangover">
+            <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=900&q=80" alt="Ford v Ferrari">
           </div>
           <div class="movie-content">
-            <h3>The Hangover</h3>
-            <div class="movie-info">Comedy • 2009 • 7.7/10</div>
-            <p>A bachelor party disaster turns into one of the funniest lost-night comedies around.</p>
+            <h3>Ford v Ferrari</h3>
+            <div class="movie-info">Sports Biography • 2019 • 8.1/10</div>
+            <p>Designers and drivers push the limits of speed and innovation in a fierce racing challenge.</p>
             <div class="mini-watch">
-              <span>Comedy</span>
-              <span>Buddy</span>
+              <span>Disney+</span>
+              <span>Rent</span>
             </div>
-            <a href="comedy.html" class="card-link">Go to Comedy Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="The Godfather" data-genre="Crime">
+        <article class="movie-card" data-title="Lincoln" data-genre="Political Biography">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80" alt="The Godfather">
+            <img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80" alt="Lincoln">
           </div>
           <div class="movie-content">
-            <h3>The Godfather</h3>
-            <div class="movie-info">Crime • 1972 • 9.2/10</div>
-            <p>A powerful crime family struggles with loyalty, power, and legacy.</p>
+            <h3>Lincoln</h3>
+            <div class="movie-info">Political Biography • 2012 • 7.3/10</div>
+            <p>A focused look at Abraham Lincoln's final months and the fight to pass the 13th Amendment.</p>
             <div class="mini-watch">
-              <span>Crime</span>
-              <span>Classic</span>
+              <span>Prime Video</span>
+              <span>Buy</span>
             </div>
-            <a href="crime.html" class="card-link">Go to Crime Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="Planet Earth" data-genre="Documentary">
+        <article class="movie-card" data-title="The Theory of Everything" data-genre="Science Biography">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80" alt="Planet Earth">
+            <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80" alt="The Theory of Everything">
           </div>
           <div class="movie-content">
-            <h3>Planet Earth</h3>
-            <div class="movie-info">Documentary • 2006 • Classic</div>
-            <p>A breathtaking documentary journey across wildlife, oceans, forests, and the natural world.</p>
+            <h3>The Theory of Everything</h3>
+            <div class="movie-info">Science Biography • 2014 • 7.7/10</div>
+            <p>A moving portrait of Stephen Hawking's genius, love, and resilience.</p>
             <div class="mini-watch">
-              <span>Documentary</span>
-              <span>Nature</span>
+              <span>Netflix</span>
+              <span>Rent</span>
             </div>
-            <a href="documentary.html" class="card-link">Go to Documentary Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="The Shawshank Redemption" data-genre="Drama">
+        <article class="movie-card" data-title="American Gangster" data-genre="Crime Biography">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80" alt="The Shawshank Redemption">
+            <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80" alt="American Gangster">
           </div>
           <div class="movie-content">
-            <h3>The Shawshank Redemption</h3>
-            <div class="movie-info">Drama • 1994 • 9.3/10</div>
-            <p>A banker sentenced to prison forms a powerful friendship while holding onto hope for freedom.</p>
+            <h3>American Gangster</h3>
+            <div class="movie-info">Crime Biography • 2007 • 7.8/10</div>
+            <p>The rise and fall of Frank Lucas unfolds through power, crime, and ambition.</p>
             <div class="mini-watch">
-              <span>Drama</span>
-              <span>Inspirational</span>
+              <span>Netflix</span>
+              <span>Buy</span>
             </div>
-            <a href="drama.html" class="card-link">Go to Drama Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="Paddington 2" data-genre="Family">
+        <article class="movie-card" data-title="A Beautiful Mind" data-genre="Science Biography">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80" alt="Paddington 2">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="A Beautiful Mind">
           </div>
           <div class="movie-content">
-            <h3>Paddington 2</h3>
-            <div class="movie-info">Family • 2017 • 8.7/10</div>
-            <p>A kind-hearted bear spreads joy and chaos in a warm family adventure full of charm.</p>
+            <h3>A Beautiful Mind</h3>
+            <div class="movie-info">Science Biography • 2001 • 8.2/10</div>
+            <p>The life of John Nash reveals both extraordinary brilliance and deep personal struggle.</p>
             <div class="mini-watch">
-              <span>Family</span>
-              <span>Feel-good</span>
+              <span>Prime Video</span>
+              <span>Rent</span>
             </div>
-            <a href="family.html" class="card-link">Go to Family Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Ali" data-genre="Sports Biography">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80" alt="Ali">
+          </div>
+          <div class="movie-content">
+            <h3>Ali</h3>
+            <div class="movie-info">Sports Biography • 2001 • 6.7/10</div>
+            <p>A portrait of Muhammad Ali as a fighter, cultural figure, and larger-than-life personality.</p>
+            <div class="mini-watch">
+              <span>Apple TV</span>
+              <span>Buy</span>
+            </div>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
       </div>
@@ -1333,58 +1302,58 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Watch Guides</h2>
-          <p>Helpful shortcuts to genre pages and ideas that keep visitors exploring your site longer.</p>
+          <h2>Biography Watch Guides</h2>
+          <p>Helpful guides for finding the best biography movies by person, field, and story type.</p>
         </div>
       </div>
 
       <div class="info-grid">
         <div class="info-box">
-          <h3>Best by Genre</h3>
+          <h3>Best Biography Movies on Netflix</h3>
           <p>
-            Send visitors straight into action, comedy, horror, fantasy, drama, and more through dedicated genre pages.
+            Create pages for top biography movies currently available on Netflix.
           </p>
-          <a href="#genre-recommendations" class="card-link">Explore Genres →</a>
+          <a href="#" class="card-link">Explore Guide →</a>
         </div>
 
         <div class="info-box">
-          <h3>Movie Night Picks</h3>
+          <h3>Inspiring True Stories</h3>
           <p>
-            Build quick collections for date night, family night, scary night, or feel-good weekend watching.
+            Build collections for viewers who want motivation, resilience, and real-life achievement.
           </p>
-          <a href="family.html" class="card-link">See Family Picks →</a>
+          <a href="#" class="card-link">Browse Inspiring Picks →</a>
         </div>
 
         <div class="info-box">
-          <h3>Dark and Intense</h3>
+          <h3>Movies Like Oppenheimer</h3>
           <p>
-            Push users into crime, history epics, and horror picks when they want bigger stakes.
+            Keep visitors engaged with pages based on similar historical and character-driven biographies.
           </p>
-          <a href="crime.html" class="card-link">View Crime Picks →</a>
+          <a href="#" class="card-link">See Similar Movies →</a>
         </div>
 
         <div class="info-box">
-          <h3>Real Stories</h3>
+          <h3>Music Icons on Screen</h3>
           <p>
-            Biography, documentary, and history pages help visitors discover films based on real lives and events.
+            Highlight films about singers, bands, performers, and the rise of legendary talent.
           </p>
-          <a href="documentary.html" class="card-link">Explore Real Stories →</a>
+          <a href="#" class="card-link">View Music Biographies →</a>
         </div>
 
         <div class="info-box">
-          <h3>Magical Escapes</h3>
+          <h3>Famous Scientists and Thinkers</h3>
           <p>
-            Fantasy and adventure pages are perfect for users looking for big worlds, quests, and unforgettable journeys.
+            Collect biographies focused on invention, discovery, genius, and intellectual legacy.
           </p>
-          <a href="fantasy.html" class="card-link">Open Fantasy Page →</a>
+          <a href="#" class="card-link">See Science Stories →</a>
         </div>
 
         <div class="info-box">
-          <h3>Scariest Picks</h3>
+          <h3>Underrated Biography Gems</h3>
           <p>
-            Create a strong horror route for visitors who want haunted houses, slashers, dread, and supernatural fear.
+            Surface lesser-known biography films that deserve more attention from movie fans.
           </p>
-          <a href="horror.html" class="card-link">Go to Horror Page →</a>
+          <a href="#" class="card-link">Discover More →</a>
         </div>
       </div>
     </div>
@@ -1392,21 +1361,21 @@
 
   <section id="about" class="cta">
     <div class="container">
-      <h2>Your next favourite movie starts here.</h2>
+      <h2>Your next true story starts here.</h2>
       <p>
-        From timeless classics to fresh picks across every genre, MovieSpot makes it easier to discover what to watch next.
-        Browse by genre, explore recommendations, and guide visitors straight to the pages they care about most.
+        From world-changing leaders to artists, athletes, scientists, and icons, MovieSpot helps biography fans
+        discover powerful films faster. Browse, search, and explore real lives turned into unforgettable cinema.
       </p>
       <div class="cta-actions">
-        <a href="#featured" class="btn btn-primary">Explore Featured Picks</a>
-        <a href="#genre-recommendations" class="btn btn-secondary">Open Genre Pages</a>
+        <a href="#featured" class="btn btn-primary">Explore Featured Biography Picks</a>
+        <a href="#movies" class="btn btn-secondary">Open Biography Library</a>
       </div>
     </div>
   </section>
 
   <footer>
     <div class="container footer-inner">
-      <p>©️ 2026 MovieSpot. Discover movies and where to watch them.</p>
+      <p>©️ 2026 MovieSpot. Discover biography movies worth watching.</p>
 
       <div class="footer-links">
         <a href="privacy.html">Privacy Policy</a>
@@ -1459,7 +1428,7 @@
         const matchesSearch = title.includes(searchValue);
         const matchesGenre = selectedGenre === "all" || genre === selectedGenre;
 
-        card.style.display = matchesSearch && matchesGenre ? "flex" : "none";
+        card.style.display = matchesSearch && matchesGenre ? "block" : "none";
       });
     }
 
@@ -1468,92 +1437,60 @@
 
     const movieDatabase = [
       {
-        title: "John Wick",
-        genre: "Action",
-        year: "2014",
-        summary: "A retired assassin returns to the underworld after a brutal act pulls him back into violence.",
-        poster: "https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80",
-        link: "action.html"
-      },
-      {
-        title: "The Martian",
-        genre: "Adventure",
-        year: "2015",
-        summary: "An astronaut stranded on Mars uses science, humor, and grit to survive impossible odds.",
-        poster: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
-        link: "adventure.html"
+        title: "Oppenheimer",
+        genre: "Historical Biography",
+        year: "2023",
+        summary: "A complex portrait of J. Robert Oppenheimer and the birth of the atomic age.",
+        poster: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80"
       },
       {
         title: "Bohemian Rhapsody",
-        genre: "Biography",
+        genre: "Music Biography",
         year: "2018",
-        summary: "The rise of Freddie Mercury and Queen unfolds through fame, creativity, and struggle.",
-        poster: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80",
-        link: "biography.html"
+        summary: "The rise of Freddie Mercury and the legacy of Queen.",
+        poster: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "The Hangover",
-        genre: "Comedy",
-        year: "2009",
-        summary: "A bachelor party disaster turns into one of the funniest lost-night comedies around.",
-        poster: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80",
-        link: "comedy.html"
+        title: "Ford v Ferrari",
+        genre: "Sports Biography",
+        year: "2019",
+        summary: "Designers and drivers fight to build a car capable of beating Ferrari.",
+        poster: "https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "The Godfather",
-        genre: "Crime",
-        year: "1972",
-        summary: "A powerful crime family struggles with loyalty, power, and legacy.",
-        poster: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80",
-        link: "crime.html"
+        title: "Lincoln",
+        genre: "Political Biography",
+        year: "2012",
+        summary: "A focused look at Abraham Lincoln during a decisive political moment.",
+        poster: "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "Planet Earth",
-        genre: "Documentary",
-        year: "2006",
-        summary: "A breathtaking look at wildlife and the natural world across the planet.",
-        poster: "https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80",
-        link: "documentary.html"
+        title: "The Theory of Everything",
+        genre: "Science Biography",
+        year: "2014",
+        summary: "A moving portrait of Stephen Hawking's genius and resilience.",
+        poster: "https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "The Shawshank Redemption",
-        genre: "Drama",
-        year: "1994",
-        summary: "A moving story of friendship, hope, and endurance behind prison walls.",
-        poster: "https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80",
-        link: "drama.html"
+        title: "American Gangster",
+        genre: "Crime Biography",
+        year: "2007",
+        summary: "The rise and fall of a powerful criminal figure in America.",
+        poster: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "Paddington 2",
-        genre: "Family",
-        year: "2017",
-        summary: "A joyful family favourite full of warmth, kindness, and fun.",
-        poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80",
-        link: "family.html"
-      },
-      {
-        title: "The Lord of the Rings",
-        genre: "Fantasy",
+        title: "A Beautiful Mind",
+        genre: "Science Biography",
         year: "2001",
-        summary: "A legendary quest unfolds across a richly imagined world full of danger and wonder.",
-        poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80",
-        link: "fantasy.html"
+        summary: "The life of John Nash reveals brilliance, struggle, and perseverance.",
+        poster: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "Gladiator",
-        genre: "History",
-        year: "2000",
-        summary: "A sweeping Roman story of betrayal, vengeance, and honor.",
-        poster: "https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=900&q=80",
-        link: "history.html"
-      },
-      {
-        title: "The Conjuring",
-        genre: "Horror",
-        year: "2013",
-        summary: "A haunting slowly turns a family home into a place of pure terror.",
-        poster: "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=900&q=80",
-        link: "horror.html"
+        title: "Ali",
+        genre: "Sports Biography",
+        year: "2001",
+        summary: "A portrait of Muhammad Ali as an athlete and cultural icon.",
+        poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80"
       }
     ];
 
@@ -1585,7 +1522,7 @@
             <h3>${movie.title}</h3>
             <div class="movie-info">${movie.genre} • ${movie.year}</div>
             <p>${movie.summary}</p>
-            <a href="${movie.link}" class="card-link">Open ${movie.genre} Page →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
       `).join("");
@@ -1593,56 +1530,43 @@
 
     renderDailyMovies();
 
-    const genrePageMap = {
-      "Action": "action.html",
-      "Adventure": "adventure.html",
-      "Biography": "biography.html",
-      "Comedy": "comedy.html",
-      "Crime": "crime.html",
-      "Documentary": "documentary.html",
-      "Drama": "drama.html",
-      "Family": "family.html",
-      "Fantasy": "fantasy.html",
-      "History": "history.html",
-      "Horror": "horror.html"
-    };
-
     const posterPool = [
-      "https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80",
       "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80",
       "https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=900&q=80"
+      "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80"
     ];
 
     const genreSeeds = {
-      "Action": ["John Wick","The Dark Knight","Gladiator","Mad Max: Fury Road","Mission: Impossible"],
-      "Adventure": ["The Martian","Jurassic Park","Avatar","Indiana Jones","Life of Pi"],
-      "Biography": ["Bohemian Rhapsody","Oppenheimer","A Beautiful Mind","Lincoln","The Theory of Everything"],
-      "Comedy": ["The Hangover","Mean Girls","Bridesmaids","Superbad","Rush Hour"],
-      "Crime": ["The Godfather","Heat","Goodfellas","The Departed","Se7en"],
-      "Documentary": ["Planet Earth","The Last Dance","13th","Free Solo","Amy"],
-      "Drama": ["The Shawshank Redemption","Forrest Gump","Whiplash","Titanic","Manchester by the Sea"],
-      "Family": ["Paddington 2","Home Alone","The Parent Trap","Mary Poppins","Night at the Museum"],
-      "Fantasy": ["The Lord of the Rings","Harry Potter","Pan's Labyrinth","The Chronicles of Narnia","Stardust"],
-      "History": ["Gladiator","1917","The King's Speech","Lincoln","Braveheart"],
-      "Horror": ["The Conjuring","Get Out","Halloween","Alien","A Quiet Place"]
+      "Historical Biography": ["Oppenheimer","Schindler's List","Gandhi","The Last Emperor","Darkest Hour","Hidden Figures","The King's Speech","Selma","Amadeus","Malcolm X","Capote","The Imitation Game","Elizabeth","The Iron Lady","The Pianist"],
+      "Music Biography": ["Bohemian Rhapsody","Walk the Line","Ray","Elvis","Rocketman","Whitney Houston: I Wanna Dance with Somebody","Straight Outta Compton","La Bamba","Get on Up","Control","Respect","The Doors","Judy","Miles Ahead","What's Love Got to Do with It"],
+      "Sports Biography": ["Ford v Ferrari","Ali","Creed","Moneyball","Raging Bull","Rush","The Fighter","Remember the Titans","Coach Carter","42","I, Tonya","King Richard","Miracle","Seabiscuit","Invictus"],
+      "Political Biography": ["Lincoln","Milk","Nixon","Vice","Mandela: Long Walk to Freedom","W.","The Iron Lady","The Queen","All the Way","Thirteen Days","LBJ","Official Secrets","Benedetta","The Post","Good Night, and Good Luck"],
+      "Science Biography": ["The Theory of Everything","A Beautiful Mind","The Social Network","The Current War","Temple Grandin","Radioactive","Steve Jobs","Jobs","Infinity","Genius","Tesla","Einstein and Eddington","The Man Who Knew Infinity","Gorillas in the Mist","Awakenings"],
+      "Crime Biography": ["American Gangster","Goodfellas","Blow","Monster","Public Enemies","The Irishman","Donnie Brasco","Bugsy","Black Mass","The Infiltrator","Molly's Game","Bronson","Legend","Casino","City of God"]
     };
 
     function makeMovie(genre, title, index){
-      const year = 1985 + ((genre.length * 7 + index * 3) % 36);
+      const year = 1985 + ((genre.length * 9 + index * 4) % 38);
+      const summaries = {
+        "Historical Biography": `${title} explores the life and legacy of a major historical figure.`,
+        "Music Biography": `${title} follows the rise, struggles, and impact of a music icon.`,
+        "Sports Biography": `${title} captures competition, pressure, and the life behind sporting greatness.`,
+        "Political Biography": `${title} focuses on power, leadership, and the human side of politics.`,
+        "Science Biography": `${title} tells the story of genius, discovery, and personal determination.`,
+        "Crime Biography": `${title} dives into the real-life world of crime, power, and consequence.`
+      };
+
       return {
         title,
         year: String(year),
         genre,
-        summary: `${title} is one of the standout picks in ${genre.toLowerCase()} and a great place to start browsing.`,
-        poster: posterPool[index % posterPool.length],
-        link: genrePageMap[genre] || "#"
+        summary: summaries[genre] || `${title} is one of the standout biography picks in ${genre}.`,
+        poster: posterPool[index % posterPool.length]
       };
     }
 
@@ -1670,7 +1594,7 @@
           </div>
 
           <div class="genre-slider" id="genreSlider${index}">
-            ${movies.map(movie => `
+            ${movies.slice(0, 15).map(movie => `
               <article class="genre-movie-card">
                 <div class="genre-movie-poster">
                   <img src="${movie.poster}" alt="${movie.title}">
@@ -1679,7 +1603,7 @@
                   <h4>${movie.title}</h4>
                   <div class="movie-info">${movie.genre} • ${movie.year}</div>
                   <p>${movie.summary}</p>
-                  <a href="${movie.link}" class="card-link">Open ${movie.genre} Page →</a>
+                  <a href="#movies" class="card-link">View Movie →</a>
                 </div>
               </article>
             `).join("")}
@@ -1702,36 +1626,32 @@
 
     const scheduledMovies = [
       {
-        title: "The Lord of the Rings",
-        genre: "Fantasy",
+        title: "Oppenheimer",
+        genre: "Historical Biography",
+        year: "2023",
+        summary: "A complex portrait of J. Robert Oppenheimer and the birth of the atomic age.",
+        poster: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Bohemian Rhapsody",
+        genre: "Music Biography",
+        year: "2018",
+        summary: "The rise of Freddie Mercury and the legacy of Queen.",
+        poster: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "The Theory of Everything",
+        genre: "Science Biography",
+        year: "2014",
+        summary: "A moving portrait of Stephen Hawking's genius and resilience.",
+        poster: "https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Ali",
+        genre: "Sports Biography",
         year: "2001",
-        summary: "A legendary fantasy quest unfolds across a richly imagined world.",
-        poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80",
-        link: "fantasy.html"
-      },
-      {
-        title: "The Godfather",
-        genre: "Crime",
-        year: "1972",
-        summary: "A powerful crime family struggles with loyalty, power, and legacy.",
-        poster: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80",
-        link: "crime.html"
-      },
-      {
-        title: "Paddington 2",
-        genre: "Family",
-        year: "2017",
-        summary: "A warm, joyful family adventure full of charm and kindness.",
-        poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80",
-        link: "family.html"
-      },
-      {
-        title: "The Conjuring",
-        genre: "Horror",
-        year: "2013",
-        summary: "A haunted house nightmare unfolds with terrifying paranormal force.",
-        poster: "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=900&q=80",
-        link: "horror.html"
+        summary: "A portrait of Muhammad Ali as an athlete and cultural icon.",
+        poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80"
       }
     ];
 
@@ -1763,7 +1683,7 @@
               <span>Auto Updated</span>
               <span>Featured</span>
             </div>
-            <a href="${movie.link}" class="card-link">Open ${movie.genre} Page →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
       `;

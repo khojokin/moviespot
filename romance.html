@@ -1,11 +1,13 @@
-Here’s sci-fi.html in the same structure, with search + new releases.
+Here’s the romance page in the same format, with the responsive layout and hamburger menu too.
+
+Replace logo.png with your real logo image.
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MovieSpot | Sci-Fi Movies</title>
+  <title>MovieSpot | Romance Movies</title>
   <style>
     *{
       margin:0;
@@ -63,17 +65,58 @@ Here’s sci-fi.html in the same structure, with search + new releases.
       justify-content:space-between;
       gap:20px;
       padding:16px 0;
+      position:relative;
     }
 
-    .logo{
-      font-size:28px;
-      font-weight:700;
+    .logo-wrap{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+      flex-shrink:0;
+    }
+
+    .logo-image-box{
+      width:52px;
+      height:52px;
+      border-radius:12px;
+      border:2px solid #facc15;
+      box-shadow:0 0 14px rgba(250,204,21,0.45);
+      overflow:hidden;
+      flex-shrink:0;
+      background:#111827;
+    }
+
+    .logo-image-box img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .logo-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+      min-width:0;
+    }
+
+    .logo-title{
+      font-size:27px;
+      font-weight:800;
       color:#facc15;
       letter-spacing:0.5px;
     }
 
-    .logo span{
+    .logo-title span{
       color:#ffffff;
+    }
+
+    .logo-sub{
+      font-size:11px;
+      color:#cbd5e1;
+      letter-spacing:1.8px;
+      text-transform:uppercase;
+      margin-top:4px;
     }
 
     .nav-links{
@@ -86,23 +129,69 @@ Here’s sci-fi.html in the same structure, with search + new releases.
     .nav-links a{
       color:#cbd5e1;
       font-size:15px;
+      position:relative;
+      padding-bottom:4px;
     }
 
-    .nav-links a:hover{
+    .nav-links a:hover,
+    .nav-links a.active{
       color:#facc15;
+    }
+
+    .nav-links a.active::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-4px;
+      width:100%;
+      height:2px;
+      background:#facc15;
+      border-radius:999px;
+    }
+
+    .menu-toggle{
+      display:none;
+      width:46px;
+      height:46px;
+      border-radius:12px;
+      border:1px solid rgba(250,204,21,0.35);
+      background:#111827;
+      color:#facc15;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      flex-direction:column;
+      gap:5px;
+      box-shadow:0 0 12px rgba(250,204,21,0.12);
+    }
+
+    .menu-toggle span{
+      width:20px;
+      height:2px;
+      background:#facc15;
+      border-radius:999px;
+      display:block;
     }
 
     .hero{
       background:
-        linear-gradient(rgba(15,23,42,0.78), rgba(15,23,42,0.92)),
-        url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-      min-height:70vh;
+        linear-gradient(rgba(15,23,42,0.80), rgba(15,23,42,0.92)),
+        url('https://images.unsplash.com/photo-1516589091380-5d8e87df6999?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      min-height:85vh;
       display:flex;
       align-items:center;
     }
 
+    .hero-layout{
+      display:grid;
+      grid-template-columns:1.05fr 0.95fr;
+      gap:34px;
+      align-items:center;
+      width:100%;
+    }
+
     .hero-content{
-      max-width:760px;
+      max-width:720px;
       padding:60px 0;
     }
 
@@ -118,7 +207,7 @@ Here’s sci-fi.html in the same structure, with search + new releases.
     }
 
     .hero h1{
-      font-size:clamp(34px, 5vw, 60px);
+      font-size:clamp(34px, 5vw, 62px);
       line-height:1.1;
       margin-bottom:18px;
       color:#ffffff;
@@ -128,13 +217,87 @@ Here’s sci-fi.html in the same structure, with search + new releases.
       font-size:18px;
       color:#cbd5e1;
       margin-bottom:28px;
-      max-width:680px;
+      max-width:620px;
     }
 
     .hero-buttons{
       display:flex;
       flex-wrap:wrap;
       gap:14px;
+    }
+
+    .hero-panel{
+      background:rgba(2,6,23,0.76);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:24px;
+      padding:26px;
+      box-shadow:0 18px 40px rgba(0,0,0,0.25);
+      backdrop-filter:blur(8px);
+    }
+
+    .hero-panel h3{
+      color:#ffffff;
+      font-size:24px;
+      margin-bottom:10px;
+    }
+
+    .hero-panel p{
+      color:#94a3b8;
+      font-size:15px;
+      margin-bottom:20px;
+      max-width:none;
+    }
+
+    .hero-stats{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:14px;
+      margin-bottom:20px;
+    }
+
+    .hero-stat{
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      padding:18px;
+    }
+
+    .hero-stat strong{
+      display:block;
+      color:#facc15;
+      font-size:24px;
+      margin-bottom:6px;
+    }
+
+    .hero-stat span{
+      color:#cbd5e1;
+      font-size:14px;
+    }
+
+    .hero-mini-list{
+      display:grid;
+      gap:12px;
+    }
+
+    .hero-mini-item{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:14px 16px;
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:16px;
+    }
+
+    .hero-mini-item b{
+      color:#ffffff;
+      font-size:15px;
+    }
+
+    .hero-mini-item span{
+      color:#94a3b8;
+      font-size:13px;
     }
 
     .btn{
@@ -225,6 +388,13 @@ Here’s sci-fi.html in the same structure, with search + new releases.
       color:#111827;
     }
 
+    .search-action{
+      margin-top:18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
     .featured-grid{
       display:grid;
       grid-template-columns:repeat(3, 1fr);
@@ -237,6 +407,8 @@ Here’s sci-fi.html in the same structure, with search + new releases.
       border-radius:20px;
       overflow:hidden;
       transition:0.3s;
+      display:flex;
+      flex-direction:column;
     }
 
     .featured-card:hover{
@@ -257,6 +429,9 @@ Here’s sci-fi.html in the same structure, with search + new releases.
 
     .featured-content{
       padding:20px;
+      display:flex;
+      flex-direction:column;
+      flex:1;
     }
 
     .meta{
@@ -290,6 +465,7 @@ Here’s sci-fi.html in the same structure, with search + new releases.
       display:flex;
       flex-wrap:wrap;
       gap:8px;
+      margin-top:auto;
       margin-bottom:18px;
     }
 
@@ -336,6 +512,8 @@ Here’s sci-fi.html in the same structure, with search + new releases.
       border-radius:18px;
       overflow:hidden;
       transition:0.3s;
+      display:flex;
+      flex-direction:column;
     }
 
     .movie-card:hover{
@@ -357,6 +535,9 @@ Here’s sci-fi.html in the same structure, with search + new releases.
 
     .movie-content{
       padding:18px;
+      display:flex;
+      flex-direction:column;
+      flex:1;
     }
 
     .movie-content h3{
@@ -381,6 +562,7 @@ Here’s sci-fi.html in the same structure, with search + new releases.
       display:flex;
       flex-wrap:wrap;
       gap:8px;
+      margin-top:auto;
       margin-bottom:14px;
     }
 
@@ -393,32 +575,33 @@ Here’s sci-fi.html in the same structure, with search + new releases.
       border-radius:999px;
     }
 
-    .details-section{
+    .info-section{
       background:#111827;
     }
 
-    .details-grid{
+    .info-grid{
       display:grid;
       grid-template-columns:repeat(3, 1fr);
       gap:22px;
     }
 
-    .details-box{
+    .info-box{
       background:#0f172a;
       border:1px solid rgba(255,255,255,0.06);
       border-radius:18px;
       padding:24px;
     }
 
-    .details-box h3{
+    .info-box h3{
       font-size:22px;
       color:#ffffff;
       margin-bottom:12px;
     }
 
-    .details-box p{
+    .info-box p{
       color:#cbd5e1;
       font-size:15px;
+      margin-bottom:14px;
     }
 
     .cta{
@@ -436,6 +619,13 @@ Here’s sci-fi.html in the same structure, with search + new releases.
       max-width:720px;
       margin:0 auto 24px;
       color:#cbd5e1;
+    }
+
+    .cta-actions{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
     }
 
     footer{
@@ -472,7 +662,137 @@ Here’s sci-fi.html in the same structure, with search + new releases.
       color:#facc15;
     }
 
+    .genre-section{
+      background:#111827;
+    }
+
+    .genre-recommendation-wrap{
+      display:grid;
+      gap:34px;
+    }
+
+    .genre-row{
+      display:grid;
+      gap:16px;
+    }
+
+    .genre-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .genre-top h3{
+      font-size:26px;
+      color:#ffffff;
+    }
+
+    .genre-top p{
+      color:#94a3b8;
+      font-size:15px;
+    }
+
+    .slider-controls{
+      display:flex;
+      gap:10px;
+    }
+
+    .slider-btn{
+      width:42px;
+      height:42px;
+      border:none;
+      border-radius:50%;
+      background:#1e293b;
+      color:#ffffff;
+      font-size:20px;
+      cursor:pointer;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .slider-btn:hover{
+      background:#facc15;
+      color:#111827;
+    }
+
+    .genre-slider{
+      display:flex;
+      gap:18px;
+      overflow-x:auto;
+      scroll-behavior:smooth;
+      padding-bottom:6px;
+      scrollbar-width:none;
+    }
+
+    .genre-slider::-webkit-scrollbar{
+      display:none;
+    }
+
+    .genre-movie-card{
+      min-width:240px;
+      max-width:240px;
+      background:#0f172a;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      overflow:hidden;
+      flex-shrink:0;
+      transition:0.3s;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .genre-movie-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 18px 36px rgba(0,0,0,0.22);
+    }
+
+    .genre-movie-poster{
+      height:280px;
+      overflow:hidden;
+      background:#1e293b;
+    }
+
+    .genre-movie-poster img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .genre-movie-content{
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      flex:1;
+    }
+
+    .genre-movie-content h4{
+      color:#ffffff;
+      font-size:19px;
+      margin-bottom:8px;
+    }
+
+    .genre-movie-content .movie-info{
+      color:#94a3b8;
+      font-size:14px;
+      margin-bottom:10px;
+    }
+
+    .genre-movie-content p{
+      color:#cbd5e1;
+      font-size:14px;
+      margin-bottom:14px;
+    }
+
+    .genre-movie-content .card-link{
+      margin-top:auto;
+    }
+
     @media(max-width:1024px){
+      .hero-layout{
+        grid-template-columns:1fr;
+      }
+
       .featured-grid{
         grid-template-columns:repeat(2, 1fr);
       }
@@ -481,19 +801,53 @@ Here’s sci-fi.html in the same structure, with search + new releases.
         grid-template-columns:repeat(2, 1fr);
       }
 
-      .details-grid{
+      .info-grid{
         grid-template-columns:1fr;
       }
     }
 
     @media(max-width:768px){
       .nav{
-        flex-direction:column;
-        align-items:flex-start;
+        padding:14px 0;
+      }
+
+      .menu-toggle{
+        display:flex;
       }
 
       .nav-links{
-        gap:14px;
+        position:absolute;
+        top:100%;
+        left:0;
+        right:0;
+        display:none;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:0;
+        background:#0f172a;
+        border:1px solid rgba(255,255,255,0.08);
+        border-radius:16px;
+        padding:12px;
+        box-shadow:0 16px 30px rgba(0,0,0,0.28);
+      }
+
+      .nav-links.show{
+        display:flex;
+      }
+
+      .nav-links a{
+        width:100%;
+        padding:12px 10px;
+        border-radius:10px;
+      }
+
+      .nav-links a.active::after{
+        display:none;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active{
+        background:rgba(250,204,21,0.12);
       }
 
       .tool-bar{
@@ -513,7 +867,7 @@ Here’s sci-fi.html in the same structure, with search + new releases.
       }
 
       .hero-content{
-        padding:70px 0;
+        padding:70px 0 24px;
       }
 
       .section-head h2{
@@ -523,6 +877,75 @@ Here’s sci-fi.html in the same structure, with search + new releases.
       .cta h2{
         font-size:30px;
       }
+
+      .genre-movie-card{
+        min-width:220px;
+        max-width:220px;
+      }
+
+      .logo-image-box{
+        width:46px;
+        height:46px;
+      }
+
+      .logo-title{
+        font-size:22px;
+      }
+
+      .logo-sub{
+        font-size:10px;
+        letter-spacing:1.2px;
+      }
+
+      .hero-stats{
+        grid-template-columns:1fr;
+      }
+
+      .hero-mini-item{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .footer-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+
+    @media(max-width:480px){
+      .container{
+        width:min(1200px, 94%);
+      }
+
+      .hero h1{
+        font-size:32px;
+      }
+
+      .hero p{
+        font-size:16px;
+      }
+
+      .btn{
+        width:100%;
+        text-align:center;
+      }
+
+      .hero-buttons,
+      .cta-actions{
+        flex-direction:column;
+      }
+
+      .logo-title{
+        font-size:20px;
+      }
+
+      .logo-sub{
+        font-size:9px;
+      }
+
+      .section-head h2{
+        font-size:25px;
+      }
     }
   </style>
 </head>
@@ -530,31 +953,105 @@ Here’s sci-fi.html in the same structure, with search + new releases.
 
   <header>
     <div class="container nav">
-      <a href="index.html" class="logo">Movie<span>Spot</span></a>
+      <a href="index.html" class="logo-wrap">
+        <span class="logo-image-box">
+          <img src="logo.png" alt="MovieSpot Logo">
+        </span>
+        <span class="logo-text">
+          <span class="logo-title">Movie<span>Spot</span></span>
+          <span class="logo-sub">Romance Movies</span>
+        </span>
+      </a>
 
-      <nav class="nav-links">
-        <a href="index.html#featured">Featured</a>
-        <a href="index.html#movies">Movies</a>
-        <a href="index.html#guides">Watch Guides</a>
-        <a href="index.html#about">About</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="romance.html" class="active">Romance</a>
+        <a href="#featured">Featured</a>
+        <a href="#guides">Watch Guides</a>
+        <a href="#about">About</a>
       </nav>
     </div>
   </header>
 
   <section class="hero">
     <div class="container">
-      <div class="hero-content">
-        <div class="hero-tag">Sci-Fi Movie Collection</div>
-        <h1>Best Sci-Fi Movies To Watch Right Now</h1>
-        <p>
-          Explore science fiction movies packed with futuristic worlds, space travel,
-          artificial intelligence, survival, time, mystery, and mind-bending ideas.
-        </p>
-        <div class="hero-buttons">
-          <a href="#scifi-movies" class="btn btn-primary">Browse Sci-Fi Movies</a>
-          <a href="#scifi-details" class="btn btn-secondary">Genre Details</a>
+      <div class="hero-layout">
+        <div class="hero-content">
+          <div class="hero-tag">Love stories, chemistry, and unforgettable moments</div>
+          <h1>Discover romance movies filled with emotion, connection, and beautiful love stories.</h1>
+          <p>
+            Explore charming meet-cutes, heartbreaking love, sweeping period romance,
+            emotional drama, feel-good chemistry, and stories that stay with viewers long after the ending.
+          </p>
+          <div class="hero-buttons">
+            <a href="#movies" class="btn btn-primary">Browse Romance Movies</a>
+            <a href="#guides" class="btn btn-secondary">Romance Guides</a>
+          </div>
+        </div>
+
+        <div class="hero-panel">
+          <h3>Find your next love story</h3>
+          <p>Search romance favourites, explore different romance styles, and jump into films built around chemistry, emotion, and connection.</p>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong>50+</strong>
+              <span>Romance recommendations</span>
+            </div>
+            <div class="hero-stat">
+              <strong>6</strong>
+              <span>Romance styles to explore</span>
+            </div>
+          </div>
+
+          <div class="hero-mini-list">
+            <div class="hero-mini-item">
+              <b>Search by title</b>
+              <span>Fast romance results</span>
+            </div>
+            <div class="hero-mini-item">
+              <b>Filter by style</b>
+              <span>Rom-com, period, tragic, teen</span>
+            </div>
+            <div class="hero-mini-item">
+              <b>Pick by mood</b>
+              <span>Warm, emotional, uplifting</span>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section id="daily">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Daily Romance Recommendations</h2>
+          <p>Fresh romance movie picks that rotate automatically each day.</p>
+        </div>
+      </div>
+
+      <div class="movies-grid" id="dailyMovies"></div>
+    </div>
+  </section>
+
+  <section id="scheduled-movie-update">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Featured Right Now</h2>
+          <p>This featured romance movie changes automatically after a set time to keep the page fresh.</p>
+        </div>
+      </div>
+
+      <div class="movies-grid" id="scheduledMovieBox"></div>
     </div>
   </section>
 
@@ -562,27 +1059,31 @@ Here’s sci-fi.html in the same structure, with search + new releases.
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Search Sci-Fi Movies</h2>
-          <p>Search through the sci-fi movies on this page and filter by sci-fi type.</p>
+          <h2>Search Romance Movies</h2>
+          <p>Use the search box and filter to explore your romance movie collection faster.</p>
         </div>
       </div>
 
       <div class="tool-bar">
         <div class="search-box">
-          <input type="text" id="searchInput" placeholder="Search sci-fi movie title..." />
+          <input type="text" id="searchInput" placeholder="Search romance movie title..." />
         </div>
 
         <div class="filter-box">
-          <select id="typeFilter">
-            <option value="all">All Sci-Fi Types</option>
-            <option value="Space Sci-Fi">Space Sci-Fi</option>
-            <option value="Mind-Bending Sci-Fi">Mind-Bending Sci-Fi</option>
-            <option value="AI Sci-Fi">AI Sci-Fi</option>
-            <option value="Dystopian Sci-Fi">Dystopian Sci-Fi</option>
-            <option value="Alien Sci-Fi">Alien Sci-Fi</option>
-            <option value="Survival Sci-Fi">Survival Sci-Fi</option>
+          <select id="genreFilter">
+            <option value="all">All Romance Styles</option>
+            <option value="Romantic Drama">Romantic Drama</option>
+            <option value="Romantic Comedy">Romantic Comedy</option>
+            <option value="Period Romance">Period Romance</option>
+            <option value="Teen Romance">Teen Romance</option>
+            <option value="Tragic Romance">Tragic Romance</option>
+            <option value="Feel-Good Romance">Feel-Good Romance</option>
           </select>
         </div>
+      </div>
+
+      <div class="search-action">
+        <a href="#movies" class="btn btn-primary">Explore Romance Library</a>
       </div>
     </div>
   </section>
@@ -591,353 +1092,319 @@ Here’s sci-fi.html in the same structure, with search + new releases.
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Featured Sci-Fi Picks</h2>
-          <p>Top sci-fi choices with big ideas, stunning visuals, and unforgettable stories.</p>
+          <h2>Featured Romance Picks</h2>
+          <p>Beautiful romance stories filled with chemistry, emotion, and unforgettable love.</p>
         </div>
       </div>
 
       <div class="featured-grid">
         <article class="featured-card">
           <div class="featured-image">
-            <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=900&q=80" alt="Inception">
+            <img src="https://images.unsplash.com/photo-1516589091380-5d8e87df6999?auto=format&fit=crop&w=1200&q=80" alt="The Notebook">
           </div>
           <div class="featured-content">
             <div class="meta">
-              <span class="pill">Sci-Fi</span>
-              <span class="pill">2010</span>
-              <span class="pill">Mind-Bending Sci-Fi</span>
+              <span class="pill">Romance</span>
+              <span class="pill">Drama</span>
+              <span class="pill">7.8/10</span>
             </div>
-            <h3>Inception</h3>
+            <h3>The Notebook</h3>
             <p>
-              A skilled thief enters layered dream worlds in one of the most famous
-              mind-bending sci-fi thrillers ever made.
+              A sweeping love story filled with passion, heartbreak, and devotion
+              that has become one of the most iconic romance films of its era.
             </p>
             <div class="watch-row">
-              <span class="watch-tag">Netflix</span>
-              <span class="watch-tag orange">Rent</span>
+              <span class="watch-tag">Emotional</span>
+              <span class="watch-tag alt">Classic</span>
+              <span class="watch-tag green">Love Story</span>
             </div>
-            <a href="#" class="card-link">Where to Watch →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
 
         <article class="featured-card">
           <div class="featured-image">
-            <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80" alt="Interstellar">
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80" alt="Pride and Prejudice">
           </div>
           <div class="featured-content">
             <div class="meta">
-              <span class="pill">Sci-Fi</span>
-              <span class="pill">2014</span>
-              <span class="pill">Space Sci-Fi</span>
+              <span class="pill">Romance</span>
+              <span class="pill">Period</span>
+              <span class="pill">8.1/10</span>
             </div>
-            <h3>Interstellar</h3>
+            <h3>Pride & Prejudice</h3>
             <p>
-              A former pilot joins a deep-space mission to save humanity in a powerful
-              science fiction journey through time and space.
+              Wit, longing, social pressure, and growing affection shape one of the
+              most beloved period romances ever brought to screen.
             </p>
             <div class="watch-row">
-              <span class="watch-tag alt">Prime Video</span>
-              <span class="watch-tag green">Buy</span>
+              <span class="watch-tag orange">Period</span>
+              <span class="watch-tag alt">Elegant</span>
+              <span class="watch-tag green">Classic</span>
             </div>
-            <a href="#" class="card-link">Where to Watch →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
 
         <article class="featured-card">
           <div class="featured-image">
-            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1200&q=80" alt="Blade Runner 2049">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1200&q=80" alt="La La Land">
           </div>
           <div class="featured-content">
             <div class="meta">
-              <span class="pill">Sci-Fi</span>
-              <span class="pill">2017</span>
-              <span class="pill">AI Sci-Fi</span>
+              <span class="pill">Romance</span>
+              <span class="pill">Modern</span>
+              <span class="pill">8.0/10</span>
             </div>
-            <h3>Blade Runner 2049</h3>
+            <h3>La La Land</h3>
             <p>
-              A futuristic investigation uncovers secrets that challenge what it means
-              to be human.
+              Dreams, ambition, music, and bittersweet love come together
+              in a stylish romance filled with heart and unforgettable emotion.
             </p>
             <div class="watch-row">
-              <span class="watch-tag">Netflix</span>
-              <span class="watch-tag green">Buy</span>
+              <span class="watch-tag">Modern</span>
+              <span class="watch-tag alt">Dreamy</span>
+              <span class="watch-tag green">Emotional</span>
             </div>
-            <a href="#" class="card-link">Where to Watch →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="new-releases">
+  <section class="genre-section" id="genre-recommendations">
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>New Sci-Fi Releases</h2>
-          <p>Fresh sci-fi titles and recent releases to keep this page current and active.</p>
+          <h2>Recommendations by Romance Style</h2>
+          <p>Browse romance movie picks through horizontal sliders by tone, chemistry, and emotional style.</p>
         </div>
       </div>
 
-      <div class="movies-grid">
-        <article class="movie-card">
-          <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1200&q=80" alt="Dune Part Two">
-          </div>
-          <div class="movie-content">
-            <h3>Dune: Part Two</h3>
-            <div class="movie-info">Sci-Fi • 2024 • Space Sci-Fi</div>
-            <p>Paul Atreides embraces destiny and conflict in a massive sci-fi epic.</p>
-            <div class="mini-watch">
-              <span>New Release</span>
-              <span>Rent</span>
-            </div>
-            <a href="#" class="card-link">View Details →</a>
-          </div>
-        </article>
-
-        <article class="movie-card">
-          <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80" alt="The Creator">
-          </div>
-          <div class="movie-content">
-            <h3>The Creator</h3>
-            <div class="movie-info">Sci-Fi • 2023 • AI Sci-Fi</div>
-            <p>A future war between humans and AI builds toward a mysterious discovery.</p>
-            <div class="mini-watch">
-              <span>Recent</span>
-              <span>Disney+</span>
-            </div>
-            <a href="#" class="card-link">View Details →</a>
-          </div>
-        </article>
-
-        <article class="movie-card">
-          <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Mickey 17">
-          </div>
-          <div class="movie-content">
-            <h3>Mickey 17</h3>
-            <div class="movie-info">Sci-Fi • 2025 • Space Sci-Fi</div>
-            <p>A futuristic survival story built around cloning, risk, and identity.</p>
-            <div class="mini-watch">
-              <span>Upcoming/Recent</span>
-              <span>Details Soon</span>
-            </div>
-            <a href="#" class="card-link">View Details →</a>
-          </div>
-        </article>
-
-        <article class="movie-card">
-          <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80" alt="Rebel Moon">
-          </div>
-          <div class="movie-content">
-            <h3>Rebel Moon</h3>
-            <div class="movie-info">Sci-Fi • 2023 • Space Sci-Fi</div>
-            <p>A galactic rebellion begins in a visually intense sci-fi war story.</p>
-            <div class="mini-watch">
-              <span>Recent</span>
-              <span>Netflix</span>
-            </div>
-            <a href="#" class="card-link">View Details →</a>
-          </div>
-        </article>
-      </div>
+      <div class="genre-recommendation-wrap" id="genreRecommendations"></div>
     </div>
   </section>
 
-  <section id="scifi-movies">
+  <section id="movies">
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Popular Sci-Fi Movies</h2>
-          <p>Browse standout science fiction films with different styles, from deep space epics to AI thrillers.</p>
+          <h2>Popular Romance Movies</h2>
+          <p>Top romance picks you can keep expanding later as your library grows.</p>
         </div>
       </div>
 
       <div class="movies-grid" id="moviesGrid">
-        <article class="movie-card" data-title="Inception" data-type="Mind-Bending Sci-Fi">
+        <article class="movie-card" data-title="The Notebook" data-genre="Romantic Drama">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=900&q=80" alt="Inception">
+            <img src="https://images.unsplash.com/photo-1516589091380-5d8e87df6999?auto=format&fit=crop&w=900&q=80" alt="The Notebook">
           </div>
           <div class="movie-content">
-            <h3>Inception</h3>
-            <div class="movie-info">Sci-Fi • 2010 • Mind-Bending Sci-Fi</div>
-            <p>A professional thief enters layered dream worlds where reality becomes harder to define.</p>
+            <h3>The Notebook</h3>
+            <div class="movie-info">Romantic Drama • 2004 • 7.8/10</div>
+            <p>A powerful love story of devotion, separation, and lasting connection through time.</p>
             <div class="mini-watch">
-              <span>Netflix</span>
-              <span>Rent</span>
+              <span>Emotional</span>
+              <span>Classic</span>
             </div>
-            <a href="#" class="card-link">Where to Watch →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="Interstellar" data-type="Space Sci-Fi">
+        <article class="movie-card" data-title="Notting Hill" data-genre="Romantic Comedy">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80" alt="Interstellar">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80" alt="Notting Hill">
           </div>
           <div class="movie-content">
-            <h3>Interstellar</h3>
-            <div class="movie-info">Sci-Fi • 2014 • Space Sci-Fi</div>
-            <p>A team travels beyond Earth to search for a future home for humanity.</p>
+            <h3>Notting Hill</h3>
+            <div class="movie-info">Romantic Comedy • 1999 • 7.2/10</div>
+            <p>A charming bookseller falls for a famous actress in one of the most loved rom-coms ever made.</p>
             <div class="mini-watch">
-              <span>Prime Video</span>
-              <span>Apple TV</span>
+              <span>Funny</span>
+              <span>Charming</span>
             </div>
-            <a href="#" class="card-link">Where to Watch →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="Blade Runner 2049" data-type="AI Sci-Fi">
+        <article class="movie-card" data-title="Pride & Prejudice" data-genre="Period Romance">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1200&q=80" alt="Blade Runner 2049">
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80" alt="Pride and Prejudice">
           </div>
           <div class="movie-content">
-            <h3>Blade Runner 2049</h3>
-            <div class="movie-info">Sci-Fi • 2017 • AI Sci-Fi</div>
-            <p>A futuristic officer uncovers secrets that blur the lines between machine and human life.</p>
+            <h3>Pride & Prejudice</h3>
+            <div class="movie-info">Period Romance • 2005 • 8.1/10</div>
+            <p>Misunderstanding, class, and growing affection shape a timeless story of love and longing.</p>
             <div class="mini-watch">
-              <span>Netflix</span>
-              <span>Buy</span>
+              <span>Period</span>
+              <span>Elegant</span>
             </div>
-            <a href="#" class="card-link">Where to Watch →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="The Matrix" data-type="Mind-Bending Sci-Fi">
+        <article class="movie-card" data-title="To All the Boys I've Loved Before" data-genre="Teen Romance">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80" alt="The Matrix">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80" alt="To All the Boys I've Loved Before">
           </div>
           <div class="movie-content">
-            <h3>The Matrix</h3>
-            <div class="movie-info">Sci-Fi • 1999 • Mind-Bending Sci-Fi</div>
-            <p>A hacker discovers that the world around him is not what it seems.</p>
+            <h3>To All the Boys I've Loved Before</h3>
+            <div class="movie-info">Teen Romance • 2018 • 7.0/10</div>
+            <p>A fake relationship turns into real feelings in a sweet and highly rewatchable teen love story.</p>
             <div class="mini-watch">
-              <span>Max</span>
-              <span>Rent</span>
+              <span>Teen</span>
+              <span>Sweet</span>
             </div>
-            <a href="#" class="card-link">Where to Watch →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="Arrival" data-type="Alien Sci-Fi">
+        <article class="movie-card" data-title="Titanic" data-genre="Tragic Romance">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80" alt="Arrival">
+            <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80" alt="Titanic">
           </div>
           <div class="movie-content">
-            <h3>Arrival</h3>
-            <div class="movie-info">Sci-Fi • 2016 • Alien Sci-Fi</div>
-            <p>Communication with alien visitors becomes a race against fear and misunderstanding.</p>
+            <h3>Titanic</h3>
+            <div class="movie-info">Tragic Romance • 1997 • 7.9/10</div>
+            <p>A sweeping love story unfolds aboard the most famous doomed ship in history.</p>
             <div class="mini-watch">
-              <span>Prime Video</span>
-              <span>Buy</span>
+              <span>Epic</span>
+              <span>Heartbreaking</span>
             </div>
-            <a href="#" class="card-link">Where to Watch →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="Ex Machina" data-type="AI Sci-Fi">
+        <article class="movie-card" data-title="Crazy Rich Asians" data-genre="Feel-Good Romance">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1400&q=80" alt="Ex Machina">
+            <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=900&q=80" alt="Crazy Rich Asians">
           </div>
           <div class="movie-content">
-            <h3>Ex Machina</h3>
-            <div class="movie-info">Sci-Fi • 2014 • AI Sci-Fi</div>
-            <p>An experiment with artificial intelligence turns into a tense psychological trap.</p>
+            <h3>Crazy Rich Asians</h3>
+            <div class="movie-info">Feel-Good Romance • 2018 • 6.9/10</div>
+            <p>Love, family pressure, glamour, and warmth come together in a vibrant and entertaining romance.</p>
             <div class="mini-watch">
-              <span>Netflix</span>
-              <span>Rent</span>
+              <span>Feel-good</span>
+              <span>Modern</span>
             </div>
-            <a href="#" class="card-link">Where to Watch →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="Children of Men" data-type="Dystopian Sci-Fi">
+        <article class="movie-card" data-title="La La Land" data-genre="Romantic Drama">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80" alt="Children of Men">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80" alt="La La Land">
           </div>
           <div class="movie-content">
-            <h3>Children of Men</h3>
-            <div class="movie-info">Sci-Fi • 2006 • Dystopian Sci-Fi</div>
-            <p>Humanity faces collapse in a bleak future where one miracle could change everything.</p>
+            <h3>La La Land</h3>
+            <div class="movie-info">Romantic Drama • 2016 • 8.0/10</div>
+            <p>Ambition and love pull in different directions in a stylish, emotional modern romance.</p>
             <div class="mini-watch">
-              <span>Prime Video</span>
-              <span>Rent</span>
+              <span>Dreamy</span>
+              <span>Bittersweet</span>
             </div>
-            <a href="#" class="card-link">Where to Watch →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="The Martian" data-type="Survival Sci-Fi">
+        <article class="movie-card" data-title="10 Things I Hate About You" data-genre="Teen Romance">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="The Martian">
+            <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=80" alt="10 Things I Hate About You">
           </div>
           <div class="movie-content">
-            <h3>The Martian</h3>
-            <div class="movie-info">Sci-Fi • 2015 • Survival Sci-Fi</div>
-            <p>An astronaut stranded on Mars must survive through science, skill, and persistence.</p>
+            <h3>10 Things I Hate About You</h3>
+            <div class="movie-info">Teen Romance • 1999 • 7.3/10</div>
+            <p>Sharp banter, chemistry, and high school chaos make this one of the best teen romances around.</p>
             <div class="mini-watch">
-              <span>Disney+</span>
-              <span>Rent</span>
+              <span>Teen</span>
+              <span>Funny</span>
             </div>
-            <a href="#" class="card-link">Where to Watch →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="scifi-details" class="details-section">
+  <section id="guides" class="info-section">
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Sci-Fi Genre Details</h2>
-          <p>Useful sci-fi details you can reuse later for more genre pages too.</p>
+          <h2>Romance Watch Guides</h2>
+          <p>Helpful guides for finding the best romance movies by mood, chemistry, and story style.</p>
         </div>
       </div>
 
-      <div class="details-grid">
-        <div class="details-box">
-          <h3>What Makes A Sci-Fi Movie?</h3>
+      <div class="info-grid">
+        <div class="info-box">
+          <h3>Best Romance Movies to Start With</h3>
           <p>
-            Sci-fi movies imagine futures, technology, alien life, alternate realities,
-            scientific possibilities, and big questions about humanity and survival.
+            Create pages for must-watch romance films that mix chemistry, emotion, and unforgettable storytelling.
           </p>
+          <a href="#" class="card-link">Explore Guide →</a>
         </div>
 
-        <div class="details-box">
-          <h3>Popular Sci-Fi Subgenres</h3>
+        <div class="info-box">
+          <h3>Great Romantic Comedies</h3>
           <p>
-            Common sci-fi styles include space sci-fi, AI sci-fi, dystopian sci-fi,
-            alien sci-fi, survival sci-fi, and mind-bending science fiction.
+            Build collections for viewers who want charm, humour, chemistry, and uplifting love stories.
           </p>
+          <a href="#" class="card-link">Browse Rom-Com Picks →</a>
         </div>
 
-        <div class="details-box">
-          <h3>Why People Love Sci-Fi Films</h3>
+        <div class="info-box">
+          <h3>Movies Like The Notebook</h3>
           <p>
-            Sci-fi films are loved because they mix spectacle, imagination, mystery,
-            emotion, and huge ideas that push beyond everyday reality.
+            Keep visitors engaged with pages based on emotional love stories, longing, and lasting devotion.
           </p>
+          <a href="#" class="card-link">See Similar Movies →</a>
+        </div>
+
+        <div class="info-box">
+          <h3>Beautiful Period Romance</h3>
+          <p>
+            Highlight elegant romance stories filled with longing, restraint, class differences, and passion.
+          </p>
+          <a href="#" class="card-link">View Period Picks →</a>
+        </div>
+
+        <div class="info-box">
+          <h3>Teen Love Story Favourites</h3>
+          <p>
+            Collect romance films full of first love, awkward chemistry, and memorable high school emotion.
+          </p>
+          <a href="#" class="card-link">See Teen Romance Picks →</a>
+        </div>
+
+        <div class="info-box">
+          <h3>Underrated Romance Gems</h3>
+          <p>
+            Surface lesser-known romance movies that deserve much more attention from movie lovers.
+          </p>
+          <a href="#" class="card-link">Discover More →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="cta">
+  <section id="about" class="cta">
     <div class="container">
-      <h2>Explore more sci-fi favorites.</h2>
+      <h2>Your next love story starts here.</h2>
       <p>
-        Keep building this page with more sci-fi titles, streaming guides,
-        and “best sci-fi movies” lists to grow your site.
+        From romantic comedies to sweeping drama, period longing, teen love, and heartbreaking connection,
+        MovieSpot helps romance fans discover beautiful movies faster. Browse, search, and explore love without wasting time.
       </p>
-      <a href="index.html" class="btn btn-primary">Back to Home</a>
+      <div class="cta-actions">
+        <a href="#featured" class="btn btn-primary">Explore Featured Romance Picks</a>
+        <a href="#movies" class="btn btn-secondary">Open Romance Library</a>
+      </div>
     </div>
   </section>
 
   <footer>
     <div class="container footer-inner">
-      <p>©️ 2026 MovieSpot. Discover movies and where to watch them.</p>
+      <p>©️ 2026 MovieSpot. Discover romance movies worth watching.</p>
 
       <div class="footer-links">
         <a href="privacy.html">Privacy Policy</a>
@@ -945,39 +1412,316 @@ Here’s sci-fi.html in the same structure, with search + new releases.
         <a href="cookies.html">Cookies Policy</a>
         <a href="disclaimer.html">Disclaimer</a>
         <a href="contact.html">Contact</a>
+        <a href="support.html">Support Us</a>
       </div>
     </div>
   </footer>
 
   <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+      const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", !expanded);
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        if(window.innerWidth <= 768){
+          navLinks.classList.remove("show");
+          menuToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+
+    window.addEventListener("resize", () => {
+      if(window.innerWidth > 768){
+        navLinks.classList.remove("show");
+        menuToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+
     const searchInput = document.getElementById("searchInput");
-    const typeFilter = document.getElementById("typeFilter");
-    const movieCards = document.querySelectorAll("#scifi-movies .movie-card");
+    const genreFilter = document.getElementById("genreFilter");
+    const movieCards = document.querySelectorAll("#movies .movie-card");
 
     function filterMovies(){
       const searchValue = searchInput.value.toLowerCase().trim();
-      const selectedType = typeFilter.value;
+      const selectedGenre = genreFilter.value;
 
       movieCards.forEach(card => {
         const title = card.dataset.title.toLowerCase();
-        const type = card.dataset.type;
-
+        const genre = card.dataset.genre;
         const matchesSearch = title.includes(searchValue);
-        const matchesType = selectedType === "all" || type === selectedType;
+        const matchesGenre = selectedGenre === "all" || genre === selectedGenre;
 
-        if(matchesSearch && matchesType){
-          card.style.display = "block";
-        }else{
-          card.style.display = "none";
-        }
+        card.style.display = matchesSearch && matchesGenre ? "flex" : "none";
       });
     }
 
     searchInput.addEventListener("input", filterMovies);
-    typeFilter.addEventListener("change", filterMovies);
+    genreFilter.addEventListener("change", filterMovies);
+
+    const movieDatabase = [
+      {
+        title: "The Notebook",
+        genre: "Romantic Drama",
+        year: "2004",
+        summary: "A deeply emotional love story of devotion, separation, and lasting connection.",
+        poster: "https://images.unsplash.com/photo-1516589091380-5d8e87df6999?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Notting Hill",
+        genre: "Romantic Comedy",
+        year: "1999",
+        summary: "A charming love story between an ordinary bookseller and an extraordinary celebrity.",
+        poster: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Pride & Prejudice",
+        genre: "Period Romance",
+        year: "2005",
+        summary: "A timeless love story filled with wit, longing, and social tension.",
+        poster: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "To All the Boys I've Loved Before",
+        genre: "Teen Romance",
+        year: "2018",
+        summary: "A fake relationship leads to real feelings in a sweet and charming teen romance.",
+        poster: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Titanic",
+        genre: "Tragic Romance",
+        year: "1997",
+        summary: "A sweeping love story unfolds against one of history's greatest disasters.",
+        poster: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Crazy Rich Asians",
+        genre: "Feel-Good Romance",
+        year: "2018",
+        summary: "Love, family pressure, style, and warmth come together in a vibrant modern romance.",
+        poster: "https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "La La Land",
+        genre: "Romantic Drama",
+        year: "2016",
+        summary: "Ambition and love pull in different directions in a bittersweet modern romance.",
+        poster: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "10 Things I Hate About You",
+        genre: "Teen Romance",
+        year: "1999",
+        summary: "Sharp banter and real chemistry make this one of the best teen romances around.",
+        poster: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=80"
+      }
+    ];
+
+    function getDailyMovies(movies, count = 4){
+      const today = new Date();
+      const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+
+      const shuffled = [...movies].sort((a, b) => {
+        const aVal = (a.title.length * seed) % 97;
+        const bVal = (b.title.length * seed) % 97;
+        return aVal - bVal;
+      });
+
+      return shuffled.slice(0, count);
+    }
+
+    function renderDailyMovies(){
+      const container = document.getElementById("dailyMovies");
+      if(!container) return;
+
+      const movies = getDailyMovies(movieDatabase, 4);
+
+      container.innerHTML = movies.map(movie => `
+        <article class="movie-card">
+          <div class="movie-poster">
+            <img src="${movie.poster}" alt="${movie.title}">
+          </div>
+          <div class="movie-content">
+            <h3>${movie.title}</h3>
+            <div class="movie-info">${movie.genre} • ${movie.year}</div>
+            <p>${movie.summary}</p>
+            <a href="#movies" class="card-link">View Movie →</a>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    renderDailyMovies();
+
+    const posterPool = [
+      "https://images.unsplash.com/photo-1516589091380-5d8e87df6999?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=80"
+    ];
+
+    const genreSeeds = {
+      "Romantic Drama": ["The Notebook","La La Land","A Star Is Born","Me Before You","Blue Valentine","One Day","The Fault in Our Stars","Brooklyn","If Beale Street Could Talk","Call Me by Your Name","The Best of Me","Dear John","Remember Me","The Vow","Love Story"],
+      "Romantic Comedy": ["Notting Hill","Pretty Woman","13 Going on 30","How to Lose a Guy in 10 Days","27 Dresses","Crazy, Stupid, Love.","Bridget Jones's Diary","The Proposal","When Harry Met Sally","Sleepless in Seattle","Love Actually","My Best Friend's Wedding","Set It Up","Hitch","The Holiday"],
+      "Period Romance": ["Pride & Prejudice","Atonement","Far from the Madding Crowd","Anna Karenina","Emma","Sense and Sensibility","Jane Eyre","The Age of Innocence","Ever After","Little Women","Becoming Jane","Portrait of a Lady on Fire","The Duchess","Bright Star","Persuasion"],
+      "Teen Romance": ["To All the Boys I've Loved Before","10 Things I Hate About You","The Kissing Booth","Love, Simon","The Spectacular Now","Five Feet Apart","The Perks of Being a Wallflower","Paper Towns","Endless Love","Flipped","Easy A","A Cinderella Story","Nick and Norah's Infinite Playlist","Keith","Before I Fall"],
+      "Tragic Romance": ["Titanic","Romeo + Juliet","Moulin Rouge!","The Time Traveler's Wife","The English Patient","A Walk to Remember","Casablanca","The Bridges of Madison County","City of Angels","The Last Letter from Your Lover","The Choice","Suite Française","Brief Encounter","Somewhere in Time","The End of the Affair"],
+      "Feel-Good Romance": ["Crazy Rich Asians","The Princess Bride","About Time","Letters to Juliet","While You Were Sleeping","Morning Glory","Leap Year","Something's Gotta Give","Music and Lyrics","The Wedding Planner","Enchanted","Serendipity","Always Be My Maybe","Mamma Mia!","Isn't It Romantic"]
+    };
+
+    function makeMovie(genre, title, index){
+      const year = 1985 + ((genre.length * 9 + index * 4) % 38);
+      const summaries = {
+        "Romantic Drama": `${title} tells an emotional love story shaped by longing, connection, and heartbreak.`,
+        "Romantic Comedy": `${title} mixes charm, humour, and chemistry into a fun and lovable romance.`,
+        "Period Romance": `${title} captures elegant romance through class, longing, and timeless emotional tension.`,
+        "Teen Romance": `${title} follows young love, awkward chemistry, and memorable emotional moments.`,
+        "Tragic Romance": `${title} builds a powerful love story touched by loss, sacrifice, and heartbreak.`,
+        "Feel-Good Romance": `${title} delivers warmth, charm, and uplifting romance with easy chemistry.`
+      };
+
+      return {
+        title,
+        year: String(year),
+        genre,
+        summary: summaries[genre] || `${title} is one of the standout romance picks in ${genre}.`,
+        poster: posterPool[index % posterPool.length]
+      };
+    }
+
+    const genreMovieDatabase = {};
+    Object.entries(genreSeeds).forEach(([genre, titles]) => {
+      genreMovieDatabase[genre] = titles.map((title, index) => makeMovie(genre, title, index));
+    });
+
+    function renderGenreRecommendations(){
+      const container = document.getElementById("genreRecommendations");
+      if(!container) return;
+
+      container.innerHTML = Object.entries(genreMovieDatabase).map(([genre, movies], index) => `
+        <div class="genre-row">
+          <div class="genre-top">
+            <div>
+              <h3>${genre}</h3>
+              <p>Top picks and must-watch titles in ${genre.toLowerCase()}.</p>
+            </div>
+
+            <div class="slider-controls">
+              <button class="slider-btn" onclick="slideGenre('genreSlider${index}', -520)">‹</button>
+              <button class="slider-btn" onclick="slideGenre('genreSlider${index}', 520)">›</button>
+            </div>
+          </div>
+
+          <div class="genre-slider" id="genreSlider${index}">
+            ${movies.slice(0, 15).map(movie => `
+              <article class="genre-movie-card">
+                <div class="genre-movie-poster">
+                  <img src="${movie.poster}" alt="${movie.title}">
+                </div>
+                <div class="genre-movie-content">
+                  <h4>${movie.title}</h4>
+                  <div class="movie-info">${movie.genre} • ${movie.year}</div>
+                  <p>${movie.summary}</p>
+                  <a href="#movies" class="card-link">View Movie →</a>
+                </div>
+              </article>
+            `).join("")}
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function slideGenre(sliderId, amount){
+      const slider = document.getElementById(sliderId);
+      if(slider){
+        slider.scrollBy({
+          left: amount,
+          behavior: "smooth"
+        });
+      }
+    }
+
+    renderGenreRecommendations();
+
+    const scheduledMovies = [
+      {
+        title: "The Notebook",
+        genre: "Romantic Drama",
+        year: "2004",
+        summary: "A sweeping and emotional love story built on devotion and memory.",
+        poster: "https://images.unsplash.com/photo-1516589091380-5d8e87df6999?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Notting Hill",
+        genre: "Romantic Comedy",
+        year: "1999",
+        summary: "A warm and charming romance between a bookseller and a movie star.",
+        poster: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Pride & Prejudice",
+        genre: "Period Romance",
+        year: "2005",
+        summary: "A timeless period love story filled with longing, wit, and elegance.",
+        poster: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Titanic",
+        genre: "Tragic Romance",
+        year: "1997",
+        summary: "An epic love story unfolds against one of history's most tragic disasters.",
+        poster: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80"
+      }
+    ];
+
+    const updateEveryHours = 24;
+
+    function getScheduledMovie(movies, hoursStep){
+      const now = new Date();
+      const timeBlock = Math.floor(now.getTime() / (hoursStep * 60 * 60 * 1000));
+      const index = timeBlock % movies.length;
+      return movies[index];
+    }
+
+    function renderScheduledMovie(){
+      const container = document.getElementById("scheduledMovieBox");
+      if(!container) return;
+
+      const movie = getScheduledMovie(scheduledMovies, updateEveryHours);
+
+      container.innerHTML = `
+        <article class="movie-card">
+          <div class="movie-poster">
+            <img src="${movie.poster}" alt="${movie.title}">
+          </div>
+          <div class="movie-content">
+            <h3>${movie.title}</h3>
+            <div class="movie-info">${movie.genre} • ${movie.year}</div>
+            <p>${movie.summary}</p>
+            <div class="mini-watch">
+              <span>Auto Updated</span>
+              <span>Featured</span>
+            </div>
+            <a href="#movies" class="card-link">View Movie →</a>
+          </div>
+        </article>
+      `;
+    }
+
+    renderScheduledMovie();
   </script>
 
 </body>
 </html>
 
-Best next page is Romance or Drama, because those round out the site nicely.
+Next can be sci-fi in the exact same format. 

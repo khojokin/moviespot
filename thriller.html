@@ -1,10 +1,13 @@
- 
+ Here’s the thriller page in the same format, with the responsive layout and hamburger menu too.
+
+Replace logo.png with your real logo image.
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MovieSpot | Discover Movies & Where To Watch</title>
+  <title>MovieSpot | Thriller Movies</title>
   <style>
     *{
       margin:0;
@@ -172,8 +175,8 @@
 
     .hero{
       background:
-        linear-gradient(rgba(15,23,42,0.78), rgba(15,23,42,0.92)),
-        url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+        linear-gradient(rgba(15,23,42,0.80), rgba(15,23,42,0.92)),
+        url('https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
       min-height:85vh;
       display:flex;
       align-items:center;
@@ -572,6 +575,93 @@
       border-radius:999px;
     }
 
+    .info-section{
+      background:#111827;
+    }
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:22px;
+    }
+
+    .info-box{
+      background:#0f172a;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      padding:24px;
+    }
+
+    .info-box h3{
+      font-size:22px;
+      color:#ffffff;
+      margin-bottom:12px;
+    }
+
+    .info-box p{
+      color:#cbd5e1;
+      font-size:15px;
+      margin-bottom:14px;
+    }
+
+    .cta{
+      text-align:center;
+      background:linear-gradient(135deg, #1e293b, #111827);
+    }
+
+    .cta h2{
+      font-size:36px;
+      color:#ffffff;
+      margin-bottom:12px;
+    }
+
+    .cta p{
+      max-width:720px;
+      margin:0 auto 24px;
+      color:#cbd5e1;
+    }
+
+    .cta-actions{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    footer{
+      background:#020617;
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding:24px 0;
+    }
+
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .footer-inner p{
+      color:#94a3b8;
+      font-size:14px;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+    }
+
+    .footer-links a{
+      color:#cbd5e1;
+      font-size:14px;
+    }
+
+    .footer-links a:hover{
+      color:#facc15;
+    }
+
     .genre-section{
       background:#111827;
     }
@@ -696,93 +786,6 @@
 
     .genre-movie-content .card-link{
       margin-top:auto;
-    }
-
-    .info-section{
-      background:#111827;
-    }
-
-    .info-grid{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:22px;
-    }
-
-    .info-box{
-      background:#0f172a;
-      border:1px solid rgba(255,255,255,0.06);
-      border-radius:18px;
-      padding:24px;
-    }
-
-    .info-box h3{
-      font-size:22px;
-      color:#ffffff;
-      margin-bottom:12px;
-    }
-
-    .info-box p{
-      color:#cbd5e1;
-      font-size:15px;
-      margin-bottom:14px;
-    }
-
-    .cta{
-      text-align:center;
-      background:linear-gradient(135deg, #1e293b, #111827);
-    }
-
-    .cta h2{
-      font-size:36px;
-      color:#ffffff;
-      margin-bottom:12px;
-    }
-
-    .cta p{
-      max-width:720px;
-      margin:0 auto 24px;
-      color:#cbd5e1;
-    }
-
-    .cta-actions{
-      display:flex;
-      justify-content:center;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-
-    footer{
-      background:#020617;
-      border-top:1px solid rgba(255,255,255,0.06);
-      padding:24px 0;
-    }
-
-    .footer-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      flex-wrap:wrap;
-    }
-
-    .footer-inner p{
-      color:#94a3b8;
-      font-size:14px;
-    }
-
-    .footer-links{
-      display:flex;
-      flex-wrap:wrap;
-      gap:16px;
-    }
-
-    .footer-links a{
-      color:#cbd5e1;
-      font-size:14px;
-    }
-
-    .footer-links a:hover{
-      color:#facc15;
     }
 
     @media(max-width:1024px){
@@ -956,7 +959,7 @@
         </span>
         <span class="logo-text">
           <span class="logo-title">Movie<span>Spot</span></span>
-          <span class="logo-sub">Find Your Next Watch</span>
+          <span class="logo-sub">Thriller Movies</span>
         </span>
       </a>
 
@@ -967,9 +970,9 @@
       </button>
 
       <nav class="nav-links" id="navLinks">
-        <a href="index.html" class="active">Home</a>
+        <a href="index.html">Home</a>
+        <a href="thriller.html" class="active">Thriller</a>
         <a href="#featured">Featured</a>
-        <a href="#genre-recommendations">Genres</a>
         <a href="#guides">Watch Guides</a>
         <a href="#about">About</a>
       </nav>
@@ -980,45 +983,45 @@
     <div class="container">
       <div class="hero-layout">
         <div class="hero-content">
-          <div class="hero-tag">Discover what to watch tonight</div>
-          <h1>Find great movies and explore the best genre pages faster.</h1>
+          <div class="hero-tag">Pressure, danger, and edge-of-your-seat suspense</div>
+          <h1>Discover thriller movies filled with tension, secrets, risk, and unforgettable twists.</h1>
           <p>
-            MovieSpot helps visitors discover top films, browse genre pages,
-            and jump into action, comedy, crime, documentary, horror, fantasy, and more without wasting time.
+            Explore high-stakes chases, psychological pressure, dark crime plots,
+            political danger, survival tension, and stories that keep viewers locked in until the final moment.
           </p>
           <div class="hero-buttons">
-            <a href="#movies" class="btn btn-primary">Browse Popular Movies</a>
-            <a href="#genre-recommendations" class="btn btn-secondary">Explore Genres</a>
+            <a href="#movies" class="btn btn-primary">Browse Thriller Movies</a>
+            <a href="#guides" class="btn btn-secondary">Thriller Guides</a>
           </div>
         </div>
 
         <div class="hero-panel">
-          <h3>Start exploring faster</h3>
-          <p>Search titles, browse genres, and jump straight to pages people actually want to watch.</p>
+          <h3>Feel the tension</h3>
+          <p>Search thriller favourites, explore different thriller styles, and jump into films built around danger, suspense, and twists.</p>
 
           <div class="hero-stats">
             <div class="hero-stat">
-              <strong>12+</strong>
-              <span>Genres to explore</span>
+              <strong>50+</strong>
+              <span>Thriller recommendations</span>
             </div>
             <div class="hero-stat">
-              <strong>100+</strong>
-              <span>Recommendation ideas</span>
+              <strong>6</strong>
+              <span>Thriller styles to explore</span>
             </div>
           </div>
 
           <div class="hero-mini-list">
             <div class="hero-mini-item">
               <b>Search by title</b>
-              <span>Fast results</span>
+              <span>Fast thriller results</span>
             </div>
             <div class="hero-mini-item">
-              <b>Browse by genre</b>
-              <span>Easy discovery</span>
+              <b>Filter by style</b>
+              <span>Crime, psychological, survival</span>
             </div>
             <div class="hero-mini-item">
-              <b>Open movie pages</b>
-              <span>Quick genre access</span>
+              <b>Pick by intensity</b>
+              <span>Tense, dark, twisty</span>
             </div>
           </div>
         </div>
@@ -1030,8 +1033,8 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Daily Recommendations</h2>
-          <p>Fresh movie suggestions updated every day to help visitors find something great to watch.</p>
+          <h2>Daily Thriller Recommendations</h2>
+          <p>Fresh thriller movie picks that rotate automatically each day.</p>
         </div>
       </div>
 
@@ -1044,7 +1047,7 @@
       <div class="section-head">
         <div>
           <h2>Featured Right Now</h2>
-          <p>This featured movie changes automatically after a set time to keep the homepage fresh.</p>
+          <p>This featured thriller movie changes automatically after a set time to keep the page fresh.</p>
         </div>
       </div>
 
@@ -1056,36 +1059,31 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Search Movies</h2>
-          <p>Use the search box and filter to explore your movie collection faster.</p>
+          <h2>Search Thriller Movies</h2>
+          <p>Use the search box and filter to explore your thriller movie collection faster.</p>
         </div>
       </div>
 
       <div class="tool-bar">
         <div class="search-box">
-          <input type="text" id="searchInput" placeholder="Search by movie title..." />
+          <input type="text" id="searchInput" placeholder="Search thriller movie title..." />
         </div>
 
         <div class="filter-box">
           <select id="genreFilter">
-            <option value="all">All Genres</option>
-            <option value="Action">Action</option>
-            <option value="Adventure">Adventure</option>
-            <option value="Biography">Biography</option>
-            <option value="Comedy">Comedy</option>
-            <option value="Crime">Crime</option>
-            <option value="Documentary">Documentary</option>
-            <option value="Drama">Drama</option>
-            <option value="Family">Family</option>
-            <option value="Fantasy">Fantasy</option>
-            <option value="History">History</option>
-            <option value="Horror">Horror</option>
+            <option value="all">All Thriller Styles</option>
+            <option value="Psychological Thriller">Psychological Thriller</option>
+            <option value="Crime Thriller">Crime Thriller</option>
+            <option value="Action Thriller">Action Thriller</option>
+            <option value="Political Thriller">Political Thriller</option>
+            <option value="Survival Thriller">Survival Thriller</option>
+            <option value="Mystery Thriller">Mystery Thriller</option>
           </select>
         </div>
       </div>
 
       <div class="search-action">
-        <a href="#genre-recommendations" class="btn btn-primary">Open Genre Pages</a>
+        <a href="#movies" class="btn btn-primary">Explore Thriller Library</a>
       </div>
     </div>
   </section>
@@ -1094,81 +1092,81 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Featured Picks</h2>
-          <p>Highlight standout movies with quick summaries and direct paths into genre pages.</p>
+          <h2>Featured Thriller Picks</h2>
+          <p>High-stakes thriller stories packed with pressure, danger, and unforgettable suspense.</p>
         </div>
       </div>
 
       <div class="featured-grid">
         <article class="featured-card">
           <div class="featured-image">
-            <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=1200&q=80" alt="The Lord of the Rings">
+            <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80" alt="Gone Girl">
           </div>
           <div class="featured-content">
             <div class="meta">
-              <span class="pill">Fantasy</span>
-              <span class="pill">Epic</span>
-              <span class="pill">Classic</span>
+              <span class="pill">Thriller</span>
+              <span class="pill">Psychological</span>
+              <span class="pill">8.1/10</span>
             </div>
-            <h3>The Lord of the Rings</h3>
+            <h3>Gone Girl</h3>
             <p>
-              A legendary quest across a magical world filled with danger, friendship,
-              sacrifice, and unforgettable fantasy adventure.
+              A disappearance turns into a dark public spectacle in a thriller
+              full of manipulation, secrets, and sharp psychological tension.
             </p>
             <div class="watch-row">
-              <span class="watch-tag">Fantasy</span>
-              <span class="watch-tag alt">Adventure</span>
-              <span class="watch-tag green">Epic</span>
+              <span class="watch-tag">Psychological</span>
+              <span class="watch-tag alt">Twists</span>
+              <span class="watch-tag green">Dark</span>
             </div>
-            <a href="fantasy.html" class="card-link">Go to Fantasy Page →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
 
         <article class="featured-card">
           <div class="featured-image">
-            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1200&q=80" alt="The Godfather">
+            <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80" alt="Prisoners">
           </div>
           <div class="featured-content">
             <div class="meta">
+              <span class="pill">Thriller</span>
               <span class="pill">Crime</span>
-              <span class="pill">Classic</span>
-              <span class="pill">9.2/10</span>
+              <span class="pill">8.1/10</span>
             </div>
-            <h3>The Godfather</h3>
+            <h3>Prisoners</h3>
             <p>
-              A powerful crime family struggles with loyalty, power, and legacy
-              in one of cinema’s most iconic underworld stories.
+              A missing-person case pushes everyone toward desperation in a grim thriller
+              driven by pressure, fear, and moral collapse.
             </p>
             <div class="watch-row">
               <span class="watch-tag orange">Crime</span>
-              <span class="watch-tag alt">Drama</span>
-              <span class="watch-tag green">Classic</span>
+              <span class="watch-tag alt">Tense</span>
+              <span class="watch-tag green">Disturbing</span>
             </div>
-            <a href="crime.html" class="card-link">Go to Crime Page →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
 
         <article class="featured-card">
           <div class="featured-image">
-            <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=1200&q=80" alt="The Conjuring">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" alt="Sicario">
           </div>
           <div class="featured-content">
             <div class="meta">
-              <span class="pill">Horror</span>
-              <span class="pill">Supernatural</span>
-              <span class="pill">7.5/10</span>
+              <span class="pill">Thriller</span>
+              <span class="pill">Action</span>
+              <span class="pill">7.7/10</span>
             </div>
-            <h3>The Conjuring</h3>
+            <h3>Sicario</h3>
             <p>
-              Paranormal terror takes over a family home in one of the most effective
-              supernatural horror movies of the modern era.
+              Borders, violence, and covert operations collide in a brutal thriller
+              filled with danger, suspense, and constant unease.
             </p>
             <div class="watch-row">
-              <span class="watch-tag">Horror</span>
-              <span class="watch-tag alt">Supernatural</span>
-              <span class="watch-tag green">Scary</span>
+              <span class="watch-tag">Action</span>
+              <span class="watch-tag alt">Crime</span>
+              <span class="watch-tag green">Intense</span>
             </div>
-            <a href="horror.html" class="card-link">Go to Horror Page →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
       </div>
@@ -1179,8 +1177,8 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Recommendations by Genre</h2>
-          <p>Browse handpicked recommendations for each genre with horizontal sliders.</p>
+          <h2>Recommendations by Thriller Style</h2>
+          <p>Browse thriller movie picks through horizontal sliders by danger type, suspense level, and mood.</p>
         </div>
       </div>
 
@@ -1192,137 +1190,137 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Popular Movies</h2>
-          <p>These cards can connect users to your genre pages while keeping the homepage useful.</p>
+          <h2>Popular Thriller Movies</h2>
+          <p>Top thriller picks you can keep expanding later as your library grows.</p>
         </div>
       </div>
 
       <div class="movies-grid" id="moviesGrid">
-        <article class="movie-card" data-title="John Wick" data-genre="Action">
+        <article class="movie-card" data-title="Gone Girl" data-genre="Psychological Thriller">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80" alt="John Wick">
+            <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80" alt="Gone Girl">
           </div>
           <div class="movie-content">
-            <h3>John Wick</h3>
-            <div class="movie-info">Action • 2014 • 7.4/10</div>
-            <p>A retired assassin returns to the underworld after a brutal act drags him back into violence.</p>
+            <h3>Gone Girl</h3>
+            <div class="movie-info">Psychological Thriller • 2014 • 8.1/10</div>
+            <p>A missing wife case turns into a twisted psychological thriller about image, control, and deception.</p>
             <div class="mini-watch">
-              <span>Action</span>
-              <span>Fast-paced</span>
+              <span>Psychological</span>
+              <span>Twists</span>
             </div>
-            <a href="action.html" class="card-link">Go to Action Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="The Martian" data-genre="Adventure">
+        <article class="movie-card" data-title="Se7en" data-genre="Crime Thriller">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="The Martian">
+            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80" alt="Se7en">
           </div>
           <div class="movie-content">
-            <h3>The Martian</h3>
-            <div class="movie-info">Adventure • 2015 • 8.0/10</div>
-            <p>An astronaut stranded on Mars uses science, humor, and grit to survive impossible odds.</p>
-            <div class="mini-watch">
-              <span>Adventure</span>
-              <span>Sci-Fi</span>
-            </div>
-            <a href="adventure.html" class="card-link">Go to Adventure Page →</a>
-          </div>
-        </article>
-
-        <article class="movie-card" data-title="Bohemian Rhapsody" data-genre="Biography">
-          <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80" alt="Bohemian Rhapsody">
-          </div>
-          <div class="movie-content">
-            <h3>Bohemian Rhapsody</h3>
-            <div class="movie-info">Biography • 2018 • 7.9/10</div>
-            <p>The rise of Freddie Mercury and Queen unfolds through fame, creativity, and struggle.</p>
-            <div class="mini-watch">
-              <span>Biography</span>
-              <span>Music</span>
-            </div>
-            <a href="biography.html" class="card-link">Go to Biography Page →</a>
-          </div>
-        </article>
-
-        <article class="movie-card" data-title="The Hangover" data-genre="Comedy">
-          <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80" alt="The Hangover">
-          </div>
-          <div class="movie-content">
-            <h3>The Hangover</h3>
-            <div class="movie-info">Comedy • 2009 • 7.7/10</div>
-            <p>A bachelor party disaster turns into one of the funniest lost-night comedies around.</p>
-            <div class="mini-watch">
-              <span>Comedy</span>
-              <span>Buddy</span>
-            </div>
-            <a href="comedy.html" class="card-link">Go to Comedy Page →</a>
-          </div>
-        </article>
-
-        <article class="movie-card" data-title="The Godfather" data-genre="Crime">
-          <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80" alt="The Godfather">
-          </div>
-          <div class="movie-content">
-            <h3>The Godfather</h3>
-            <div class="movie-info">Crime • 1972 • 9.2/10</div>
-            <p>A powerful crime family struggles with loyalty, power, and legacy.</p>
+            <h3>Se7en</h3>
+            <div class="movie-info">Crime Thriller • 1995 • 8.6/10</div>
+            <p>Two detectives follow a brutal trail of crimes in one of the darkest and most famous thrillers ever made.</p>
             <div class="mini-watch">
               <span>Crime</span>
-              <span>Classic</span>
+              <span>Dark</span>
             </div>
-            <a href="crime.html" class="card-link">Go to Crime Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="Planet Earth" data-genre="Documentary">
+        <article class="movie-card" data-title="Sicario" data-genre="Action Thriller">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80" alt="Planet Earth">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80" alt="Sicario">
           </div>
           <div class="movie-content">
-            <h3>Planet Earth</h3>
-            <div class="movie-info">Documentary • 2006 • Classic</div>
-            <p>A breathtaking documentary journey across wildlife, oceans, forests, and the natural world.</p>
+            <h3>Sicario</h3>
+            <div class="movie-info">Action Thriller • 2015 • 7.7/10</div>
+            <p>A dangerous cartel operation drags an FBI agent into a world of ruthless strategy and violence.</p>
             <div class="mini-watch">
-              <span>Documentary</span>
-              <span>Nature</span>
+              <span>Action</span>
+              <span>Intense</span>
             </div>
-            <a href="documentary.html" class="card-link">Go to Documentary Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="The Shawshank Redemption" data-genre="Drama">
+        <article class="movie-card" data-title="Argo" data-genre="Political Thriller">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80" alt="The Shawshank Redemption">
+            <img src="https://images.unsplash.com/photo-1529074963764-98f45c47344b?auto=format&fit=crop&w=900&q=80" alt="Argo">
           </div>
           <div class="movie-content">
-            <h3>The Shawshank Redemption</h3>
-            <div class="movie-info">Drama • 1994 • 9.3/10</div>
-            <p>A banker sentenced to prison forms a powerful friendship while holding onto hope for freedom.</p>
+            <h3>Argo</h3>
+            <div class="movie-info">Political Thriller • 2012 • 7.7/10</div>
+            <p>A tense rescue mission unfolds through diplomacy, danger, and a bold plan that feels impossible.</p>
             <div class="mini-watch">
-              <span>Drama</span>
-              <span>Inspirational</span>
+              <span>Political</span>
+              <span>Tense</span>
             </div>
-            <a href="drama.html" class="card-link">Go to Drama Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="Paddington 2" data-genre="Family">
+        <article class="movie-card" data-title="The Revenant" data-genre="Survival Thriller">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80" alt="Paddington 2">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="The Revenant">
           </div>
           <div class="movie-content">
-            <h3>Paddington 2</h3>
-            <div class="movie-info">Family • 2017 • 8.7/10</div>
-            <p>A kind-hearted bear spreads joy and chaos in a warm family adventure full of charm.</p>
+            <h3>The Revenant</h3>
+            <div class="movie-info">Survival Thriller • 2015 • 8.0/10</div>
+            <p>A brutal fight for survival unfolds across the wilderness in a harsh, relentless thriller journey.</p>
             <div class="mini-watch">
-              <span>Family</span>
-              <span>Feel-good</span>
+              <span>Survival</span>
+              <span>Brutal</span>
             </div>
-            <a href="family.html" class="card-link">Go to Family Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Shutter Island" data-genre="Mystery Thriller">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=900&q=80" alt="Shutter Island">
+          </div>
+          <div class="movie-content">
+            <h3>Shutter Island</h3>
+            <div class="movie-info">Mystery Thriller • 2010 • 8.2/10</div>
+            <p>An investigation at a remote asylum becomes more unsettling with every clue uncovered.</p>
+            <div class="mini-watch">
+              <span>Mystery</span>
+              <span>Dark</span>
+            </div>
+            <a href="#" class="card-link">View Movie →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Nightcrawler" data-genre="Psychological Thriller">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=900&q=80" alt="Nightcrawler">
+          </div>
+          <div class="movie-content">
+            <h3>Nightcrawler</h3>
+            <div class="movie-info">Psychological Thriller • 2014 • 7.8/10</div>
+            <p>An ambitious outsider pushes deeper into moral darkness in a chilling thriller about obsession and media.</p>
+            <div class="mini-watch">
+              <span>Psychological</span>
+              <span>Unsettling</span>
+            </div>
+            <a href="#" class="card-link">View Movie →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Prisoners" data-genre="Crime Thriller">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80" alt="Prisoners">
+          </div>
+          <div class="movie-content">
+            <h3>Prisoners</h3>
+            <div class="movie-info">Crime Thriller • 2013 • 8.1/10</div>
+            <p>A desperate missing-person case forces characters toward choices they may never recover from.</p>
+            <div class="mini-watch">
+              <span>Crime</span>
+              <span>Tense</span>
+            </div>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
       </div>
@@ -1333,58 +1331,58 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Watch Guides</h2>
-          <p>Helpful shortcuts to genre pages and ideas that keep visitors exploring your site longer.</p>
+          <h2>Thriller Watch Guides</h2>
+          <p>Helpful guides for finding the best thriller movies by twist level, danger, and suspense style.</p>
         </div>
       </div>
 
       <div class="info-grid">
         <div class="info-box">
-          <h3>Best by Genre</h3>
+          <h3>Best Thriller Movies to Start With</h3>
           <p>
-            Send visitors straight into action, comedy, horror, fantasy, drama, and more through dedicated genre pages.
+            Create pages for must-watch thriller films that mix danger, suspense, and unforgettable tension.
           </p>
-          <a href="#genre-recommendations" class="card-link">Explore Genres →</a>
+          <a href="#" class="card-link">Explore Guide →</a>
         </div>
 
         <div class="info-box">
-          <h3>Movie Night Picks</h3>
+          <h3>Great Psychological Thrillers</h3>
           <p>
-            Build quick collections for date night, family night, scary night, or feel-good weekend watching.
+            Build collections for viewers who want mind games, manipulation, paranoia, and dark character tension.
           </p>
-          <a href="family.html" class="card-link">See Family Picks →</a>
+          <a href="#" class="card-link">Browse Psychological Picks →</a>
         </div>
 
         <div class="info-box">
-          <h3>Dark and Intense</h3>
+          <h3>Movies Like Gone Girl</h3>
           <p>
-            Push users into crime, history epics, and horror picks when they want bigger stakes.
+            Keep visitors engaged with pages based on deception, twists, media pressure, and disturbing secrets.
           </p>
-          <a href="crime.html" class="card-link">View Crime Picks →</a>
+          <a href="#" class="card-link">See Similar Movies →</a>
         </div>
 
         <div class="info-box">
-          <h3>Real Stories</h3>
+          <h3>Crime and Investigation Tension</h3>
           <p>
-            Biography, documentary, and history pages help visitors discover films based on real lives and events.
+            Highlight stories driven by police work, criminals, kidnappings, and relentless moral pressure.
           </p>
-          <a href="documentary.html" class="card-link">Explore Real Stories →</a>
+          <a href="#" class="card-link">View Crime Picks →</a>
         </div>
 
         <div class="info-box">
-          <h3>Magical Escapes</h3>
+          <h3>Survival and Action Intensity</h3>
           <p>
-            Fantasy and adventure pages are perfect for users looking for big worlds, quests, and unforgettable journeys.
+            Collect thrillers built on chase, risk, physical danger, and characters pushed to the limit.
           </p>
-          <a href="fantasy.html" class="card-link">Open Fantasy Page →</a>
+          <a href="#" class="card-link">See Survival Picks →</a>
         </div>
 
         <div class="info-box">
-          <h3>Scariest Picks</h3>
+          <h3>Underrated Thriller Gems</h3>
           <p>
-            Create a strong horror route for visitors who want haunted houses, slashers, dread, and supernatural fear.
+            Surface lesser-known thriller movies that deserve much more attention from movie lovers.
           </p>
-          <a href="horror.html" class="card-link">Go to Horror Page →</a>
+          <a href="#" class="card-link">Discover More →</a>
         </div>
       </div>
     </div>
@@ -1392,21 +1390,21 @@
 
   <section id="about" class="cta">
     <div class="container">
-      <h2>Your next favourite movie starts here.</h2>
+      <h2>Your next intense watch starts here.</h2>
       <p>
-        From timeless classics to fresh picks across every genre, MovieSpot makes it easier to discover what to watch next.
-        Browse by genre, explore recommendations, and guide visitors straight to the pages they care about most.
+        From psychological pressure to crime plots, survival danger, political risk, and shocking twists,
+        MovieSpot helps thriller fans discover gripping movies faster. Browse, search, and explore suspense without wasting time.
       </p>
       <div class="cta-actions">
-        <a href="#featured" class="btn btn-primary">Explore Featured Picks</a>
-        <a href="#genre-recommendations" class="btn btn-secondary">Open Genre Pages</a>
+        <a href="#featured" class="btn btn-primary">Explore Featured Thriller Picks</a>
+        <a href="#movies" class="btn btn-secondary">Open Thriller Library</a>
       </div>
     </div>
   </section>
 
   <footer>
     <div class="container footer-inner">
-      <p>©️ 2026 MovieSpot. Discover movies and where to watch them.</p>
+      <p>©️ 2026 MovieSpot. Discover thriller movies worth watching.</p>
 
       <div class="footer-links">
         <a href="privacy.html">Privacy Policy</a>
@@ -1468,92 +1466,60 @@
 
     const movieDatabase = [
       {
-        title: "John Wick",
-        genre: "Action",
+        title: "Gone Girl",
+        genre: "Psychological Thriller",
         year: "2014",
-        summary: "A retired assassin returns to the underworld after a brutal act pulls him back into violence.",
-        poster: "https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80",
-        link: "action.html"
+        summary: "A disappearance becomes a twisted psychological thriller about deception and control.",
+        poster: "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "The Martian",
-        genre: "Adventure",
+        title: "Se7en",
+        genre: "Crime Thriller",
+        year: "1995",
+        summary: "A brutal serial killer case pulls detectives into one of cinema's darkest thrillers.",
+        poster: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Sicario",
+        genre: "Action Thriller",
         year: "2015",
-        summary: "An astronaut stranded on Mars uses science, humor, and grit to survive impossible odds.",
-        poster: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
-        link: "adventure.html"
+        summary: "A brutal operation on the border becomes a relentless story of danger and tension.",
+        poster: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "Bohemian Rhapsody",
-        genre: "Biography",
-        year: "2018",
-        summary: "The rise of Freddie Mercury and Queen unfolds through fame, creativity, and struggle.",
-        poster: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80",
-        link: "biography.html"
+        title: "Argo",
+        genre: "Political Thriller",
+        year: "2012",
+        summary: "A bold rescue mission becomes a suspenseful political thriller under impossible pressure.",
+        poster: "https://images.unsplash.com/photo-1529074963764-98f45c47344b?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "The Hangover",
-        genre: "Comedy",
-        year: "2009",
-        summary: "A bachelor party disaster turns into one of the funniest lost-night comedies around.",
-        poster: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80",
-        link: "comedy.html"
+        title: "The Revenant",
+        genre: "Survival Thriller",
+        year: "2015",
+        summary: "A brutal wilderness fight for survival turns into a relentless thriller journey.",
+        poster: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "The Godfather",
-        genre: "Crime",
-        year: "1972",
-        summary: "A powerful crime family struggles with loyalty, power, and legacy.",
-        poster: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80",
-        link: "crime.html"
+        title: "Shutter Island",
+        genre: "Mystery Thriller",
+        year: "2010",
+        summary: "A dark investigation grows more disturbing as the truth stays just out of reach.",
+        poster: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "Planet Earth",
-        genre: "Documentary",
-        year: "2006",
-        summary: "A breathtaking look at wildlife and the natural world across the planet.",
-        poster: "https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80",
-        link: "documentary.html"
+        title: "Nightcrawler",
+        genre: "Psychological Thriller",
+        year: "2014",
+        summary: "Ambition and moral collapse drive a chilling thriller about obsession and media.",
+        poster: "https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "The Shawshank Redemption",
-        genre: "Drama",
-        year: "1994",
-        summary: "A moving story of friendship, hope, and endurance behind prison walls.",
-        poster: "https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80",
-        link: "drama.html"
-      },
-      {
-        title: "Paddington 2",
-        genre: "Family",
-        year: "2017",
-        summary: "A joyful family favourite full of warmth, kindness, and fun.",
-        poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80",
-        link: "family.html"
-      },
-      {
-        title: "The Lord of the Rings",
-        genre: "Fantasy",
-        year: "2001",
-        summary: "A legendary quest unfolds across a richly imagined world full of danger and wonder.",
-        poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80",
-        link: "fantasy.html"
-      },
-      {
-        title: "Gladiator",
-        genre: "History",
-        year: "2000",
-        summary: "A sweeping Roman story of betrayal, vengeance, and honor.",
-        poster: "https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=900&q=80",
-        link: "history.html"
-      },
-      {
-        title: "The Conjuring",
-        genre: "Horror",
+        title: "Prisoners",
+        genre: "Crime Thriller",
         year: "2013",
-        summary: "A haunting slowly turns a family home into a place of pure terror.",
-        poster: "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=900&q=80",
-        link: "horror.html"
+        summary: "A missing-person case pushes everyone involved toward darker and darker choices.",
+        poster: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80"
       }
     ];
 
@@ -1585,7 +1551,7 @@
             <h3>${movie.title}</h3>
             <div class="movie-info">${movie.genre} • ${movie.year}</div>
             <p>${movie.summary}</p>
-            <a href="${movie.link}" class="card-link">Open ${movie.genre} Page →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
       `).join("");
@@ -1593,56 +1559,43 @@
 
     renderDailyMovies();
 
-    const genrePageMap = {
-      "Action": "action.html",
-      "Adventure": "adventure.html",
-      "Biography": "biography.html",
-      "Comedy": "comedy.html",
-      "Crime": "crime.html",
-      "Documentary": "documentary.html",
-      "Drama": "drama.html",
-      "Family": "family.html",
-      "Fantasy": "fantasy.html",
-      "History": "history.html",
-      "Horror": "horror.html"
-    };
-
     const posterPool = [
-      "https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1529074963764-98f45c47344b?auto=format&fit=crop&w=900&q=80",
       "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=900&q=80"
+      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80"
     ];
 
     const genreSeeds = {
-      "Action": ["John Wick","The Dark Knight","Gladiator","Mad Max: Fury Road","Mission: Impossible"],
-      "Adventure": ["The Martian","Jurassic Park","Avatar","Indiana Jones","Life of Pi"],
-      "Biography": ["Bohemian Rhapsody","Oppenheimer","A Beautiful Mind","Lincoln","The Theory of Everything"],
-      "Comedy": ["The Hangover","Mean Girls","Bridesmaids","Superbad","Rush Hour"],
-      "Crime": ["The Godfather","Heat","Goodfellas","The Departed","Se7en"],
-      "Documentary": ["Planet Earth","The Last Dance","13th","Free Solo","Amy"],
-      "Drama": ["The Shawshank Redemption","Forrest Gump","Whiplash","Titanic","Manchester by the Sea"],
-      "Family": ["Paddington 2","Home Alone","The Parent Trap","Mary Poppins","Night at the Museum"],
-      "Fantasy": ["The Lord of the Rings","Harry Potter","Pan's Labyrinth","The Chronicles of Narnia","Stardust"],
-      "History": ["Gladiator","1917","The King's Speech","Lincoln","Braveheart"],
-      "Horror": ["The Conjuring","Get Out","Halloween","Alien","A Quiet Place"]
+      "Psychological Thriller": ["Gone Girl","Nightcrawler","Black Swan","Enemy","The Machinist","Secret Window","Gerald's Game","The Game","Nocturnal Animals","Fatal Attraction","Cape Fear","The Gift","Swallow","Perfect Blue","Run"],
+      "Crime Thriller": ["Se7en","Prisoners","Heat","Zodiac","Wind River","Gone Baby Gone","The Silence of the Lambs","Mystic River","Insomnia","Training Day","No Country for Old Men","The Bone Collector","LA Confidential","Manhunter","Collateral"],
+      "Action Thriller": ["Sicario","John Wick","The Bourne Ultimatum","Taken","The Fugitive","Man on Fire","Atomic Blonde","Captain Phillips","Unknown","Run All Night","Safe House","The Equalizer","Shooter","The Grey","Point Break"],
+      "Political Thriller": ["Argo","The Manchurian Candidate","State of Play","Michael Clayton","All the President's Men","Bridge of Spies","Zero Dark Thirty","Enemy of the State","Vantage Point","Tinker Tailor Soldier Spy","Body of Lies","The Constant Gardener","Fair Game","The Interpreter","Syriana"],
+      "Survival Thriller": ["The Revenant","127 Hours","Buried","The Grey","Crawl","Open Water","Frozen","The Edge","Sanctum","Fall","Adrift","Backcountry","Beast","Breakdown","The Shallows"],
+      "Mystery Thriller": ["Shutter Island","Memento","Prisoners","The Prestige","Searching","Missing","Identity","Fracture","The Invisible Guest","The Girl with the Dragon Tattoo","Red Dragon","Side Effects","Source Code","Unknown","The Number 23"]
     };
 
     function makeMovie(genre, title, index){
-      const year = 1985 + ((genre.length * 7 + index * 3) % 36);
+      const year = 1985 + ((genre.length * 9 + index * 4) % 38);
+      const summaries = {
+        "Psychological Thriller": `${title} builds pressure through paranoia, manipulation, and dark mental tension.`,
+        "Crime Thriller": `${title} drives suspense through crime, investigation, and relentless danger.`,
+        "Action Thriller": `${title} mixes speed, violence, and tension into a high-stakes thriller ride.`,
+        "Political Thriller": `${title} explores power, strategy, and danger beneath the surface of public control.`,
+        "Survival Thriller": `${title} pushes characters into fear, endurance, and a desperate fight to stay alive.`,
+        "Mystery Thriller": `${title} balances clues, suspense, and revelation in a gripping thriller mystery.`
+      };
+
       return {
         title,
         year: String(year),
         genre,
-        summary: `${title} is one of the standout picks in ${genre.toLowerCase()} and a great place to start browsing.`,
-        poster: posterPool[index % posterPool.length],
-        link: genrePageMap[genre] || "#"
+        summary: summaries[genre] || `${title} is one of the standout thriller picks in ${genre}.`,
+        poster: posterPool[index % posterPool.length]
       };
     }
 
@@ -1670,7 +1623,7 @@
           </div>
 
           <div class="genre-slider" id="genreSlider${index}">
-            ${movies.map(movie => `
+            ${movies.slice(0, 15).map(movie => `
               <article class="genre-movie-card">
                 <div class="genre-movie-poster">
                   <img src="${movie.poster}" alt="${movie.title}">
@@ -1679,7 +1632,7 @@
                   <h4>${movie.title}</h4>
                   <div class="movie-info">${movie.genre} • ${movie.year}</div>
                   <p>${movie.summary}</p>
-                  <a href="${movie.link}" class="card-link">Open ${movie.genre} Page →</a>
+                  <a href="#movies" class="card-link">View Movie →</a>
                 </div>
               </article>
             `).join("")}
@@ -1702,36 +1655,32 @@
 
     const scheduledMovies = [
       {
-        title: "The Lord of the Rings",
-        genre: "Fantasy",
-        year: "2001",
-        summary: "A legendary fantasy quest unfolds across a richly imagined world.",
-        poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80",
-        link: "fantasy.html"
+        title: "Gone Girl",
+        genre: "Psychological Thriller",
+        year: "2014",
+        summary: "A dark thriller of deception, pressure, and psychological control.",
+        poster: "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "The Godfather",
-        genre: "Crime",
-        year: "1972",
-        summary: "A powerful crime family struggles with loyalty, power, and legacy.",
-        poster: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80",
-        link: "crime.html"
+        title: "Se7en",
+        genre: "Crime Thriller",
+        year: "1995",
+        summary: "A serial killer case becomes one of the darkest thriller journeys in film.",
+        poster: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "Paddington 2",
-        genre: "Family",
-        year: "2017",
-        summary: "A warm, joyful family adventure full of charm and kindness.",
-        poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80",
-        link: "family.html"
+        title: "Sicario",
+        genre: "Action Thriller",
+        year: "2015",
+        summary: "An intense border operation drives tension, violence, and relentless unease.",
+        poster: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "The Conjuring",
-        genre: "Horror",
-        year: "2013",
-        summary: "A haunted house nightmare unfolds with terrifying paranormal force.",
-        poster: "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=900&q=80",
-        link: "horror.html"
+        title: "Shutter Island",
+        genre: "Mystery Thriller",
+        year: "2010",
+        summary: "A dark investigation twists deeper into fear, illusion, and disturbing truth.",
+        poster: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=900&q=80"
       }
     ];
 
@@ -1763,7 +1712,7 @@
               <span>Auto Updated</span>
               <span>Featured</span>
             </div>
-            <a href="${movie.link}" class="card-link">Open ${movie.genre} Page →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
       `;
@@ -1775,4 +1724,4 @@
 </body>
 </html>
 
- 
+Next can be war in the exact same format.

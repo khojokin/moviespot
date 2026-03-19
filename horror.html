@@ -1,10 +1,13 @@
- 
+ Here’s the horror page in the same format, with the responsive layout and hamburger menu too.
+
+Replace logo.png with your real logo image.
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MovieSpot | Discover Movies & Where To Watch</title>
+  <title>MovieSpot | Horror Movies</title>
   <style>
     *{
       margin:0;
@@ -172,8 +175,8 @@
 
     .hero{
       background:
-        linear-gradient(rgba(15,23,42,0.78), rgba(15,23,42,0.92)),
-        url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+        linear-gradient(rgba(15,23,42,0.82), rgba(15,23,42,0.94)),
+        url('https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
       min-height:85vh;
       display:flex;
       align-items:center;
@@ -404,8 +407,6 @@
       border-radius:20px;
       overflow:hidden;
       transition:0.3s;
-      display:flex;
-      flex-direction:column;
     }
 
     .featured-card:hover{
@@ -426,9 +427,6 @@
 
     .featured-content{
       padding:20px;
-      display:flex;
-      flex-direction:column;
-      flex:1;
     }
 
     .meta{
@@ -462,7 +460,6 @@
       display:flex;
       flex-wrap:wrap;
       gap:8px;
-      margin-top:auto;
       margin-bottom:18px;
     }
 
@@ -509,8 +506,6 @@
       border-radius:18px;
       overflow:hidden;
       transition:0.3s;
-      display:flex;
-      flex-direction:column;
     }
 
     .movie-card:hover{
@@ -532,9 +527,6 @@
 
     .movie-content{
       padding:18px;
-      display:flex;
-      flex-direction:column;
-      flex:1;
     }
 
     .movie-content h3{
@@ -559,7 +551,6 @@
       display:flex;
       flex-wrap:wrap;
       gap:8px;
-      margin-top:auto;
       margin-bottom:14px;
     }
 
@@ -570,6 +561,92 @@
       font-size:12px;
       padding:6px 10px;
       border-radius:999px;
+    }
+
+    .info-section{
+      background:#111827;
+    }
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:22px;
+    }
+
+    .info-box{
+      background:#0f172a;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      padding:24px;
+    }
+
+    .info-box h3{
+      font-size:22px;
+      color:#ffffff;
+      margin-bottom:12px;
+    }
+
+    .info-box p{
+      color:#cbd5e1;
+      font-size:15px;
+    }
+
+    .cta{
+      text-align:center;
+      background:linear-gradient(135deg, #1e293b, #111827);
+    }
+
+    .cta h2{
+      font-size:36px;
+      color:#ffffff;
+      margin-bottom:12px;
+    }
+
+    .cta p{
+      max-width:720px;
+      margin:0 auto 24px;
+      color:#cbd5e1;
+    }
+
+    .cta-actions{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    footer{
+      background:#020617;
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding:24px 0;
+    }
+
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .footer-inner p{
+      color:#94a3b8;
+      font-size:14px;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+    }
+
+    .footer-links a{
+      color:#cbd5e1;
+      font-size:14px;
+    }
+
+    .footer-links a:hover{
+      color:#facc15;
     }
 
     .genre-section{
@@ -648,8 +725,6 @@
       overflow:hidden;
       flex-shrink:0;
       transition:0.3s;
-      display:flex;
-      flex-direction:column;
     }
 
     .genre-movie-card:hover{
@@ -671,9 +746,6 @@
 
     .genre-movie-content{
       padding:18px;
-      display:flex;
-      flex-direction:column;
-      flex:1;
     }
 
     .genre-movie-content h4{
@@ -692,97 +764,6 @@
       color:#cbd5e1;
       font-size:14px;
       margin-bottom:14px;
-    }
-
-    .genre-movie-content .card-link{
-      margin-top:auto;
-    }
-
-    .info-section{
-      background:#111827;
-    }
-
-    .info-grid{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:22px;
-    }
-
-    .info-box{
-      background:#0f172a;
-      border:1px solid rgba(255,255,255,0.06);
-      border-radius:18px;
-      padding:24px;
-    }
-
-    .info-box h3{
-      font-size:22px;
-      color:#ffffff;
-      margin-bottom:12px;
-    }
-
-    .info-box p{
-      color:#cbd5e1;
-      font-size:15px;
-      margin-bottom:14px;
-    }
-
-    .cta{
-      text-align:center;
-      background:linear-gradient(135deg, #1e293b, #111827);
-    }
-
-    .cta h2{
-      font-size:36px;
-      color:#ffffff;
-      margin-bottom:12px;
-    }
-
-    .cta p{
-      max-width:720px;
-      margin:0 auto 24px;
-      color:#cbd5e1;
-    }
-
-    .cta-actions{
-      display:flex;
-      justify-content:center;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-
-    footer{
-      background:#020617;
-      border-top:1px solid rgba(255,255,255,0.06);
-      padding:24px 0;
-    }
-
-    .footer-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      flex-wrap:wrap;
-    }
-
-    .footer-inner p{
-      color:#94a3b8;
-      font-size:14px;
-    }
-
-    .footer-links{
-      display:flex;
-      flex-wrap:wrap;
-      gap:16px;
-    }
-
-    .footer-links a{
-      color:#cbd5e1;
-      font-size:14px;
-    }
-
-    .footer-links a:hover{
-      color:#facc15;
     }
 
     @media(max-width:1024px){
@@ -956,7 +937,7 @@
         </span>
         <span class="logo-text">
           <span class="logo-title">Movie<span>Spot</span></span>
-          <span class="logo-sub">Find Your Next Watch</span>
+          <span class="logo-sub">Horror Movies</span>
         </span>
       </a>
 
@@ -967,9 +948,9 @@
       </button>
 
       <nav class="nav-links" id="navLinks">
-        <a href="index.html" class="active">Home</a>
+        <a href="index.html">Home</a>
+        <a href="horror.html" class="active">Horror</a>
         <a href="#featured">Featured</a>
-        <a href="#genre-recommendations">Genres</a>
         <a href="#guides">Watch Guides</a>
         <a href="#about">About</a>
       </nav>
@@ -980,45 +961,45 @@
     <div class="container">
       <div class="hero-layout">
         <div class="hero-content">
-          <div class="hero-tag">Discover what to watch tonight</div>
-          <h1>Find great movies and explore the best genre pages faster.</h1>
+          <div class="hero-tag">Fear, suspense, and unforgettable nightmares</div>
+          <h1>Discover horror movies packed with dread, darkness, and terrifying twists.</h1>
           <p>
-            MovieSpot helps visitors discover top films, browse genre pages,
-            and jump into action, comedy, crime, documentary, horror, fantasy, and more without wasting time.
+            Explore haunted houses, psychological fear, supernatural evil,
+            slashers, creature horror, and disturbing stories that stay in your head long after the credits roll.
           </p>
           <div class="hero-buttons">
-            <a href="#movies" class="btn btn-primary">Browse Popular Movies</a>
-            <a href="#genre-recommendations" class="btn btn-secondary">Explore Genres</a>
+            <a href="#movies" class="btn btn-primary">Browse Horror Movies</a>
+            <a href="#guides" class="btn btn-secondary">Horror Guides</a>
           </div>
         </div>
 
         <div class="hero-panel">
-          <h3>Start exploring faster</h3>
-          <p>Search titles, browse genres, and jump straight to pages people actually want to watch.</p>
+          <h3>Enter the nightmare</h3>
+          <p>Search horror favourites, explore different horror styles, and jump into films built to shock, unsettle, and terrify.</p>
 
           <div class="hero-stats">
             <div class="hero-stat">
-              <strong>12+</strong>
-              <span>Genres to explore</span>
+              <strong>50+</strong>
+              <span>Horror recommendations</span>
             </div>
             <div class="hero-stat">
-              <strong>100+</strong>
-              <span>Recommendation ideas</span>
+              <strong>6</strong>
+              <span>Horror styles to explore</span>
             </div>
           </div>
 
           <div class="hero-mini-list">
             <div class="hero-mini-item">
               <b>Search by title</b>
-              <span>Fast results</span>
+              <span>Fast horror results</span>
             </div>
             <div class="hero-mini-item">
-              <b>Browse by genre</b>
-              <span>Easy discovery</span>
+              <b>Filter by style</b>
+              <span>Supernatural, slasher, psychological</span>
             </div>
             <div class="hero-mini-item">
-              <b>Open movie pages</b>
-              <span>Quick genre access</span>
+              <b>Pick by fear type</b>
+              <span>Shocks, tension, nightmares</span>
             </div>
           </div>
         </div>
@@ -1030,8 +1011,8 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Daily Recommendations</h2>
-          <p>Fresh movie suggestions updated every day to help visitors find something great to watch.</p>
+          <h2>Daily Horror Recommendations</h2>
+          <p>Fresh horror movie picks that rotate automatically each day.</p>
         </div>
       </div>
 
@@ -1044,7 +1025,7 @@
       <div class="section-head">
         <div>
           <h2>Featured Right Now</h2>
-          <p>This featured movie changes automatically after a set time to keep the homepage fresh.</p>
+          <p>This featured horror movie changes automatically after a set time to keep the page fresh.</p>
         </div>
       </div>
 
@@ -1056,36 +1037,31 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Search Movies</h2>
-          <p>Use the search box and filter to explore your movie collection faster.</p>
+          <h2>Search Horror Movies</h2>
+          <p>Use the search box and filter to explore your horror movie collection faster.</p>
         </div>
       </div>
 
       <div class="tool-bar">
         <div class="search-box">
-          <input type="text" id="searchInput" placeholder="Search by movie title..." />
+          <input type="text" id="searchInput" placeholder="Search horror movie title..." />
         </div>
 
         <div class="filter-box">
           <select id="genreFilter">
-            <option value="all">All Genres</option>
-            <option value="Action">Action</option>
-            <option value="Adventure">Adventure</option>
-            <option value="Biography">Biography</option>
-            <option value="Comedy">Comedy</option>
-            <option value="Crime">Crime</option>
-            <option value="Documentary">Documentary</option>
-            <option value="Drama">Drama</option>
-            <option value="Family">Family</option>
-            <option value="Fantasy">Fantasy</option>
-            <option value="History">History</option>
-            <option value="Horror">Horror</option>
+            <option value="all">All Horror Styles</option>
+            <option value="Supernatural Horror">Supernatural Horror</option>
+            <option value="Psychological Horror">Psychological Horror</option>
+            <option value="Slasher Horror">Slasher Horror</option>
+            <option value="Creature Horror">Creature Horror</option>
+            <option value="Possession Horror">Possession Horror</option>
+            <option value="Survival Horror">Survival Horror</option>
           </select>
         </div>
       </div>
 
       <div class="search-action">
-        <a href="#genre-recommendations" class="btn btn-primary">Open Genre Pages</a>
+        <a href="#movies" class="btn btn-primary">Explore Horror Library</a>
       </div>
     </div>
   </section>
@@ -1094,60 +1070,12 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Featured Picks</h2>
-          <p>Highlight standout movies with quick summaries and direct paths into genre pages.</p>
+          <h2>Featured Horror Picks</h2>
+          <p>Terrifying horror stories full of fear, atmosphere, and unforgettable tension.</p>
         </div>
       </div>
 
       <div class="featured-grid">
-        <article class="featured-card">
-          <div class="featured-image">
-            <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=1200&q=80" alt="The Lord of the Rings">
-          </div>
-          <div class="featured-content">
-            <div class="meta">
-              <span class="pill">Fantasy</span>
-              <span class="pill">Epic</span>
-              <span class="pill">Classic</span>
-            </div>
-            <h3>The Lord of the Rings</h3>
-            <p>
-              A legendary quest across a magical world filled with danger, friendship,
-              sacrifice, and unforgettable fantasy adventure.
-            </p>
-            <div class="watch-row">
-              <span class="watch-tag">Fantasy</span>
-              <span class="watch-tag alt">Adventure</span>
-              <span class="watch-tag green">Epic</span>
-            </div>
-            <a href="fantasy.html" class="card-link">Go to Fantasy Page →</a>
-          </div>
-        </article>
-
-        <article class="featured-card">
-          <div class="featured-image">
-            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1200&q=80" alt="The Godfather">
-          </div>
-          <div class="featured-content">
-            <div class="meta">
-              <span class="pill">Crime</span>
-              <span class="pill">Classic</span>
-              <span class="pill">9.2/10</span>
-            </div>
-            <h3>The Godfather</h3>
-            <p>
-              A powerful crime family struggles with loyalty, power, and legacy
-              in one of cinema’s most iconic underworld stories.
-            </p>
-            <div class="watch-row">
-              <span class="watch-tag orange">Crime</span>
-              <span class="watch-tag alt">Drama</span>
-              <span class="watch-tag green">Classic</span>
-            </div>
-            <a href="crime.html" class="card-link">Go to Crime Page →</a>
-          </div>
-        </article>
-
         <article class="featured-card">
           <div class="featured-image">
             <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=1200&q=80" alt="The Conjuring">
@@ -1160,15 +1088,60 @@
             </div>
             <h3>The Conjuring</h3>
             <p>
-              Paranormal terror takes over a family home in one of the most effective
-              supernatural horror movies of the modern era.
+              Paranormal investigators face a terrifying presence in a haunted farmhouse
+              in one of modern horror’s most effective supernatural scares.
             </p>
             <div class="watch-row">
-              <span class="watch-tag">Horror</span>
-              <span class="watch-tag alt">Supernatural</span>
-              <span class="watch-tag green">Scary</span>
+              <span class="watch-tag">Max</span>
+              <span class="watch-tag alt">Prime Video</span>
             </div>
-            <a href="horror.html" class="card-link">Go to Horror Page →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
+          </div>
+        </article>
+
+        <article class="featured-card">
+          <div class="featured-image">
+            <img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=1200&q=80" alt="Get Out">
+          </div>
+          <div class="featured-content">
+            <div class="meta">
+              <span class="pill">Horror</span>
+              <span class="pill">Psychological</span>
+              <span class="pill">7.7/10</span>
+            </div>
+            <h3>Get Out</h3>
+            <p>
+              Tension, unease, and social horror build into a sharp and unforgettable nightmare
+              that keeps twisting in disturbing ways.
+            </p>
+            <div class="watch-row">
+              <span class="watch-tag green">Netflix</span>
+              <span class="watch-tag orange">Buy</span>
+            </div>
+            <a href="#movies" class="card-link">View Movie →</a>
+          </div>
+        </article>
+
+        <article class="featured-card">
+          <div class="featured-image">
+            <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=1200&q=80" alt="A Quiet Place">
+          </div>
+          <div class="featured-content">
+            <div class="meta">
+              <span class="pill">Horror</span>
+              <span class="pill">Survival</span>
+              <span class="pill">7.5/10</span>
+            </div>
+            <h3>A Quiet Place</h3>
+            <p>
+              Silence becomes survival in a terrifying world where the smallest sound
+              can bring deadly creatures straight to you.
+            </p>
+            <div class="watch-row">
+              <span class="watch-tag">Paramount+</span>
+              <span class="watch-tag alt">Apple TV</span>
+            </div>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
       </div>
@@ -1179,8 +1152,8 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Recommendations by Genre</h2>
-          <p>Browse handpicked recommendations for each genre with horizontal sliders.</p>
+          <h2>Recommendations by Horror Style</h2>
+          <p>Browse horror movie picks through horizontal sliders by fear type and nightmare level.</p>
         </div>
       </div>
 
@@ -1192,137 +1165,137 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Popular Movies</h2>
-          <p>These cards can connect users to your genre pages while keeping the homepage useful.</p>
+          <h2>Popular Horror Movies</h2>
+          <p>Top horror picks you can keep expanding later as your library grows.</p>
         </div>
       </div>
 
       <div class="movies-grid" id="moviesGrid">
-        <article class="movie-card" data-title="John Wick" data-genre="Action">
+        <article class="movie-card" data-title="The Conjuring" data-genre="Supernatural Horror">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80" alt="John Wick">
+            <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=900&q=80" alt="The Conjuring">
           </div>
           <div class="movie-content">
-            <h3>John Wick</h3>
-            <div class="movie-info">Action • 2014 • 7.4/10</div>
-            <p>A retired assassin returns to the underworld after a brutal act drags him back into violence.</p>
+            <h3>The Conjuring</h3>
+            <div class="movie-info">Supernatural Horror • 2013 • 7.5/10</div>
+            <p>A family faces a terrifying haunting as dark forces slowly take over their home.</p>
             <div class="mini-watch">
-              <span>Action</span>
-              <span>Fast-paced</span>
+              <span>Max</span>
+              <span>Rent</span>
             </div>
-            <a href="action.html" class="card-link">Go to Action Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="The Martian" data-genre="Adventure">
+        <article class="movie-card" data-title="Get Out" data-genre="Psychological Horror">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="The Martian">
+            <img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80" alt="Get Out">
           </div>
           <div class="movie-content">
-            <h3>The Martian</h3>
-            <div class="movie-info">Adventure • 2015 • 8.0/10</div>
-            <p>An astronaut stranded on Mars uses science, humor, and grit to survive impossible odds.</p>
+            <h3>Get Out</h3>
+            <div class="movie-info">Psychological Horror • 2017 • 7.7/10</div>
+            <p>A weekend visit turns into a deeply disturbing experience full of hidden horror and paranoia.</p>
             <div class="mini-watch">
-              <span>Adventure</span>
-              <span>Sci-Fi</span>
+              <span>Netflix</span>
+              <span>Buy</span>
             </div>
-            <a href="adventure.html" class="card-link">Go to Adventure Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="Bohemian Rhapsody" data-genre="Biography">
+        <article class="movie-card" data-title="Halloween" data-genre="Slasher Horror">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80" alt="Bohemian Rhapsody">
+            <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80" alt="Halloween">
           </div>
           <div class="movie-content">
-            <h3>Bohemian Rhapsody</h3>
-            <div class="movie-info">Biography • 2018 • 7.9/10</div>
-            <p>The rise of Freddie Mercury and Queen unfolds through fame, creativity, and struggle.</p>
+            <h3>Halloween</h3>
+            <div class="movie-info">Slasher Horror • 1978 • Classic</div>
+            <p>A masked killer stalks a quiet town in one of the most iconic slasher horrors ever made.</p>
             <div class="mini-watch">
-              <span>Biography</span>
-              <span>Music</span>
+              <span>Prime Video</span>
+              <span>Rent</span>
             </div>
-            <a href="biography.html" class="card-link">Go to Biography Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="The Hangover" data-genre="Comedy">
+        <article class="movie-card" data-title="Alien" data-genre="Creature Horror">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80" alt="The Hangover">
+            <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80" alt="Alien">
           </div>
           <div class="movie-content">
-            <h3>The Hangover</h3>
-            <div class="movie-info">Comedy • 2009 • 7.7/10</div>
-            <p>A bachelor party disaster turns into one of the funniest lost-night comedies around.</p>
+            <h3>Alien</h3>
+            <div class="movie-info">Creature Horror • 1979 • 8.5/10</div>
+            <p>A deadly creature hunts a spaceship crew in one of the most tense horror films ever made.</p>
             <div class="mini-watch">
-              <span>Comedy</span>
-              <span>Buddy</span>
+              <span>Disney+</span>
+              <span>Buy</span>
             </div>
-            <a href="comedy.html" class="card-link">Go to Comedy Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="The Godfather" data-genre="Crime">
+        <article class="movie-card" data-title="The Exorcist" data-genre="Possession Horror">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80" alt="The Godfather">
+            <img src="https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=900&q=80" alt="The Exorcist">
           </div>
           <div class="movie-content">
-            <h3>The Godfather</h3>
-            <div class="movie-info">Crime • 1972 • 9.2/10</div>
-            <p>A powerful crime family struggles with loyalty, power, and legacy.</p>
+            <h3>The Exorcist</h3>
+            <div class="movie-info">Possession Horror • 1973 • Classic</div>
+            <p>A terrifying battle against demonic possession turns into one of horror’s most legendary nightmares.</p>
             <div class="mini-watch">
-              <span>Crime</span>
-              <span>Classic</span>
+              <span>Max</span>
+              <span>Stream</span>
             </div>
-            <a href="crime.html" class="card-link">Go to Crime Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="Planet Earth" data-genre="Documentary">
+        <article class="movie-card" data-title="A Quiet Place" data-genre="Survival Horror">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80" alt="Planet Earth">
+            <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80" alt="A Quiet Place">
           </div>
           <div class="movie-content">
-            <h3>Planet Earth</h3>
-            <div class="movie-info">Documentary • 2006 • Classic</div>
-            <p>A breathtaking documentary journey across wildlife, oceans, forests, and the natural world.</p>
+            <h3>A Quiet Place</h3>
+            <div class="movie-info">Survival Horror • 2018 • 7.5/10</div>
+            <p>A family survives in silence while deadly creatures hunt anything that makes a sound.</p>
             <div class="mini-watch">
-              <span>Documentary</span>
-              <span>Nature</span>
+              <span>Paramount+</span>
+              <span>Rent</span>
             </div>
-            <a href="documentary.html" class="card-link">Go to Documentary Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="The Shawshank Redemption" data-genre="Drama">
+        <article class="movie-card" data-title="Hereditary" data-genre="Psychological Horror">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80" alt="The Shawshank Redemption">
+            <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=900&q=80" alt="Hereditary">
           </div>
           <div class="movie-content">
-            <h3>The Shawshank Redemption</h3>
-            <div class="movie-info">Drama • 1994 • 9.3/10</div>
-            <p>A banker sentenced to prison forms a powerful friendship while holding onto hope for freedom.</p>
+            <h3>Hereditary</h3>
+            <div class="movie-info">Psychological Horror • 2018 • 7.3/10</div>
+            <p>Family grief slowly turns into something far darker in a horror film full of dread and shock.</p>
             <div class="mini-watch">
-              <span>Drama</span>
-              <span>Inspirational</span>
+              <span>Netflix</span>
+              <span>Buy</span>
             </div>
-            <a href="drama.html" class="card-link">Go to Drama Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="Paddington 2" data-genre="Family">
+        <article class="movie-card" data-title="It" data-genre="Supernatural Horror">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80" alt="Paddington 2">
+            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80" alt="It">
           </div>
           <div class="movie-content">
-            <h3>Paddington 2</h3>
-            <div class="movie-info">Family • 2017 • 8.7/10</div>
-            <p>A kind-hearted bear spreads joy and chaos in a warm family adventure full of charm.</p>
+            <h3>It</h3>
+            <div class="movie-info">Supernatural Horror • 2017 • 7.3/10</div>
+            <p>A shape-shifting evil feeds on fear and returns to terrorize a small town once again.</p>
             <div class="mini-watch">
-              <span>Family</span>
-              <span>Feel-good</span>
+              <span>Max</span>
+              <span>Rent</span>
             </div>
-            <a href="family.html" class="card-link">Go to Family Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
       </div>
@@ -1333,58 +1306,58 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Watch Guides</h2>
-          <p>Helpful shortcuts to genre pages and ideas that keep visitors exploring your site longer.</p>
+          <h2>Horror Watch Guides</h2>
+          <p>Helpful guides for finding the best horror movies by fear style, mood, and intensity.</p>
         </div>
       </div>
 
       <div class="info-grid">
         <div class="info-box">
-          <h3>Best by Genre</h3>
+          <h3>Best Horror Movies on Netflix</h3>
           <p>
-            Send visitors straight into action, comedy, horror, fantasy, drama, and more through dedicated genre pages.
+            Create pages for top horror movies currently available on Netflix.
           </p>
-          <a href="#genre-recommendations" class="card-link">Explore Genres →</a>
+          <a href="#" class="card-link">Explore Guide →</a>
         </div>
 
         <div class="info-box">
-          <h3>Movie Night Picks</h3>
+          <h3>Scariest Supernatural Horror</h3>
           <p>
-            Build quick collections for date night, family night, scary night, or feel-good weekend watching.
+            Build collections for viewers who want haunted houses, demons, curses, and paranormal fear.
           </p>
-          <a href="family.html" class="card-link">See Family Picks →</a>
+          <a href="#" class="card-link">Browse Supernatural Picks →</a>
         </div>
 
         <div class="info-box">
-          <h3>Dark and Intense</h3>
+          <h3>Movies Like The Conjuring</h3>
           <p>
-            Push users into crime, history epics, and horror picks when they want bigger stakes.
+            Keep visitors engaged with pages based on eerie tension, paranormal investigators, and haunting terror.
           </p>
-          <a href="crime.html" class="card-link">View Crime Picks →</a>
+          <a href="#" class="card-link">See Similar Movies →</a>
         </div>
 
         <div class="info-box">
-          <h3>Real Stories</h3>
+          <h3>Psychological Nightmare Films</h3>
           <p>
-            Biography, documentary, and history pages help visitors discover films based on real lives and events.
+            Highlight horror stories driven by paranoia, dread, trauma, and deeply unsettling twists.
           </p>
-          <a href="documentary.html" class="card-link">Explore Real Stories →</a>
+          <a href="#" class="card-link">View Psychological Picks →</a>
         </div>
 
         <div class="info-box">
-          <h3>Magical Escapes</h3>
+          <h3>Classic Slasher Essentials</h3>
           <p>
-            Fantasy and adventure pages are perfect for users looking for big worlds, quests, and unforgettable journeys.
+            Collect masked killers, stalking terror, and the horror films that shaped the genre.
           </p>
-          <a href="fantasy.html" class="card-link">Open Fantasy Page →</a>
+          <a href="#" class="card-link">See Slasher Picks →</a>
         </div>
 
         <div class="info-box">
-          <h3>Scariest Picks</h3>
+          <h3>Underrated Horror Gems</h3>
           <p>
-            Create a strong horror route for visitors who want haunted houses, slashers, dread, and supernatural fear.
+            Surface lesser-known horror movies that deserve much more attention from horror fans.
           </p>
-          <a href="horror.html" class="card-link">Go to Horror Page →</a>
+          <a href="#" class="card-link">Discover More →</a>
         </div>
       </div>
     </div>
@@ -1392,21 +1365,21 @@
 
   <section id="about" class="cta">
     <div class="container">
-      <h2>Your next favourite movie starts here.</h2>
+      <h2>Your next nightmare starts here.</h2>
       <p>
-        From timeless classics to fresh picks across every genre, MovieSpot makes it easier to discover what to watch next.
-        Browse by genre, explore recommendations, and guide visitors straight to the pages they care about most.
+        From haunted houses to slashers, demonic possession, creature terror, and psychological dread,
+        MovieSpot helps horror fans discover terrifying movies faster. Browse, search, and explore fear without wasting time.
       </p>
       <div class="cta-actions">
-        <a href="#featured" class="btn btn-primary">Explore Featured Picks</a>
-        <a href="#genre-recommendations" class="btn btn-secondary">Open Genre Pages</a>
+        <a href="#featured" class="btn btn-primary">Explore Featured Horror Picks</a>
+        <a href="#movies" class="btn btn-secondary">Open Horror Library</a>
       </div>
     </div>
   </section>
 
   <footer>
     <div class="container footer-inner">
-      <p>©️ 2026 MovieSpot. Discover movies and where to watch them.</p>
+      <p>©️ 2026 MovieSpot. Discover horror movies worth watching.</p>
 
       <div class="footer-links">
         <a href="privacy.html">Privacy Policy</a>
@@ -1459,7 +1432,7 @@
         const matchesSearch = title.includes(searchValue);
         const matchesGenre = selectedGenre === "all" || genre === selectedGenre;
 
-        card.style.display = matchesSearch && matchesGenre ? "flex" : "none";
+        card.style.display = matchesSearch && matchesGenre ? "block" : "none";
       });
     }
 
@@ -1468,92 +1441,60 @@
 
     const movieDatabase = [
       {
-        title: "John Wick",
-        genre: "Action",
-        year: "2014",
-        summary: "A retired assassin returns to the underworld after a brutal act pulls him back into violence.",
-        poster: "https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80",
-        link: "action.html"
-      },
-      {
-        title: "The Martian",
-        genre: "Adventure",
-        year: "2015",
-        summary: "An astronaut stranded on Mars uses science, humor, and grit to survive impossible odds.",
-        poster: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
-        link: "adventure.html"
-      },
-      {
-        title: "Bohemian Rhapsody",
-        genre: "Biography",
-        year: "2018",
-        summary: "The rise of Freddie Mercury and Queen unfolds through fame, creativity, and struggle.",
-        poster: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80",
-        link: "biography.html"
-      },
-      {
-        title: "The Hangover",
-        genre: "Comedy",
-        year: "2009",
-        summary: "A bachelor party disaster turns into one of the funniest lost-night comedies around.",
-        poster: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80",
-        link: "comedy.html"
-      },
-      {
-        title: "The Godfather",
-        genre: "Crime",
-        year: "1972",
-        summary: "A powerful crime family struggles with loyalty, power, and legacy.",
-        poster: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80",
-        link: "crime.html"
-      },
-      {
-        title: "Planet Earth",
-        genre: "Documentary",
-        year: "2006",
-        summary: "A breathtaking look at wildlife and the natural world across the planet.",
-        poster: "https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80",
-        link: "documentary.html"
-      },
-      {
-        title: "The Shawshank Redemption",
-        genre: "Drama",
-        year: "1994",
-        summary: "A moving story of friendship, hope, and endurance behind prison walls.",
-        poster: "https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80",
-        link: "drama.html"
-      },
-      {
-        title: "Paddington 2",
-        genre: "Family",
-        year: "2017",
-        summary: "A joyful family favourite full of warmth, kindness, and fun.",
-        poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80",
-        link: "family.html"
-      },
-      {
-        title: "The Lord of the Rings",
-        genre: "Fantasy",
-        year: "2001",
-        summary: "A legendary quest unfolds across a richly imagined world full of danger and wonder.",
-        poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80",
-        link: "fantasy.html"
-      },
-      {
-        title: "Gladiator",
-        genre: "History",
-        year: "2000",
-        summary: "A sweeping Roman story of betrayal, vengeance, and honor.",
-        poster: "https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=900&q=80",
-        link: "history.html"
-      },
-      {
         title: "The Conjuring",
-        genre: "Horror",
+        genre: "Supernatural Horror",
         year: "2013",
         summary: "A haunting slowly turns a family home into a place of pure terror.",
-        poster: "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=900&q=80",
-        link: "horror.html"
+        poster: "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Get Out",
+        genre: "Psychological Horror",
+        year: "2017",
+        summary: "Tension and unease build into a deeply disturbing horror experience.",
+        poster: "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Halloween",
+        genre: "Slasher Horror",
+        year: "1978",
+        summary: "A masked killer stalks the night in one of horror's defining classics.",
+        poster: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Alien",
+        genre: "Creature Horror",
+        year: "1979",
+        summary: "A deadly creature turns space into one of cinema's most terrifying settings.",
+        poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "The Exorcist",
+        genre: "Possession Horror",
+        year: "1973",
+        summary: "Demonic possession becomes a nightmare that defined an entire horror era.",
+        poster: "https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "A Quiet Place",
+        genre: "Survival Horror",
+        year: "2018",
+        summary: "Silence becomes the only way to survive in a terrifying world of predators.",
+        poster: "https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Hereditary",
+        genre: "Psychological Horror",
+        year: "2018",
+        summary: "Grief and dread spiral into one of the most unsettling horror films in recent years.",
+        poster: "https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "It",
+        genre: "Supernatural Horror",
+        year: "2017",
+        summary: "An ancient evil returns and feeds on fear in a small town haunted by trauma.",
+        poster: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80"
       }
     ];
 
@@ -1585,7 +1526,7 @@
             <h3>${movie.title}</h3>
             <div class="movie-info">${movie.genre} • ${movie.year}</div>
             <p>${movie.summary}</p>
-            <a href="${movie.link}" class="card-link">Open ${movie.genre} Page →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
       `).join("");
@@ -1593,56 +1534,43 @@
 
     renderDailyMovies();
 
-    const genrePageMap = {
-      "Action": "action.html",
-      "Adventure": "adventure.html",
-      "Biography": "biography.html",
-      "Comedy": "comedy.html",
-      "Crime": "crime.html",
-      "Documentary": "documentary.html",
-      "Drama": "drama.html",
-      "Family": "family.html",
-      "Fantasy": "fantasy.html",
-      "History": "history.html",
-      "Horror": "horror.html"
-    };
-
     const posterPool = [
-      "https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80",
       "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80",
       "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80",
       "https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=900&q=80"
+      "https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80"
     ];
 
     const genreSeeds = {
-      "Action": ["John Wick","The Dark Knight","Gladiator","Mad Max: Fury Road","Mission: Impossible"],
-      "Adventure": ["The Martian","Jurassic Park","Avatar","Indiana Jones","Life of Pi"],
-      "Biography": ["Bohemian Rhapsody","Oppenheimer","A Beautiful Mind","Lincoln","The Theory of Everything"],
-      "Comedy": ["The Hangover","Mean Girls","Bridesmaids","Superbad","Rush Hour"],
-      "Crime": ["The Godfather","Heat","Goodfellas","The Departed","Se7en"],
-      "Documentary": ["Planet Earth","The Last Dance","13th","Free Solo","Amy"],
-      "Drama": ["The Shawshank Redemption","Forrest Gump","Whiplash","Titanic","Manchester by the Sea"],
-      "Family": ["Paddington 2","Home Alone","The Parent Trap","Mary Poppins","Night at the Museum"],
-      "Fantasy": ["The Lord of the Rings","Harry Potter","Pan's Labyrinth","The Chronicles of Narnia","Stardust"],
-      "History": ["Gladiator","1917","The King's Speech","Lincoln","Braveheart"],
-      "Horror": ["The Conjuring","Get Out","Halloween","Alien","A Quiet Place"]
+      "Supernatural Horror": ["The Conjuring","Insidious","It","Sinister","The Ring","Paranormal Activity","The Others","Ouija: Origin of Evil","The Grudge","The Woman in Black","Annabelle","Lights Out","Mama","Smile","The Nun"],
+      "Psychological Horror": ["Get Out","Hereditary","The Shining","Black Swan","The Babadook","Midsommar","Saint Maud","The Witch","Us","Session 9","Mother!","The Invitation","Jacob's Ladder","Rosemary's Baby","It Comes at Night"],
+      "Slasher Horror": ["Halloween","Scream","Friday the 13th","A Nightmare on Elm Street","Texas Chainsaw Massacre","Child's Play","Candyman","Terrifier","My Bloody Valentine","Black Christmas","Happy Death Day","Wrong Turn","Saw","You're Next","The Strangers"],
+      "Creature Horror": ["Alien","Jaws","The Descent","The Thing","Cloverfield","Predator","Anaconda","The Mist","Deep Blue Sea","Jeepers Creepers","Nope","A Quiet Place Part II","Dog Soldiers","Lake Placid","Tremors"],
+      "Possession Horror": ["The Exorcist","The Exorcism of Emily Rose","The Last Exorcism","The Taking of Deborah Logan","Talk to Me","The Possession","Deliver Us from Evil","The Rite","The Pope's Exorcist","Evil Dead Rise","Veronica","The Medium","The Cleansing Hour","The Amityville Horror","The Nun II"],
+      "Survival Horror": ["A Quiet Place","Train to Busan","28 Days Later","Don't Breathe","The Cabin in the Woods","The Hills Have Eyes","Bird Box","Green Room","Rec","Crawl","The Purge","Frozen","The Ruins","Life","As Above, So Below"]
     };
 
     function makeMovie(genre, title, index){
-      const year = 1985 + ((genre.length * 7 + index * 3) % 36);
+      const year = 1985 + ((genre.length * 9 + index * 4) % 38);
+      const summaries = {
+        "Supernatural Horror": `${title} builds fear through hauntings, curses, and dark paranormal forces.`,
+        "Psychological Horror": `${title} unsettles through dread, paranoia, and disturbing mental pressure.`,
+        "Slasher Horror": `${title} delivers stalking terror, sharp suspense, and brutal horror energy.`,
+        "Creature Horror": `${title} turns monsters and deadly predators into a terrifying nightmare.`,
+        "Possession Horror": `${title} dives into demons, faith, and horrifying loss of control.`,
+        "Survival Horror": `${title} traps characters in a fight to stay alive under impossible fear.`
+      };
+
       return {
         title,
         year: String(year),
         genre,
-        summary: `${title} is one of the standout picks in ${genre.toLowerCase()} and a great place to start browsing.`,
-        poster: posterPool[index % posterPool.length],
-        link: genrePageMap[genre] || "#"
+        summary: summaries[genre] || `${title} is one of the standout horror picks in ${genre}.`,
+        poster: posterPool[index % posterPool.length]
       };
     }
 
@@ -1670,7 +1598,7 @@
           </div>
 
           <div class="genre-slider" id="genreSlider${index}">
-            ${movies.map(movie => `
+            ${movies.slice(0, 15).map(movie => `
               <article class="genre-movie-card">
                 <div class="genre-movie-poster">
                   <img src="${movie.poster}" alt="${movie.title}">
@@ -1679,7 +1607,7 @@
                   <h4>${movie.title}</h4>
                   <div class="movie-info">${movie.genre} • ${movie.year}</div>
                   <p>${movie.summary}</p>
-                  <a href="${movie.link}" class="card-link">Open ${movie.genre} Page →</a>
+                  <a href="#movies" class="card-link">View Movie →</a>
                 </div>
               </article>
             `).join("")}
@@ -1702,36 +1630,32 @@
 
     const scheduledMovies = [
       {
-        title: "The Lord of the Rings",
-        genre: "Fantasy",
-        year: "2001",
-        summary: "A legendary fantasy quest unfolds across a richly imagined world.",
-        poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80",
-        link: "fantasy.html"
-      },
-      {
-        title: "The Godfather",
-        genre: "Crime",
-        year: "1972",
-        summary: "A powerful crime family struggles with loyalty, power, and legacy.",
-        poster: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80",
-        link: "crime.html"
-      },
-      {
-        title: "Paddington 2",
-        genre: "Family",
-        year: "2017",
-        summary: "A warm, joyful family adventure full of charm and kindness.",
-        poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80",
-        link: "family.html"
-      },
-      {
         title: "The Conjuring",
-        genre: "Horror",
+        genre: "Supernatural Horror",
         year: "2013",
         summary: "A haunted house nightmare unfolds with terrifying paranormal force.",
-        poster: "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=900&q=80",
-        link: "horror.html"
+        poster: "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Get Out",
+        genre: "Psychological Horror",
+        year: "2017",
+        summary: "Paranoia, unease, and hidden terror turn a visit into a nightmare.",
+        poster: "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Halloween",
+        genre: "Slasher Horror",
+        year: "1978",
+        summary: "A masked killer stalks the dark in one of horror's most iconic stories.",
+        poster: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "A Quiet Place",
+        genre: "Survival Horror",
+        year: "2018",
+        summary: "Silence becomes the last defense against deadly creatures.",
+        poster: "https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80"
       }
     ];
 
@@ -1763,7 +1687,7 @@
               <span>Auto Updated</span>
               <span>Featured</span>
             </div>
-            <a href="${movie.link}" class="card-link">Open ${movie.genre} Page →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
       `;
@@ -1774,5 +1698,3 @@
 
 </body>
 </html>
-
- 

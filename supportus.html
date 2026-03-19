@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MovieSpot | Contact</title>
+  <title>MovieSpot | Support Us</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
   <style>
     *{
       margin:0;
@@ -34,9 +37,7 @@
       transition:0.3s;
     }
 
-    button,
-    input,
-    textarea{
+    button{
       font-family:Arial, Helvetica, sans-serif;
       transition:0.3s;
     }
@@ -211,30 +212,13 @@
       padding:70px 0;
     }
 
-    .section-head{
-      margin-bottom:28px;
-    }
-
-    .section-head h2{
-      font-size:32px;
-      color:#ffffff;
-      margin-bottom:8px;
-    }
-
-    .section-head p{
-      color:#94a3b8;
-      max-width:700px;
-    }
-
-    .contact-grid{
+    .support-grid{
       display:grid;
-      grid-template-columns:0.95fr 1.05fr;
+      grid-template-columns:repeat(2, 1fr);
       gap:24px;
-      align-items:start;
     }
 
-    .contact-info,
-    .contact-form-box{
+    .support-card{
       background:#111827;
       border:1px solid rgba(255,255,255,0.06);
       border-radius:24px;
@@ -242,184 +226,101 @@
       box-shadow:0 14px 30px rgba(0,0,0,0.15);
     }
 
-    .contact-info h3,
-    .contact-form-box h3{
+    .support-card h2{
       font-size:28px;
       color:#ffffff;
       margin-bottom:12px;
+      display:flex;
+      align-items:center;
+      gap:12px;
     }
 
-    .contact-info p,
-    .contact-form-box p{
+    .support-card h2 i{
+      color:#facc15;
+      font-size:24px;
+    }
+
+    .support-card p{
       color:#cbd5e1;
       font-size:15px;
       margin-bottom:18px;
     }
 
-    .info-list{
+    .button-list{
       display:grid;
-      gap:16px;
-      margin-bottom:24px;
+      gap:14px;
     }
 
-    .info-item{
-      background:#0f172a;
-      border:1px solid rgba(255,255,255,0.06);
-      border-radius:18px;
-      padding:18px;
-    }
-
-    .info-item strong{
-      display:block;
-      color:#facc15;
-      font-size:16px;
-      margin-bottom:6px;
-    }
-
-    .info-item span,
-    .info-item a{
-      color:#cbd5e1;
-      font-size:15px;
-      word-break:break-word;
-    }
-
-    .social-links{
-      display:grid;
-      gap:12px;
-    }
-
-    .social-link{
+    .support-btn{
       display:flex;
       align-items:center;
       justify-content:center;
+      gap:10px;
       text-align:center;
-      padding:14px 16px;
+      padding:15px 18px;
       border-radius:14px;
       font-weight:700;
       font-size:15px;
-      background:#1e293b;
       border:1px solid rgba(255,255,255,0.08);
+      background:#1e293b;
       color:#ffffff;
     }
 
-    .social-link:hover{
+    .support-btn i{
+      font-size:17px;
+    }
+
+    .support-btn:hover{
       transform:translateY(-2px);
       box-shadow:0 12px 24px rgba(0,0,0,0.18);
     }
 
-    .social-link.primary{
+    .support-btn.primary{
       background:#facc15;
       color:#111827;
       border-color:#facc15;
     }
 
-    .social-link.blue{
-      background:#1d4ed8;
-      border-color:#1d4ed8;
-    }
-
-    .social-link.green{
-      background:#059669;
-      border-color:#059669;
-    }
-
-    .form-grid{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:16px;
-      margin-top:18px;
-    }
-
-    .form-group{
-      display:grid;
-      gap:8px;
-    }
-
-    .form-group.full{
-      grid-column:1 / -1;
-    }
-
-    label{
-      color:#ffffff;
-      font-size:14px;
-      font-weight:700;
-    }
-
-    input,
-    textarea{
-      width:100%;
-      background:#0f172a;
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:14px;
-      padding:14px 16px;
-      color:#ffffff;
-      outline:none;
-      font-size:15px;
-    }
-
-    input:focus,
-    textarea:focus{
-      border-color:rgba(250,204,21,0.6);
-      box-shadow:0 0 0 3px rgba(250,204,21,0.08);
-    }
-
-    textarea{
-      min-height:150px;
-      resize:vertical;
-    }
-
-    .submit-btn{
-      display:inline-block;
-      padding:14px 22px;
-      border-radius:12px;
-      font-weight:700;
-      font-size:15px;
-      border:none;
-      cursor:pointer;
-      background:#facc15;
-      color:#111827;
-    }
-
-    .submit-btn:hover{
-      transform:translateY(-2px);
+    .support-btn.primary:hover{
       box-shadow:0 10px 24px rgba(250,204,21,0.2);
     }
 
-    .form-note{
-      margin-top:16px;
+    .support-btn.alt{
+      background:#7c3aed;
+      border-color:#7c3aed;
+      color:#ffffff;
+    }
+
+    .support-btn.green{
+      background:#059669;
+      border-color:#059669;
+      color:#ffffff;
+    }
+
+    .support-btn.blue{
+      background:#1d4ed8;
+      border-color:#1d4ed8;
+      color:#ffffff;
+    }
+
+    .support-btn.dark{
+      background:#111827;
+      color:#ffffff;
+      border-color:rgba(255,255,255,0.1);
+    }
+
+    .note-box{
+      margin-top:24px;
       background:#0f172a;
       border:1px solid rgba(250,204,21,0.14);
-      border-radius:16px;
-      padding:16px;
+      border-radius:18px;
+      padding:18px;
+    }
+
+    .note-box p{
+      margin:0;
       color:#cbd5e1;
       font-size:14px;
-    }
-
-    .faq-section{
-      background:#111827;
-    }
-
-    .faq-grid{
-      display:grid;
-      gap:18px;
-    }
-
-    .faq-item{
-      background:#0f172a;
-      border:1px solid rgba(255,255,255,0.06);
-      border-radius:18px;
-      padding:22px;
-    }
-
-    .faq-item h3{
-      color:#ffffff;
-      font-size:20px;
-      margin-bottom:10px;
-    }
-
-    .faq-item p{
-      color:#cbd5e1;
-      font-size:15px;
     }
 
     .cta{
@@ -447,7 +348,10 @@
     }
 
     .btn{
-      display:inline-block;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
       padding:14px 22px;
       border-radius:12px;
       font-weight:700;
@@ -511,8 +415,8 @@
       color:#facc15;
     }
 
-    @media(max-width:950px){
-      .contact-grid{
+    @media(max-width:900px){
+      .support-grid{
         grid-template-columns:1fr;
       }
     }
@@ -579,18 +483,12 @@
         padding:70px 0 40px;
       }
 
-      .contact-info,
-      .contact-form-box{
+      .support-card{
         padding:22px;
       }
 
-      .contact-info h3,
-      .contact-form-box h3{
+      .support-card h2{
         font-size:24px;
-      }
-
-      .form-grid{
-        grid-template-columns:1fr;
       }
 
       .cta h2{
@@ -624,8 +522,7 @@
         font-size:9px;
       }
 
-      .contact-info,
-      .contact-form-box{
+      .support-card{
         padding:18px;
         border-radius:18px;
       }
@@ -634,8 +531,7 @@
         flex-direction:column;
       }
 
-      .btn,
-      .submit-btn{
+      .btn{
         width:100%;
       }
     }
@@ -651,7 +547,7 @@
         </span>
         <span class="logo-text">
           <span class="logo-title">Movie<span>Spot</span></span>
-          <span class="logo-sub">Contact Us</span>
+          <span class="logo-sub">Support Us</span>
         </span>
       </a>
 
@@ -664,8 +560,8 @@
       <nav class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
         <a href="movies.html">Movies</a>
-        <a href="contact.html" class="active">Contact</a>
-        <a href="support.html">Support</a>
+        <a href="contact.html">Contact</a>
+        <a href="support.html" class="active">Support</a>
       </nav>
     </div>
   </header>
@@ -673,11 +569,11 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="hero-tag">Get in touch</div>
-        <h1>Contact MovieSpot</h1>
+        <div class="hero-tag">Support MovieSpot</div>
+        <h1>Help support the website and follow our pages.</h1>
         <p>
-          Reach out for questions, suggestions, partnerships, feedback, or website support.
-          This page gives visitors easy ways to contact you and connect with MovieSpot.
+          Your support helps keep MovieSpot growing, updated, and full of fresh movie content.
+          You can support the website with a payment or follow on social media.
         </p>
       </div>
     </div>
@@ -685,121 +581,88 @@
 
   <section>
     <div class="container">
-      <div class="section-head">
-        <h2>Send a Message</h2>
-        <p>Visitors can use the contact details or the message form below.</p>
-      </div>
+      <div class="support-grid">
 
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h3>Contact Details</h3>
-          <p>Use these details so people can email you, call you, or follow MovieSpot online.</p>
+        <div class="support-card">
+          <h2><i class="fa-solid fa-heart-circle-plus"></i> Support with Payment</h2>
+          <p>
+            Choose any payment option below to support the website.
+          </p>
 
-          <div class="info-list">
-            <div class="info-item">
-              <strong>Email</strong>
-              <a href="mailto:your@email.com">your@email.com</a>
-            </div>
+          <div class="button-list">
+            <a href="https://buymeacoffee.com/yourname" target="_blank" class="support-btn primary">
+              <i class="fa-solid fa-mug-hot"></i>
+              Buy Me a Coffee
+            </a>
 
-            <div class="info-item">
-              <strong>Phone</strong>
-              <a href="tel:+440000000000">+44 0000 000000</a>
-            </div>
+            <a href="https://paypal.me/yourname" target="_blank" class="support-btn blue">
+              <i class="fa-brands fa-paypal"></i>
+              Pay with PayPal
+            </a>
 
-            <div class="info-item">
-              <strong>Location</strong>
-              <span>United Kingdom</span>
-            </div>
-
-            <div class="info-item">
-              <strong>Response Time</strong>
-              <span>Usually within 24 to 48 hours</span>
-            </div>
+            <a href="https://flutterwave.com/pay/yourlink" target="_blank" class="support-btn green">
+              <i class="fa-solid fa-credit-card"></i>
+              Pay with Flutterwave
+            </a>
           </div>
 
-          <div class="social-links">
-            <a href="https://instagram.com/yourusername" target="_blank" class="social-link primary">Follow on Instagram</a>
-            <a href="https://x.com/yourusername" target="_blank" class="social-link blue">Follow on X</a>
-            <a href="https://facebook.com/yourusername" target="_blank" class="social-link">Follow on Facebook</a>
-            <a href="https://tiktok.com/@yourusername" target="_blank" class="social-link green">Follow on TikTok</a>
+          <div class="note-box">
+            <p>Replace these payment links with your real payment pages.</p>
           </div>
         </div>
 
-        <div class="contact-form-box">
-          <h3>Contact Form</h3>
-          <p>Fill in the form below. You can later connect this to EmailJS, Formspree, Netlify Forms, or your own backend.</p>
+        <div class="support-card">
+          <h2><i class="fa-solid fa-hashtag"></i> Follow on Social Media</h2>
+          <p>
+            Follow MovieSpot on social platforms to stay updated with fresh releases, featured movies, and site updates.
+          </p>
 
-          <form>
-            <div class="form-grid">
-              <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" placeholder="Enter your name" />
-              </div>
+          <div class="button-list">
+            <a href="https://instagram.com/yourusername" target="_blank" class="support-btn alt">
+              <i class="fa-brands fa-instagram"></i>
+              Follow on Instagram
+            </a>
 
-              <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" placeholder="Enter your email" />
-              </div>
+            <a href="https://x.com/yourusername" target="_blank" class="support-btn dark">
+              <i class="fa-brands fa-x-twitter"></i>
+              Follow on X
+            </a>
 
-              <div class="form-group full">
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" placeholder="What is this about?" />
-              </div>
+            <a href="https://facebook.com/yourusername" target="_blank" class="support-btn blue">
+              <i class="fa-brands fa-facebook-f"></i>
+              Follow on Facebook
+            </a>
 
-              <div class="form-group full">
-                <label for="message">Message</label>
-                <textarea id="message" placeholder="Write your message here..."></textarea>
-              </div>
+            <a href="https://tiktok.com/@yourusername" target="_blank" class="support-btn primary">
+              <i class="fa-brands fa-tiktok"></i>
+              Follow on TikTok
+            </a>
+          </div>
 
-              <div class="form-group full">
-                <button type="submit" class="submit-btn">Send Message</button>
-              </div>
-            </div>
-          </form>
-
-          <div class="form-note">
-            This form is front-end only right now. To make it actually send messages, connect it to a form service or backend.
+          <div class="note-box">
+            <p>Replace these social links with your real profile links.</p>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="faq-section">
-    <div class="container">
-      <div class="section-head">
-        <h2>Quick Help</h2>
-        <p>Useful sections you can keep on the contact page for common visitor questions.</p>
-      </div>
-
-      <div class="faq-grid">
-        <div class="faq-item">
-          <h3>Movie corrections</h3>
-          <p>If a title, release, or watch detail looks wrong, visitors can contact you here and let you know.</p>
-        </div>
-
-        <div class="faq-item">
-          <h3>Partnerships and collaborations</h3>
-          <p>Use this page for brand enquiries, content partnerships, affiliate opportunities, or media requests.</p>
-        </div>
-
-        <div class="faq-item">
-          <h3>Support and feedback</h3>
-          <p>Visitors can use this page to report bugs, suggest features, or ask questions about MovieSpot.</p>
-        </div>
       </div>
     </div>
   </section>
 
   <section class="cta">
     <div class="container">
-      <h2>Want to support MovieSpot too?</h2>
+      <h2>Thanks for supporting MovieSpot.</h2>
       <p>
-        Alongside contacting you, visitors can also support the website and follow your pages for updates.
+        Every follow and every contribution helps the website grow and stay active.
       </p>
       <div class="cta-actions">
-        <a href="support.html" class="btn btn-primary">Support the Website</a>
-        <a href="mailto:your@email.com" class="btn btn-secondary">Email Us</a>
+        <a href="https://buymeacoffee.com/yourname" target="_blank" class="btn btn-primary">
+          <i class="fa-solid fa-hand-holding-heart"></i>
+          Support Now
+        </a>
+        <a href="https://instagram.com/yourusername" target="_blank" class="btn btn-secondary">
+          <i class="fa-brands fa-instagram"></i>
+          Follow Us
+        </a>
       </div>
     </div>
   </section>

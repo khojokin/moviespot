@@ -1,10 +1,13 @@
- 
+Here’s the fantasy page in the same format, with the responsive layout and hamburger menu too.
+
+Replace logo.png with your real logo image.
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MovieSpot | Discover Movies & Where To Watch</title>
+  <title>MovieSpot | Fantasy Movies</title>
   <style>
     *{
       margin:0;
@@ -173,7 +176,7 @@
     .hero{
       background:
         linear-gradient(rgba(15,23,42,0.78), rgba(15,23,42,0.92)),
-        url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+        url('https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
       min-height:85vh;
       display:flex;
       align-items:center;
@@ -404,8 +407,6 @@
       border-radius:20px;
       overflow:hidden;
       transition:0.3s;
-      display:flex;
-      flex-direction:column;
     }
 
     .featured-card:hover{
@@ -426,9 +427,6 @@
 
     .featured-content{
       padding:20px;
-      display:flex;
-      flex-direction:column;
-      flex:1;
     }
 
     .meta{
@@ -462,7 +460,6 @@
       display:flex;
       flex-wrap:wrap;
       gap:8px;
-      margin-top:auto;
       margin-bottom:18px;
     }
 
@@ -509,8 +506,6 @@
       border-radius:18px;
       overflow:hidden;
       transition:0.3s;
-      display:flex;
-      flex-direction:column;
     }
 
     .movie-card:hover{
@@ -532,9 +527,6 @@
 
     .movie-content{
       padding:18px;
-      display:flex;
-      flex-direction:column;
-      flex:1;
     }
 
     .movie-content h3{
@@ -559,7 +551,6 @@
       display:flex;
       flex-wrap:wrap;
       gap:8px;
-      margin-top:auto;
       margin-bottom:14px;
     }
 
@@ -570,6 +561,92 @@
       font-size:12px;
       padding:6px 10px;
       border-radius:999px;
+    }
+
+    .info-section{
+      background:#111827;
+    }
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:22px;
+    }
+
+    .info-box{
+      background:#0f172a;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      padding:24px;
+    }
+
+    .info-box h3{
+      font-size:22px;
+      color:#ffffff;
+      margin-bottom:12px;
+    }
+
+    .info-box p{
+      color:#cbd5e1;
+      font-size:15px;
+    }
+
+    .cta{
+      text-align:center;
+      background:linear-gradient(135deg, #1e293b, #111827);
+    }
+
+    .cta h2{
+      font-size:36px;
+      color:#ffffff;
+      margin-bottom:12px;
+    }
+
+    .cta p{
+      max-width:720px;
+      margin:0 auto 24px;
+      color:#cbd5e1;
+    }
+
+    .cta-actions{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    footer{
+      background:#020617;
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding:24px 0;
+    }
+
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .footer-inner p{
+      color:#94a3b8;
+      font-size:14px;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+    }
+
+    .footer-links a{
+      color:#cbd5e1;
+      font-size:14px;
+    }
+
+    .footer-links a:hover{
+      color:#facc15;
     }
 
     .genre-section{
@@ -648,8 +725,6 @@
       overflow:hidden;
       flex-shrink:0;
       transition:0.3s;
-      display:flex;
-      flex-direction:column;
     }
 
     .genre-movie-card:hover{
@@ -671,9 +746,6 @@
 
     .genre-movie-content{
       padding:18px;
-      display:flex;
-      flex-direction:column;
-      flex:1;
     }
 
     .genre-movie-content h4{
@@ -692,97 +764,6 @@
       color:#cbd5e1;
       font-size:14px;
       margin-bottom:14px;
-    }
-
-    .genre-movie-content .card-link{
-      margin-top:auto;
-    }
-
-    .info-section{
-      background:#111827;
-    }
-
-    .info-grid{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:22px;
-    }
-
-    .info-box{
-      background:#0f172a;
-      border:1px solid rgba(255,255,255,0.06);
-      border-radius:18px;
-      padding:24px;
-    }
-
-    .info-box h3{
-      font-size:22px;
-      color:#ffffff;
-      margin-bottom:12px;
-    }
-
-    .info-box p{
-      color:#cbd5e1;
-      font-size:15px;
-      margin-bottom:14px;
-    }
-
-    .cta{
-      text-align:center;
-      background:linear-gradient(135deg, #1e293b, #111827);
-    }
-
-    .cta h2{
-      font-size:36px;
-      color:#ffffff;
-      margin-bottom:12px;
-    }
-
-    .cta p{
-      max-width:720px;
-      margin:0 auto 24px;
-      color:#cbd5e1;
-    }
-
-    .cta-actions{
-      display:flex;
-      justify-content:center;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-
-    footer{
-      background:#020617;
-      border-top:1px solid rgba(255,255,255,0.06);
-      padding:24px 0;
-    }
-
-    .footer-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      flex-wrap:wrap;
-    }
-
-    .footer-inner p{
-      color:#94a3b8;
-      font-size:14px;
-    }
-
-    .footer-links{
-      display:flex;
-      flex-wrap:wrap;
-      gap:16px;
-    }
-
-    .footer-links a{
-      color:#cbd5e1;
-      font-size:14px;
-    }
-
-    .footer-links a:hover{
-      color:#facc15;
     }
 
     @media(max-width:1024px){
@@ -956,7 +937,7 @@
         </span>
         <span class="logo-text">
           <span class="logo-title">Movie<span>Spot</span></span>
-          <span class="logo-sub">Find Your Next Watch</span>
+          <span class="logo-sub">Fantasy Movies</span>
         </span>
       </a>
 
@@ -967,9 +948,9 @@
       </button>
 
       <nav class="nav-links" id="navLinks">
-        <a href="index.html" class="active">Home</a>
+        <a href="index.html">Home</a>
+        <a href="fantasy.html" class="active">Fantasy</a>
         <a href="#featured">Featured</a>
-        <a href="#genre-recommendations">Genres</a>
         <a href="#guides">Watch Guides</a>
         <a href="#about">About</a>
       </nav>
@@ -980,45 +961,45 @@
     <div class="container">
       <div class="hero-layout">
         <div class="hero-content">
-          <div class="hero-tag">Discover what to watch tonight</div>
-          <h1>Find great movies and explore the best genre pages faster.</h1>
+          <div class="hero-tag">Magic, myth, and unforgettable worlds</div>
+          <h1>Discover fantasy movies filled with wonder, danger, and epic imagination.</h1>
           <p>
-            MovieSpot helps visitors discover top films, browse genre pages,
-            and jump into action, comedy, crime, documentary, horror, fantasy, and more without wasting time.
+            Explore magical worlds, ancient prophecies, heroic quests, dark forces,
+            mythical creatures, enchanted kingdoms, and stories that transport viewers far beyond reality.
           </p>
           <div class="hero-buttons">
-            <a href="#movies" class="btn btn-primary">Browse Popular Movies</a>
-            <a href="#genre-recommendations" class="btn btn-secondary">Explore Genres</a>
+            <a href="#movies" class="btn btn-primary">Browse Fantasy Movies</a>
+            <a href="#guides" class="btn btn-secondary">Fantasy Guides</a>
           </div>
         </div>
 
         <div class="hero-panel">
-          <h3>Start exploring faster</h3>
-          <p>Search titles, browse genres, and jump straight to pages people actually want to watch.</p>
+          <h3>Step into another world</h3>
+          <p>Search fantasy favourites, explore different fantasy styles, and jump into stories packed with wonder and adventure.</p>
 
           <div class="hero-stats">
             <div class="hero-stat">
-              <strong>12+</strong>
-              <span>Genres to explore</span>
+              <strong>50+</strong>
+              <span>Fantasy recommendations</span>
             </div>
             <div class="hero-stat">
-              <strong>100+</strong>
-              <span>Recommendation ideas</span>
+              <strong>6</strong>
+              <span>Fantasy styles to explore</span>
             </div>
           </div>
 
           <div class="hero-mini-list">
             <div class="hero-mini-item">
               <b>Search by title</b>
-              <span>Fast results</span>
+              <span>Fast fantasy results</span>
             </div>
             <div class="hero-mini-item">
-              <b>Browse by genre</b>
-              <span>Easy discovery</span>
+              <b>Filter by style</b>
+              <span>Epic, magical, dark, mythic</span>
             </div>
             <div class="hero-mini-item">
-              <b>Open movie pages</b>
-              <span>Quick genre access</span>
+              <b>Pick by mood</b>
+              <span>Wonder, mystery, adventure</span>
             </div>
           </div>
         </div>
@@ -1030,8 +1011,8 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Daily Recommendations</h2>
-          <p>Fresh movie suggestions updated every day to help visitors find something great to watch.</p>
+          <h2>Daily Fantasy Recommendations</h2>
+          <p>Fresh fantasy movie picks that rotate automatically each day.</p>
         </div>
       </div>
 
@@ -1044,7 +1025,7 @@
       <div class="section-head">
         <div>
           <h2>Featured Right Now</h2>
-          <p>This featured movie changes automatically after a set time to keep the homepage fresh.</p>
+          <p>This featured fantasy movie changes automatically after a set time to keep the page fresh.</p>
         </div>
       </div>
 
@@ -1056,36 +1037,31 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Search Movies</h2>
-          <p>Use the search box and filter to explore your movie collection faster.</p>
+          <h2>Search Fantasy Movies</h2>
+          <p>Use the search box and filter to explore your fantasy movie collection faster.</p>
         </div>
       </div>
 
       <div class="tool-bar">
         <div class="search-box">
-          <input type="text" id="searchInput" placeholder="Search by movie title..." />
+          <input type="text" id="searchInput" placeholder="Search fantasy movie title..." />
         </div>
 
         <div class="filter-box">
           <select id="genreFilter">
-            <option value="all">All Genres</option>
-            <option value="Action">Action</option>
-            <option value="Adventure">Adventure</option>
-            <option value="Biography">Biography</option>
-            <option value="Comedy">Comedy</option>
-            <option value="Crime">Crime</option>
-            <option value="Documentary">Documentary</option>
-            <option value="Drama">Drama</option>
-            <option value="Family">Family</option>
-            <option value="Fantasy">Fantasy</option>
-            <option value="History">History</option>
-            <option value="Horror">Horror</option>
+            <option value="all">All Fantasy Styles</option>
+            <option value="Epic Fantasy">Epic Fantasy</option>
+            <option value="Magical Fantasy">Magical Fantasy</option>
+            <option value="Dark Fantasy">Dark Fantasy</option>
+            <option value="Family Fantasy">Family Fantasy</option>
+            <option value="Mythic Fantasy">Mythic Fantasy</option>
+            <option value="Fairy Tale Fantasy">Fairy Tale Fantasy</option>
           </select>
         </div>
       </div>
 
       <div class="search-action">
-        <a href="#genre-recommendations" class="btn btn-primary">Open Genre Pages</a>
+        <a href="#movies" class="btn btn-primary">Explore Fantasy Library</a>
       </div>
     </div>
   </section>
@@ -1094,8 +1070,8 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Featured Picks</h2>
-          <p>Highlight standout movies with quick summaries and direct paths into genre pages.</p>
+          <h2>Featured Fantasy Picks</h2>
+          <p>Big-screen fantasy stories full of magic, danger, prophecy, and unforgettable worlds.</p>
         </div>
       </div>
 
@@ -1112,63 +1088,60 @@
             </div>
             <h3>The Lord of the Rings</h3>
             <p>
-              A legendary quest across a magical world filled with danger, friendship,
-              sacrifice, and unforgettable fantasy adventure.
+              A legendary quest across Middle-earth brings together friendship, sacrifice,
+              dark power, and one of the greatest fantasy journeys ever made.
             </p>
             <div class="watch-row">
-              <span class="watch-tag">Fantasy</span>
-              <span class="watch-tag alt">Adventure</span>
-              <span class="watch-tag green">Epic</span>
+              <span class="watch-tag">Max</span>
+              <span class="watch-tag alt">Prime Video</span>
             </div>
-            <a href="fantasy.html" class="card-link">Go to Fantasy Page →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
 
         <article class="featured-card">
           <div class="featured-image">
-            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1200&q=80" alt="The Godfather">
+            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1200&q=80" alt="Harry Potter">
           </div>
           <div class="featured-content">
             <div class="meta">
-              <span class="pill">Crime</span>
-              <span class="pill">Classic</span>
-              <span class="pill">9.2/10</span>
+              <span class="pill">Fantasy</span>
+              <span class="pill">Magical</span>
+              <span class="pill">Iconic</span>
             </div>
-            <h3>The Godfather</h3>
+            <h3>Harry Potter</h3>
             <p>
-              A powerful crime family struggles with loyalty, power, and legacy
-              in one of cinema’s most iconic underworld stories.
+              Magic school, hidden dangers, chosen-one destiny, and deep friendship
+              come together in one of the most loved fantasy franchises ever.
             </p>
             <div class="watch-row">
-              <span class="watch-tag orange">Crime</span>
-              <span class="watch-tag alt">Drama</span>
-              <span class="watch-tag green">Classic</span>
+              <span class="watch-tag green">Max</span>
+              <span class="watch-tag orange">Buy</span>
             </div>
-            <a href="crime.html" class="card-link">Go to Crime Page →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
 
         <article class="featured-card">
           <div class="featured-image">
-            <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=1200&q=80" alt="The Conjuring">
+            <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=1200&q=80" alt="Pan's Labyrinth">
           </div>
           <div class="featured-content">
             <div class="meta">
-              <span class="pill">Horror</span>
-              <span class="pill">Supernatural</span>
-              <span class="pill">7.5/10</span>
+              <span class="pill">Fantasy</span>
+              <span class="pill">Dark</span>
+              <span class="pill">8.2/10</span>
             </div>
-            <h3>The Conjuring</h3>
+            <h3>Pan's Labyrinth</h3>
             <p>
-              Paranormal terror takes over a family home in one of the most effective
-              supernatural horror movies of the modern era.
+              A haunting fantasy world opens beside harsh reality in a visually stunning
+              story filled with monsters, mystery, and imagination.
             </p>
             <div class="watch-row">
-              <span class="watch-tag">Horror</span>
-              <span class="watch-tag alt">Supernatural</span>
-              <span class="watch-tag green">Scary</span>
+              <span class="watch-tag">Netflix</span>
+              <span class="watch-tag alt">Apple TV</span>
             </div>
-            <a href="horror.html" class="card-link">Go to Horror Page →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
       </div>
@@ -1179,8 +1152,8 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Recommendations by Genre</h2>
-          <p>Browse handpicked recommendations for each genre with horizontal sliders.</p>
+          <h2>Recommendations by Fantasy Style</h2>
+          <p>Browse fantasy movie picks through horizontal sliders by type and magical tone.</p>
         </div>
       </div>
 
@@ -1192,137 +1165,137 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Popular Movies</h2>
-          <p>These cards can connect users to your genre pages while keeping the homepage useful.</p>
+          <h2>Popular Fantasy Movies</h2>
+          <p>Top fantasy picks you can keep expanding later as your library grows.</p>
         </div>
       </div>
 
       <div class="movies-grid" id="moviesGrid">
-        <article class="movie-card" data-title="John Wick" data-genre="Action">
+        <article class="movie-card" data-title="The Lord of the Rings" data-genre="Epic Fantasy">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80" alt="John Wick">
+            <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80" alt="The Lord of the Rings">
           </div>
           <div class="movie-content">
-            <h3>John Wick</h3>
-            <div class="movie-info">Action • 2014 • 7.4/10</div>
-            <p>A retired assassin returns to the underworld after a brutal act drags him back into violence.</p>
+            <h3>The Lord of the Rings</h3>
+            <div class="movie-info">Epic Fantasy • 2001 • Classic</div>
+            <p>A world-spanning quest brings heroes together against darkness in one of fantasy cinema’s greatest adventures.</p>
             <div class="mini-watch">
-              <span>Action</span>
-              <span>Fast-paced</span>
+              <span>Max</span>
+              <span>Rent</span>
             </div>
-            <a href="action.html" class="card-link">Go to Action Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="The Martian" data-genre="Adventure">
+        <article class="movie-card" data-title="Harry Potter and the Sorcerer's Stone" data-genre="Magical Fantasy">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="The Martian">
+            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80" alt="Harry Potter and the Sorcerer's Stone">
           </div>
           <div class="movie-content">
-            <h3>The Martian</h3>
-            <div class="movie-info">Adventure • 2015 • 8.0/10</div>
-            <p>An astronaut stranded on Mars uses science, humor, and grit to survive impossible odds.</p>
+            <h3>Harry Potter and the Sorcerer's Stone</h3>
+            <div class="movie-info">Magical Fantasy • 2001 • 7.6/10</div>
+            <p>A young wizard discovers a hidden magical world full of friendship, mystery, and danger.</p>
             <div class="mini-watch">
-              <span>Adventure</span>
-              <span>Sci-Fi</span>
+              <span>Max</span>
+              <span>Buy</span>
             </div>
-            <a href="adventure.html" class="card-link">Go to Adventure Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="Bohemian Rhapsody" data-genre="Biography">
+        <article class="movie-card" data-title="Pan's Labyrinth" data-genre="Dark Fantasy">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80" alt="Bohemian Rhapsody">
+            <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80" alt="Pan's Labyrinth">
           </div>
           <div class="movie-content">
-            <h3>Bohemian Rhapsody</h3>
-            <div class="movie-info">Biography • 2018 • 7.9/10</div>
-            <p>The rise of Freddie Mercury and Queen unfolds through fame, creativity, and struggle.</p>
+            <h3>Pan's Labyrinth</h3>
+            <div class="movie-info">Dark Fantasy • 2006 • 8.2/10</div>
+            <p>A young girl escapes into a mysterious fantasy world shadowed by terrifying truth.</p>
             <div class="mini-watch">
-              <span>Biography</span>
-              <span>Music</span>
+              <span>Netflix</span>
+              <span>Rent</span>
             </div>
-            <a href="biography.html" class="card-link">Go to Biography Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="The Hangover" data-genre="Comedy">
+        <article class="movie-card" data-title="The Chronicles of Narnia" data-genre="Family Fantasy">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80" alt="The Hangover">
+            <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=900&q=80" alt="The Chronicles of Narnia">
           </div>
           <div class="movie-content">
-            <h3>The Hangover</h3>
-            <div class="movie-info">Comedy • 2009 • 7.7/10</div>
-            <p>A bachelor party disaster turns into one of the funniest lost-night comedies around.</p>
+            <h3>The Chronicles of Narnia</h3>
+            <div class="movie-info">Family Fantasy • 2005 • 6.9/10</div>
+            <p>Four children enter a magical land of talking animals, prophecy, and battle between good and evil.</p>
             <div class="mini-watch">
-              <span>Comedy</span>
-              <span>Buddy</span>
+              <span>Disney+</span>
+              <span>Buy</span>
             </div>
-            <a href="comedy.html" class="card-link">Go to Comedy Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="The Godfather" data-genre="Crime">
+        <article class="movie-card" data-title="Clash of the Titans" data-genre="Mythic Fantasy">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80" alt="The Godfather">
+            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80" alt="Clash of the Titans">
           </div>
           <div class="movie-content">
-            <h3>The Godfather</h3>
-            <div class="movie-info">Crime • 1972 • 9.2/10</div>
-            <p>A powerful crime family struggles with loyalty, power, and legacy.</p>
+            <h3>Clash of the Titans</h3>
+            <div class="movie-info">Mythic Fantasy • 2010 • 5.8/10</div>
+            <p>Gods, monsters, and ancient legend collide in a fantasy story built around mythic power and danger.</p>
             <div class="mini-watch">
-              <span>Crime</span>
-              <span>Classic</span>
+              <span>Prime Video</span>
+              <span>Rent</span>
             </div>
-            <a href="crime.html" class="card-link">Go to Crime Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="Planet Earth" data-genre="Documentary">
+        <article class="movie-card" data-title="Cinderella" data-genre="Fairy Tale Fantasy">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80" alt="Planet Earth">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Cinderella">
           </div>
           <div class="movie-content">
-            <h3>Planet Earth</h3>
-            <div class="movie-info">Documentary • 2006 • Classic</div>
-            <p>A breathtaking documentary journey across wildlife, oceans, forests, and the natural world.</p>
+            <h3>Cinderella</h3>
+            <div class="movie-info">Fairy Tale Fantasy • 2015 • 6.9/10</div>
+            <p>Magic, kindness, and transformation shape a beautifully retold fairy tale fantasy.</p>
             <div class="mini-watch">
-              <span>Documentary</span>
-              <span>Nature</span>
+              <span>Disney+</span>
+              <span>Stream</span>
             </div>
-            <a href="documentary.html" class="card-link">Go to Documentary Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="The Shawshank Redemption" data-genre="Drama">
+        <article class="movie-card" data-title="Stardust" data-genre="Fairy Tale Fantasy">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80" alt="The Shawshank Redemption">
+            <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80" alt="Stardust">
           </div>
           <div class="movie-content">
-            <h3>The Shawshank Redemption</h3>
-            <div class="movie-info">Drama • 1994 • 9.3/10</div>
-            <p>A banker sentenced to prison forms a powerful friendship while holding onto hope for freedom.</p>
+            <h3>Stardust</h3>
+            <div class="movie-info">Fairy Tale Fantasy • 2007 • 7.6/10</div>
+            <p>A magical quest for a fallen star becomes a charming fantasy adventure full of wonder and danger.</p>
             <div class="mini-watch">
-              <span>Drama</span>
-              <span>Inspirational</span>
+              <span>Netflix</span>
+              <span>Buy</span>
             </div>
-            <a href="drama.html" class="card-link">Go to Drama Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card" data-title="Paddington 2" data-genre="Family">
+        <article class="movie-card" data-title="Doctor Strange" data-genre="Magical Fantasy">
           <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80" alt="Paddington 2">
+            <img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80" alt="Doctor Strange">
           </div>
           <div class="movie-content">
-            <h3>Paddington 2</h3>
-            <div class="movie-info">Family • 2017 • 8.7/10</div>
-            <p>A kind-hearted bear spreads joy and chaos in a warm family adventure full of charm.</p>
+            <h3>Doctor Strange</h3>
+            <div class="movie-info">Magical Fantasy • 2016 • 7.5/10</div>
+            <p>A brilliant surgeon enters a hidden world of sorcery, alternate dimensions, and powerful enemies.</p>
             <div class="mini-watch">
-              <span>Family</span>
-              <span>Feel-good</span>
+              <span>Disney+</span>
+              <span>Rent</span>
             </div>
-            <a href="family.html" class="card-link">Go to Family Page →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
       </div>
@@ -1333,58 +1306,58 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Watch Guides</h2>
-          <p>Helpful shortcuts to genre pages and ideas that keep visitors exploring your site longer.</p>
+          <h2>Fantasy Watch Guides</h2>
+          <p>Helpful guides for finding the best fantasy movies by magic level, story style, and mood.</p>
         </div>
       </div>
 
       <div class="info-grid">
         <div class="info-box">
-          <h3>Best by Genre</h3>
+          <h3>Best Fantasy Movies on Netflix</h3>
           <p>
-            Send visitors straight into action, comedy, horror, fantasy, drama, and more through dedicated genre pages.
+            Create pages for top fantasy movies currently available on Netflix.
           </p>
-          <a href="#genre-recommendations" class="card-link">Explore Genres →</a>
+          <a href="#" class="card-link">Explore Guide →</a>
         </div>
 
         <div class="info-box">
-          <h3>Movie Night Picks</h3>
+          <h3>Epic Fantasy Adventures</h3>
           <p>
-            Build quick collections for date night, family night, scary night, or feel-good weekend watching.
+            Build collections for viewers who love quests, kingdoms, dark lords, and world-changing journeys.
           </p>
-          <a href="family.html" class="card-link">See Family Picks →</a>
+          <a href="#" class="card-link">Browse Epic Picks →</a>
         </div>
 
         <div class="info-box">
-          <h3>Dark and Intense</h3>
+          <h3>Movies Like Harry Potter</h3>
           <p>
-            Push users into crime, history epics, and horror picks when they want bigger stakes.
+            Keep visitors engaged with pages based on magic schools, hidden worlds, and chosen-one stories.
           </p>
-          <a href="crime.html" class="card-link">View Crime Picks →</a>
+          <a href="#" class="card-link">See Similar Movies →</a>
         </div>
 
         <div class="info-box">
-          <h3>Real Stories</h3>
+          <h3>Dark and Mysterious Fantasy</h3>
           <p>
-            Biography, documentary, and history pages help visitors discover films based on real lives and events.
+            Highlight fantasy stories with monsters, eerie worlds, and deeper emotional darkness.
           </p>
-          <a href="documentary.html" class="card-link">Explore Real Stories →</a>
+          <a href="#" class="card-link">View Dark Fantasy Picks →</a>
         </div>
 
         <div class="info-box">
-          <h3>Magical Escapes</h3>
+          <h3>Family Fantasy Favourites</h3>
           <p>
-            Fantasy and adventure pages are perfect for users looking for big worlds, quests, and unforgettable journeys.
+            Collect magical adventures that work well for younger viewers and family movie nights.
           </p>
-          <a href="fantasy.html" class="card-link">Open Fantasy Page →</a>
+          <a href="#" class="card-link">See Family Fantasy →</a>
         </div>
 
         <div class="info-box">
-          <h3>Scariest Picks</h3>
+          <h3>Underrated Fantasy Gems</h3>
           <p>
-            Create a strong horror route for visitors who want haunted houses, slashers, dread, and supernatural fear.
+            Surface lesser-known fantasy movies that deserve much more attention.
           </p>
-          <a href="horror.html" class="card-link">Go to Horror Page →</a>
+          <a href="#" class="card-link">Discover More →</a>
         </div>
       </div>
     </div>
@@ -1392,21 +1365,21 @@
 
   <section id="about" class="cta">
     <div class="container">
-      <h2>Your next favourite movie starts here.</h2>
+      <h2>Your next magical journey starts here.</h2>
       <p>
-        From timeless classics to fresh picks across every genre, MovieSpot makes it easier to discover what to watch next.
-        Browse by genre, explore recommendations, and guide visitors straight to the pages they care about most.
+        From epic quests to enchanted kingdoms, mythical legends, and dark mysterious worlds,
+        MovieSpot helps fantasy fans discover unforgettable movies faster. Browse, search, and explore magic without wasting time.
       </p>
       <div class="cta-actions">
-        <a href="#featured" class="btn btn-primary">Explore Featured Picks</a>
-        <a href="#genre-recommendations" class="btn btn-secondary">Open Genre Pages</a>
+        <a href="#featured" class="btn btn-primary">Explore Featured Fantasy Picks</a>
+        <a href="#movies" class="btn btn-secondary">Open Fantasy Library</a>
       </div>
     </div>
   </section>
 
   <footer>
     <div class="container footer-inner">
-      <p>©️ 2026 MovieSpot. Discover movies and where to watch them.</p>
+      <p>©️ 2026 MovieSpot. Discover fantasy movies worth watching.</p>
 
       <div class="footer-links">
         <a href="privacy.html">Privacy Policy</a>
@@ -1459,7 +1432,7 @@
         const matchesSearch = title.includes(searchValue);
         const matchesGenre = selectedGenre === "all" || genre === selectedGenre;
 
-        card.style.display = matchesSearch && matchesGenre ? "flex" : "none";
+        card.style.display = matchesSearch && matchesGenre ? "block" : "none";
       });
     }
 
@@ -1468,92 +1441,60 @@
 
     const movieDatabase = [
       {
-        title: "John Wick",
-        genre: "Action",
-        year: "2014",
-        summary: "A retired assassin returns to the underworld after a brutal act pulls him back into violence.",
-        poster: "https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80",
-        link: "action.html"
-      },
-      {
-        title: "The Martian",
-        genre: "Adventure",
-        year: "2015",
-        summary: "An astronaut stranded on Mars uses science, humor, and grit to survive impossible odds.",
-        poster: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
-        link: "adventure.html"
-      },
-      {
-        title: "Bohemian Rhapsody",
-        genre: "Biography",
-        year: "2018",
-        summary: "The rise of Freddie Mercury and Queen unfolds through fame, creativity, and struggle.",
-        poster: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80",
-        link: "biography.html"
-      },
-      {
-        title: "The Hangover",
-        genre: "Comedy",
-        year: "2009",
-        summary: "A bachelor party disaster turns into one of the funniest lost-night comedies around.",
-        poster: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80",
-        link: "comedy.html"
-      },
-      {
-        title: "The Godfather",
-        genre: "Crime",
-        year: "1972",
-        summary: "A powerful crime family struggles with loyalty, power, and legacy.",
-        poster: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80",
-        link: "crime.html"
-      },
-      {
-        title: "Planet Earth",
-        genre: "Documentary",
-        year: "2006",
-        summary: "A breathtaking look at wildlife and the natural world across the planet.",
-        poster: "https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80",
-        link: "documentary.html"
-      },
-      {
-        title: "The Shawshank Redemption",
-        genre: "Drama",
-        year: "1994",
-        summary: "A moving story of friendship, hope, and endurance behind prison walls.",
-        poster: "https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80",
-        link: "drama.html"
-      },
-      {
-        title: "Paddington 2",
-        genre: "Family",
-        year: "2017",
-        summary: "A joyful family favourite full of warmth, kindness, and fun.",
-        poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80",
-        link: "family.html"
-      },
-      {
         title: "The Lord of the Rings",
-        genre: "Fantasy",
+        genre: "Epic Fantasy",
         year: "2001",
-        summary: "A legendary quest unfolds across a richly imagined world full of danger and wonder.",
-        poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80",
-        link: "fantasy.html"
+        summary: "A legendary quest unfolds across a rich fantasy world full of danger and wonder.",
+        poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "Gladiator",
-        genre: "History",
-        year: "2000",
-        summary: "A sweeping Roman story of betrayal, vengeance, and honor.",
-        poster: "https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=900&q=80",
-        link: "history.html"
+        title: "Harry Potter and the Sorcerer's Stone",
+        genre: "Magical Fantasy",
+        year: "2001",
+        summary: "A hidden magical world opens up to a young wizard discovering his destiny.",
+        poster: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "The Conjuring",
-        genre: "Horror",
-        year: "2013",
-        summary: "A haunting slowly turns a family home into a place of pure terror.",
-        poster: "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=900&q=80",
-        link: "horror.html"
+        title: "Pan's Labyrinth",
+        genre: "Dark Fantasy",
+        year: "2006",
+        summary: "A mysterious fantasy world emerges beside fear, war, and hard reality.",
+        poster: "https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "The Chronicles of Narnia",
+        genre: "Family Fantasy",
+        year: "2005",
+        summary: "Children enter a magical kingdom shaped by prophecy, courage, and battle.",
+        poster: "https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Clash of the Titans",
+        genre: "Mythic Fantasy",
+        year: "2010",
+        summary: "Gods, monsters, and ancient myth drive a fantasy story of survival and power.",
+        poster: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Cinderella",
+        genre: "Fairy Tale Fantasy",
+        year: "2015",
+        summary: "Magic, kindness, and transformation shape a timeless fairy tale journey.",
+        poster: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Stardust",
+        genre: "Fairy Tale Fantasy",
+        year: "2007",
+        summary: "A charming magical quest turns into a funny, romantic, and dangerous adventure.",
+        poster: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Doctor Strange",
+        genre: "Magical Fantasy",
+        year: "2016",
+        summary: "Sorcery, hidden dimensions, and mystic battles bring fantasy into the modern world.",
+        poster: "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80"
       }
     ];
 
@@ -1585,7 +1526,7 @@
             <h3>${movie.title}</h3>
             <div class="movie-info">${movie.genre} • ${movie.year}</div>
             <p>${movie.summary}</p>
-            <a href="${movie.link}" class="card-link">Open ${movie.genre} Page →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
       `).join("");
@@ -1593,56 +1534,43 @@
 
     renderDailyMovies();
 
-    const genrePageMap = {
-      "Action": "action.html",
-      "Adventure": "adventure.html",
-      "Biography": "biography.html",
-      "Comedy": "comedy.html",
-      "Crime": "crime.html",
-      "Documentary": "documentary.html",
-      "Drama": "drama.html",
-      "Family": "family.html",
-      "Fantasy": "fantasy.html",
-      "History": "history.html",
-      "Horror": "horror.html"
-    };
-
     const posterPool = [
-      "https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80",
       "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80",
       "https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=900&q=80"
+      "https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80"
     ];
 
     const genreSeeds = {
-      "Action": ["John Wick","The Dark Knight","Gladiator","Mad Max: Fury Road","Mission: Impossible"],
-      "Adventure": ["The Martian","Jurassic Park","Avatar","Indiana Jones","Life of Pi"],
-      "Biography": ["Bohemian Rhapsody","Oppenheimer","A Beautiful Mind","Lincoln","The Theory of Everything"],
-      "Comedy": ["The Hangover","Mean Girls","Bridesmaids","Superbad","Rush Hour"],
-      "Crime": ["The Godfather","Heat","Goodfellas","The Departed","Se7en"],
-      "Documentary": ["Planet Earth","The Last Dance","13th","Free Solo","Amy"],
-      "Drama": ["The Shawshank Redemption","Forrest Gump","Whiplash","Titanic","Manchester by the Sea"],
-      "Family": ["Paddington 2","Home Alone","The Parent Trap","Mary Poppins","Night at the Museum"],
-      "Fantasy": ["The Lord of the Rings","Harry Potter","Pan's Labyrinth","The Chronicles of Narnia","Stardust"],
-      "History": ["Gladiator","1917","The King's Speech","Lincoln","Braveheart"],
-      "Horror": ["The Conjuring","Get Out","Halloween","Alien","A Quiet Place"]
+      "Epic Fantasy": ["The Lord of the Rings","The Hobbit","Willow","The Green Knight","Eragon","Warcraft","Legend","The Last Unicorn","The Seventh Son","Dragonheart","Krull","The Golden Compass","Excalibur","Dungeons & Dragons","The Mummy Returns"],
+      "Magical Fantasy": ["Harry Potter","Doctor Strange","Fantastic Beasts","The Prestige","The Sorcerer's Apprentice","Practical Magic","Oz the Great and Powerful","The House with a Clock in Its Walls","The Illusionist","Matilda","Now You See Me","Jumanji","Stardust","Enchanted","The Imaginarium of Doctor Parnassus"],
+      "Dark Fantasy": ["Pan's Labyrinth","Coraline","Sleepy Hollow","Crimson Peak","The Crow","Van Helsing","The Brothers Grimm","Underworld","Constantine","The Shape of Water","Sweeney Todd","The Mummy","Hellboy","Dracula Untold","Beowulf"],
+      "Family Fantasy": ["The Chronicles of Narnia","Peter Pan","Mary Poppins","Nanny McPhee","Hook","Alice in Wonderland","The BFG","Bridge to Terabithia","The Spiderwick Chronicles","Lemony Snicket's A Series of Unfortunate Events","The Witches","Ella Enchanted","The NeverEnding Story","A Wrinkle in Time","The Secret Garden"],
+      "Mythic Fantasy": ["Clash of the Titans","Percy Jackson & the Olympians","Immortals","Troy","Jason and the Argonauts","Hercules","Wrath of the Titans","The Odyssey","Gods of Egypt","The Northman","Sinbad","300","King Arthur","The Scorpion King","Thor"],
+      "Fairy Tale Fantasy": ["Cinderella","Snow White and the Huntsman","Beauty and the Beast","Into the Woods","Maleficent","Ever After","The Princess Bride","Red Riding Hood","Mirror Mirror","Jack the Giant Slayer","Pinocchio","Puss in Boots","The Little Mermaid","Ella Enchanted","Alice Through the Looking Glass"]
     };
 
     function makeMovie(genre, title, index){
-      const year = 1985 + ((genre.length * 7 + index * 3) % 36);
+      const year = 1985 + ((genre.length * 9 + index * 4) % 38);
+      const summaries = {
+        "Epic Fantasy": `${title} builds a grand fantasy world full of prophecy, danger, and high-stakes adventure.`,
+        "Magical Fantasy": `${title} opens the door to spells, hidden power, and impossible worlds.`,
+        "Dark Fantasy": `${title} mixes fantasy with danger, eerie mystery, and a darker emotional tone.`,
+        "Family Fantasy": `${title} brings wonder, magic, and accessible fantasy adventure for a wide audience.`,
+        "Mythic Fantasy": `${title} draws on gods, legends, and ancient myth to build its fantasy world.`,
+        "Fairy Tale Fantasy": `${title} reimagines classic fairy tale magic with adventure, wonder, and charm.`
+      };
+
       return {
         title,
         year: String(year),
         genre,
-        summary: `${title} is one of the standout picks in ${genre.toLowerCase()} and a great place to start browsing.`,
-        poster: posterPool[index % posterPool.length],
-        link: genrePageMap[genre] || "#"
+        summary: summaries[genre] || `${title} is one of the standout fantasy picks in ${genre}.`,
+        poster: posterPool[index % posterPool.length]
       };
     }
 
@@ -1670,7 +1598,7 @@
           </div>
 
           <div class="genre-slider" id="genreSlider${index}">
-            ${movies.map(movie => `
+            ${movies.slice(0, 15).map(movie => `
               <article class="genre-movie-card">
                 <div class="genre-movie-poster">
                   <img src="${movie.poster}" alt="${movie.title}">
@@ -1679,7 +1607,7 @@
                   <h4>${movie.title}</h4>
                   <div class="movie-info">${movie.genre} • ${movie.year}</div>
                   <p>${movie.summary}</p>
-                  <a href="${movie.link}" class="card-link">Open ${movie.genre} Page →</a>
+                  <a href="#movies" class="card-link">View Movie →</a>
                 </div>
               </article>
             `).join("")}
@@ -1703,35 +1631,31 @@
     const scheduledMovies = [
       {
         title: "The Lord of the Rings",
-        genre: "Fantasy",
+        genre: "Epic Fantasy",
         year: "2001",
         summary: "A legendary fantasy quest unfolds across a richly imagined world.",
-        poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80",
-        link: "fantasy.html"
+        poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "The Godfather",
-        genre: "Crime",
-        year: "1972",
-        summary: "A powerful crime family struggles with loyalty, power, and legacy.",
-        poster: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80",
-        link: "crime.html"
+        title: "Harry Potter and the Sorcerer's Stone",
+        genre: "Magical Fantasy",
+        year: "2001",
+        summary: "A hidden magical world opens up to a young hero discovering his destiny.",
+        poster: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "Paddington 2",
-        genre: "Family",
-        year: "2017",
-        summary: "A warm, joyful family adventure full of charm and kindness.",
-        poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80",
-        link: "family.html"
+        title: "Pan's Labyrinth",
+        genre: "Dark Fantasy",
+        year: "2006",
+        summary: "A haunting fantasy story filled with mystery, monsters, and imagination.",
+        poster: "https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=900&q=80"
       },
       {
-        title: "The Conjuring",
-        genre: "Horror",
-        year: "2013",
-        summary: "A haunted house nightmare unfolds with terrifying paranormal force.",
-        poster: "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=900&q=80",
-        link: "horror.html"
+        title: "Cinderella",
+        genre: "Fairy Tale Fantasy",
+        year: "2015",
+        summary: "Magic, transformation, and kindness shape this classic fantasy tale.",
+        poster: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"
       }
     ];
 
@@ -1763,7 +1687,7 @@
               <span>Auto Updated</span>
               <span>Featured</span>
             </div>
-            <a href="${movie.link}" class="card-link">Open ${movie.genre} Page →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
       `;
@@ -1773,6 +1697,4 @@
   </script>
 
 </body>
-</html>
-
- 
+</html> 

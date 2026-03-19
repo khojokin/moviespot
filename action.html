@@ -61,17 +61,58 @@
       justify-content:space-between;
       gap:20px;
       padding:16px 0;
+      position:relative;
     }
 
-    .logo{
-      font-size:28px;
-      font-weight:700;
+    .logo-wrap{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+      flex-shrink:0;
+    }
+
+    .logo-image-box{
+      width:52px;
+      height:52px;
+      border-radius:12px;
+      border:2px solid #facc15;
+      box-shadow:0 0 14px rgba(250,204,21,0.45);
+      overflow:hidden;
+      flex-shrink:0;
+      background:#111827;
+    }
+
+    .logo-image-box img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .logo-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+      min-width:0;
+    }
+
+    .logo-title{
+      font-size:27px;
+      font-weight:800;
       color:#facc15;
       letter-spacing:0.5px;
     }
 
-    .logo span{
+    .logo-title span{
       color:#ffffff;
+    }
+
+    .logo-sub{
+      font-size:11px;
+      color:#cbd5e1;
+      letter-spacing:1.8px;
+      text-transform:uppercase;
+      margin-top:4px;
     }
 
     .nav-links{
@@ -84,23 +125,69 @@
     .nav-links a{
       color:#cbd5e1;
       font-size:15px;
+      position:relative;
+      padding-bottom:4px;
     }
 
-    .nav-links a:hover{
+    .nav-links a:hover,
+    .nav-links a.active{
       color:#facc15;
+    }
+
+    .nav-links a.active::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-4px;
+      width:100%;
+      height:2px;
+      background:#facc15;
+      border-radius:999px;
+    }
+
+    .menu-toggle{
+      display:none;
+      width:46px;
+      height:46px;
+      border-radius:12px;
+      border:1px solid rgba(250,204,21,0.35);
+      background:#111827;
+      color:#facc15;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      flex-direction:column;
+      gap:5px;
+      box-shadow:0 0 12px rgba(250,204,21,0.12);
+    }
+
+    .menu-toggle span{
+      width:20px;
+      height:2px;
+      background:#facc15;
+      border-radius:999px;
+      display:block;
     }
 
     .hero{
       background:
         linear-gradient(rgba(15,23,42,0.78), rgba(15,23,42,0.92)),
-        url('https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-      min-height:70vh;
+        url('https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      min-height:85vh;
       display:flex;
       align-items:center;
     }
 
+    .hero-layout{
+      display:grid;
+      grid-template-columns:1.05fr 0.95fr;
+      gap:34px;
+      align-items:center;
+      width:100%;
+    }
+
     .hero-content{
-      max-width:760px;
+      max-width:720px;
       padding:60px 0;
     }
 
@@ -116,7 +203,7 @@
     }
 
     .hero h1{
-      font-size:clamp(34px, 5vw, 60px);
+      font-size:clamp(34px, 5vw, 62px);
       line-height:1.1;
       margin-bottom:18px;
       color:#ffffff;
@@ -126,13 +213,87 @@
       font-size:18px;
       color:#cbd5e1;
       margin-bottom:28px;
-      max-width:680px;
+      max-width:620px;
     }
 
     .hero-buttons{
       display:flex;
       flex-wrap:wrap;
       gap:14px;
+    }
+
+    .hero-panel{
+      background:rgba(2,6,23,0.76);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:24px;
+      padding:26px;
+      box-shadow:0 18px 40px rgba(0,0,0,0.25);
+      backdrop-filter:blur(8px);
+    }
+
+    .hero-panel h3{
+      color:#ffffff;
+      font-size:24px;
+      margin-bottom:10px;
+    }
+
+    .hero-panel p{
+      color:#94a3b8;
+      font-size:15px;
+      margin-bottom:20px;
+      max-width:none;
+    }
+
+    .hero-stats{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:14px;
+      margin-bottom:20px;
+    }
+
+    .hero-stat{
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      padding:18px;
+    }
+
+    .hero-stat strong{
+      display:block;
+      color:#facc15;
+      font-size:24px;
+      margin-bottom:6px;
+    }
+
+    .hero-stat span{
+      color:#cbd5e1;
+      font-size:14px;
+    }
+
+    .hero-mini-list{
+      display:grid;
+      gap:12px;
+    }
+
+    .hero-mini-item{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:14px 16px;
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:16px;
+    }
+
+    .hero-mini-item b{
+      color:#ffffff;
+      font-size:15px;
+    }
+
+    .hero-mini-item span{
+      color:#94a3b8;
+      font-size:13px;
     }
 
     .btn{
@@ -187,6 +348,47 @@
     .section-head p{
       color:#94a3b8;
       max-width:700px;
+    }
+
+    .tools{
+      background:#111827;
+      border-top:1px solid rgba(255,255,255,0.05);
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    .tool-bar{
+      display:grid;
+      grid-template-columns:2fr 1fr;
+      gap:16px;
+    }
+
+    .search-box,
+    .filter-box{
+      background:#1e293b;
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:14px;
+      padding:14px 16px;
+    }
+
+    .search-box input,
+    .filter-box select{
+      width:100%;
+      background:transparent;
+      border:none;
+      outline:none;
+      color:#ffffff;
+      font-size:15px;
+    }
+
+    .filter-box select option{
+      color:#111827;
+    }
+
+    .search-action{
+      margin-top:18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
     }
 
     .featured-grid{
@@ -357,30 +559,30 @@
       border-radius:999px;
     }
 
-    .details-section{
+    .info-section{
       background:#111827;
     }
 
-    .details-grid{
+    .info-grid{
       display:grid;
       grid-template-columns:repeat(3, 1fr);
       gap:22px;
     }
 
-    .details-box{
+    .info-box{
       background:#0f172a;
       border:1px solid rgba(255,255,255,0.06);
       border-radius:18px;
       padding:24px;
     }
 
-    .details-box h3{
+    .info-box h3{
       font-size:22px;
       color:#ffffff;
       margin-bottom:12px;
     }
 
-    .details-box p{
+    .info-box p{
       color:#cbd5e1;
       font-size:15px;
     }
@@ -400,6 +602,13 @@
       max-width:720px;
       margin:0 auto 24px;
       color:#cbd5e1;
+    }
+
+    .cta-actions{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
     }
 
     footer{
@@ -436,7 +645,128 @@
       color:#facc15;
     }
 
+    .genre-section{
+      background:#111827;
+    }
+
+    .genre-recommendation-wrap{
+      display:grid;
+      gap:34px;
+    }
+
+    .genre-row{
+      display:grid;
+      gap:16px;
+    }
+
+    .genre-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .genre-top h3{
+      font-size:26px;
+      color:#ffffff;
+    }
+
+    .genre-top p{
+      color:#94a3b8;
+      font-size:15px;
+    }
+
+    .slider-controls{
+      display:flex;
+      gap:10px;
+    }
+
+    .slider-btn{
+      width:42px;
+      height:42px;
+      border:none;
+      border-radius:50%;
+      background:#1e293b;
+      color:#ffffff;
+      font-size:20px;
+      cursor:pointer;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .slider-btn:hover{
+      background:#facc15;
+      color:#111827;
+    }
+
+    .genre-slider{
+      display:flex;
+      gap:18px;
+      overflow-x:auto;
+      scroll-behavior:smooth;
+      padding-bottom:6px;
+      scrollbar-width:none;
+    }
+
+    .genre-slider::-webkit-scrollbar{
+      display:none;
+    }
+
+    .genre-movie-card{
+      min-width:240px;
+      max-width:240px;
+      background:#0f172a;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      overflow:hidden;
+      flex-shrink:0;
+      transition:0.3s;
+    }
+
+    .genre-movie-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 18px 36px rgba(0,0,0,0.22);
+    }
+
+    .genre-movie-poster{
+      height:280px;
+      overflow:hidden;
+      background:#1e293b;
+    }
+
+    .genre-movie-poster img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .genre-movie-content{
+      padding:18px;
+    }
+
+    .genre-movie-content h4{
+      color:#ffffff;
+      font-size:19px;
+      margin-bottom:8px;
+    }
+
+    .genre-movie-content .movie-info{
+      color:#94a3b8;
+      font-size:14px;
+      margin-bottom:10px;
+    }
+
+    .genre-movie-content p{
+      color:#cbd5e1;
+      font-size:14px;
+      margin-bottom:14px;
+    }
+
     @media(max-width:1024px){
+      .hero-layout{
+        grid-template-columns:1fr;
+      }
+
       .featured-grid{
         grid-template-columns:repeat(2, 1fr);
       }
@@ -445,19 +775,57 @@
         grid-template-columns:repeat(2, 1fr);
       }
 
-      .details-grid{
+      .info-grid{
         grid-template-columns:1fr;
       }
     }
 
     @media(max-width:768px){
       .nav{
-        flex-direction:column;
-        align-items:flex-start;
+        padding:14px 0;
+      }
+
+      .menu-toggle{
+        display:flex;
       }
 
       .nav-links{
-        gap:14px;
+        position:absolute;
+        top:100%;
+        left:0;
+        right:0;
+        display:none;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:0;
+        background:#0f172a;
+        border:1px solid rgba(255,255,255,0.08);
+        border-radius:16px;
+        padding:12px;
+        box-shadow:0 16px 30px rgba(0,0,0,0.28);
+      }
+
+      .nav-links.show{
+        display:flex;
+      }
+
+      .nav-links a{
+        width:100%;
+        padding:12px 10px;
+        border-radius:10px;
+      }
+
+      .nav-links a.active::after{
+        display:none;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active{
+        background:rgba(250,204,21,0.12);
+      }
+
+      .tool-bar{
+        grid-template-columns:1fr;
       }
 
       .featured-grid{
@@ -473,7 +841,7 @@
       }
 
       .hero-content{
-        padding:70px 0;
+        padding:70px 0 24px;
       }
 
       .section-head h2{
@@ -483,6 +851,75 @@
       .cta h2{
         font-size:30px;
       }
+
+      .genre-movie-card{
+        min-width:220px;
+        max-width:220px;
+      }
+
+      .logo-image-box{
+        width:46px;
+        height:46px;
+      }
+
+      .logo-title{
+        font-size:22px;
+      }
+
+      .logo-sub{
+        font-size:10px;
+        letter-spacing:1.2px;
+      }
+
+      .hero-stats{
+        grid-template-columns:1fr;
+      }
+
+      .hero-mini-item{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .footer-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+
+    @media(max-width:480px){
+      .container{
+        width:min(1200px, 94%);
+      }
+
+      .hero h1{
+        font-size:32px;
+      }
+
+      .hero p{
+        font-size:16px;
+      }
+
+      .btn{
+        width:100%;
+        text-align:center;
+      }
+
+      .hero-buttons,
+      .cta-actions{
+        flex-direction:column;
+      }
+
+      .logo-title{
+        font-size:20px;
+      }
+
+      .logo-sub{
+        font-size:9px;
+      }
+
+      .section-head h2{
+        font-size:25px;
+      }
     }
   </style>
 </head>
@@ -490,30 +927,137 @@
 
   <header>
     <div class="container nav">
-      <a href="index.html" class="logo">Movie<span>Spot</span></a>
+      <a href="index.html" class="logo-wrap">
+        <span class="logo-image-box">
+          <img src="logo.png" alt="MovieSpot Logo">
+        </span>
+        <span class="logo-text">
+          <span class="logo-title">Movie<span>Spot</span></span>
+          <span class="logo-sub">Action Movies</span>
+        </span>
+      </a>
 
-      <nav class="nav-links">
-        <a href="index.html#featured">Featured</a>
-        <a href="index.html#movies">Movies</a>
-        <a href="index.html#guides">Watch Guides</a>
-        <a href="index.html#about">About</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="action.html" class="active">Action</a>
+        <a href="#featured">Featured</a>
+        <a href="#guides">Watch Guides</a>
+        <a href="#about">About</a>
       </nav>
     </div>
   </header>
 
   <section class="hero">
     <div class="container">
-      <div class="hero-content">
-        <div class="hero-tag">Action Movie Collection</div>
-        <h1>Best Action Movies To Watch Right Now</h1>
-        <p>
-          Explore explosive action films packed with chases, fights, danger, heroes,
-          anti-heroes, survival stories, and unforgettable high-stakes moments.
-        </p>
-        <div class="hero-buttons">
-          <a href="#action-movies" class="btn btn-primary">Browse Action Movies</a>
-          <a href="#action-details" class="btn btn-secondary">Genre Details</a>
+      <div class="hero-layout">
+        <div class="hero-content">
+          <div class="hero-tag">Explosive picks for action fans</div>
+          <h1>Discover powerful action movies and find your next adrenaline rush.</h1>
+          <p>
+            Explore action blockbusters, chase sequences, revenge stories, spy thrillers,
+            superhero battles, and unforgettable movie moments all in one place.
+          </p>
+          <div class="hero-buttons">
+            <a href="#movies" class="btn btn-primary">Browse Action Movies</a>
+            <a href="#guides" class="btn btn-secondary">Action Guides</a>
+          </div>
         </div>
+
+        <div class="hero-panel">
+          <h3>Start your action marathon</h3>
+          <p>Find fast-paced films, explore subgenres, and jump straight into the best action picks.</p>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong>50+</strong>
+              <span>Action recommendations</span>
+            </div>
+            <div class="hero-stat">
+              <strong>6</strong>
+              <span>Action styles to explore</span>
+            </div>
+          </div>
+
+          <div class="hero-mini-list">
+            <div class="hero-mini-item">
+              <b>Search by title</b>
+              <span>Quick action results</span>
+            </div>
+            <div class="hero-mini-item">
+              <b>Filter by style</b>
+              <span>Spy, superhero, martial arts</span>
+            </div>
+            <div class="hero-mini-item">
+              <b>Pick your pace</b>
+              <span>Classic, modern, intense</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="daily">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Daily Action Recommendations</h2>
+          <p>Fresh action movie suggestions that rotate automatically each day.</p>
+        </div>
+      </div>
+
+      <div class="movies-grid" id="dailyMovies"></div>
+    </div>
+  </section>
+
+  <section id="scheduled-movie-update">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Featured Right Now</h2>
+          <p>This featured action movie changes automatically after a set time to keep the page fresh.</p>
+        </div>
+      </div>
+
+      <div class="movies-grid" id="scheduledMovieBox"></div>
+    </div>
+  </section>
+
+  <section class="tools">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Search Action Movies</h2>
+          <p>Use the search box and filter to explore your action movie collection faster.</p>
+        </div>
+      </div>
+
+      <div class="tool-bar">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search action movie title..." />
+        </div>
+
+        <div class="filter-box">
+          <select id="genreFilter">
+            <option value="all">All Action Styles</option>
+            <option value="Superhero">Superhero</option>
+            <option value="Spy">Spy</option>
+            <option value="Martial Arts">Martial Arts</option>
+            <option value="Crime Action">Crime Action</option>
+            <option value="Adventure Action">Adventure Action</option>
+            <option value="Sci-Fi Action">Sci-Fi Action</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="search-action">
+        <a href="#movies" class="btn btn-primary">Explore Action Library</a>
       </div>
     </div>
   </section>
@@ -523,276 +1067,315 @@
       <div class="section-head">
         <div>
           <h2>Featured Action Picks</h2>
-          <p>Top action movie choices with strong pacing, thrilling scenes, and rewatch value.</p>
+          <p>Big action films with standout moments, unforgettable characters, and serious energy.</p>
         </div>
       </div>
 
       <div class="featured-grid">
         <article class="featured-card">
           <div class="featured-image">
-            <img src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80" alt="John Wick">
+            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1200&q=80" alt="Mad Max Fury Road">
           </div>
           <div class="featured-content">
             <div class="meta">
               <span class="pill">Action</span>
-              <span class="pill">2014</span>
-              <span class="pill">7.4/10</span>
+              <span class="pill">Adventure</span>
+              <span class="pill">8.5/10</span>
             </div>
-            <h3>John Wick</h3>
+            <h3>Mad Max: Fury Road</h3>
             <p>
-              A retired assassin is dragged back into a brutal underworld after a deeply personal loss
-              pushes him into revenge.
+              A high-speed survival chase across a brutal wasteland with explosive action
+              and nonstop pressure from start to finish.
             </p>
             <div class="watch-row">
-              <span class="watch-tag">Netflix</span>
-              <span class="watch-tag green">Buy</span>
+              <span class="watch-tag">Max</span>
+              <span class="watch-tag alt">Prime Video</span>
             </div>
-            <a href="#" class="card-link">Where to Watch →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
 
         <article class="featured-card">
           <div class="featured-image">
-            <img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80" alt="The Dark Knight">
+            <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=1200&q=80" alt="Gladiator">
           </div>
           <div class="featured-content">
             <div class="meta">
               <span class="pill">Action</span>
-              <span class="pill">2008</span>
-              <span class="pill">9.0/10</span>
-            </div>
-            <h3>The Dark Knight</h3>
-            <p>
-              Batman takes on the Joker in a dark battle that pushes Gotham into chaos
-              and tests the limits of heroism.
-            </p>
-            <div class="watch-row">
-              <span class="watch-tag alt">Max</span>
-              <span class="watch-tag orange">Rent</span>
-            </div>
-            <a href="#" class="card-link">Where to Watch →</a>
-          </div>
-        </article>
-
-        <article class="featured-card">
-          <div class="featured-image">
-            <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=900&q=80" alt="Gladiator">
-          </div>
-          <div class="featured-content">
-            <div class="meta">
-              <span class="pill">Action</span>
-              <span class="pill">2000</span>
+              <span class="pill">Epic</span>
               <span class="pill">8.5/10</span>
             </div>
             <h3>Gladiator</h3>
             <p>
-              A betrayed Roman general fights his way through the arena to reclaim honor
-              and get justice against a corrupt emperor.
+              A betrayed Roman general rises through blood and battle to challenge
+              corruption and reclaim his honor.
             </p>
             <div class="watch-row">
-              <span class="watch-tag">Netflix</span>
+              <span class="watch-tag orange">Rent</span>
               <span class="watch-tag green">Buy</span>
             </div>
-            <a href="#" class="card-link">Where to Watch →</a>
+            <a href="#movies" class="card-link">View Movie →</a>
+          </div>
+        </article>
+
+        <article class="featured-card">
+          <div class="featured-image">
+            <img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=1200&q=80" alt="The Dark Knight">
+          </div>
+          <div class="featured-content">
+            <div class="meta">
+              <span class="pill">Action</span>
+              <span class="pill">Superhero</span>
+              <span class="pill">9.0/10</span>
+            </div>
+            <h3>The Dark Knight</h3>
+            <p>
+              Batman faces the Joker in a dark and intense battle that pushes Gotham
+              to the edge of collapse.
+            </p>
+            <div class="watch-row">
+              <span class="watch-tag">Max</span>
+              <span class="watch-tag alt">Apple TV</span>
+            </div>
+            <a href="#movies" class="card-link">View Movie →</a>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="action-movies">
+  <section class="genre-section" id="genre-recommendations">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Recommendations by Action Style</h2>
+          <p>Browse action movie picks through horizontal sliders by type and mood.</p>
+        </div>
+      </div>
+
+      <div class="genre-recommendation-wrap" id="genreRecommendations"></div>
+    </div>
+  </section>
+
+  <section id="movies">
     <div class="container">
       <div class="section-head">
         <div>
           <h2>Popular Action Movies</h2>
-          <p>Browse standout action films with strong plots, intense pacing, and memorable set pieces.</p>
+          <p>Top action picks you can keep expanding later as your library grows.</p>
         </div>
       </div>
 
-      <div class="movies-grid">
-        <article class="movie-card">
+      <div class="movies-grid" id="moviesGrid">
+        <article class="movie-card" data-title="John Wick" data-genre="Crime Action">
           <div class="movie-poster">
             <img src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80" alt="John Wick">
           </div>
           <div class="movie-content">
             <h3>John Wick</h3>
-            <div class="movie-info">Action • 2014 • Revenge Thriller</div>
-            <p>A retired hitman returns to the underworld in a relentless path of revenge and survival.</p>
+            <div class="movie-info">Crime Action • 2014 • 7.4/10</div>
+            <p>A retired assassin returns to the underworld after a brutal act pulls him back into violence.</p>
             <div class="mini-watch">
               <span>Netflix</span>
               <span>Buy</span>
             </div>
-            <a href="#" class="card-link">Where to Watch →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card">
+        <article class="movie-card" data-title="The Dark Knight" data-genre="Superhero">
           <div class="movie-poster">
             <img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80" alt="The Dark Knight">
           </div>
           <div class="movie-content">
             <h3>The Dark Knight</h3>
-            <div class="movie-info">Action • 2008 • Superhero Crime</div>
-            <p>Batman faces the Joker in a city-wide conflict full of fear, moral choices, and destruction.</p>
+            <div class="movie-info">Superhero • 2008 • 9.0/10</div>
+            <p>Batman faces his most dangerous enemy yet as Gotham descends into chaos under the Joker.</p>
             <div class="mini-watch">
               <span>Max</span>
               <span>Rent</span>
             </div>
-            <a href="#" class="card-link">Where to Watch →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card">
+        <article class="movie-card" data-title="Mission: Impossible - Fallout" data-genre="Spy">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80" alt="Mission Impossible Fallout">
+          </div>
+          <div class="movie-content">
+            <h3>Mission: Impossible - Fallout</h3>
+            <div class="movie-info">Spy • 2018 • 7.7/10</div>
+            <p>Ethan Hunt races across the world to stop a catastrophic threat in one of the franchise's biggest entries.</p>
+            <div class="mini-watch">
+              <span>Prime Video</span>
+              <span>Buy</span>
+            </div>
+            <a href="#" class="card-link">View Movie →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Mad Max: Fury Road" data-genre="Adventure Action">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80" alt="Mad Max Fury Road">
+          </div>
+          <div class="movie-content">
+            <h3>Mad Max: Fury Road</h3>
+            <div class="movie-info">Adventure Action • 2015 • 8.5/10</div>
+            <p>In a brutal wasteland, survival depends on speed, courage, and relentless action.</p>
+            <div class="mini-watch">
+              <span>Max</span>
+              <span>Rent</span>
+            </div>
+            <a href="#" class="card-link">View Movie →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="The Raid" data-genre="Martial Arts">
+          <div class="movie-poster">
+            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80" alt="The Raid">
+          </div>
+          <div class="movie-content">
+            <h3>The Raid</h3>
+            <div class="movie-info">Martial Arts • 2011 • 7.6/10</div>
+            <p>An elite team is trapped in a deadly building and forced into a brutal fight for survival.</p>
+            <div class="mini-watch">
+              <span>Rent</span>
+              <span>Buy</span>
+            </div>
+            <a href="#" class="card-link">View Movie →</a>
+          </div>
+        </article>
+
+        <article class="movie-card" data-title="Gladiator" data-genre="Adventure Action">
           <div class="movie-poster">
             <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=900&q=80" alt="Gladiator">
           </div>
           <div class="movie-content">
             <h3>Gladiator</h3>
-            <div class="movie-info">Action • 2000 • Historical Epic</div>
-            <p>A Roman general becomes a gladiator after betrayal and fights to restore justice.</p>
+            <div class="movie-info">Adventure Action • 2000 • 8.5/10</div>
+            <p>A betrayed Roman general rises as a gladiator and seeks justice in front of the empire.</p>
             <div class="mini-watch">
               <span>Netflix</span>
               <span>Buy</span>
             </div>
-            <a href="#" class="card-link">Where to Watch →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card">
-          <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80" alt="Mad Max Fury Road">
-          </div>
-          <div class="movie-content">
-            <h3>Mad Max: Fury Road</h3>
-            <div class="movie-info">Action • 2015 • Post-Apocalyptic</div>
-            <p>A nonstop high-speed chase unfolds across a wasteland as rebels fight for freedom.</p>
-            <div class="mini-watch">
-              <span>Max</span>
-              <span>Prime Video</span>
-            </div>
-            <a href="#" class="card-link">Where to Watch →</a>
-          </div>
-        </article>
-
-        <article class="movie-card">
-          <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1200&q=80" alt="Mission Impossible">
-          </div>
-          <div class="movie-content">
-            <h3>Mission: Impossible</h3>
-            <div class="movie-info">Action • 1996 • Spy Action</div>
-            <p>A top secret agent runs from betrayal while trying to uncover the truth behind a failed mission.</p>
-            <div class="mini-watch">
-              <span>Rent</span>
-              <span>Buy</span>
-            </div>
-            <a href="#" class="card-link">Where to Watch →</a>
-          </div>
-        </article>
-
-        <article class="movie-card">
-          <div class="movie-poster">
-            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Die Hard">
-          </div>
-          <div class="movie-content">
-            <h3>Die Hard</h3>
-            <div class="movie-info">Action • 1988 • Classic Action</div>
-            <p>A lone cop battles terrorists inside a skyscraper in one of cinema’s most famous action films.</p>
-            <div class="mini-watch">
-              <span>Disney+</span>
-              <span>Rent</span>
-            </div>
-            <a href="#" class="card-link">Where to Watch →</a>
-          </div>
-        </article>
-
-        <article class="movie-card">
+        <article class="movie-card" data-title="Terminator 2" data-genre="Sci-Fi Action">
           <div class="movie-poster">
             <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80" alt="Terminator 2">
           </div>
           <div class="movie-content">
             <h3>Terminator 2</h3>
-            <div class="movie-info">Action • 1991 • Sci-Fi Action</div>
-            <p>A cyborg protector returns to stop a deadly future and defend humanity’s fate.</p>
+            <div class="movie-info">Sci-Fi Action • 1991 • 8.6/10</div>
+            <p>A cyborg protector returns from the future to defend a boy who will shape humanity's fate.</p>
             <div class="mini-watch">
-              <span>Prime Video</span>
-              <span>Buy</span>
+              <span>Apple TV</span>
+              <span>Rent</span>
             </div>
-            <a href="#" class="card-link">Where to Watch →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
 
-        <article class="movie-card">
+        <article class="movie-card" data-title="Casino Royale" data-genre="Spy">
           <div class="movie-poster">
             <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=900&q=80" alt="Casino Royale">
           </div>
           <div class="movie-content">
             <h3>Casino Royale</h3>
-            <div class="movie-info">Action • 2006 • Spy Thriller</div>
-            <p>James Bond begins a dangerous new chapter filled with betrayal, danger, and high-risk missions.</p>
+            <div class="movie-info">Spy • 2006 • 8.0/10</div>
+            <p>James Bond's first mission brings explosive danger, betrayal, and high-stakes style.</p>
             <div class="mini-watch">
               <span>Prime Video</span>
-              <span>Rent</span>
+              <span>Buy</span>
             </div>
-            <a href="#" class="card-link">Where to Watch →</a>
+            <a href="#" class="card-link">View Movie →</a>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="action-details" class="details-section">
+  <section id="guides" class="info-section">
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Action Genre Details</h2>
-          <p>Useful details you can keep repeating later for other genre pages too.</p>
+          <h2>Action Watch Guides</h2>
+          <p>Helpful guides for finding the best action movies for your mood and style.</p>
         </div>
       </div>
 
-      <div class="details-grid">
-        <div class="details-box">
-          <h3>What Makes An Action Movie?</h3>
+      <div class="info-grid">
+        <div class="info-box">
+          <h3>Best Action on Netflix</h3>
           <p>
-            Action movies are built around movement, danger, conflict, and spectacle.
-            They often include fights, chases, weapons, survival situations, rescue missions,
-            and fast decision-making under pressure.
+            Create pages for the strongest action movies currently available on Netflix.
           </p>
+          <a href="#" class="card-link">Explore Guide →</a>
         </div>
 
-        <div class="details-box">
-          <h3>Popular Action Subgenres</h3>
+        <div class="info-box">
+          <h3>Spy Movie Picks</h3>
           <p>
-            Common action subgenres include spy action, superhero action, martial arts,
-            military action, revenge thrillers, post-apocalyptic survival, and crime action.
+            Build collections for espionage fans who want missions, gadgets, and world-saving chaos.
           </p>
+          <a href="#" class="card-link">Browse Spy Picks →</a>
         </div>
 
-        <div class="details-box">
-          <h3>Why People Love Action Films</h3>
+        <div class="info-box">
+          <h3>Movies Like John Wick</h3>
           <p>
-            Viewers enjoy action films because they deliver excitement, intensity,
-            memorable heroes, bold visuals, and strong adrenaline from beginning to end.
+            Keep visitors engaged with pages based on similar action energy and fighting style.
           </p>
+          <a href="#" class="card-link">See Similar Movies →</a>
+        </div>
+
+        <div class="info-box">
+          <h3>Superhero Action</h3>
+          <p>
+            Highlight the biggest superhero battles, dark heroes, and fast-paced comic-book action.
+          </p>
+          <a href="#" class="card-link">View Superhero Picks →</a>
+        </div>
+
+        <div class="info-box">
+          <h3>Martial Arts Essentials</h3>
+          <p>
+            Collect the best martial arts films with precise choreography and intense combat.
+          </p>
+          <a href="#" class="card-link">See Martial Arts →</a>
+        </div>
+
+        <div class="info-box">
+          <h3>Underrated Action Gems</h3>
+          <p>
+            Surface hidden action titles that deserve way more attention from fans.
+          </p>
+          <a href="#" class="card-link">Discover More →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="cta">
+  <section id="about" class="cta">
     <div class="container">
-      <h2>Explore more action favorites.</h2>
+      <h2>Your next action movie starts here.</h2>
       <p>
-        Keep building this page with more action titles, streaming guides,
-        and “best action movies” lists to grow your site.
+        From legendary classics to modern blockbusters, MovieSpot helps action fans find
+        explosive movie picks fast. Browse, search, and discover high-energy films without wasting time.
       </p>
-      <a href="index.html" class="btn btn-primary">Back to Home</a>
+      <div class="cta-actions">
+        <a href="#featured" class="btn btn-primary">Explore Featured Action Picks</a>
+        <a href="#movies" class="btn btn-secondary">Open Action Library</a>
+      </div>
     </div>
   </section>
 
   <footer>
     <div class="container footer-inner">
-      <p>© 2026 MovieSpot. Discover movies and where to watch them.</p>
+      <p>©️ 2026 MovieSpot. Discover action movies worth watching.</p>
 
       <div class="footer-links">
         <a href="privacy.html">Privacy Policy</a>
@@ -800,9 +1383,316 @@
         <a href="cookies.html">Cookies Policy</a>
         <a href="disclaimer.html">Disclaimer</a>
         <a href="contact.html">Contact</a>
+        <a href="support.html">Support Us</a>
       </div>
     </div>
   </footer>
 
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+      const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", !expanded);
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        if(window.innerWidth <= 768){
+          navLinks.classList.remove("show");
+          menuToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+
+    window.addEventListener("resize", () => {
+      if(window.innerWidth > 768){
+        navLinks.classList.remove("show");
+        menuToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    const searchInput = document.getElementById("searchInput");
+    const genreFilter = document.getElementById("genreFilter");
+    const movieCards = document.querySelectorAll("#movies .movie-card");
+
+    function filterMovies(){
+      const searchValue = searchInput.value.toLowerCase().trim();
+      const selectedGenre = genreFilter.value;
+
+      movieCards.forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        const genre = card.dataset.genre;
+        const matchesSearch = title.includes(searchValue);
+        const matchesGenre = selectedGenre === "all" || genre === selectedGenre;
+
+        card.style.display = matchesSearch && matchesGenre ? "block" : "none";
+      });
+    }
+
+    searchInput.addEventListener("input", filterMovies);
+    genreFilter.addEventListener("change", filterMovies);
+
+    const movieDatabase = [
+      {
+        title: "John Wick",
+        genre: "Crime Action",
+        year: "2014",
+        summary: "A retired assassin returns to the underworld after a brutal loss.",
+        poster: "https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "The Dark Knight",
+        genre: "Superhero",
+        year: "2008",
+        summary: "Batman faces the Joker as Gotham descends into chaos.",
+        poster: "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Mad Max: Fury Road",
+        genre: "Adventure Action",
+        year: "2015",
+        summary: "A relentless survival chase explodes across the wasteland.",
+        poster: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Mission: Impossible - Fallout",
+        genre: "Spy",
+        year: "2018",
+        summary: "A dangerous global mission pushes Ethan Hunt to the limit.",
+        poster: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "The Raid",
+        genre: "Martial Arts",
+        year: "2011",
+        summary: "An elite team fights floor by floor to survive a deadly trap.",
+        poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Gladiator",
+        genre: "Adventure Action",
+        year: "2000",
+        summary: "A betrayed Roman general fights his way back toward justice.",
+        poster: "https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Terminator 2",
+        genre: "Sci-Fi Action",
+        year: "1991",
+        summary: "A cyborg protector must keep the future alive.",
+        poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Casino Royale",
+        genre: "Spy",
+        year: "2006",
+        summary: "Bond enters a lethal game of danger, speed, and betrayal.",
+        poster: "https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=900&q=80"
+      }
+    ];
+
+    function getDailyMovies(movies, count = 4){
+      const today = new Date();
+      const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+
+      const shuffled = [...movies].sort((a, b) => {
+        const aVal = (a.title.length * seed) % 97;
+        const bVal = (b.title.length * seed) % 97;
+        return aVal - bVal;
+      });
+
+      return shuffled.slice(0, count);
+    }
+
+    function renderDailyMovies(){
+      const container = document.getElementById("dailyMovies");
+      if(!container) return;
+
+      const movies = getDailyMovies(movieDatabase, 4);
+
+      container.innerHTML = movies.map(movie => `
+        <article class="movie-card">
+          <div class="movie-poster">
+            <img src="${movie.poster}" alt="${movie.title}">
+          </div>
+          <div class="movie-content">
+            <h3>${movie.title}</h3>
+            <div class="movie-info">${movie.genre} • ${movie.year}</div>
+            <p>${movie.summary}</p>
+            <a href="#movies" class="card-link">View Movie →</a>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    renderDailyMovies();
+
+    const posterPool = [
+      "https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=900&q=80"
+    ];
+
+    const genreSeeds = {
+      "Superhero": ["The Dark Knight","Logan","Avengers: Endgame","Spider-Man: No Way Home","Black Panther","Iron Man","Captain America: Civil War","The Batman","Doctor Strange","Deadpool","Wonder Woman","Shang-Chi","Thor: Ragnarok","Man of Steel","X-Men: Days of Future Past"],
+      "Spy": ["Casino Royale","Mission: Impossible - Fallout","Skyfall","The Bourne Ultimatum","No Time to Die","Atomic Blonde","Tenet","Mission: Impossible - Ghost Protocol","The Man from U.N.C.L.E.","Kingsman","Jack Ryan: Shadow Recruit","True Lies","Salt","Body of Lies","The November Man"],
+      "Martial Arts": ["The Raid","Ip Man","Enter the Dragon","Ong-Bak","The Night Comes for Us","Crouching Tiger, Hidden Dragon","Hero","Fearless","Kill Bill Vol. 1","Kung Fu Hustle","Police Story","Dragon Tiger Gate","Rumble in the Bronx","Flash Point","Warrior"],
+      "Crime Action": ["John Wick","Nobody","Léon: The Professional","The Equalizer","Taken","Sicario","Man on Fire","Baby Driver","Extraction","The Accountant","Safe","The Transporter","Wrath of Man","Den of Thieves","Upgrade"],
+      "Adventure Action": ["Mad Max: Fury Road","Gladiator","Indiana Jones","The Mummy","Top Gun: Maverick","Pirates of the Caribbean","Avatar","The Revenant","King Kong","National Treasure","Jurassic World","Uncharted","The Lost City","Jumanji","The Legend of Tarzan"],
+      "Sci-Fi Action": ["Terminator 2","The Matrix","Edge of Tomorrow","Dune: Part Two","Aliens","RoboCop","Minority Report","Total Recall","Blade Runner 2049","District 9","Looper","Elysium","Oblivion","Upgrade","Predator"]
+    };
+
+    function makeMovie(genre, title, index){
+      const year = 1985 + ((genre.length * 9 + index * 4) % 38);
+      const summaries = {
+        "Superhero": `${title} delivers large-scale superhero action, tension, and unforgettable clashes.`,
+        "Spy": `${title} brings missions, secrets, and stylish high-stakes action.`,
+        "Martial Arts": `${title} is packed with intense martial arts choreography and sharp combat.`,
+        "Crime Action": `${title} dives into revenge, underworld danger, and explosive confrontations.`,
+        "Adventure Action": `${title} blends action with survival, scale, and bold adventure.`,
+        "Sci-Fi Action": `${title} mixes futuristic ideas with fast, powerful action sequences.`
+      };
+
+      return {
+        title,
+        year: String(year),
+        genre,
+        summary: summaries[genre] || `${title} is one of the standout action picks in ${genre}.`,
+        poster: posterPool[index % posterPool.length]
+      };
+    }
+
+    const genreMovieDatabase = {};
+    Object.entries(genreSeeds).forEach(([genre, titles]) => {
+      genreMovieDatabase[genre] = titles.map((title, index) => makeMovie(genre, title, index));
+    });
+
+    function renderGenreRecommendations(){
+      const container = document.getElementById("genreRecommendations");
+      if(!container) return;
+
+      container.innerHTML = Object.entries(genreMovieDatabase).map(([genre, movies], index) => `
+        <div class="genre-row">
+          <div class="genre-top">
+            <div>
+              <h3>${genre} Action</h3>
+              <p>Top picks and must-watch titles in ${genre.toLowerCase()}.</p>
+            </div>
+
+            <div class="slider-controls">
+              <button class="slider-btn" onclick="slideGenre('genreSlider${index}', -520)">‹</button>
+              <button class="slider-btn" onclick="slideGenre('genreSlider${index}', 520)">›</button>
+            </div>
+          </div>
+
+          <div class="genre-slider" id="genreSlider${index}">
+            ${movies.slice(0, 15).map(movie => `
+              <article class="genre-movie-card">
+                <div class="genre-movie-poster">
+                  <img src="${movie.poster}" alt="${movie.title}">
+                </div>
+                <div class="genre-movie-content">
+                  <h4>${movie.title}</h4>
+                  <div class="movie-info">${movie.genre} • ${movie.year}</div>
+                  <p>${movie.summary}</p>
+                  <a href="#movies" class="card-link">View Movie →</a>
+                </div>
+              </article>
+            `).join("")}
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function slideGenre(sliderId, amount){
+      const slider = document.getElementById(sliderId);
+      if(slider){
+        slider.scrollBy({
+          left: amount,
+          behavior: "smooth"
+        });
+      }
+    }
+
+    renderGenreRecommendations();
+
+    const scheduledMovies = [
+      {
+        title: "John Wick",
+        genre: "Crime Action",
+        year: "2014",
+        summary: "A retired assassin returns to the underworld after a brutal act pulls him back into violence.",
+        poster: "https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "The Dark Knight",
+        genre: "Superhero",
+        year: "2008",
+        summary: "Batman faces his most dangerous enemy yet as Gotham descends into chaos.",
+        poster: "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Mad Max: Fury Road",
+        genre: "Adventure Action",
+        year: "2015",
+        summary: "In a brutal wasteland, speed and survival are everything.",
+        poster: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Mission: Impossible - Fallout",
+        genre: "Spy",
+        year: "2018",
+        summary: "A world-threatening crisis pushes Ethan Hunt into one of his biggest missions.",
+        poster: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80"
+      }
+    ];
+
+    const updateEveryHours = 24;
+
+    function getScheduledMovie(movies, hoursStep){
+      const now = new Date();
+      const timeBlock = Math.floor(now.getTime() / (hoursStep * 60 * 60 * 1000));
+      const index = timeBlock % movies.length;
+      return movies[index];
+    }
+
+    function renderScheduledMovie(){
+      const container = document.getElementById("scheduledMovieBox");
+      if(!container) return;
+
+      const movie = getScheduledMovie(scheduledMovies, updateEveryHours);
+
+      container.innerHTML = `
+        <article class="movie-card">
+          <div class="movie-poster">
+            <img src="${movie.poster}" alt="${movie.title}">
+          </div>
+          <div class="movie-content">
+            <h3>${movie.title}</h3>
+            <div class="movie-info">${movie.genre} • ${movie.year}</div>
+            <p>${movie.summary}</p>
+            <div class="mini-watch">
+              <span>Auto Updated</span>
+              <span>Featured</span>
+            </div>
+            <a href="#movies" class="card-link">View Movie →</a>
+          </div>
+        </article>
+      `;
+    }
+
+    renderScheduledMovie();
+  </script>
+
 </body>
 </html>
+
+ 
